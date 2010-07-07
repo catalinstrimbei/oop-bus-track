@@ -30,7 +30,7 @@ import app.model.contabilitate.conturi.Cont;
 
 /**
  *
- * @author catalin.strimbei on svn
+ * @author catalin.strimbei on svn2
  */
 public class TestJContabilitate {
     static final Logger logger = Logger.getLogger(TestJContabilitate.class.getName());
