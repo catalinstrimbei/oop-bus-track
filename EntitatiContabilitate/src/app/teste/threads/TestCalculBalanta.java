@@ -82,7 +82,7 @@ public class TestCalculBalanta {
 					e.printStackTrace();
 				}
 			}
-			System.out.println("Out of wait! " + endCalculDebit + "/" + endCalculCredit);
+			System.out.println("Out of wait !!! " + endCalculDebit + "/" + endCalculCredit);
 		}
 		
 		
