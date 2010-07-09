@@ -1,5 +1,7 @@
 package app.teste.threads;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,6 +27,11 @@ public class TestCalculBalanta {
 	/**
 	 * @param args
 	 */
+	
+	public static volatile boolean endCalculDebit;
+	public static volatile boolean endCalculCredit;
+	public static final Object lockObject = new Object();
+	
 	public static void main(String[] args) {
 		initRegistri();
 		
@@ -42,9 +49,48 @@ public class TestCalculBalanta {
 		Map<Cont, Double> debiteConturi ;
 		Map<Cont, Double> crediteConturi;
 
-		new Thread(new CalculDebitCredit(conturi, operatiuni, "Debit")).start();
-		new Thread(new CalculDebitCredit(conturi, operatiuni, "Credit")).start();
+		Date startTime = new Date();
+		Date endTime;
+		Thread threadCalculDebit = new Thread(new CalculDebitCredit(conturi, operatiuni, "Debit"));
+		Thread threadCalculCredit = new Thread(new CalculDebitCredit(conturi, operatiuni, "Credit"));
+		threadCalculDebit.setName("threadCalculDebit");
+		threadCalculCredit.setName("threadCalculCredit");
 		
+		threadCalculDebit.start();
+		threadCalculCredit.start();
+		
+		/*
+		// var 1
+		try {
+			threadCalculDebit.join();
+			threadCalculCredit.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		*/
+		
+		
+		// var 2
+		synchronized (lockObject) {
+			while (!(endCalculDebit && endCalculCredit)){
+				try {
+					lockObject.wait();
+					System.out.println("In wait! " + endCalculDebit + "/" + endCalculCredit);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			System.out.println("Out of wait! " + endCalculDebit + "/" + endCalculCredit);
+		}
+		
+		
+		endTime = new Date();
+		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss:SS");
+		
+		System.out.println("End calcul Debit and Credit: " + format.format(startTime) + "  |   " + format.format(endTime)
+				+ " -- thread: " + Thread.currentThread().getName() + "//" +  Thread.currentThread().getId());
 		
 	}
 
@@ -88,34 +134,62 @@ class CalculDebitCredit implements Runnable{
 
 	@Override
 	public void run() {
-		System.out.println("Start Thread " + tipCalcul);
+		System.out.println("Start Thread " + tipCalcul + " -- thread: " + Thread.currentThread().getName() + "//" +  Thread.currentThread().getId());
 		doCalcul(tipCalcul);
-		System.out.println("End Thread " + tipCalcul);
+		
+		if (DEBIT.equals(tipCalcul))
+			try {
+				Thread.currentThread().sleep(100);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		if (CREDIT.equals(tipCalcul))
+			try {
+				Thread.currentThread().sleep(5000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
+		
+		System.out.println("End Thread " + tipCalcul + " -- thread: " + Thread.currentThread().getName() + "//" +  Thread.currentThread().getId());
+		
+		synchronized (TestCalculBalanta.lockObject) {
+			if (DEBIT.equals(tipCalcul))
+				TestCalculBalanta.endCalculDebit = true;
+			if (CREDIT.equals(tipCalcul))
+				TestCalculBalanta.endCalculCredit = true;
+			TestCalculBalanta.lockObject.notifyAll();
+		}
+		
+		
 	}
 	
 	private static final String DEBIT = "Debit";
 	private static final String CREDIT = "Credit";
-	private void doCalcul(String tipCalcul){
-		Class tipInregistrare = null;
-		if (DEBIT.equals(tipCalcul))
-			tipInregistrare = InregistrareDebit.class;
-		if (CREDIT.equals(tipCalcul))
-			tipInregistrare = InregistrareCredit.class;
+	
+	private synchronized void doCalcul(String tipCalcul){
 		
-		if (tipInregistrare == null)
-			throw new AppException("Tip inregistrare gresit: " + tipCalcul);
+			Class tipInregistrare = null;
+			if (DEBIT.equals(tipCalcul))
+				tipInregistrare = InregistrareDebit.class;
+			if (CREDIT.equals(tipCalcul))
+				tipInregistrare = InregistrareCredit.class;
 			
-		Double suma;
-		sumeConturi = new HashMap<Cont, Double>();
-		for (OperatiuneContabila operatiune : operatiuni){
-			for(InregistrareContabila inregContabila : operatiune.getInregistrari()){
-				if (tipInregistrare.isInstance(inregContabila)){
-					suma = (sumeConturi.containsKey(inregContabila.getCont())) ? 
-							sumeConturi.get(inregContabila.getCont()) : .0;
-					sumeConturi.put(inregContabila.getCont(), suma + inregContabila.getSuma());
-				}
-			} 
-		}
-		
+			if (tipInregistrare == null)
+				throw new AppException("Tip inregistrare gresit: " + tipCalcul);
+				
+			Double suma;
+			sumeConturi = new HashMap<Cont, Double>();
+			for (OperatiuneContabila operatiune : operatiuni){
+				for(InregistrareContabila inregContabila : operatiune.getInregistrari()){
+					if (tipInregistrare.isInstance(inregContabila)){
+						suma = (sumeConturi.containsKey(inregContabila.getCont())) ? 
+								sumeConturi.get(inregContabila.getCont()) : .0;
+						sumeConturi.put(inregContabila.getCont(), suma + inregContabila.getSuma());
+					}
+				} 
+			}
+
 	}
 }
