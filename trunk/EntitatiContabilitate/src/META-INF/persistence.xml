@@ -19,10 +19,10 @@
 		<properties>
 			<property name="eclipselink.target-server" value="None"/>
 			<property name="eclipselink.jdbc.driver" value="org.postgresql.Driver"/>
-			<property name="eclipselink.jdbc.url" value="jdbc:postgresql:postgres//localhost :5432/postgres"/>
+			<property name="eclipselink.jdbc.url" value="jdbc:postgresql:postgres//localhost:5432/postgres"/>
 			<property name="eclipselink.jdbc.user" value="contabilitate"/>
 			<property name="eclipselink.jdbc.password" value="contabilitate"/>
-			<property name="eclipselink.logging.level" value="FINEST"/>
+			<property name="eclipselink.logging.level" value="WARNING"/>
 		</properties>
 	</persistence-unit>
 </persistence>
