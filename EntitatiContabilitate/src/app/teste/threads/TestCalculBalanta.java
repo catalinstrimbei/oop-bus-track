@@ -59,6 +59,8 @@ public class TestCalculBalanta {
 		threadCalculDebit.start();
 		threadCalculCredit.start();
 		
+		
+		
 		/*
 		// var 1
 		try {
