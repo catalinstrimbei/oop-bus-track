@@ -25,5 +25,6 @@
 			<attribute name="owner.project.facets" value="jst.jstl"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry combineaccessrules="false" kind="src" path="/EntitatiContabilitate"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
