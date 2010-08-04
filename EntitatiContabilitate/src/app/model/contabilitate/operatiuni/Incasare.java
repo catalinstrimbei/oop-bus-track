@@ -45,9 +45,7 @@ public class Incasare extends OperatiuneFinanciara{
 
     public void setTipDocIncasare(String tipDocIncasare) {
         this.tipDocIncasare = tipDocIncasare;
-    }
-
-    
+    }    
 
     public Incasare(Integer idOperatiune, Date dataContabilizare,
             OperatiuneComerciala operatiuneCorespondenta, Integer nrDocIncasare,
