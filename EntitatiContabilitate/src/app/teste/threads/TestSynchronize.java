@@ -6,7 +6,7 @@ import java.util.List;
 
 public class TestSynchronize implements Runnable{
 
-	List<String> obiectPartajabil = new ArrayList<String>();
+	static List<String> obiectPartajabil = new ArrayList<String>();
 	
 	
 	/**
@@ -20,6 +20,18 @@ public class TestSynchronize implements Runnable{
 		
 		t1.start();
 		t2.start();
+		
+		try {
+			Thread.currentThread().sleep(50000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		synchronized(obiectPartajabil){
+			System.out.println("--------------");
+			for (String s : obiectPartajabil)
+				System.out.println("-- " + s);
+		}
 	}
 
 	
@@ -27,17 +39,24 @@ public class TestSynchronize implements Runnable{
 	void accessObiectPartajabil(){
 		synchronized(obiectPartajabil){
 			
-			System.out.println("Into processing sync block: " +
-					Thread.currentThread().getName() + " detine blocaj pe " + obiectPartajabil + " ? "
-					+ Thread.currentThread().holdsLock(obiectPartajabil));
+//			System.out.println("Into processing sync block: " +
+//					Thread.currentThread().getName() + " detine blocaj pe " + obiectPartajabil + " ? "
+//					+ Thread.currentThread().holdsLock(obiectPartajabil));
 			
-			obiectPartajabil.add("Element adaugat din " + Thread.currentThread().getName() + " la " + (new Date()));
+
 			try {
-				Thread.currentThread().sleep(3000);
+				System.out.println("Time before sleep of " + Thread.currentThread().getName()
+						+ new Date().getTime());
+				Thread.currentThread().sleep(10000);
+				System.out.println("Time after sleep of " + Thread.currentThread().getName()
+						+ new Date().getTime());				
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
+			obiectPartajabil.add("Element adaugat din " + Thread.currentThread().getName() + " la " + 
+					new Date().getTime());			
 		}
 	}
 
@@ -46,14 +65,14 @@ public class TestSynchronize implements Runnable{
 	@Override
 	public void run() {
 		
-		System.out.println("Before access: " +
-				Thread.currentThread().getName() + " detine blocaj pe " + obiectPartajabil + " ? "
-				+ Thread.currentThread().holdsLock(obiectPartajabil));
+//		System.out.println("Before access: " +
+//				Thread.currentThread().getName() + " detine blocaj pe " + obiectPartajabil + " ? "
+//				+ Thread.currentThread().holdsLock(obiectPartajabil));
 		
 		accessObiectPartajabil();
 		
-		System.out.println("After access: " +
-				Thread.currentThread().getName() + " detine blocaj pe " + obiectPartajabil + " ? "
-				+ Thread.currentThread().holdsLock(obiectPartajabil));		
+//		System.out.println("After access: " +
+//				Thread.currentThread().getName() + " detine blocaj pe " + obiectPartajabil + " ? "
+//				+ Thread.currentThread().holdsLock(obiectPartajabil));		
 	}
 }
