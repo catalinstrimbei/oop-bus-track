@@ -11,10 +11,5 @@
 			<default-locale>en</default-locale>
 		</locale-config>
 	</application>
-	<managed-bean>
-		<managed-bean-name>registruConturi</managed-bean-name>
-		<managed-bean-class>app.model.contabilitate.RegistruConturi</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-	</managed-bean>
 
 </faces-config>
