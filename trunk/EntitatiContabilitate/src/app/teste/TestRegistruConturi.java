@@ -4,6 +4,8 @@
  */
 package app.teste;
 
+import java.util.Set;
+
 import app.model.contabilitate.RegistruConturi;
 import app.model.contabilitate.conturi.ClasaConturi;
 import app.model.contabilitate.conturi.Cont;
@@ -18,7 +20,8 @@ import javax.persistence.Persistence;
 public class TestRegistruConturi {
 
     public static void main(String[] args) {
-        test();
+        //test();
+    	testQuery();
         
     }
 
@@ -58,5 +61,28 @@ public class TestRegistruConturi {
         } finally {
             em.close();
         }
+    }
+    
+    private static void testQuery(){
+        // creare entity manager
+        EntityManagerFactory emf = Persistence.
+                createEntityManagerFactory("EntitatiContabilitate");
+        EntityManager em = emf.createEntityManager();
+
+        // initializare registru
+        RegistruConturi registruConturi = new RegistruConturi(em);
+        
+        // Query
+        Set<Cont> conturi = registruConturi.getConturi();
+        
+        if (conturi != null)
+        	System.out.println("Exista " + conturi.size() + " conturi !");
+        else
+        	System.out.println("Nu exista conturi !");
+        
+        // Clean-up
+        em.close();
+        
+        
     }
 }
