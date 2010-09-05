@@ -3,6 +3,15 @@
     <wb-module deploy-name="FacesContabilitate">
         <wb-resource deploy-path="/" source-path="/WebContent"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="EntitatiContabilitate.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/EntitatiContabilitate/EntitatiContabilitate">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/con/org.eclipse.jdt.USER_LIBRARY/jstl 1.2">
+            <dependency-type>consumes</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/classpath/con/org.eclipse.jdt.USER_LIBRARY/myfaces-core-2.0.1">
+            <dependency-type>consumes</dependency-type>
+        </dependent-module>
         <property name="context-root" value="FacesContabilitate"/>
         <property name="java-output-path" value="/FacesContabilitate/build/classes"/>
     </wb-module>

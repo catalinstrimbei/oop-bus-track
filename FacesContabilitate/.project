@@ -3,6 +3,8 @@
 	<name>FacesContabilitate</name>
 	<comment></comment>
 	<projects>
+		<project>EntitatiContabilitate</project>
+		<project>FacesContabilitate</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
