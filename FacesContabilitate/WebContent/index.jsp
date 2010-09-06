@@ -4,11 +4,12 @@
 <html>
 
 <head>
-  <title>FACES CONTABILITATE First Page</title>
+  <title>CONTABILITATE App-Faces</title>
 </head>
 
 <body>
-	<p><a href="StartApp2.jsf">Go to app</a></p>  
+	<p><a href="FormConturi.jsf">Conturi</a></p>  
+	<p><a href="FormOperatiuni.jsf">Operatiuni</a></p>
 </body>
 
 </html>

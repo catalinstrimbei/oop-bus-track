@@ -9,8 +9,6 @@ import javax.faces.bean.SessionScoped;
 import app.model.contabilitate.RegistruConturi;
 import app.model.contabilitate.conturi.Cont;
 
-@ManagedBean
-@SessionScoped
 public class ConturiBean {
 	List<Cont> conturi;
 	RegistruConturi registruConturi;
