@@ -1,7 +1,9 @@
 package app.contabilitate.ui.beans;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -19,7 +21,8 @@ public class FormConturi {
 	private RegistruConturi registruConturi;
 	private List<Cont> conturi;
 	private Cont cont = null;
-
+	private Map<String, Object> conturiSE = null;
+	
 	public FormConturi() {
         // creare entity manager
         EntityManagerFactory emf = Persistence.
@@ -29,8 +32,17 @@ public class FormConturi {
         registruConturi = new RegistruConturi(em);
         this.conturi = new ArrayList<Cont>(registruConturi.getConturi());
         
-        if (this.conturi != null && !this.conturi.isEmpty())
+        // initializare conturi
+        if (this.conturi != null && !this.conturi.isEmpty()){
         	this.cont = this.conturi.get(0);
+        	this.selectedCont = this.cont;
+        }
+        
+        // initializare conturi
+        conturiSE = new LinkedHashMap<String, Object>();
+        for (Cont c : this.conturi){
+        	conturiSE.put(c.getDenumire(), c);
+        }
 	}
 	
 	public List<Cont> getConturi() {
@@ -55,4 +67,23 @@ public class FormConturi {
 	public void setCont(Cont cont) {
 		this.cont = cont;
 	}	
+	
+	public Map<String, Object> getConturiSE(){
+		return this.conturiSE;
+	}
+	
+	//------------------------------------
+	private Cont selectedCont;
+
+	public Cont getSelectedCont() {
+		System.out.println("Get Selected: " + this.selectedCont.getDenumire());
+		return selectedCont;
+	}
+
+	public void setSelectedCont(Cont selectedCont) {
+		this.selectedCont = selectedCont;
+		System.out.println("Selected: " + this.selectedCont.getDenumire());
+	}
+	
+	
 }
