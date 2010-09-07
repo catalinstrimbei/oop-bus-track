@@ -14,9 +14,12 @@
 						<h:outputText value="Form Conturi"></h:outputText>
 					</f:facet>
 					<f:facet name="footer">
-						Numar conturi existente: #{formConturi.conturiCount}
+						Numar conturi existente:: #{formConturi.conturiCount}
 					</f:facet>
-					<h:selectOneMenu id="cboConturi" style="width: 92px; "></h:selectOneMenu>
+					<h:selectOneMenu id="cboConturi" style="width: 92px; " value="#{formConturi.selectedCont}">
+						<f:selectItems value="#{formConturi.conturiSE}"/>
+						<f:ajax />
+					</h:selectOneMenu>
 					<h:panelGrid columns="2" border="0">
 						<h:button id="btnPrevious" value="Prev"></h:button>
 						<h:button id="btnNext" value="Next"></h:button>
