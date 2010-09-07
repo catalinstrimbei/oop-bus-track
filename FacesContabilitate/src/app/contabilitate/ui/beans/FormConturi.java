@@ -12,8 +12,8 @@ import javax.persistence.Persistence;
 import app.model.contabilitate.RegistruConturi;
 import app.model.contabilitate.conturi.Cont;
 
-@ManagedBean
-@SessionScoped
+//@ManagedBean
+//@SessionScoped
 public class FormConturi {
 	
 	private RegistruConturi registruConturi;

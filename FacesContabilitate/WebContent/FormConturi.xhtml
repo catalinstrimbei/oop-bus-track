@@ -2,28 +2,45 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Insert title here</title>
+<title>APP CONTA-FACES</title>
 </head>
 <body>
-<f:view>
-	<h:form id="formConturi">
+<f:view><h:form id="formConturi">
 		<table width="800" border="0">
-			<tr><td style="color: Red; font-size: 14px; font-family: Tahoma, Verdana, Arial, Sans-Serif; font-weight: bold; text-align: center"><h:outputText value="Form CONTURI" style=""></h:outputText></td></tr>
+			<tr><td style="color: Red; font-size: 14px; font-family: Tahoma, Verdana, Arial, Sans-Serif; font-weight: bold; text-align: center"><h:outputText value="APLICATIE CONTABILITATE" style=""></h:outputText></td></tr>
 			<tr><td>
-				<h:panelGrid columns="2" border="1" style="width: 629px; ">
+				<h:panelGrid columns="2" border="1">
+					<f:facet name="header">
+						<h:outputText value="Form Conturi"></h:outputText>
+					</f:facet>
+					<f:facet name="footer">
+						Numar conturi existente: #{formConturi.conturiCount}
+					</f:facet>
+					<h:selectOneMenu id="cboConturi" style="width: 92px; "></h:selectOneMenu>
+					<h:panelGrid columns="2" border="0">
+						<h:button id="btnPrevious" value="Prev"></h:button>
+						<h:button id="btnNext" value="Next"></h:button>
+					</h:panelGrid>
 					<h:outputText value="Cod:"></h:outputText>
-					<h:inputText id="txtCod" value="#{formConturi.cont.cod}" style="width: 304px; "></h:inputText>
+					<h:inputText id="txtCod" value="#{formConturi.cont.cod}"></h:inputText>
 					<h:outputText value="Denumire:"></h:outputText>
-					<h:inputText id="txtDenumire" value="#{formConturi.cont.denumire}" style="width: 304px; "></h:inputText>
+					<h:inputText id="txtDenumire" value="#{formConturi.cont.denumire}"></h:inputText>
+					<h:outputText value="Sub-clasa"></h:outputText>
+					<h:selectOneMenu id="cboSubClasaCont"></h:selectOneMenu>
+					<h:panelGrid columns="2" border="0">
+						<h:button value="Adauga"></h:button>
+						<h:button value="Sterge"></h:button>
+					</h:panelGrid>
+					<h:panelGrid columns="2" border="0">
+						<h:button value="Abandon"></h:button>
+						<h:button value="Salvare"></h:button>
+					</h:panelGrid>
 				</h:panelGrid>
 			</td></tr>
-			<tr><td>
-				
-			</td></tr>			
 		</table>
 
 	</h:form>
-Numar conturi existente: #{formConturi.conturiCount}
+
 </f:view>
 </body>
 </html>
