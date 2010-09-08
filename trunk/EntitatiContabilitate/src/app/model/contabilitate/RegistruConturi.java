@@ -16,6 +16,13 @@ import javax.persistence.EntityManager;
  *
  * @author catalin
  */
+
+// Registrul ar putea fi el insusi o tranzactie ? 
+/*
+	begin tranzactie in constructor
+	commit in sincronizare urmat de re-begin
+	rollback in sincronizare-refresh si descarcare-finalize
+*/
 public class RegistruConturi {
     private EntityManager entityManager;
     private String sqlDefaultText = "SELECT o FROM Cont o";
@@ -52,9 +59,16 @@ public class RegistruConturi {
     }
 
     public Cont getCont(String codCont){
-        return this.entityManager.find(Cont.class, codCont);
+        //return this.entityManager.find(Cont.class, codCont);
+    	Cont c = this.entityManager.find(Cont.class, codCont);
+    	this.entityManager.refresh(c);
+    	return c;
     }
 
+    public void refreshCont(Cont cont){
+    	this.entityManager.refresh(cont);
+    }
+    
     public Cont getContDupaDenumire(String denumire){
         return (Cont) this.entityManager
                 .createQuery(sqlDefaultText + " WHERE o.denumire = :denumire")
