@@ -22,10 +22,10 @@
 						<f:ajax render="txtCod txtDenumire"/>
 					</h:selectOneMenu>
 					<h:panelGrid columns="2" border="0">
-						<h:commandButton id="btnPrevious" value="Prev" actionListener="#{formConturi.previousClient}">
+						<h:commandButton id="btnPrevious" value="Prev" actionListener="#{formConturi.previousCont}">
 							<f:ajax render="cboConturi txtCod txtDenumire"/>
 						</h:commandButton>
-						<h:commandButton id="btnNext" value="Next" actionListener="#{formConturi.nextClient}">
+						<h:commandButton id="btnNext" value="Next" actionListener="#{formConturi.nextCont}">
 							<f:ajax render="cboConturi txtCod txtDenumire"/>
 						</h:commandButton>
 					</h:panelGrid>
@@ -36,12 +36,20 @@
 					<h:outputText value="Sub-clasa"></h:outputText>
 					<h:selectOneMenu id="cboSubClasaCont"></h:selectOneMenu>
 					<h:panelGrid columns="2" border="0">
-						<h:button value="Adauga"></h:button>
-						<h:button value="Sterge"></h:button>
+						<h:commandButton value="Adauga" actionListener="#{formConturi.adaugaCont}">
+							<f:ajax render="cboConturi txtCod txtDenumire"/>
+						</h:commandButton>
+						<h:commandButton value="Sterge" actionListener="#{formConturi.stergere}">
+							<f:ajax render="cboConturi txtCod txtDenumire"/>
+						</h:commandButton>
 					</h:panelGrid>
 					<h:panelGrid columns="2" border="0">
-						<h:button value="Abandon"></h:button>
-						<h:button value="Salvare"></h:button>
+						<h:commandButton value="Abandon" actionListener="#{formConturi.abandon}">
+							<f:ajax render="cboConturi txtCod txtDenumire" execute="txtCod txtDenumire"/>
+						</h:commandButton>
+						<h:commandButton value="Salvare"  actionListener="#{formConturi.salvare}">
+							<f:ajax render="cboConturi txtCod txtDenumire" execute="txtCod txtDenumire"/>
+						</h:commandButton>
 					</h:panelGrid>
 				</h:panelGrid>
 			</td></tr>
