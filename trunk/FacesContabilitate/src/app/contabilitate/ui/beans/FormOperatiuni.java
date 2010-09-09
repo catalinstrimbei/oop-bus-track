@@ -24,6 +24,7 @@ public class FormOperatiuni implements Converter{
 	private RegistruOperatiuni registruOperatiuni;
 	private List<OperatiuneContabila> operatiuni = new ArrayList<OperatiuneContabila>();
 	private OperatiuneContabila operatiuneContabila;
+	private List<Cont> conturi = new ArrayList<Cont>();
 	
 	public OperatiuneContabila getOperatiuneContabila() {
 		return operatiuneContabila;
@@ -43,6 +44,15 @@ public class FormOperatiuni implements Converter{
 		return operatiuniMap;
 	}
 
+	public Map<String, Object> getConturi() {
+		Map<String, Object> conturiMap = new LinkedHashMap<String, Object>();
+		
+		for (Cont o: this.conturi)
+			conturiMap.put(o.getDenumire().toString(), o);
+		
+		return conturiMap;
+	}	
+	
 	public Integer getOperatiuniCount(){
 		if (this.operatiuni == null)
 			return -1;
@@ -77,6 +87,7 @@ public class FormOperatiuni implements Converter{
 		this.operatiuni.addAll(this.registruOperatiuni.getOperatiuni());
 		if (!this.operatiuni.isEmpty())
 			this.operatiuneContabila = this.operatiuni.get(0);
+		this.conturi.addAll(this.registruOperatiuni.getConturi());
 	}
 
 	//--------------------------------------------------------------------------
@@ -102,11 +113,19 @@ public class FormOperatiuni implements Converter{
 			}
 		}
 		
+		if ("cboCont".equals(uiComponent.getId())){
+			for (Cont o: this.conturi){
+				if (o.getDenumire().equals(uiValue))
+					return o;
+			}
+		}		
+		
 		return null;
 	}
 
 	public String getAsString(FacesContext arg0, UIComponent uiComponent, Object value)
 			throws ConverterException {
+		
 		if ("cboOperatiuni".equals(uiComponent.getId())){
 			if (value != null)
 				return ((OperatiuneContabila)value).getIdOperatiune().toString();
@@ -117,6 +136,10 @@ public class FormOperatiuni implements Converter{
 			return format.format(value);
 		}
 		
+		if ("cboCont".equals(uiComponent.getId())){
+			if (value != null)
+				return ((Cont)value).getDenumire().toString();
+		}
 		
 		return null;
 	}
