@@ -135,4 +135,32 @@ public class OperatiuneContabila implements Comparable, Serializable, Validatabl
         }
         return credit;
     }
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((idOperatiune == null) ? 0 : idOperatiune.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		OperatiuneContabila other = (OperatiuneContabila) obj;
+		if (idOperatiune == null) {
+			if (other.idOperatiune != null)
+				return false;
+		} else if (!idOperatiune.equals(other.idOperatiune))
+			return false;
+		return true;
+	}
+    
+    
 }
