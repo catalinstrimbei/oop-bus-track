@@ -166,9 +166,9 @@ public class FormConturi implements Converter{
 		if (!this.conturi.isEmpty() && currentIdx > 0 && this.conturi.size() > currentIdx)
 			this.cont = this.conturi.get(currentIdx);*/
 		//this.cont = this.registruConturi.getCont(this.cont.getCod());
-		System.out.println("Abandon before: " + this.cont.getDenumire());
+		//System.out.println("Abandon before: " + this.cont.getDenumire());
 		this.registruConturi.refreshCont(this.cont);
-		System.out.println("Abandon after: " + this.cont.getDenumire());
+		//System.out.println("Abandon after: " + this.cont.getDenumire());
 		
 	}
 	//---------------------------------------------
