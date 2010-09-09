@@ -12,6 +12,8 @@ import java.util.Set;
 import java.util.TreeSet;
 import javax.persistence.EntityManager;
 
+import app.model.contabilitate.conturi.Cont;
+
 public class RegistruOperatiuni {
     private EntityManager entityManager;
     private String sqlDefaultText = "SELECT o FROM OperatiuneContabila o";
@@ -35,6 +37,17 @@ public class RegistruOperatiuni {
         
         return operatiuniOrdonate;
     }
+    
+    public Set<Cont> getConturi() {
+        List<Cont> result = this.entityManager
+                .createQuery("SELECT c FROM Cont c") 
+                .getResultList();
+
+        TreeSet<Cont> conturiOrdonate = new TreeSet<Cont>();
+        conturiOrdonate.addAll(result);
+
+        return conturiOrdonate;
+    }    
     
     public void addOperatiuneContabila(OperatiuneContabila operatiune){
         if (this.entityManager.contains(operatiune))

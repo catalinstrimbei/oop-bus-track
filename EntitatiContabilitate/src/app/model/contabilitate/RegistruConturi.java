@@ -42,6 +42,17 @@ public class RegistruConturi {
         return conturiOrdonate;
     }
 
+    public Set<ClasaConturi> getClaseConturi() {
+        List<ClasaConturi> result = this.entityManager
+                .createQuery("SELECT c FROM ClasaConturi c")
+                .getResultList();
+
+        TreeSet<ClasaConturi> clase = new TreeSet<ClasaConturi>();
+        clase.addAll(result);
+
+        return clase;
+    }    
+    
     public void addCont(Cont cont){
         if (this.entityManager.contains(cont))
             this.entityManager.merge(cont);
