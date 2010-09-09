@@ -21,7 +21,7 @@ import javax.persistence.OneToMany;
  */
 
 @Entity
-public class ClasaConturi implements Serializable{
+public class ClasaConturi implements Serializable, Comparable{
     @Id
     private String cod;
     private String denumire;
@@ -96,4 +96,23 @@ public class ClasaConturi implements Serializable{
     public void removeCont(Cont cont){
         this.conturi.remove(cont);
     }
+    
+    public int compareTo(Object obj) {
+        if (obj == null) {
+            throw new RuntimeException("Compare to null !!");
+        }
+        if (getClass() != obj.getClass()) {
+            throw new RuntimeException("Incomparable types !!");
+        }
+        final ClasaConturi other = (ClasaConturi) obj;
+
+        return this.getCod().compareTo(other.getCod());
+    }
+
+	@Override
+	public String toString() {
+		return "ClasaConturi [cod=" + cod + ", denumire=" + denumire + "]";
+	}    
+    
+    
 }

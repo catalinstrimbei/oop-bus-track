@@ -73,6 +73,7 @@ public class Cont implements Comparable, Serializable, Validatable{
     }
 
     public void setSubClasaCont(ClasaConturi clasaCont) {
+    	System.out.println("New value: " + clasaCont);
         this.subClasaCont = clasaCont;
     }
 
