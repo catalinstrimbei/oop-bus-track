@@ -6,6 +6,7 @@
 package app.model.contabilitate;
 
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -26,9 +27,12 @@ public class RegistruOperatiuni {
                 .createQuery(this.sqlDefaultText)
                 .getResultList();
 
-        TreeSet<OperatiuneContabila> operatiuniOrdonate = new TreeSet<OperatiuneContabila>();
+        //TreeSet<OperatiuneContabila> operatiuniOrdonate = new TreeSet<OperatiuneContabila>();
+        Set<OperatiuneContabila> operatiuniOrdonate = new HashSet<OperatiuneContabila>();
         operatiuniOrdonate.addAll(result);
-
+        
+        //System.out.println("Load op count:> " + result.size() + "/" + operatiuniOrdonate.size());
+        
         return operatiuniOrdonate;
     }
     

@@ -79,10 +79,13 @@ public class InregistrareContabila implements Comparable, Serializable{
         this.suma = suma;
     }
 
-    /*public String getTip() {
-        return tip;
+    public String getTip() {
+        if (this.getClass().getName().contains("Debit"))
+        	return "Debit";
+        return "Credit";
     }
-
+	
+	/*
     public void setTip(String tip) {
         this.tip = tip;
     }*/
