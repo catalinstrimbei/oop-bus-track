@@ -58,7 +58,9 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 				</h:column>
 					
 				<h:column id="colCont">
-					<h:inputText id="txtCont" value="#{inregistrare.cont.denumire}"></h:inputText>
+					<h:selectOneMenu id="cboCont" value="#{inregistrare.cont}" converter="#{formOperatiuni}">
+						<f:selectItems value="#{formOperatiuni.conturi}" />
+					</h:selectOneMenu>
 					<f:facet name="header">Cont</f:facet>
 				</h:column>
 					

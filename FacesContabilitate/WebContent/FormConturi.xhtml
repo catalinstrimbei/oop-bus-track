@@ -20,14 +20,14 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 					<h:selectOneMenu id="cboConturi" style="width: 92px; " 
 						value="#{formConturi.cont}" converter="#{formConturi}">
 						<f:selectItems value="#{formConturi.conturi}"/>
-						<f:ajax render="txtCod txtDenumire"/>
+						<f:ajax render="txtCod txtDenumire cboSubClasaCont"/>
 					</h:selectOneMenu>
 					<h:panelGrid columns="2" border="0">
 						<h:commandButton id="btnPrevious" value="Prev" actionListener="#{formConturi.previousCont}">
-							<f:ajax render="cboConturi txtCod txtDenumire"/>
+							<f:ajax render="cboConturi txtCod txtDenumire cboSubClasaCont"/>
 						</h:commandButton>
 						<h:commandButton id="btnNext" value="Next" actionListener="#{formConturi.nextCont}">
-							<f:ajax render="cboConturi txtCod txtDenumire"/>
+							<f:ajax render="cboConturi txtCod txtDenumire cboSubClasaCont"/>
 						</h:commandButton>
 					</h:panelGrid>
 					<h:outputText value="Cod:"></h:outputText>
@@ -35,21 +35,24 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 					<h:outputText value="Denumire:"></h:outputText>
 					<h:inputText id="txtDenumire" value="#{formConturi.cont.denumire}"></h:inputText>
 					<h:outputText value="Sub-clasa"></h:outputText>
-					<h:selectOneMenu id="cboSubClasaCont"></h:selectOneMenu>
+					<h:selectOneMenu id="cboSubClasaCont" 
+						value="#{formConturi.cont.subClasaCont}" converter="#{formConturi}">
+						<f:selectItems value="#{formConturi.claseConturi}" />
+					</h:selectOneMenu>
 					<h:panelGrid columns="2" border="0">
 						<h:commandButton value="Adauga" actionListener="#{formConturi.adaugaCont}">
-							<f:ajax render="cboConturi txtCod txtDenumire"/>
+							<f:ajax render="cboConturi txtCod txtDenumire cboSubClasaCont"/>
 						</h:commandButton>
 						<h:commandButton value="Sterge" actionListener="#{formConturi.stergere}">
-							<f:ajax render="cboConturi txtCod txtDenumire"/>
+							<f:ajax render="cboConturi txtCod txtDenumire cboSubClasaCont"/>
 						</h:commandButton>
 					</h:panelGrid>
 					<h:panelGrid columns="2" border="0">
 						<h:commandButton value="Abandon" actionListener="#{formConturi.abandon}">
-							<f:ajax render="cboConturi txtCod txtDenumire" execute="txtCod txtDenumire"/>
+							<f:ajax render="cboConturi txtCod txtDenumire cboSubClasaCont" execute="txtCod txtDenumire"/>
 						</h:commandButton>
 						<h:commandButton value="Salvare"  actionListener="#{formConturi.salvare}">
-							<f:ajax render="cboConturi txtCod txtDenumire" execute="txtCod txtDenumire"/>
+							<f:ajax render="cboConturi txtCod txtDenumire cboSubClasaCont" execute="txtCod txtDenumire cboSubClasaCont"/>
 						</h:commandButton>
 					</h:panelGrid>
 				</h:panelGrid>

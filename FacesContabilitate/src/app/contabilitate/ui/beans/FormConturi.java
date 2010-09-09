@@ -17,6 +17,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import app.model.contabilitate.RegistruConturi;
+import app.model.contabilitate.conturi.ClasaConturi;
 import app.model.contabilitate.conturi.Cont;
 
 //@ManagedBean
@@ -27,6 +28,7 @@ public class FormConturi implements Converter{
 	private Cont cont = null;
 	//private Map<String, Object> conturi = null;
 	private List<Cont> conturi = new ArrayList<Cont>();
+	private List<ClasaConturi> claseConturi = new ArrayList<ClasaConturi>();
 	
 	public FormConturi() {
         // creare entity manager
@@ -56,11 +58,11 @@ public class FormConturi implements Converter{
         	// initializare cont curent implicit
         	this.cont = this.conturi.get(0);
         }		
+        
+        this.claseConturi = new ArrayList<ClasaConturi>(registruConturi.getClaseConturi());       
 	}
 	
 	public Map<String, Object> getConturi() {
-		//System.out.println("Get conturi - count " + this.conturi.size());
-		//return this.conturi;
 		Map<String, Object> conturiMap = new LinkedHashMap<String, Object>();
 		if (this.conturi != null && !this.conturi.isEmpty()){
 	        for (Cont c : this.conturi){
@@ -70,6 +72,16 @@ public class FormConturi implements Converter{
 		return conturiMap;
 	}
 
+	public Map<String, Object> getClaseConturi() {
+		Map<String, Object> claseMap = new LinkedHashMap<String, Object>();
+		if (this.claseConturi != null && !this.claseConturi.isEmpty()){
+	        for (ClasaConturi c : this.claseConturi){
+	        	claseMap.put(c.getDenumire(), c);
+	        }
+        }		
+		return claseMap;
+	}	
+	
 	public Integer getConturiCount(){
 		return conturi.size();
 	}	
@@ -86,20 +98,44 @@ public class FormConturi implements Converter{
 	
 	//---------------------------------------
 	// Converter pt cboClienti - componenta de navigare
-	public Object getAsObject(FacesContext arg0, UIComponent arg1, String uiValue)
+	public Object getAsObject(FacesContext arg0, UIComponent uiComponent, String uiValue)
 			throws ConverterException {
-		//return this.conturi.get(uiValue);
-		for (Cont c: this.conturi){
-			if (uiValue.equals(c.getDenumire()))
-				return c;
+		if ("cboConturi".equals(uiComponent.getId())){
+			for (Cont c: this.conturi){
+				if (uiValue.equals(c.getDenumire()))
+					return c;
+			}
 		}
+		
+		if ("cboSubClasaCont".equals(uiComponent.getId())){
+			System.out.println("uiValue : " + uiValue);
+			for (ClasaConturi c: this.claseConturi){
+				if (uiValue.equals(c.getDenumire())){
+					System.out.println("conversionValue : " + c);
+					return c;
+				}
+			}
+			System.out.println("conversionValue : " + null);
+		}		
+		
 		return null;
 	}
 
-	public String getAsString(FacesContext arg0, UIComponent arg1, Object value)
+	public String getAsString(FacesContext arg0, UIComponent uiComponent, Object value)
 			throws ConverterException {
 		// TODO: tb tratat cazul cind value este null
-		return ((Cont)value).getDenumire();
+		
+		if ("cboConturi".equals(uiComponent.getId())){
+			return ((Cont)value).getDenumire();
+		}
+		
+		if ("cboSubClasaCont".equals(uiComponent.getId())){
+			if (value == null)
+				return "";
+			return ((ClasaConturi)value).getDenumire();
+		}		
+		
+		return "";
 	}	
 	
 	//------------------------------------------
