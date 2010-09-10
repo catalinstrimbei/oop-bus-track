@@ -10,6 +10,7 @@ import app.model.validare.Validatable;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -52,9 +53,9 @@ public class OperatiuneContabila implements Comparable, Serializable, Validatabl
         this.dataContabilizare = dataContabilizare;
     }
 
-    @OneToMany(mappedBy = "operatiune", cascade=CascadeType.ALL) @MapKey(name = "id")
+    @OneToMany(mappedBy = "operatiune", cascade=CascadeType.ALL) @MapKey(name = "nrOrdine")
     private Map<Integer, InregistrareContabila> inregistrari =
-            new TreeMap<Integer, InregistrareContabila>();
+            new HashMap<Integer, InregistrareContabila>();
 
     public Date getDataContabilizare() {
         return dataContabilizare;
