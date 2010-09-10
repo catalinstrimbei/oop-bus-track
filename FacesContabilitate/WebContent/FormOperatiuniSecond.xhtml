@@ -12,18 +12,18 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 <f:view>
 <title><pre><p align="center">APLICATIE CONTABILA</p></pre></title>
 
-<h:form id="formConturi">
+<h:form id="formOperatiuniSecond">
 
 		<h:panelGrid columns="3" border="1">
 			<f:facet name="header">
 				<h:outputText value="Form Operatiuni contabile"></h:outputText>
 			</f:facet>
 			<f:facet name="footer">
-				Numar operatiuni: #{formOperatiuni.operatiuniCount}
+				Numar operatiuni: #{formOperatiuniSecond.operatiuniCount}
 			</f:facet>
 			<h:selectOneMenu id="cboOperatiuni" style="width: 121px; "
-				value="#{formOperatiuni.operatiuneContabila}" converter="#{formOperatiuni}">
-				<f:selectItems value="#{formOperatiuni.operatiuni}" />
+				value="#{formOperatiuniSecond.operatiuneContabila}" converter="#{formOperatiuniSecond}">
+				<f:selectItems value="#{formOperatiuniSecond.operatiuni}" />
 				<f:ajax render="txtId txtData tblInregistrari" />
 			</h:selectOneMenu>
 			<h:panelGrid columns="2" border="0">
@@ -32,10 +32,10 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 			</h:panelGrid>
 			<h:commandButton value="Op.noua"></h:commandButton>
 			<h:outputText value="Nr.op."></h:outputText>
-			<h:inputText id="txtId" value="#{formOperatiuni.operatiuneContabila.idOperatiune}"/>
+			<h:inputText id="txtId" value="#{formOperatiuniSecond.operatiuneContabila.idOperatiune}"/>
 			<h:commandButton value="Sterge op."></h:commandButton>
 			<h:outputText value="Data"></h:outputText>
-			<h:inputText id="txtData" value="#{formOperatiuni.operatiuneContabila.dataContabilizare}" converter="#{formOperatiuni}"/>
+			<h:inputText id="txtData" value="#{formOperatiuniSecond.operatiuneContabila.dataContabilizare}" converter="#{formOperatiuniSecond}"/>
 			<h:commandButton value="Salveaza"></h:commandButton>
 		</h:panelGrid>
 		<h:panelGrid columns="1" border="1">
@@ -50,7 +50,17 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 				</h:panelGrid>
 			</f:facet>
 
-			<h:dataTable border="1" id="tblInregistrari" var="inregistrare" value="#{formOperatiuni.modelGridDetalii}" >
+			<h:dataTable border="1" id="tblInregistrari" var="inregistrare" value="#{formOperatiuniSecond.modelGridDetalii}">
+
+		        <h:column>
+		            <f:facet name="header">
+		                <h:outputText value="Select" />
+		            </f:facet>
+		            <h:selectOneRadio valueChangeListener="#{formOperatiuniSecond.setSelectedInregistrare}">
+		                <f:selectItem itemValue="null" />
+		                <f:ajax execute="tblInregistrari"/>
+		            </h:selectOneRadio>
+		        </h:column>				
 							
 				<h:column id="colNr">
 					<h:inputText id="txtNr" value="#{inregistrare.nrOrdine}"></h:inputText>
@@ -58,8 +68,9 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 				</h:column>
 					
 				<h:column id="colCont">
-					<h:selectOneMenu id="cboCont" value="#{inregistrare.cont}" converter="#{formOperatiuni}">
-						<f:selectItems value="#{formOperatiuni.conturi}" />
+					<h:selectOneMenu id="cboCont" value="#{inregistrare.cont}" converter="#{formOperatiuniSecond}"
+						onclick="dataTableSelectOneRadio(this)">
+						<f:selectItems value="#{formOperatiuniSecond.conturi}" />
 					</h:selectOneMenu>
 					<f:facet name="header">Cont</f:facet>
 				</h:column>
@@ -74,15 +85,17 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 					<f:facet name="header">Debit/Credit</f:facet>
 				</h:column>
 				
+				<!-- 
 				<h:column id="colSelect">
-					<h:commandButton id="btnSelect" actionListener="#{formOperatiuni.stergeInregistrareContabila}" value="Sterge">
+					<h:commandButton id="btnSelect" actionListener="#{formOperatiuniSecond.stergeInregistrareContabila}" value="Sterge">
 						<f:ajax render="tblInregistrari" execute="tblInregistrari"/>
 					</h:commandButton>
 					<f:facet name="header">Select</f:facet>
 				</h:column>				
-				
+				 -->
+				 
 			<f:facet name="footer">
-				Numar inregistrari op. curenta : #{formOperatiuni.inregistrariCount}
+				Numar inregistrari op. curenta : #{formOperatiuniSecond.inregistrariCount}
 			</f:facet>
 							
 			</h:dataTable>
@@ -93,5 +106,12 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 </f:view>
 
 </body>
+
+<script language="JavaScript" src="/util.js"/>
+<style type="text/css"> 
+.rowHighlighted{
+       background-color:#8C92C6; //This is just an example color
+    }
+</style>
 
 </html>

@@ -10,6 +10,7 @@
 <body>
 	<p><a href="FormConturi.jsf">Conturi</a></p>  
 	<p><a href="FormOperatiuni.jsf">Operatiuni</a></p>
+	<p><a href="FormOperatiuniSecond.jsf">OperatiuniSecond</a></p>
 </body>
 
 </html>
