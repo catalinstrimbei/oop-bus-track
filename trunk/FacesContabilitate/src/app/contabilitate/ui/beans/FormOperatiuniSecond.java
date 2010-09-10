@@ -178,4 +178,6 @@ public class FormOperatiuniSecond implements Converter{
 	}
 	
 //  <f:convertDateTime  datestyle="short" />
+	//http://balusc.blogspot.com/2006/06/using-datatables.html
+	//http://www.ibm.com/developerworks/rational/library/05/1213_he/
 }
