@@ -11,10 +11,14 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
+import javax.faces.event.ActionEvent;
+import javax.faces.model.DataModel;
+import javax.faces.model.ListDataModel;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import app.model.contabilitate.InregistrareContabila;
 import app.model.contabilitate.OperatiuneContabila;
 import app.model.contabilitate.RegistruConturi;
 import app.model.contabilitate.RegistruOperatiuni;
@@ -32,7 +36,8 @@ public class FormOperatiuni implements Converter{
 
 	public void setOperatiuneContabila(OperatiuneContabila operatiuneContabila) {
 		this.operatiuneContabila = operatiuneContabila;
-		System.out.println("Operatiune selectata: " + this.operatiuneContabila);
+		System.out.println("Operatiune selectata: " + this.operatiuneContabila.getIdOperatiune());
+		this.modelGridDetalii.setWrappedData(this.operatiuneContabila.getInregistrari());
 	}
 
 	public Map<String, Object> getOperatiuni() {
@@ -143,5 +148,25 @@ public class FormOperatiuni implements Converter{
 		
 		return null;
 	}
+	//-------------------------------------------------------
+	// Suport grid detalii
+	private DataModel<InregistrareContabila> modelGridDetalii;
+	
+	public DataModel<InregistrareContabila> getModelGridDetalii() {
+		if (modelGridDetalii == null && this.operatiuneContabila != null){
+			this.modelGridDetalii = new ListDataModel<InregistrareContabila>();
+			this.modelGridDetalii.setWrappedData(this.operatiuneContabila.getInregistrari());
+		}
+		return modelGridDetalii;
+	}
 
+	//--------------------------------------------------------
+	// Actiuni grid-detalii
+	public void stergeInregistrareContabila(ActionEvent evt){
+		InregistrareContabila inregistrareContabila = this.modelGridDetalii.getRowData();
+		this.operatiuneContabila.removeInregistrareContabila(inregistrareContabila);
+		this.modelGridDetalii.setWrappedData(this.operatiuneContabila.getInregistrari());
+	}
+	
+//  <f:convertDateTime  datestyle="short" />
 }

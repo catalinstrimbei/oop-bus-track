@@ -50,7 +50,7 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 				</h:panelGrid>
 			</f:facet>
 
-			<h:dataTable border="1" id="tblInregistrari" var="inregistrare" value="#{formOperatiuni.operatiuneContabila.inregistrari}">
+			<h:dataTable border="1" id="tblInregistrari" var="inregistrare" value="#{formOperatiuni.modelGridDetalii}">
 							
 				<h:column id="colNr">
 					<h:inputText id="txtNr" value="#{inregistrare.nrOrdine}"></h:inputText>
@@ -70,9 +70,16 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 				</h:column>
 
 				<h:column id="colTip">
-					<h:inputText id="txtTip" value="#{inregistrare.tip}"></h:inputText>
+					<h:outputText id="txtTip" value="#{inregistrare.tip}" />
 					<f:facet name="header">Debit/Credit</f:facet>
 				</h:column>
+				
+				<h:column id="colSelect">
+					<h:commandButton id="btnSelect" actionListener="#{formOperatiuni.stergeInregistrareContabila}" value="Sterge">
+						<f:ajax render="tblInregistrari" execute="tblInregistrari"/>
+					</h:commandButton>
+					<f:facet name="header">Select</f:facet>
+				</h:column>				
 				
 			<f:facet name="footer">
 				Numar inregistrari op. curenta : #{formOperatiuni.inregistrariCount}
