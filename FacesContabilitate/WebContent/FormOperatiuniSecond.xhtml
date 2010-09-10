@@ -5,6 +5,8 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 
 <head>
   <title>Formular Operatiuni Contabile</title>
+  <script language="JavaScript" src="./util.js"/>
+  <link rel="stylesheet" type="text/css" href="./util.css" />   
 </head>
 
 <body>
@@ -22,7 +24,7 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 				Numar operatiuni: #{formOperatiuniSecond.operatiuniCount}
 			</f:facet>
 			<h:selectOneMenu id="cboOperatiuni" style="width: 121px; "
-				value="#{formOperatiuniSecond.operatiuneContabila}" converter="#{formOperatiuniSecond}">
+				value="#{formOperatiuniSecond.operatiuneContabila}" converter="#{formOperatiuniSecond}" styleClass="rowHighlighted">
 				<f:selectItems value="#{formOperatiuniSecond.operatiuni}" />
 				<f:ajax render="txtId txtData tblInregistrari" />
 			</h:selectOneMenu>
@@ -56,17 +58,21 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 		            <f:facet name="header">
 		                <h:outputText value="Select" />
 		            </f:facet>
-		            <h:selectOneRadio valueChangeListener="#{formOperatiuniSecond.setSelectedInregistrare}">
-		                <f:selectItem itemValue="null" />
-		                <f:ajax execute="tblInregistrari"/>
+		            <h:selectOneRadio 
+		            	valueChangeListener="#{formOperatiuniSecond.setSelectedInregistrare}"
+		            	onclick="dataTableSelectOneRadio(this)">
+		                <f:selectItem itemLabel="  " itemValue="0"/>
+		                <f:ajax render="txtNrInregCurenta" execute="tblInregistrari"/>
 		            </h:selectOneRadio>
 		        </h:column>				
-							
+				
 				<h:column id="colNr">
-					<h:inputText id="txtNr" value="#{inregistrare.nrOrdine}"></h:inputText>
+					<h:inputText id="txtNr" value="#{inregistrare.nrOrdine}"
+					 	onclick="dataTableSelectUIComponent(this)"
+					/>
 					<f:facet name="header">Nr.</f:facet>
 				</h:column>
-					
+				
 				<h:column id="colCont">
 					<h:selectOneMenu id="cboCont" value="#{inregistrare.cont}" converter="#{formOperatiuniSecond}"
 						onclick="dataTableSelectOneRadio(this)">
@@ -95,7 +101,10 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 				 -->
 				 
 			<f:facet name="footer">
-				Numar inregistrari op. curenta : #{formOperatiuniSecond.inregistrariCount}
+				Numar inregistrari op. curenta : #{formOperatiuniSecond.inregistrariCount} 
+				<h:outputText id="txtNrInregCurenta" 
+					value=" Numar inregistrarea curenta : #{formOperatiuniSecond.currentDetailRow}"/>
+				
 			</f:facet>
 							
 			</h:dataTable>
@@ -106,14 +115,5 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 </f:view>
 
 </body>
-
-<script language="JavaScript" src="/util.js"/>
-<style type="text/css"> 
-.rowHighlighted{
-       background-color:#8C92C6; //This is just an example color
-    }
-</style>
-
-
 
 </html>

@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 
 import javax.faces.component.UIComponent;
+import javax.faces.component.UISelectBoolean;
+import javax.faces.component.html.HtmlSelectOneRadio;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
@@ -100,7 +102,7 @@ public class FormOperatiuniSecond implements Converter{
 	public Object getAsObject(FacesContext arg0, UIComponent uiComponent, String uiValue)
 			throws ConverterException {
 		
-		System.out.println("Component id " + uiComponent.getId());
+		//System.out.println("Component id " + uiComponent.getId());
 		
 		if ("cboOperatiuni".equals(uiComponent.getId())){
 			for (OperatiuneContabila o: this.operatiuni){
@@ -162,12 +164,27 @@ public class FormOperatiuniSecond implements Converter{
 		}
 		return modelGridDetalii;
 	}
-
+	
 	public void setSelectedInregistrare(ValueChangeEvent event) {
-		System.out.println("Inregistrare selectata: ");
-		inregistrareContabila = this.modelGridDetalii.getRowData();
+		
+		System.out.println("Inregistrare selectata: " + event.getNewValue() + "/" + event.getOldValue());
+		
+		System.out.println(event.getComponent().getClass() 
+				+ "/"+ ((HtmlSelectOneRadio)event.getComponent()).getValue());
+		
+		for (UIComponent c: ((HtmlSelectOneRadio)event.getComponent()).getChildren()){
+			System.out.println("Component class: " + c.getClass());
+		}
+		
+		this.inregistrareContabila = this.modelGridDetalii.getRowData();
 		System.out.println(inregistrareContabila.getNrOrdine());
     }
+	
+	public Integer getCurrentDetailRow(){
+		if (this.inregistrareContabila == null)
+			return -1;
+		return this.inregistrareContabila.getNrOrdine();
+	}
 	
 	//--------------------------------------------------------
 	// Actiuni grid-detalii
