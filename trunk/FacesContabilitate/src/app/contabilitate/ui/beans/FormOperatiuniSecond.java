@@ -180,4 +180,28 @@ public class FormOperatiuniSecond implements Converter{
 //  <f:convertDateTime  datestyle="short" />
 	//http://balusc.blogspot.com/2006/06/using-datatables.html
 	//http://www.ibm.com/developerworks/rational/library/05/1213_he/
+	
+	/*
+	
+<link rel="stylesheet" type="text/css" href="./resources/styles/style.css" /> 
+<script language="JavaScript" src="./resources/javascript/util.js"></script>
+
+	sau 
+	
+<link rel="stylesheet" type="text/css" href="/FacesContabilitate/.../style.css" /> 
+<script language="JavaScript" src="/FacesContabilitate/.../util.js"></script>
+
+sau
+
+<f:verbatim>  
+<script type="text/javascript">  
+      
+    function onClickHere( )  
+    {  
+          
+    }  
+</script>  
+</f:verbatim> 
+	
+	 */
 }
