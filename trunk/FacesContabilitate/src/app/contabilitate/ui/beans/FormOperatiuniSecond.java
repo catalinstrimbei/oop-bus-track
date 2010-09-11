@@ -130,6 +130,7 @@ public class FormOperatiuniSecond implements Converter{
 			}
 		}
 		
+		/*
 		if ("txtData".equals(uiComponent.getId())){
 			SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 			try {
@@ -138,6 +139,7 @@ public class FormOperatiuniSecond implements Converter{
 				e.printStackTrace();
 			}
 		}
+		*/
 		
 		if ("cboCont".equals(uiComponent.getId())){
 			for (Cont o: this.conturi){
@@ -161,10 +163,12 @@ public class FormOperatiuniSecond implements Converter{
 			}
 		}
 		
+		/*
 		if ("txtData".equals(uiComponent.getId())){
 			SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 			return format.format(value);
 		}
+		*/
 		
 		if ("cboCont".equals(uiComponent.getId())){
 			if (value != null)
@@ -373,6 +377,11 @@ public class FormOperatiuniSecond implements Converter{
 			this.inregistrareContabila = null;
 		}
 	}	
+	//--------------------------------------------
+	// 4. Go Back
+	public String showMainForm(){
+		return "MainForm";
+	}
 }
 	
 
@@ -416,5 +425,24 @@ sau
 		                <f:selectItem itemLabel="  " itemValue="0"/>
 		                <!-- f:ajax render="txtNrInregCurenta" execute="tblInregistrari"/ -->
 		            </h:selectOneRadio>
+		            
+------------------------ index.jsp -----------------------
+<%@ page language="java" contentType="text/html;charset=UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
+
+<html>
+
+<head>
+  <title>CONTABILITATE App-Faces</title>
+</head>
+
+<body>
+	<p><a href="FormConturi.jsf">Conturi</a></p>  
+	<p><a href="FormOperatiuni.jsf">Operatiuni</a></p>
+	<p><a href="FormOperatiuniSecond.jsf">OperatiuniSecond</a></p>
+</body>
+
+</html>
+		            
 		            	
 	 */

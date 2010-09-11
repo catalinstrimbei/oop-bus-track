@@ -26,5 +26,10 @@
 		<managed-bean-class>app.contabilitate.ui.beans.FormOperatiuniSecond</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>mainForm</managed-bean-name>
+		<managed-bean-class>app.contabilitate.ui.beans.MainForm</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
 
 </faces-config>
