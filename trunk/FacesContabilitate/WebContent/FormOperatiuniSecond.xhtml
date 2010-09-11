@@ -34,7 +34,10 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 			</h:panelGrid>
 			<h:commandButton value="Op.noua"></h:commandButton>
 			<h:outputText value="Nr.op."></h:outputText>
-			<h:inputText id="txtId" value="#{formOperatiuniSecond.operatiuneContabila.idOperatiune}"/>
+			<h:inputText id="txtId" 
+				value="#{formOperatiuniSecond.operatiuneContabila.idOperatiune}"
+				disabled = "true"
+				/>
 			<h:commandButton value="Sterge op."></h:commandButton>
 			<h:outputText value="Data"></h:outputText>
 			<h:inputText id="txtData" value="#{formOperatiuniSecond.operatiuneContabila.dataContabilizare}" converter="#{formOperatiuniSecond}"/>
