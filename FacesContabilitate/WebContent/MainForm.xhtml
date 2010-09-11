@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+<head>
+<title>APLICATIE CONTABILITATE ::: Form Main </title>
+</head>
+<body>
+<f:view>
+<h:form>
+	<h:panelGrid columns="2" border="1">
+		<f:facet name="header">
+			<h:outputText value="APLICATIE CONTABILA 1.0" />
+		</f:facet>
+		<h:outputText value="Vizualizeaza/Modifica" style=""/>
+		<h:commandButton id="btnFormConturi" 
+			value="CONTURI"
+			action="#{mainForm.showFormConturi}"/>
+		<h:outputText value="Vizualizeaza/Modifica" />
+		<h:commandButton id="btnFormOperatiuni" 
+			action="#{mainForm.showFormOperatiuni}"
+			value="OPERATIUNI" />
+	</h:panelGrid>
+</h:form>
+</f:view>
+</body>
+</html>

@@ -8,11 +8,15 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 <body>
 <f:view><h:form id="formConturi">
 		<table width="800" border="0">
-			<tr><td style="color: Red; font-size: 14px; font-family: Tahoma, Verdana, Arial, Sans-Serif; font-weight: bold; text-align: center"><h:outputText value="APLICATIE CONTABILITATE" style=""></h:outputText></td></tr>
 			<tr><td>
 				<h:panelGrid columns="2" border="1">
 					<f:facet name="header">
-						<h:outputText value="Form Conturi"></h:outputText>
+						<h:commandLink
+							style="color: Red; font-size: 14px; font-family: Tahoma, Verdana, Arial, Sans-Serif; font-weight: bold; text-align: center" 
+							value="Aplicatie Contabilitate"
+							action="#{formConturi.showMainForm}" />					
+						<h:outputText value=" - Form Conturi" />
+						
 					</f:facet>
 					<f:facet name="footer">
 						Numar conturi existente ::: #{formConturi.conturiCount}

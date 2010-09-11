@@ -207,6 +207,10 @@ public class FormConturi implements Converter{
 		//System.out.println("Abandon after: " + this.cont.getDenumire());
 		
 	}
+	// 4. Go Back
+	public String showMainForm(){
+		return "MainForm";
+	}
 	//---------------------------------------------
 	// TODO: rubrica cboSubClasaConturi - legare la sursa de date (fieldul formConturi.cont.subClasaConturi) si sincronizare
 }
