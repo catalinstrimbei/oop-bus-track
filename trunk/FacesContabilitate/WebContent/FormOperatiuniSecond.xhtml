@@ -59,23 +59,24 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 		                <h:outputText value="Select" />
 		            </f:facet>
 		            <h:selectOneRadio 
-		            	valueChangeListener="#{formOperatiuniSecond.setSelectedInregistrare}"
-		            	onclick="dataTableSelectOneRadio(this)">
+		            	onclick="dataTableSelectRow(this)">
 		                <f:selectItem itemLabel="  " itemValue="0"/>
-		                <f:ajax render="txtNrInregCurenta" execute="tblInregistrari"/>
 		            </h:selectOneRadio>
+					<h:commandButton id="btnSelect" 
+						actionListener="#{formOperatiuniSecond.selectInregistrareContabila}" 
+						value="Select" style="display: none">
+						<f:ajax render="txtNrInregCurenta" execute="tblInregistrari"/>
+					</h:commandButton>		            
 		        </h:column>				
 				
 				<h:column id="colNr">
-					<h:inputText id="txtNr" value="#{inregistrare.nrOrdine}"
-					 	onclick="dataTableSelectUIComponent(this)"
-					/>
+					<h:inputText id="txtNr" value="#{inregistrare.nrOrdine}"/>
 					<f:facet name="header">Nr.</f:facet>
 				</h:column>
 				
 				<h:column id="colCont">
-					<h:selectOneMenu id="cboCont" value="#{inregistrare.cont}" converter="#{formOperatiuniSecond}"
-						onclick="dataTableSelectOneRadio(this)">
+					<h:selectOneMenu id="cboCont" value="#{inregistrare.cont}" 
+						converter="#{formOperatiuniSecond}">
 						<f:selectItems value="#{formOperatiuniSecond.conturi}" />
 					</h:selectOneMenu>
 					<f:facet name="header">Cont</f:facet>

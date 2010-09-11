@@ -193,7 +193,12 @@ public class FormOperatiuniSecond implements Converter{
 		this.operatiuneContabila.removeInregistrareContabila(inregistrareContabila);
 		this.modelGridDetalii.setWrappedData(this.operatiuneContabila.getInregistrari());
 	}
+	public void selectInregistrareContabila(ActionEvent evt){
+		this.inregistrareContabila = this.modelGridDetalii.getRowData();
+		System.out.println("Select " + inregistrareContabila.getNrOrdine());		
+	}
 	
+	//----------------------------------------------------------------------------------------
 //  <f:convertDateTime  datestyle="short" />
 	//http://balusc.blogspot.com/2006/06/using-datatables.html
 	//http://www.ibm.com/developerworks/rational/library/05/1213_he/
@@ -220,5 +225,13 @@ sau
 </script>  
 </f:verbatim> 
 	
+	
+		            <h:selectOneRadio 
+		            	valueChangeListener="#{formOperatiuniSecond.setSelectedInregistrare}"
+		            	onclick="dataTableSelectRow(this)">
+		                <f:selectItem itemLabel="  " itemValue="0"/>
+		                <!-- f:ajax render="txtNrInregCurenta" execute="tblInregistrari"/ -->
+		            </h:selectOneRadio>
+		            	
 	 */
 }
