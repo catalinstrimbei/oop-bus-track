@@ -119,7 +119,7 @@ public class InregistrareContabila implements Comparable, Serializable{
         if (obj == null) {
             throw new RuntimeException("Compare to null !!");
         }
-        if (getClass() != obj.getClass()) {
+        if (!(obj instanceof InregistrareContabila)) {
             throw new RuntimeException("Incomparable types !!");
         }
         final InregistrareContabila other = (InregistrareContabila) obj;

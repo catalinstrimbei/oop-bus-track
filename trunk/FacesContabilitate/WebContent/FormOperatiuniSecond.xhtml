@@ -24,33 +24,51 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 				Numar operatiuni: #{formOperatiuniSecond.operatiuniCount}
 			</f:facet>
 			<h:selectOneMenu id="cboOperatiuni" style="width: 121px; "
-				value="#{formOperatiuniSecond.operatiuneContabila}" converter="#{formOperatiuniSecond}" styleClass="rowHighlighted">
+				value="#{formOperatiuniSecond.operatiuneContabila}" 
+					converter="#{formOperatiuniSecond}" 
+					styleClass="rowHighlighted">
 				<f:selectItems value="#{formOperatiuniSecond.operatiuni}" />
 				<f:ajax render="txtId txtData tblInregistrari" />
 			</h:selectOneMenu>
 			<h:panelGrid columns="2" border="0">
-				<h:commandButton value="Prev" id="btnPrevious"></h:commandButton>
-				<h:commandButton value="Next" id="btnNext"></h:commandButton>
+				<h:commandButton value="Prev" id="btnPrevious" 
+				actionListener="#{formOperatiuniSecond.previousOperatiune}"/>
+				<h:commandButton value="Next" id="btnNext" 
+				actionListener="#{formOperatiuniSecond.nextOperatiune}"/>
 			</h:panelGrid>
-			<h:commandButton value="Op.noua"></h:commandButton>
-			<h:outputText value="Nr.op."></h:outputText>
+			<h:commandButton value="Op.noua" 
+				actionListener="#{formOperatiuniSecond.adaugaOperatiune}" style="width: 94px; "/>
+			<h:outputText value="Nr.op." />
 			<h:inputText id="txtId" 
 				value="#{formOperatiuniSecond.operatiuneContabila.idOperatiune}"
-				disabled = "true"
-				/>
-			<h:commandButton value="Sterge op."></h:commandButton>
+				disabled = "false"/>
+			<h:commandButton value="Sterge op." 
+				actionListener="#{formOperatiuniSecond.stergeOperatiune}" />
 			<h:outputText value="Data"></h:outputText>
-			<h:inputText id="txtData" value="#{formOperatiuniSecond.operatiuneContabila.dataContabilizare}" converter="#{formOperatiuniSecond}"/>
-			<h:commandButton value="Salveaza"></h:commandButton>
+			<h:inputText id="txtData" 
+				value="#{formOperatiuniSecond.operatiuneContabila.dataContabilizare}" 
+				converter="#{formOperatiuniSecond}"/>
+			<h:panelGrid columns="2" border="1"><h:commandButton value="Salveaza" actionListener="#{formOperatiuniSecond.salveaza}">
+				<f:ajax execute="@form" />
+			</h:commandButton>
+				<h:commandButton id="btnAbandon"
+					actionListener="#{formOperatiuniSecond.abandon}" value="Abandon"></h:commandButton>
+			</h:panelGrid>
+			
 		</h:panelGrid>
 		<h:panelGrid columns="1" border="1">
 			<f:facet name="header">
 				
-				<h:panelGrid columns="2" border="0">
+				<h:panelGrid columns="2" border="0" >
 					<h:outputText value="Inregistrari contabile"></h:outputText>
-					<h:panelGrid columns="2" border="0">
-						<h:commandButton value="Adauga"></h:commandButton>
-						<h:commandButton value="Sterge"></h:commandButton>
+					<h:panelGrid id="panouActiuni" columns="3" border="0">
+						<h:commandButton value="AdaugaDebit" 
+							actionListener="#{formOperatiuniSecond.adaugaInregistrareDebit}" />
+						<h:commandButton value="AdaugaCredit" 
+							actionListener="#{formOperatiuniSecond.adaugaInregistrareCredit}" />							
+						<h:commandButton id="btnStergeInregistrare" 
+							value="Sterge" 
+							actionListener="#{formOperatiuniSecond.stergeInregistrare}"/>
 					</h:panelGrid>
 				</h:panelGrid>
 			</f:facet>

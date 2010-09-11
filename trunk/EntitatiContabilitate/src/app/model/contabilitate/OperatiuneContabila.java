@@ -100,12 +100,17 @@ public class OperatiuneContabila implements Comparable, Serializable, Validatabl
         // TO DO: check instanceof exception
         OperatiuneContabila op = (OperatiuneContabila) o;
 
+        /*
         if (this.getDataContabilizare().after(op.getDataContabilizare()))
             return 1;
         if (this.getDataContabilizare().before(op.getDataContabilizare()))
             return -1;
 
-        return 0;
+        return 0;*/
+        if (this.dataContabilizare.equals(op.dataContabilizare))
+        	return this.idOperatiune.compareTo(op.idOperatiune);
+        
+        return this.dataContabilizare.compareTo(op.dataContabilizare);
     }
 
     // apel de regula din repositories
