@@ -3,6 +3,8 @@ package app.contabilitate.ui.beans;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -87,11 +89,11 @@ public class FormOperatiuniSecond implements Converter{
         // initializare registru
         registruOperatiuni = new RegistruOperatiuni(em);
         
-        initFormModel();
+        initFormDataModel();
 		
 	}
 	
-	private void initFormModel(){
+	private void initFormDataModel(){
 		this.operatiuni.addAll(this.registruOperatiuni.getOperatiuni());
 		if (!this.operatiuni.isEmpty())
 			this.operatiuneContabila = this.operatiuni.get(0);
@@ -101,8 +103,6 @@ public class FormOperatiuniSecond implements Converter{
 	//--------------------------------------------------------------------------
 	public Object getAsObject(FacesContext arg0, UIComponent uiComponent, String uiValue)
 			throws ConverterException {
-		
-		//System.out.println("Component id " + uiComponent.getId());
 		
 		if ("cboOperatiuni".equals(uiComponent.getId())){
 			for (OperatiuneContabila o: this.operatiuni){
@@ -116,7 +116,6 @@ public class FormOperatiuniSecond implements Converter{
 			try {
 				return format.parse(uiValue);
 			} catch (ParseException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -152,33 +151,19 @@ public class FormOperatiuniSecond implements Converter{
 		return null;
 	}
 	//-------------------------------------------------------
-	// Suport grid detalii
+	// Suport model date - grid detalii
 	private DataModel<InregistrareContabila> modelGridDetalii;
-	//private List<InregistrareContabila> inregistrariSelectate = new ArrayList<InregistrareContabila>();
 	private InregistrareContabila inregistrareContabila;
 	
 	public DataModel<InregistrareContabila> getModelGridDetalii() {
 		if (modelGridDetalii == null && this.operatiuneContabila != null){
 			this.modelGridDetalii = new ListDataModel<InregistrareContabila>();
-			this.modelGridDetalii.setWrappedData(this.operatiuneContabila.getInregistrari());
+			List<InregistrareContabila> inregistrariLst =  this.operatiuneContabila.getInregistrari();
+			Collections.sort(inregistrariLst);
+			this.modelGridDetalii.setWrappedData(inregistrariLst);
 		}
 		return modelGridDetalii;
 	}
-	
-	public void setSelectedInregistrare(ValueChangeEvent event) {
-		
-		System.out.println("Inregistrare selectata: " + event.getNewValue() + "/" + event.getOldValue());
-		
-		System.out.println(event.getComponent().getClass() 
-				+ "/"+ ((HtmlSelectOneRadio)event.getComponent()).getValue());
-		
-		for (UIComponent c: ((HtmlSelectOneRadio)event.getComponent()).getChildren()){
-			System.out.println("Component class: " + c.getClass());
-		}
-		
-		this.inregistrareContabila = this.modelGridDetalii.getRowData();
-		System.out.println(inregistrareContabila.getNrOrdine());
-    }
 	
 	public Integer getCurrentDetailRow(){
 		if (this.inregistrareContabila == null)
@@ -193,11 +178,89 @@ public class FormOperatiuniSecond implements Converter{
 		this.operatiuneContabila.removeInregistrareContabila(inregistrareContabila);
 		this.modelGridDetalii.setWrappedData(this.operatiuneContabila.getInregistrari());
 	}
+
+	public void setSelectedInregistrare(ValueChangeEvent event) {
+		/*
+		System.out.println("Inregistrare selectata: " + event.getNewValue() + "/" + event.getOldValue());
+		
+		System.out.println(event.getComponent().getClass() 
+				+ "/"+ ((HtmlSelectOneRadio)event.getComponent()).getValue());
+		
+		for (UIComponent c: ((HtmlSelectOneRadio)event.getComponent()).getChildren()){
+			System.out.println("Component class: " + c.getClass());
+		}
+		*/
+		this.inregistrareContabila = this.modelGridDetalii.getRowData();
+		System.out.println(inregistrareContabila.getNrOrdine());
+    }	
+	
 	public void selectInregistrareContabila(ActionEvent evt){
 		this.inregistrareContabila = this.modelGridDetalii.getRowData();
 		System.out.println("Select " + inregistrareContabila.getNrOrdine());		
+	}	
+	//-------------------------------------------------------
+	// Suport actiuni tranzactionale
+	// Obs: Actiunile tranz comunica cu registrul si actualizeaza modelul
+	// <f:ajax render> actualizeaza (refresh) componentele grafice
+	// principiu MVC - de urmat si pentru Swing-based APP 
+	public void salveaza(ActionEvent evt){
+		// preconditii
+		if (this.operatiuneContabila == null)
+			return;
+		
+		// tranzactia cu suportul de persistenta
+		this.registruOperatiuni.addOperatiuneContabila(this.operatiuneContabila);
+		
+		// actualizare model
+		this.registruOperatiuni.refreshOperatiune(this.operatiuneContabila);
 	}
+	public void stergeOperatiune(ActionEvent evt){
+		// preconditii
+		if (this.operatiuneContabila == null)
+			return;
+		// tranzactia cu suportul de persistenta
+		this.registruOperatiuni.removeOperatiuneContabila(this.operatiuneContabila);
+		
+		// actualizare model
+		this.operatiuni.remove(this.operatiuneContabila);
+		this.operatiuneContabila = this.operatiuni.get(0);
+		this.modelGridDetalii = null;
+		this.inregistrareContabila = null;
+		
+	}
+	public void adaugaOperatiune(ActionEvent evt){
+		// preconditii
+		if (this.operatiuneContabila == null)
+			return;
+		
+		// tranzactia cu suportul de persistenta
+		// - nu e necesara
+		
+		// actualizare model
+		this.operatiuneContabila = new OperatiuneContabila();
+		this.operatiuneContabila.setDataContabilizare(new Date());
+		this.operatiuni.add(this.operatiuneContabila);
+		this.modelGridDetalii = null;
+		this.inregistrareContabila = null;		
+	}
+	public void stergeInregistrare(ActionEvent evt){
+		
+	}
+	public void adaugaInregistrare(ActionEvent evt){
+		
+	}
+	public void abandon(ActionEvent evt){
+		
+	}
+}
 	
+
+
+
+
+
+
+
 	//----------------------------------------------------------------------------------------
 //  <f:convertDateTime  datestyle="short" />
 	//http://balusc.blogspot.com/2006/06/using-datatables.html
@@ -234,4 +297,3 @@ sau
 		            </h:selectOneRadio>
 		            	
 	 */
-}
