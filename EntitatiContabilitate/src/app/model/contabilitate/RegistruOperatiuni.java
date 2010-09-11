@@ -92,4 +92,8 @@ public class RegistruOperatiuni {
             entityManager.getTransaction().rollback();
         }
     }
+    
+    public void refreshOperatiune(OperatiuneContabila operatiuneContabila){
+    	this.entityManager.refresh(operatiuneContabila);
+    }
 }

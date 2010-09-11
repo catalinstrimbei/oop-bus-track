@@ -24,6 +24,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import app.model.contabilitate.InregistrareContabila;
+import app.model.contabilitate.InregistrareCredit;
+import app.model.contabilitate.InregistrareDebit;
 import app.model.contabilitate.OperatiuneContabila;
 import app.model.contabilitate.RegistruConturi;
 import app.model.contabilitate.RegistruOperatiuni;
@@ -48,8 +50,13 @@ public class FormOperatiuniSecond implements Converter{
 	public Map<String, Object> getOperatiuni() {
 		Map<String, Object> operatiuniMap = new LinkedHashMap<String, Object>();
 		
-		for (OperatiuneContabila o: this.operatiuni)
-			operatiuniMap.put(o.getIdOperatiune().toString(), o);
+		for (OperatiuneContabila o: this.operatiuni){
+			if (o.getIdOperatiune() == null){
+				// operatiune noua
+				operatiuniMap.put("Noua", o);
+			}else
+				operatiuniMap.put(o.getIdOperatiune().toString(), o);
+		}
 		
 		return operatiuniMap;
 	}
@@ -95,8 +102,12 @@ public class FormOperatiuniSecond implements Converter{
 	
 	private void initFormDataModel(){
 		this.operatiuni.addAll(this.registruOperatiuni.getOperatiuni());
-		if (!this.operatiuni.isEmpty())
+		
+		if (!this.operatiuni.isEmpty()){
+			Collections.sort(this.operatiuni);
 			this.operatiuneContabila = this.operatiuni.get(0);
+			
+		}
 		this.conturi.addAll(this.registruOperatiuni.getConturi());
 	}
 
@@ -106,6 +117,14 @@ public class FormOperatiuniSecond implements Converter{
 		
 		if ("cboOperatiuni".equals(uiComponent.getId())){
 			for (OperatiuneContabila o: this.operatiuni){
+				if ("Noua".equals(uiValue)) {
+					if (o.getIdOperatiune() == null)
+						return o;
+					else
+						continue;
+				}
+					
+
 				if (o.getIdOperatiune().equals(Integer.valueOf(uiValue)))
 					return o;
 			}
@@ -134,8 +153,12 @@ public class FormOperatiuniSecond implements Converter{
 			throws ConverterException {
 		
 		if ("cboOperatiuni".equals(uiComponent.getId())){
-			if (value != null)
-				return ((OperatiuneContabila)value).getIdOperatiune().toString();
+			if (value != null){
+				if (((OperatiuneContabila)value).getIdOperatiune() == null){
+					return "Noua";
+				}else
+					return ((OperatiuneContabila)value).getIdOperatiune().toString();
+			}
 		}
 		
 		if ("txtData".equals(uiComponent.getId())){
@@ -173,12 +196,13 @@ public class FormOperatiuniSecond implements Converter{
 	
 	//--------------------------------------------------------
 	// Actiuni grid-detalii
+	/*
 	public void stergeInregistrareContabila(ActionEvent evt){
 		inregistrareContabila = this.modelGridDetalii.getRowData();
 		this.operatiuneContabila.removeInregistrareContabila(inregistrareContabila);
 		this.modelGridDetalii.setWrappedData(this.operatiuneContabila.getInregistrari());
 	}
-
+	*/
 	public void setSelectedInregistrare(ValueChangeEvent event) {
 		/*
 		System.out.println("Inregistrare selectata: " + event.getNewValue() + "/" + event.getOldValue());
@@ -230,28 +254,125 @@ public class FormOperatiuniSecond implements Converter{
 	}
 	public void adaugaOperatiune(ActionEvent evt){
 		// preconditii
-		if (this.operatiuneContabila == null)
-			return;
+		// - fara (deocamdata)
 		
 		// tranzactia cu suportul de persistenta
 		// - nu e necesara
 		
 		// actualizare model
 		this.operatiuneContabila = new OperatiuneContabila();
+		this.operatiuneContabila.setIdOperatiune(9999);
 		this.operatiuneContabila.setDataContabilizare(new Date());
 		this.operatiuni.add(this.operatiuneContabila);
 		this.modelGridDetalii = null;
 		this.inregistrareContabila = null;		
 	}
 	public void stergeInregistrare(ActionEvent evt){
+		// preconditii
+		if (this.operatiuneContabila == null)
+			return;
+		if (this.inregistrareContabila == null)
+			return;		
 		
+		// tranzactia cu suportul de persistenta
+		// -- nu e necesar
+		
+		// actualizare model
+		this.operatiuneContabila.removeInregistrareContabila(this.inregistrareContabila);
+		this.modelGridDetalii = null;
+		this.inregistrareContabila = null;
+	
 	}
 	public void adaugaInregistrare(ActionEvent evt){
+		// preconditii
+		if (this.operatiuneContabila == null)
+			return;	
 		
+		// tranzactia cu suportul de persistenta
+		// -- nu e necesar
+		
+		// actualizare model
+		this.inregistrareContabila = new InregistrareContabila(this.conturi.get(0), 0.0);
+		this.operatiuneContabila.addInregistrareContabila(this.inregistrareContabila);
+		this.modelGridDetalii = null;
+		this.inregistrareContabila = null;
 	}
 	public void abandon(ActionEvent evt){
+		// preconditii
+		if (this.operatiuneContabila == null)
+			return;		
+		
+		// tranzactia cu suportul de persistenta
+		this.registruOperatiuni.refreshOperatiune(this.operatiuneContabila);
+		
+		// actualizare model
+		this.modelGridDetalii = null;	
+		this.inregistrareContabila = null;
 		
 	}
+	
+	public void adaugaInregistrareDebit(ActionEvent evt){
+		// preconditii
+		if (this.operatiuneContabila == null)
+			return;	
+		
+		// tranzactia cu suportul de persistenta
+		// -- nu e necesar
+		
+		// actualizare model
+		this.inregistrareContabila = new InregistrareDebit(this.conturi.get(0), 0.0);
+		this.operatiuneContabila.addInregistrareContabila(this.inregistrareContabila);
+		this.modelGridDetalii = null;
+		this.inregistrareContabila = null;
+	}	
+	public void adaugaInregistrareCredit(ActionEvent evt){
+		// preconditii
+		if (this.operatiuneContabila == null)
+			return;	
+		
+		// tranzactia cu suportul de persistenta
+		// -- nu e necesar
+		
+		// actualizare model
+		this.inregistrareContabila = new InregistrareCredit(this.conturi.get(0), 0.0);
+		this.operatiuneContabila.addInregistrareContabila(this.inregistrareContabila);
+		this.modelGridDetalii = null;
+		this.inregistrareContabila = null;
+	}	
+	public void previousOperatiune(ActionEvent evt){
+		if (this.operatiuni == null)
+			return;
+		if (this.operatiuni.isEmpty())
+			return;
+		if (this.operatiuneContabila == null);
+			this.operatiuneContabila = this.operatiuni.get(0);
+			
+		Integer currentIdx = this.operatiuni.indexOf(this.operatiuneContabila);
+		if (currentIdx > 0){
+			this.operatiuneContabila = this.operatiuni.get(currentIdx - 1);
+			this.modelGridDetalii = null;
+			this.inregistrareContabila = null;			
+		}
+	}
+	public void nextOperatiune(ActionEvent evt){
+		if (this.operatiuni == null)
+			return;
+		if (this.operatiuni.isEmpty())
+			return;
+		if (this.operatiuneContabila == null);
+			this.operatiuneContabila = this.operatiuni.get(0);
+			
+		Integer currentIdx = this.operatiuni.indexOf(this.operatiuneContabila);
+		
+		System.out.println("Current indx: " + currentIdx + "/" + (currentIdx + 1));
+		
+		if ((currentIdx+1) < this.operatiuni.size()){
+			System.out.println("Next indx: " + (currentIdx + 1));
+			this.operatiuneContabila = this.operatiuni.get(currentIdx + 1);
+			this.modelGridDetalii = null;
+			this.inregistrareContabila = null;
+		}
+	}	
 }
 	
 
