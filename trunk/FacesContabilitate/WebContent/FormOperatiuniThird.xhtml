@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+<head>
+  <title>Formular Operatiuni Contabile 1.3</title>
+  <script language="JavaScript" src="./util.js"/>
+  <link rel="stylesheet" type="text/css" href="./util.css" />   
+</head>
+
+<body>
+
+<f:view>
+<title><pre><p align="center">APLICATIE CONTABILA</p></pre></title>
+
+<h:form id="formOperatiuniSecond">
+
+		<h:panelGrid columns="3" border="1">
+			<f:facet name="header">
+			<h:commandLink
+				style="color: Red; font-size: 14px; font-family: Tahoma, Verdana, Arial, Sans-Serif; font-weight: bold; text-align: center" 
+				value="Aplicatie Contabilitate"
+				action="#{formOperatiuniSecond.showMainForm}" />			
+				<h:outputText value=" - Form Operatiuni contabile 1.3"></h:outputText>
+			</f:facet>
+			<f:facet name="footer">
+				Numar operatiuni: #{formOperatiuniSecond.operatiuniCount}
+			</f:facet>
+			<h:selectOneMenu id="cboOperatiuni" style="width: 121px; "
+				value="#{formOperatiuniSecond.operatiuneContabila}" 
+					converter="#{formOperatiuniSecond}" 
+					styleClass="rowHighlighted">
+				<f:selectItems value="#{formOperatiuniSecond.operatiuni}" />
+				<f:ajax render="txtId txtData tblInregistrari" />
+			</h:selectOneMenu>
+			<h:panelGrid columns="2" border="0">
+				<h:commandButton value="Prev" id="btnPrevious" 
+				actionListener="#{formOperatiuniSecond.previousOperatiune}"/>
+				<h:commandButton value="Next" id="btnNext" 
+				actionListener="#{formOperatiuniSecond.nextOperatiune}"/>
+			</h:panelGrid>
+			<h:commandButton value="Op.noua" 
+				actionListener="#{formOperatiuniSecond.adaugaOperatiune}" style="width: 94px; "/>
+			<h:outputText value="Nr.op." />
+			<h:inputText id="txtId" 
+				value="#{formOperatiuniSecond.operatiuneContabila.idOperatiune}"
+				disabled = "false"/>
+			<h:commandButton value="Sterge op." 
+				actionListener="#{formOperatiuniSecond.stergeOperatiune}" />
+			<h:outputText value="Data" />
+			<h:inputText id="txtData" 
+				value="#{formOperatiuniSecond.operatiuneContabila.dataContabilizare}" >
+				<f:convertDateTime pattern="dd/MM/yyyy" />
+			</h:inputText>
+			<h:panelGrid columns="2" border="1"><h:commandButton 
+				value="Salveaza" 
+				actionListener="#{formOperatiuniSecond.salveaza}">
+				<f:ajax execute="@form" />
+			</h:commandButton>
+				<h:commandButton id="btnAbandon"
+					actionListener="#{formOperatiuniSecond.abandon}" value="Abandon"></h:commandButton>
+			</h:panelGrid>
+			
+		</h:panelGrid>
+		<h:panelGrid columns="1" border="1">
+			<f:facet name="header">
+				
+				<h:panelGrid columns="2" border="0" >
+					<h:outputText value="Inregistrari contabile"></h:outputText>
+					<h:panelGrid id="panouActiuni" columns="3" border="0">
+						<h:commandButton value="AdaugaDebit" 
+							actionListener="#{formOperatiuniSecond.adaugaInregistrareDebit}" />
+						<h:commandButton value="AdaugaCredit" 
+							actionListener="#{formOperatiuniSecond.adaugaInregistrareCredit}" />							
+						<h:commandButton id="btnStergeInregistrare" value="Sterge">
+							<f:ajax event="click" listener="#{formOperatiuniSecond.deleteInregistrare}" />
+						</h:commandButton>
+					</h:panelGrid>
+				</h:panelGrid>
+			</f:facet>
+
+			<h:dataTable border="1" id="tblInregistrari" var="inregistrare" value="#{formOperatiuniSecond.modelGridDetalii}">
+
+		        <h:column>
+		            <f:facet name="header">
+		                <h:outputText value="Select" />
+		            </f:facet>
+		            <h:selectOneRadio onclick="selectTableRow(this,event)">
+		                <f:selectItem itemLabel="  " itemValue="0"/>
+		            </h:selectOneRadio>            
+		        </h:column>				
+				
+				<h:column id="colNr">
+					<h:inputText id="txtNr" value="#{inregistrare.nrOrdine}"/>
+					<f:facet name="header">Nr.</f:facet>
+				</h:column>
+				
+				<h:column id="colCont">
+					<h:selectOneMenu id="cboCont" value="#{inregistrare.cont}" 
+						converter="#{formOperatiuniSecond}">
+						<f:selectItems value="#{formOperatiuniSecond.conturi}" />
+					</h:selectOneMenu>
+					<f:facet name="header">Cont</f:facet>
+				</h:column>
+					
+				<h:column id="colSuma">
+					<h:inputText id="txtSuma" value="#{inregistrare.suma}"></h:inputText>
+					<f:facet name="header">Suma</f:facet>
+				</h:column>
+
+				<h:column id="colTip">
+					<h:outputText id="txtTip" value="#{inregistrare.tip}" />
+					<f:facet name="header">Debit/Credit</f:facet>
+				</h:column>
+				 
+			<f:facet name="footer">
+				Numar inregistrari op. curenta : #{formOperatiuniSecond.inregistrariCount} 
+				<h:outputText id="txtNrInregCurenta" 
+					value=" Numar inregistrarea curenta : #{formOperatiuniSecond.currentDetailRow}"/>
+				
+			</f:facet>
+							
+			</h:dataTable>
+			
+
+		</h:panelGrid>
+	</h:form>
+</f:view>
+
+</body>
+
+</html>

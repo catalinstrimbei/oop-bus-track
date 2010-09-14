@@ -16,6 +16,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
 import javax.faces.event.ActionEvent;
+import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
@@ -225,6 +226,12 @@ public class FormOperatiuniSecond implements Converter{
 	public void selectInregistrareContabila(ActionEvent evt){
 		this.inregistrareContabila = this.modelGridDetalii.getRowData();
 		System.out.println("Select " + inregistrareContabila.getNrOrdine());		
+	}
+	
+	public void selectInregistrareCurenta(AjaxBehaviorEvent evt){
+		//this.inregistrareContabila = this.modelGridDetalii.getRowData();
+		//System.out.println("Select [ajax event] " + inregistrareContabila.getNrOrdine());
+		System.out.println("Selected");
 	}	
 	//-------------------------------------------------------
 	// Suport actiuni tranzactionale
@@ -285,8 +292,11 @@ public class FormOperatiuniSecond implements Converter{
 		this.operatiuneContabila.removeInregistrareContabila(this.inregistrareContabila);
 		this.modelGridDetalii = null;
 		this.inregistrareContabila = null;
-	
 	}
+	public void deleteInregistrare(AjaxBehaviorEvent evt){
+		System.out.println("--- Sterge Inregistrare");
+		stergeInregistrare(null);
+	}	
 	public void adaugaInregistrare(ActionEvent evt){
 		// preconditii
 		if (this.operatiuneContabila == null)
