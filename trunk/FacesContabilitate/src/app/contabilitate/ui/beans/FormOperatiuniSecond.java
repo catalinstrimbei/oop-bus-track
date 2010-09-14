@@ -210,17 +210,12 @@ public class FormOperatiuniSecond implements Converter{
 	*/
 	public void setSelectedInregistrare(ValueChangeEvent event) {
 		this.inregistrareContabila = this.modelGridDetalii.getRowData();
-		System.out.println(inregistrareContabila.getNrOrdine());
+		System.out.println("Select [ajax event] " + inregistrareContabila.getNrOrdine());
     }	
 	
 	public void selectInregistrareContabila(ActionEvent evt){
 		this.inregistrareContabila = this.modelGridDetalii.getRowData();
 		System.out.println("Select " + inregistrareContabila.getNrOrdine());
-	}
-	public void selectInregistrareCurenta(AjaxBehaviorEvent evt){
-		//this.inregistrareContabila = this.modelGridDetalii.getRowData();
-		//System.out.println("Select [ajax event] " + inregistrareContabila.getNrOrdine());
-		System.out.println("Selected");
 	}	
 	
 	//-------------------------------------------------------
