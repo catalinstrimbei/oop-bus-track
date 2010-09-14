@@ -62,13 +62,7 @@ function selectTableRow(radio, event) {
 	
 	var id = radio.name.substring(radio.name.lastIndexOf(':'));
     var el = radio.form.elements;
-    var next_el_id = radio.name.substring(0, radio.name.lastIndexOf(':')) + ":txtNr";
-    var next_el = document.getElementById(next_el_id);
     
-    /*
-    alert(radio.name);    
-    alert(next_el_id);
-    */
     for (var i = 0; i < el.length; i++) {
         if (el[i].name.substring(el[i].name.lastIndexOf(':')) == id) {
         	if (el[i].name != radio.name){
@@ -81,15 +75,8 @@ function selectTableRow(radio, event) {
     getRow(radio).className = "rowHighlighted";
     
     //Trimite cerere Ajax pentru a stabili inregistrarea curenta
-    jsf.ajax.request(
-    	radio, 
-    	event, 
-    	{
-    		render:'formOperatiuniSecond:txtNrInregCurenta', 
-    		onevent:'formOperatiuniSecond.selectInregistrareCurenta'
-    	}
-    );
-    //jsf.ajax.request('formConturi:cboConturi',event,{render:'formConturi:txtCod formConturi:txtDenumire formConturi:cboSubClasaCont','javax.faces.behavior.event':'valueChange'})    
-    //next_el.focus();
+    jsf.ajax.request(radio, event, {execute:'formOperatiuniSecond:tblInregistrari',
+    	render:'formOperatiuniSecond:tblInregistrari:txtNrInregCurenta'});    
+    
     
 }

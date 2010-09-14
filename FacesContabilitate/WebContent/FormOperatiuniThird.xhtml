@@ -74,7 +74,9 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 						<h:commandButton value="AdaugaCredit" 
 							actionListener="#{formOperatiuniSecond.adaugaInregistrareCredit}" />							
 						<h:commandButton id="btnStergeInregistrare" value="Sterge">
-							<f:ajax event="click" listener="#{formOperatiuniSecond.deleteInregistrare}" />
+							<f:ajax event="click" 
+							render="tblInregistrari"
+							listener="#{formOperatiuniSecond.deleteInregistrare}" />
 						</h:commandButton>
 					</h:panelGrid>
 				</h:panelGrid>
@@ -86,7 +88,8 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 		            <f:facet name="header">
 		                <h:outputText value="Select" />
 		            </f:facet>
-		            <h:selectOneRadio onclick="selectTableRow(this,event)">
+		            <h:selectOneRadio onclick="selectTableRow(this,event)" 
+		            	valueChangeListener="#{formOperatiuniSecond.setSelectedInregistrare}">
 		                <f:selectItem itemLabel="  " itemValue="0"/>
 		            </h:selectOneRadio>            
 		        </h:column>				
@@ -123,7 +126,6 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 							
 			</h:dataTable>
 			
-
 		</h:panelGrid>
 	</h:form>
 </f:view>
