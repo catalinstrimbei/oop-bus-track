@@ -6,6 +6,7 @@ public class MainForm {
 			return "FormConturi";
 	}
 	public String showFormOperatiuni(){
-		return "FormOperatiuniSecond";
+		//return "FormOperatiuniSecond";
+		return "FormOperatiuniThird";
 	}	
 }
