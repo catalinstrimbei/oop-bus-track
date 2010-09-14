@@ -34,9 +34,14 @@ import app.model.contabilitate.conturi.Cont;
 
 public class FormOperatiuniSecond implements Converter{
 	private RegistruOperatiuni registruOperatiuni;
+
+	// DataModel Master ---------------------------------------------
 	private List<OperatiuneContabila> operatiuni = new ArrayList<OperatiuneContabila>();
 	private OperatiuneContabila operatiuneContabila;
 	private List<Cont> conturi = new ArrayList<Cont>();
+	// Suport model date - grid detalii -----------------------------
+	private DataModel<InregistrareContabila> modelGridDetalii;
+	private InregistrareContabila inregistrareContabila;
 	
 	public OperatiuneContabila getOperatiuneContabila() {
 		return operatiuneContabila;
@@ -88,6 +93,24 @@ public class FormOperatiuniSecond implements Converter{
 		return this.operatiuneContabila.getInregistrari().size();
 	}
 	
+	@SuppressWarnings("unchecked")
+	public DataModel<InregistrareContabila> getModelGridDetalii() {
+		if (modelGridDetalii == null && this.operatiuneContabila != null){
+			this.modelGridDetalii = new ListDataModel<InregistrareContabila>();
+			List<InregistrareContabila> inregistrariLst =  this.operatiuneContabila.getInregistrari();
+			Collections.sort(inregistrariLst);
+			this.modelGridDetalii.setWrappedData(inregistrariLst);
+		}
+		return modelGridDetalii;
+	}
+	
+	public Integer getCurrentDetailRow(){
+		if (this.inregistrareContabila == null)
+			return -1;
+		return this.inregistrareContabila.getNrOrdine();
+	}
+	
+	//--------------------------------------------------------------------
 	public FormOperatiuniSecond() {
         // creare entity manager
         EntityManagerFactory emf = Persistence.
@@ -100,7 +123,6 @@ public class FormOperatiuniSecond implements Converter{
         initFormDataModel();
 		
 	}
-	
 	private void initFormDataModel(){
 		this.operatiuni.addAll(this.registruOperatiuni.getOperatiuni());
 		
@@ -111,8 +133,7 @@ public class FormOperatiuniSecond implements Converter{
 		}
 		this.conturi.addAll(this.registruOperatiuni.getConturi());
 	}
-
-	//--------------------------------------------------------------------------
+	// Suport conversie <format date view> - <format date model> -------------------------------------
 	public Object getAsObject(FacesContext arg0, UIComponent uiComponent, String uiValue)
 			throws ConverterException {
 		
@@ -178,29 +199,8 @@ public class FormOperatiuniSecond implements Converter{
 		
 		return null;
 	}
-	//-------------------------------------------------------
-	// Suport model date - grid detalii
-	private DataModel<InregistrareContabila> modelGridDetalii;
-	private InregistrareContabila inregistrareContabila;
 	
-	public DataModel<InregistrareContabila> getModelGridDetalii() {
-		if (modelGridDetalii == null && this.operatiuneContabila != null){
-			this.modelGridDetalii = new ListDataModel<InregistrareContabila>();
-			List<InregistrareContabila> inregistrariLst =  this.operatiuneContabila.getInregistrari();
-			Collections.sort(inregistrariLst);
-			this.modelGridDetalii.setWrappedData(inregistrariLst);
-		}
-		return modelGridDetalii;
-	}
-	
-	public Integer getCurrentDetailRow(){
-		if (this.inregistrareContabila == null)
-			return -1;
-		return this.inregistrareContabila.getNrOrdine();
-	}
-	
-	//--------------------------------------------------------
-	// Actiuni grid-detalii
+	// Actiuni grid-detalii ------------------------------------------------------
 	/*
 	public void stergeInregistrareContabila(ActionEvent evt){
 		inregistrareContabila = this.modelGridDetalii.getRowData();
@@ -209,30 +209,20 @@ public class FormOperatiuniSecond implements Converter{
 	}
 	*/
 	public void setSelectedInregistrare(ValueChangeEvent event) {
-		/*
-		System.out.println("Inregistrare selectata: " + event.getNewValue() + "/" + event.getOldValue());
-		
-		System.out.println(event.getComponent().getClass() 
-				+ "/"+ ((HtmlSelectOneRadio)event.getComponent()).getValue());
-		
-		for (UIComponent c: ((HtmlSelectOneRadio)event.getComponent()).getChildren()){
-			System.out.println("Component class: " + c.getClass());
-		}
-		*/
 		this.inregistrareContabila = this.modelGridDetalii.getRowData();
 		System.out.println(inregistrareContabila.getNrOrdine());
     }	
 	
 	public void selectInregistrareContabila(ActionEvent evt){
 		this.inregistrareContabila = this.modelGridDetalii.getRowData();
-		System.out.println("Select " + inregistrareContabila.getNrOrdine());		
+		System.out.println("Select " + inregistrareContabila.getNrOrdine());
 	}
-	
 	public void selectInregistrareCurenta(AjaxBehaviorEvent evt){
 		//this.inregistrareContabila = this.modelGridDetalii.getRowData();
 		//System.out.println("Select [ajax event] " + inregistrareContabila.getNrOrdine());
 		System.out.println("Selected");
 	}	
+	
 	//-------------------------------------------------------
 	// Suport actiuni tranzactionale
 	// Obs: Actiunile tranz comunica cu registrul si actualizeaza modelul
@@ -386,9 +376,8 @@ public class FormOperatiuniSecond implements Converter{
 			this.modelGridDetalii = null;
 			this.inregistrareContabila = null;
 		}
-	}	
-	//--------------------------------------------
-	// 4. Go Back
+	}
+	// 4. Go Back - suport actiuni navigare-aplicatie -------------------------------------------
 	public String showMainForm(){
 		return "MainForm";
 	}
