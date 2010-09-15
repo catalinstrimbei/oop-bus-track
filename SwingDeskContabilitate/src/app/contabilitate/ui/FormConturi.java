@@ -272,6 +272,7 @@ public class FormConturi extends javax.swing.JFrame {
     }
 
     public app.model.contabilitate.conturi.Cont getCont() {
+        
         return cont;
     }
 
