@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+	<persistence-unit name="EntitatiContabilitate" transaction-type="RESOURCE_LOCAL">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		
+	    <class>app.model.contabilitate.InregistrareContabila</class>
+	    <class>app.model.contabilitate.InregistrareCredit</class>
+	    <class>app.model.contabilitate.InregistrareDebit</class>
+	    <class>app.model.contabilitate.OperatiuneContabila</class>
+	    <class>app.model.contabilitate.conturi.ClasaConturi</class>
+	    <class>app.model.contabilitate.conturi.Cont</class>
+	    <class>app.model.contabilitate.operatiuni.Cumparare</class>
+	    <class>app.model.contabilitate.operatiuni.Incasare</class>
+	    <class>app.model.contabilitate.operatiuni.Plata</class>
+	    <class>app.model.contabilitate.operatiuni.Vinzare</class>
+	    <class>app.model.contabilitate.operatiuni.OperatiuneFinanciara</class>
+	    <class>app.model.contabilitate.operatiuni.OperatiuneComerciala</class>		
+		
+		<properties>
+			<property name="eclipselink.target-server" value="None"/>
+			<property name="eclipselink.jdbc.driver" value="org.postgresql.Driver"/>
+			<property name="eclipselink.jdbc.url" value="jdbc:postgresql:postgres//localhost:5432/postgres"/>
+			<property name="eclipselink.jdbc.user" value="contabilitate"/>
+			<property name="eclipselink.jdbc.password" value="contabilitate"/>
+			<property name="eclipselink.logging.level" value="WARNING"/>
+			<property name="eclipselink.ddl-generation" value="none"/>
+		</properties>
+	</persistence-unit>
+</persistence>
