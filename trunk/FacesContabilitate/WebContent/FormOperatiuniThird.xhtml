@@ -53,7 +53,7 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 				value="#{formOperatiuniSecond.operatiuneContabila.dataContabilizare}" >
 				<f:convertDateTime pattern="dd/MM/yyyy" />
 			</h:inputText>
-			<h:panelGrid columns="2" border="1"><h:commandButton 
+			<h:panelGrid columns="2" border="0"><h:commandButton 
 				value="Salveaza" 
 				actionListener="#{formOperatiuniSecond.salveaza}">
 				<f:ajax execute="@form" />
@@ -63,26 +63,26 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 			</h:panelGrid>
 			
 		</h:panelGrid>
-		<h:panelGrid columns="1" border="1">
-			<f:facet name="header">
-				
-				<h:panelGrid columns="2" border="0" >
-					<h:outputText value="Inregistrari contabile"></h:outputText>
-					<h:panelGrid id="panouActiuni" columns="3" border="0">
-						<h:commandButton value="AdaugaDebit" 
-							actionListener="#{formOperatiuniSecond.adaugaInregistrareDebit}" />
-						<h:commandButton value="AdaugaCredit" 
-							actionListener="#{formOperatiuniSecond.adaugaInregistrareCredit}" />							
-						<h:commandButton id="btnStergeInregistrare" value="Sterge">
-							<f:ajax event="click" 
-							render="tblInregistrari"
-							listener="#{formOperatiuniSecond.deleteInregistrare}" />
-						</h:commandButton>
-					</h:panelGrid>
-				</h:panelGrid>
-			</f:facet>
 
 			<h:dataTable border="1" id="tblInregistrari" var="inregistrare" value="#{formOperatiuniSecond.modelGridDetalii}">
+
+				<f:facet name="header">
+					
+					<h:panelGrid columns="2" border="0" >
+						<h:outputText value="Inregistrari contabile"></h:outputText>
+						<h:panelGrid id="panouActiuni" columns="3" border="0">
+							<h:commandButton value="AdaugaDebit" 
+								actionListener="#{formOperatiuniSecond.adaugaInregistrareDebit}" />
+							<h:commandButton value="AdaugaCredit" 
+								actionListener="#{formOperatiuniSecond.adaugaInregistrareCredit}" />							
+							<h:commandButton id="btnStergeInregistrare" value="Sterge">
+								<f:ajax event="click" 
+								render="tblInregistrari"
+								listener="#{formOperatiuniSecond.deleteInregistrare}" />
+							</h:commandButton>
+						</h:panelGrid>
+					</h:panelGrid>
+				</f:facet>
 
 		        <h:column>
 		            <f:facet name="header">
@@ -126,7 +126,6 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 							
 			</h:dataTable>
 			
-		</h:panelGrid>
 	</h:form>
 </f:view>
 
