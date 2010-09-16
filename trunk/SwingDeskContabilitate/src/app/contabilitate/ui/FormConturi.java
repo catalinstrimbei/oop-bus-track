@@ -304,7 +304,7 @@ public class FormConturi extends javax.swing.JFrame {
     }
 
     public app.model.contabilitate.conturi.Cont getCont() {
-        
+
         return cont;
     }
 
@@ -314,10 +314,10 @@ public class FormConturi extends javax.swing.JFrame {
 //        this.cont = cont;
         changeSupport.firePropertyChange("cont", this.cont, cont);
         this.cont = cont;
-        if (this.cont != null)
-            System.out.println("Selected cont: " + this.cont.getCod());
-        else
-            System.out.println("Selected cont: " + this.cont);
+//        if (this.cont != null)
+//            System.out.println("Selected cont: " + this.cont.getCod());
+//        else
+//            System.out.println("Selected cont: " + this.cont);
     }
     
 }
