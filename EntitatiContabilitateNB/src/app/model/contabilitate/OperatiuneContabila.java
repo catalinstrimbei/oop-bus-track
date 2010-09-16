@@ -9,6 +9,7 @@ import app.exceptii.ExceptieValidare;
 import app.model.validare.Validatable;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -68,6 +69,8 @@ public class OperatiuneContabila implements Comparable, Serializable, Validatabl
     public List<InregistrareContabila> getInregistrari() {
         List<InregistrareContabila> result = new ArrayList<InregistrareContabila>();
         result.addAll(inregistrari.values());
+        Collections.sort(result);
+        
         return result;
     }
 
