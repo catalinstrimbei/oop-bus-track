@@ -17,6 +17,7 @@ import app.model.contabilitate.conturi.Cont;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
+import javax.naming.Binding;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -42,28 +43,23 @@ public class FormConturi extends javax.swing.JFrame {
 
         initComponents();
 
-
         // initializare model
         initDataModel();
 
         // refresh pe formular
-        //this.bindingGroup.unbind();
-        //this.bindingGroup.bind();
+        this.bindingGroup.unbind();
+        this.bindingGroup.bind();
+        this.lstConturi.setSelectedIndex(0);
+
+//        Object x = this.lstConturi.getSelectedValue();
+//        System.out.println("Break");
 
     }
 
     private void initDataModel(){
-        this.setConturi(new ArrayList<Cont>(registruConturi.getConturi()));
-        //this.conturi = new ArrayList<Cont>(registruConturi.getConturi());
-
-        if (this.conturi != null && !this.conturi.isEmpty()){
-        	// initializare cont curent implicit
-        	this.setCont(this.conturi.get(0));
-                System.out.println("Conturi count " + this.conturi.size());
-        }
-
-        this.setClaseConturi(new ArrayList<ClasaConturi>(registruConturi.getClaseConturi()));
-     }
+        this.conturi = new ArrayList<Cont>(registruConturi.getConturi());
+        this.claseConturi = new ArrayList<ClasaConturi>(registruConturi.getClaseConturi());
+    }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -95,10 +91,10 @@ public class FormConturi extends javax.swing.JFrame {
         setTitle("FormConturi");
 
         org.jdesktop.beansbinding.ELProperty eLProperty = org.jdesktop.beansbinding.ELProperty.create("${conturi}");
-        org.jdesktop.swingbinding.JListBinding jListBinding = org.jdesktop.swingbinding.SwingBindings.createJListBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, eLProperty, lstConturi);
+        org.jdesktop.swingbinding.JListBinding jListBinding = org.jdesktop.swingbinding.SwingBindings.createJListBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, eLProperty, lstConturi, "lstConturiElements");
         jListBinding.setDetailBinding(org.jdesktop.beansbinding.ELProperty.create("${denumire}"));
         bindingGroup.addBinding(jListBinding);
-        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${cont}"), lstConturi, org.jdesktop.beansbinding.BeanProperty.create("selectedElement"));
+        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${cont}"), lstConturi, org.jdesktop.beansbinding.BeanProperty.create("selectedElement"), "lstConturiSelectedElement");
         bindingGroup.addBinding(binding);
 
         jScrollPane1.setViewportView(lstConturi);
@@ -117,10 +113,10 @@ public class FormConturi extends javax.swing.JFrame {
             }
         });
 
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${cont.cod}"), txtCod, org.jdesktop.beansbinding.BeanProperty.create("text"));
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, lstConturi, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.cod}"), txtCod, org.jdesktop.beansbinding.BeanProperty.create("text"));
         bindingGroup.addBinding(binding);
 
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${cont.denumire}"), txtDenumire, org.jdesktop.beansbinding.BeanProperty.create("text"));
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, lstConturi, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.denumire}"), txtDenumire, org.jdesktop.beansbinding.BeanProperty.create("text"));
         bindingGroup.addBinding(binding);
 
         txtDenumire.addActionListener(new java.awt.event.ActionListener() {
@@ -134,7 +130,7 @@ public class FormConturi extends javax.swing.JFrame {
         eLProperty = org.jdesktop.beansbinding.ELProperty.create("${claseConturi}");
         org.jdesktop.swingbinding.JComboBoxBinding jComboBoxBinding = org.jdesktop.swingbinding.SwingBindings.createJComboBoxBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, eLProperty, cboSubClasaCont);
         bindingGroup.addBinding(jComboBoxBinding);
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${cont.subClasaCont}"), cboSubClasaCont, org.jdesktop.beansbinding.BeanProperty.create("selectedItem"));
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, lstConturi, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.subClasaCont}"), cboSubClasaCont, org.jdesktop.beansbinding.BeanProperty.create("selectedItem"));
         bindingGroup.addBinding(binding);
 
         jLabel1.setText("Cod");
@@ -144,12 +140,32 @@ public class FormConturi extends javax.swing.JFrame {
         jLabel3.setText("Clasa cont");
 
         cmdAdauga.setText("Adauga");
+        cmdAdauga.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdAdaugaActionPerformed(evt);
+            }
+        });
 
         cmdSterge.setText("Sterge");
+        cmdSterge.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdStergeActionPerformed(evt);
+            }
+        });
 
         cmdAbandon.setText("Abandon");
+        cmdAbandon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdAbandonActionPerformed(evt);
+            }
+        });
 
         cmdSalvare.setText("Salvare");
+        cmdSalvare.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdSalvareActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -222,17 +238,58 @@ public class FormConturi extends javax.swing.JFrame {
 
     private void btnPreviousContActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreviousContActionPerformed
             int currentIdx = this.conturi.indexOf(this.cont);
-            System.out.println(this.cont.getCod() + "/" + currentIdx + "/" + (currentIdx-1) +
-                   "/" + this.conturi.get(currentIdx - 1));
-            if (currentIdx > 0)
-                    this.setCont(this.conturi.get(currentIdx - 1));
+            if (currentIdx > 0){
+                Cont previousCont = this.conturi.get(currentIdx - 1);
+                this.lstConturi.setSelectedValue(previousCont.getDenumire(), true);
+            }  
     }//GEN-LAST:event_btnPreviousContActionPerformed
 
     private void btnNextContActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextContActionPerformed
-            int currentIdx = this.conturi.indexOf(this.cont);
-            if ((currentIdx + 1) < this.conturi.size())
-                    this.setCont(this.conturi.get(currentIdx + 1));
+        int currentIdx = this.conturi.indexOf(this.cont);
+        if ((currentIdx + 1) < this.conturi.size()){
+                Cont nextCont = this.conturi.get(currentIdx + 1);
+                this.lstConturi.setSelectedValue(nextCont.getDenumire(), true);
+        }
     }//GEN-LAST:event_btnNextContActionPerformed
+
+    private void cmdAdaugaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAdaugaActionPerformed
+        this.cont = new Cont();
+        this.cont.setCod("999.999");
+        this.cont.setDenumire("Cont nou 999.999");
+        this.cont.setSubClasaCont(this.claseConturi.get(0));
+        this.conturi.add(this.cont);
+
+        // refresh pe formular
+        this.bindingGroup.unbind();
+        this.bindingGroup.bind();
+        lstConturi.setSelectedValue("Cont nou 999.999", true); // 4
+    }//GEN-LAST:event_cmdAdaugaActionPerformed
+
+    private void cmdSalvareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdSalvareActionPerformed
+        this.registruConturi.addCont(this.cont);
+    }//GEN-LAST:event_cmdSalvareActionPerformed
+
+    private void cmdStergeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdStergeActionPerformed
+	this.conturi.remove(this.cont);
+	this.registruConturi.removeCont(this.cont);
+
+        // refresh pe formular
+        this.bindingGroup.unbind();
+        this.bindingGroup.bind();
+        if (!this.conturi.isEmpty()){
+            this.lstConturi.setSelectedIndex(0);
+        }
+    }//GEN-LAST:event_cmdStergeActionPerformed
+
+    private void cmdAbandonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAbandonActionPerformed
+        this.registruConturi.refreshCont(this.cont);
+
+        // refresh pe formular
+        String elementCurent = this.cont.getDenumire();
+        this.bindingGroup.unbind();
+        this.bindingGroup.bind();
+        this.lstConturi.setSelectedValue(elementCurent, true);
+    }//GEN-LAST:event_cmdAbandonActionPerformed
 
     /**
     * @param args the command line arguments
@@ -271,23 +328,13 @@ public class FormConturi extends javax.swing.JFrame {
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 
-    private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
-    public void addPropertyChangeListener(PropertyChangeListener listener) {
-        changeSupport.addPropertyChangeListener(listener);
-    }
-
-    public void removePropertyChangeListener(PropertyChangeListener listener) {
-        changeSupport.removePropertyChangeListener(listener);
-    }
-
+    
     public java.util.List<app.model.contabilitate.conturi.ClasaConturi> getClaseConturi() {
         return claseConturi;
     }
 
     public void setClaseConturi(java.util.List<app.model.contabilitate.conturi.ClasaConturi> claseConturi) {
-        java.util.List<ClasaConturi> old = this.claseConturi;
         this.claseConturi = claseConturi;
-        changeSupport.firePropertyChange("claseConturi", old, this.claseConturi);
     }
 
     public java.util.List<app.model.contabilitate.conturi.Cont> getConturi() {
@@ -295,29 +342,16 @@ public class FormConturi extends javax.swing.JFrame {
     }
 
     public void setConturi(java.util.List<app.model.contabilitate.conturi.Cont> conturi) {
-        //changeSupport.firePropertyChange("conturi", this.conturi, conturi);
-        //this.conturi = conturi;
-        
-        java.util.List<Cont> old = this.conturi;
         this.conturi = conturi;
-        changeSupport.firePropertyChange("conturi", old, this.conturi);
     }
 
     public app.model.contabilitate.conturi.Cont getCont() {
-
         return cont;
     }
 
     public void setCont(app.model.contabilitate.conturi.Cont cont) {
         System.out.println("New cont: " + cont);
-//        Cont old = this.cont;
-//        this.cont = cont;
-        changeSupport.firePropertyChange("cont", this.cont, cont);
         this.cont = cont;
-//        if (this.cont != null)
-//            System.out.println("Selected cont: " + this.cont.getCod());
-//        else
-//            System.out.println("Selected cont: " + this.cont);
     }
     
 }

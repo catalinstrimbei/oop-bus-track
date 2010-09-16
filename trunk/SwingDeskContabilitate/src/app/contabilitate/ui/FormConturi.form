@@ -121,9 +121,11 @@
           <BindingProperties>
             <BindingProperty name="elements" source="Form" sourcePath="${conturi}" target="lstConturi" targetPath="elements" updateStrategy="0" immediately="false">
               <BindingParameter name="DISPLAY" value="${denumire}"/>
+              <Property name="name" type="java.lang.String" value="lstConturiElements"/>
             </BindingProperty>
             <BindingProperty name="selectedElement" source="Form" sourcePath="${cont}" target="lstConturi" targetPath="selectedElement" updateStrategy="0" immediately="false">
               <BindingParameter name="IGNORE_ADJUSTING" value="N"/>
+              <Property name="name" type="java.lang.String" value="lstConturiSelectedElement"/>
             </BindingProperty>
           </BindingProperties>
         </Component>
@@ -147,14 +149,14 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtCod">
       <BindingProperties>
-        <BindingProperty name="text" source="Form" sourcePath="${cont.cod}" target="txtCod" targetPath="text" updateStrategy="0" immediately="false">
+        <BindingProperty name="text" source="lstConturi" sourcePath="${selectedElement.cod}" target="txtCod" targetPath="text" updateStrategy="0" immediately="false">
           <BindingParameter name="javax.swing.binding.ParameterKeys.TEXT_CHANGE_STRATEGY" value="javax.swing.binding.TextChangeStrategy.ON_TYPE"/>
         </BindingProperty>
       </BindingProperties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtDenumire">
       <BindingProperties>
-        <BindingProperty name="text" source="Form" sourcePath="${cont.denumire}" target="txtDenumire" targetPath="text" updateStrategy="0" immediately="false">
+        <BindingProperty name="text" source="lstConturi" sourcePath="${selectedElement.denumire}" target="txtDenumire" targetPath="text" updateStrategy="0" immediately="false">
           <BindingParameter name="javax.swing.binding.ParameterKeys.TEXT_CHANGE_STRATEGY" value="javax.swing.binding.TextChangeStrategy.ON_TYPE"/>
         </BindingProperty>
       </BindingProperties>
@@ -175,7 +177,7 @@
       </Properties>
       <BindingProperties>
         <BindingProperty name="elements" source="Form" sourcePath="${claseConturi}" target="cboSubClasaCont" targetPath="elements" updateStrategy="0" immediately="false"/>
-        <BindingProperty name="selectedItem" source="Form" sourcePath="${cont.subClasaCont}" target="cboSubClasaCont" targetPath="selectedItem" updateStrategy="0" immediately="false"/>
+        <BindingProperty name="selectedItem" source="lstConturi" sourcePath="${selectedElement.subClasaCont}" target="cboSubClasaCont" targetPath="selectedItem" updateStrategy="0" immediately="false"/>
       </BindingProperties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
@@ -197,21 +199,33 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Adauga"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdAdaugaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="cmdSterge">
       <Properties>
         <Property name="text" type="java.lang.String" value="Sterge"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdStergeActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="cmdAbandon">
       <Properties>
         <Property name="text" type="java.lang.String" value="Abandon"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdAbandonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="cmdSalvare">
       <Properties>
         <Property name="text" type="java.lang.String" value="Salvare"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdSalvareActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
