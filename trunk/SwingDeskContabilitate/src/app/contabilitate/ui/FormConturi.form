@@ -3,10 +3,6 @@
 <Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Component class="java.util.List" name="conturi">
-      <Properties>
-        <Property name="modifiableWrapper" type="boolean" value="true"/>
-        <Property name="observable" type="boolean" value="true"/>
-      </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new java.util.ArrayList&lt;app.model.contabilitate.conturi.Cont&gt;()"/>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;app.model.contabilitate.conturi.Cont&gt;"/>
@@ -57,13 +53,13 @@
                   <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="cmdAbandon" alignment="0" pref="120" max="32767" attributes="1"/>
-                  <Component id="jButton1" alignment="0" min="-2" pref="120" max="-2" attributes="1"/>
+                  <Component id="btnPreviousCont" alignment="0" min="-2" pref="120" max="-2" attributes="1"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="cmdSalvare" alignment="0" pref="141" max="32767" attributes="0"/>
                   <Component id="txtCod" pref="141" max="32767" attributes="0"/>
-                  <Component id="jButton2" alignment="0" pref="141" max="32767" attributes="0"/>
+                  <Component id="btnNextCont" alignment="0" pref="141" max="32767" attributes="0"/>
                   <Component id="txtDenumire" alignment="0" pref="141" max="32767" attributes="0"/>
                   <Component id="cboSubClasaCont" alignment="0" pref="141" max="32767" attributes="0"/>
               </Group>
@@ -78,8 +74,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnNextCont" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnPreviousCont" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -124,7 +120,7 @@
         <Component class="javax.swing.JList" name="lstConturi">
           <BindingProperties>
             <BindingProperty name="elements" source="Form" sourcePath="${conturi}" target="lstConturi" targetPath="elements" updateStrategy="0" immediately="false">
-              <BindingParameter name="DISPLAY" value="${cod}"/>
+              <BindingParameter name="DISPLAY" value="${denumire}"/>
             </BindingProperty>
             <BindingProperty name="selectedElement" source="Form" sourcePath="${cont}" target="lstConturi" targetPath="selectedElement" updateStrategy="0" immediately="false">
               <BindingParameter name="IGNORE_ADJUSTING" value="N"/>
@@ -133,15 +129,21 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btnPreviousCont">
       <Properties>
         <Property name="text" type="java.lang.String" value="Previous"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPreviousContActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="btnNextCont">
       <Properties>
         <Property name="text" type="java.lang.String" value="Next"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNextContActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCod">
       <BindingProperties>

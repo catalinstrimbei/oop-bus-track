@@ -78,8 +78,8 @@ public class FormConturi extends javax.swing.JFrame {
         claseConturi = new java.util.ArrayList<app.model.contabilitate.conturi.ClasaConturi>();
         jScrollPane1 = new javax.swing.JScrollPane();
         lstConturi = new javax.swing.JList();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnPreviousCont = new javax.swing.JButton();
+        btnNextCont = new javax.swing.JButton();
         txtCod = new javax.swing.JTextField();
         txtDenumire = new javax.swing.JTextField();
         cboSubClasaCont = new javax.swing.JComboBox();
@@ -96,16 +96,26 @@ public class FormConturi extends javax.swing.JFrame {
 
         org.jdesktop.beansbinding.ELProperty eLProperty = org.jdesktop.beansbinding.ELProperty.create("${conturi}");
         org.jdesktop.swingbinding.JListBinding jListBinding = org.jdesktop.swingbinding.SwingBindings.createJListBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, eLProperty, lstConturi);
-        jListBinding.setDetailBinding(org.jdesktop.beansbinding.ELProperty.create("${cod}"));
+        jListBinding.setDetailBinding(org.jdesktop.beansbinding.ELProperty.create("${denumire}"));
         bindingGroup.addBinding(jListBinding);
         org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${cont}"), lstConturi, org.jdesktop.beansbinding.BeanProperty.create("selectedElement"));
         bindingGroup.addBinding(binding);
 
         jScrollPane1.setViewportView(lstConturi);
 
-        jButton1.setText("Previous");
+        btnPreviousCont.setText("Previous");
+        btnPreviousCont.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPreviousContActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Next");
+        btnNextCont.setText("Next");
+        btnNextCont.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNextContActionPerformed(evt);
+            }
+        });
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${cont.cod}"), txtCod, org.jdesktop.beansbinding.BeanProperty.create("text"));
         bindingGroup.addBinding(binding);
@@ -159,12 +169,12 @@ public class FormConturi extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(jLabel3)
                     .addComponent(cmdAbandon, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnPreviousCont, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cmdSalvare, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
                     .addComponent(txtCod, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+                    .addComponent(btnNextCont, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
                     .addComponent(txtDenumire, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
                     .addComponent(cboSubClasaCont, 0, 141, Short.MAX_VALUE))
                 .addContainerGap())
@@ -176,8 +186,8 @@ public class FormConturi extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton2)
-                            .addComponent(jButton1))
+                            .addComponent(btnNextCont)
+                            .addComponent(btnPreviousCont))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -210,6 +220,20 @@ public class FormConturi extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDenumireActionPerformed
 
+    private void btnPreviousContActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreviousContActionPerformed
+            int currentIdx = this.conturi.indexOf(this.cont);
+            System.out.println(this.cont.getCod() + "/" + currentIdx + "/" + (currentIdx-1) +
+                   "/" + this.conturi.get(currentIdx - 1));
+            if (currentIdx > 0)
+                    this.setCont(this.conturi.get(currentIdx - 1));
+    }//GEN-LAST:event_btnPreviousContActionPerformed
+
+    private void btnNextContActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextContActionPerformed
+            int currentIdx = this.conturi.indexOf(this.cont);
+            if ((currentIdx + 1) < this.conturi.size())
+                    this.setCont(this.conturi.get(currentIdx + 1));
+    }//GEN-LAST:event_btnNextContActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -228,6 +252,8 @@ public class FormConturi extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnNextCont;
+    private javax.swing.JButton btnPreviousCont;
     private javax.swing.JComboBox cboSubClasaCont;
     private java.util.List<app.model.contabilitate.conturi.ClasaConturi> claseConturi;
     private javax.swing.JButton cmdAbandon;
@@ -235,8 +261,6 @@ public class FormConturi extends javax.swing.JFrame {
     private javax.swing.JButton cmdSalvare;
     private javax.swing.JButton cmdSterge;
     private java.util.List<app.model.contabilitate.conturi.Cont> conturi;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -285,9 +309,11 @@ public class FormConturi extends javax.swing.JFrame {
     }
 
     public void setCont(app.model.contabilitate.conturi.Cont cont) {
-        Cont old = this.cont;
+        System.out.println("New cont: " + cont);
+//        Cont old = this.cont;
+//        this.cont = cont;
+        changeSupport.firePropertyChange("cont", this.cont, cont);
         this.cont = cont;
-        changeSupport.firePropertyChange("cont", old, this.cont);
         if (this.cont != null)
             System.out.println("Selected cont: " + this.cont.getCod());
         else
