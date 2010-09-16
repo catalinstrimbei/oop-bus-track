@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.swing.UIManager;
 
 /**
  *
@@ -91,6 +92,7 @@ public class FormConturi extends javax.swing.JFrame {
         cmdSalvare = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("FormConturi");
 
         org.jdesktop.beansbinding.ELProperty eLProperty = org.jdesktop.beansbinding.ELProperty.create("${conturi}");
         org.jdesktop.swingbinding.JListBinding jListBinding = org.jdesktop.swingbinding.SwingBindings.createJListBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, eLProperty, lstConturi);
@@ -212,6 +214,12 @@ public class FormConturi extends javax.swing.JFrame {
     * @param args the command line arguments
     */
     public static void main(String args[]) {
+        // Asigurarea look and feel-ului implicit al S.O.
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception ex){}
+
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FormConturi().setVisible(true);
