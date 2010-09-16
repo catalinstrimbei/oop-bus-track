@@ -11,16 +11,82 @@
 
 package app.contabilitate.ui;
 
+import app.model.contabilitate.InregistrareContabila;
+import app.model.contabilitate.InregistrareCredit;
+import app.model.contabilitate.InregistrareDebit;
+import app.model.contabilitate.OperatiuneContabila;
+import app.model.contabilitate.RegistruOperatiuni;
+import app.model.contabilitate.conturi.Cont;
+import java.awt.Component;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.swing.AbstractCellEditor;
+import javax.swing.JComboBox;
+import javax.swing.JTable;
+import javax.swing.UIManager;
+import javax.swing.table.TableCellEditor;
+
 /**
  *
  * @author catalin.strimbei
  */
 public class FormOperatiuniContabile extends javax.swing.JFrame {
+    private RegistruOperatiuni registruOperatiuni;
+
+    // DataModel Master ---------------------------------------------
+    private List<OperatiuneContabila> operatiuni = new ArrayList<OperatiuneContabila>();
+    private OperatiuneContabila operatiuneContabila;
+    private List<Cont> conturi = new ArrayList<Cont>();
+    // Suport model date - grid detalii -----------------------------
+    private InregistrareContabila inregistrareContabila;
+
+    // Suport editare grid
+    private TblColumnComboEditor contCellEditor;
 
     /** Creates new form FormOperatiuniContabile */
     public FormOperatiuniContabile() {
+
+        // creare entity manager
+        EntityManagerFactory emf = Persistence.
+                createEntityManagerFactory("EntitatiContabilitate");
+        EntityManager em = emf.createEntityManager();
+        
+        // initializare registru
+        registruOperatiuni = new RegistruOperatiuni(em);
+
         initComponents();
+
+        initFormDataModel();
+
+        
+        // refresh pe formular
+        this.bindingGroup.unbind();
+        this.bindingGroup.bind();
+        this.lstOperatiuniContabile.setSelectedIndex(0);
+
+        initCellEditors();
+
     }
+
+	private void initFormDataModel(){
+            this.operatiuni.addAll(this.registruOperatiuni.getOperatiuni());
+
+            if (!this.operatiuni.isEmpty()){
+                    Collections.sort(this.operatiuni);
+                    this.operatiuneContabila = this.operatiuni.get(0);
+            }
+            this.conturi.addAll(this.registruOperatiuni.getConturi());
+	}
+
+        private void initCellEditors(){
+            this.contCellEditor = new TblColumnComboEditor();
+            this.contCellEditor.setComponent(cboCont);
+            tblInregistrari.getColumnModel().getColumn(1).setCellEditor(contCellEditor);
+        }
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -30,27 +96,253 @@ public class FormOperatiuniContabile extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
+
+        cboCont = new javax.swing.JComboBox();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lstOperatiuniContabile = new javax.swing.JList();
+        jTextField1 = new javax.swing.JTextField();
+        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jToggleButton1 = new javax.swing.JToggleButton();
+        jButton3 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblInregistrari = new javax.swing.JTable();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        cboCont.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        org.jdesktop.beansbinding.ELProperty eLProperty = org.jdesktop.beansbinding.ELProperty.create("${conturi}");
+        org.jdesktop.swingbinding.JComboBoxBinding jComboBoxBinding = org.jdesktop.swingbinding.SwingBindings.createJComboBoxBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, eLProperty, cboCont);
+        bindingGroup.addBinding(jComboBoxBinding);
+        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${inregistrareContabila.cont}"), cboCont, org.jdesktop.beansbinding.BeanProperty.create("selectedItem"));
+        bindingGroup.addBinding(binding);
+
+        lstOperatiuniContabile.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+
+        eLProperty = org.jdesktop.beansbinding.ELProperty.create("${operatiuni}");
+        org.jdesktop.swingbinding.JListBinding jListBinding = org.jdesktop.swingbinding.SwingBindings.createJListBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, eLProperty, lstOperatiuniContabile);
+        jListBinding.setDetailBinding(org.jdesktop.beansbinding.ELProperty.create("${idOperatiune}"));
+        bindingGroup.addBinding(jListBinding);
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${operatiuneContabila}"), lstOperatiuniContabile, org.jdesktop.beansbinding.BeanProperty.create("selectedElement"));
+        bindingGroup.addBinding(binding);
+
+        jScrollPane1.setViewportView(lstOperatiuniContabile);
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, lstOperatiuniContabile, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.idOperatiune}"), jTextField1, org.jdesktop.beansbinding.BeanProperty.create("text"));
+        bindingGroup.addBinding(binding);
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, lstOperatiuniContabile, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.dataContabilizare}"), jFormattedTextField1, org.jdesktop.beansbinding.BeanProperty.create("value"));
+        bindingGroup.addBinding(binding);
+
+        jLabel1.setText("Nr.op./ID");
+
+        jLabel2.setText("Data");
+
+        jButton1.setText("Abandon");
+
+        jButton2.setText("Salveaza");
+
+        jToggleButton1.setText("Op. noua");
+
+        jButton3.setText("Sterge op.");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        eLProperty = org.jdesktop.beansbinding.ELProperty.create("${selectedElement.inregistrari}");
+        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, lstOperatiuniContabile, eLProperty, tblInregistrari, "tblInregistrariElements");
+        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${nrOrdine}"));
+        columnBinding.setColumnName("Nr Ordine");
+        columnBinding.setColumnClass(Integer.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${cont}"));
+        columnBinding.setColumnName("Cont");
+        columnBinding.setColumnClass(app.model.contabilitate.conturi.Cont.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${suma}"));
+        columnBinding.setColumnName("Suma");
+        columnBinding.setColumnClass(Double.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${tip}"));
+        columnBinding.setColumnName("Tip");
+        columnBinding.setColumnClass(String.class);
+        bindingGroup.addBinding(jTableBinding);
+        jTableBinding.bind();binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${inregistrareContabila}"), tblInregistrari, org.jdesktop.beansbinding.BeanProperty.create("selectedElement"));
+        bindingGroup.addBinding(binding);
+
+        jScrollPane2.setViewportView(tblInregistrari);
+
+        jButton4.setText("Sterge inregistrare");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setText("Adauga Credit");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jButton6.setText("Adauga Debit");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jFormattedTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(cboCont, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(jButton6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, 0, 0, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jToggleButton1)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jButton3)
+                            .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton1)
+                            .addComponent(jButton2))))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton4)
+                    .addComponent(jButton5)
+                    .addComponent(jButton6)
+                    .addComponent(cboCont, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        bindingGroup.bind();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+            // preconditii
+            if (this.operatiuneContabila == null)
+                    return;
+
+            // tranzactia cu suportul de persistenta
+            // -- nu e necesar
+
+            // actualizare model
+            this.inregistrareContabila = new InregistrareDebit(this.conturi.get(0), 0.0);
+            this.operatiuneContabila.addInregistrareContabila(this.inregistrareContabila);
+
+            this.bindingGroup.getBinding("tblInregistrariElements").unbind();
+            this.bindingGroup.getBinding("tblInregistrariElements").bind();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+            // preconditii
+            if (this.operatiuneContabila == null)
+                    return;
+
+            // tranzactia cu suportul de persistenta
+            // -- nu e necesar
+
+            // actualizare model
+            this.inregistrareContabila = new InregistrareCredit(this.conturi.get(0), 0.0);
+            this.operatiuneContabila.addInregistrareContabila(this.inregistrareContabila);
+
+            this.bindingGroup.getBinding("tblInregistrariElements").unbind();
+            this.bindingGroup.getBinding("tblInregistrariElements").bind();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+		// preconditii
+		if (this.operatiuneContabila == null)
+			return;
+		if (this.inregistrareContabila == null)
+			return;
+
+		// tranzactia cu suportul de persistenta
+		// -- nu e necesar
+
+		// actualizare model
+		this.operatiuneContabila.removeInregistrareContabila(this.inregistrareContabila);
+
+            this.bindingGroup.getBinding("tblInregistrariElements").unbind();
+            this.bindingGroup.getBinding("tblInregistrariElements").bind();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+//        int idx = this.tblInregistrari.getSelectedRow();
+//        if (idx >= 0){
+//            this.bindingGroup.getBinding("tblInregistrariElements").unbind();
+//            this.bindingGroup.getBinding("tblInregistrariElements").bind();
+//            this.tblInregistrari.setRowSelectionInterval(idx, idx);
+//            System.out.println("IDx = " + idx);
+//        }
     /**
-    * @param args the command line arguments
+    * @param args the command line argumenths
     */
     public static void main(String args[]) {
+        // Asigurarea look and feel-ului implicit al S.O.
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception ex){}
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FormOperatiuniContabile().setVisible(true);
@@ -59,6 +351,79 @@ public class FormOperatiuniContabile extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox cboCont;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JList lstOperatiuniContabile;
+    private javax.swing.JTable tblInregistrari;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 
+    public List<Cont> getConturi() {
+        return conturi;
+    }
+
+    public void setConturi(List<Cont> conturi) {
+        this.conturi = conturi;
+    }
+
+    public InregistrareContabila getInregistrareContabila() {
+        return inregistrareContabila;
+    }
+
+    public void setInregistrareContabila(InregistrareContabila inregistrareContabila) {
+        this.inregistrareContabila = inregistrareContabila;
+    }
+
+    public OperatiuneContabila getOperatiuneContabila() {
+        return operatiuneContabila;
+    }
+
+    public void setOperatiuneContabila(OperatiuneContabila operatiuneContabila) {
+        this.operatiuneContabila = operatiuneContabila;
+    }
+
+    public List<OperatiuneContabila> getOperatiuni() {
+        return operatiuni;
+    }
+
+    public void setOperatiuni(List<OperatiuneContabila> operatiuni) {
+        this.operatiuni = operatiuni;
+    }
+
+    public TblColumnComboEditor getContCellEditor() {
+        return contCellEditor;
+    }
+
+
+
+    
+}
+class TblColumnComboEditor extends AbstractCellEditor implements TableCellEditor {
+    private JComboBox cbo;
+    public JComboBox getComponent() {
+        return cbo;
+    }
+    public void setComponent(JComboBox component) {
+        this.cbo = component;
+    }
+    public Component getTableCellEditorComponent(JTable table, Object value,
+            boolean isSelected, int rowIndex, int vColIndex) {
+        cbo.setVisible(true);
+        return cbo;
+    }
+    public Object getCellEditorValue() {
+        return cbo.getSelectedItem();
+    }   
 }
