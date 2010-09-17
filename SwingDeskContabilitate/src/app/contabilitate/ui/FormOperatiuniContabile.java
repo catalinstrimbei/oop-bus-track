@@ -18,17 +18,23 @@ import app.model.contabilitate.OperatiuneContabila;
 import app.model.contabilitate.RegistruOperatiuni;
 import app.model.contabilitate.conturi.Cont;
 import java.awt.Component;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.swing.AbstractCellEditor;
 import javax.swing.JComboBox;
+import javax.swing.JComponent;
+import javax.swing.JFormattedTextField;
 import javax.swing.JTable;
 import javax.swing.UIManager;
 import javax.swing.table.TableCellEditor;
+import javax.swing.table.TableCellRenderer;
 
 /**
  *
@@ -45,7 +51,9 @@ public class FormOperatiuniContabile extends javax.swing.JFrame {
     private InregistrareContabila inregistrareContabila;
 
     // Suport editare grid
-    private TblColumnComboEditor contCellEditor;
+    private TableColumnEditor contCellEditor;
+
+    private java.text.SimpleDateFormat dateFormat = new java.text.SimpleDateFormat("dd/MM/yyyy");
 
     /** Creates new form FormOperatiuniContabile */
     public FormOperatiuniContabile() {
@@ -66,9 +74,9 @@ public class FormOperatiuniContabile extends javax.swing.JFrame {
         // refresh pe formular
         this.bindingGroup.unbind();
         this.bindingGroup.bind();
-        this.lstOperatiuniContabile.setSelectedIndex(0);
+        this.lstOperatiuni.setSelectedIndex(0);
 
-        initCellEditors();
+        initTableCellEditors();
 
     }
 
@@ -82,10 +90,22 @@ public class FormOperatiuniContabile extends javax.swing.JFrame {
             this.conturi.addAll(this.registruOperatiuni.getConturi());
 	}
 
-        private void initCellEditors(){
-            this.contCellEditor = new TblColumnComboEditor();
-            this.contCellEditor.setComponent(cboCont);
+
+        private DecimalFormat decimalFormat = new DecimalFormat("0.00");
+        private void initTableCellEditors(){
+            this.contCellEditor = new TableColumnEditor(cboCont);
             tblInregistrari.getColumnModel().getColumn(1).setCellEditor(contCellEditor);
+            //tblInregistrari.getColumnModel().getColumn(1).setCellRenderer(contCellEditor);
+            cboCont.setVisible(false);
+            
+            TableColumnEditor sumaCellEditor = new TableColumnEditor(txtSuma);
+            tblInregistrari.getColumnModel().getColumn(2).setCellEditor(sumaCellEditor);
+            //tblInregistrari.getColumnModel().getColumn(2).setCellRenderer(sumaCellEditor);
+            txtSuma.setVisible(false);
+
+            this.tblInregistrari.revalidate();
+            this.tblInregistrari.repaint();
+
         }
 
     /** This method is called from within the constructor to
@@ -99,72 +119,92 @@ public class FormOperatiuniContabile extends javax.swing.JFrame {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         cboCont = new javax.swing.JComboBox();
+        txtSuma = new javax.swing.JFormattedTextField(decimalFormat);
         jScrollPane1 = new javax.swing.JScrollPane();
-        lstOperatiuniContabile = new javax.swing.JList();
-        jTextField1 = new javax.swing.JTextField();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        lstOperatiuni = new javax.swing.JList();
+        txtID = new javax.swing.JTextField();
+        txtDataContabilizare = new javax.swing.JFormattedTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jButton3 = new javax.swing.JButton();
+        btnAbandon = new javax.swing.JButton();
+        btnSalveaza = new javax.swing.JButton();
+        btnOpNoua = new javax.swing.JToggleButton();
+        btnStergeOp = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblInregistrari = new javax.swing.JTable();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        btnStergeInregistrare = new javax.swing.JButton();
+        btnAdaugareCredit = new javax.swing.JButton();
+        btnAdaugareDebit = new javax.swing.JButton();
 
         cboCont.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         org.jdesktop.beansbinding.ELProperty eLProperty = org.jdesktop.beansbinding.ELProperty.create("${conturi}");
         org.jdesktop.swingbinding.JComboBoxBinding jComboBoxBinding = org.jdesktop.swingbinding.SwingBindings.createJComboBoxBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, eLProperty, cboCont);
         bindingGroup.addBinding(jComboBoxBinding);
-        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${inregistrareContabila.cont}"), cboCont, org.jdesktop.beansbinding.BeanProperty.create("selectedItem"));
+        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, tblInregistrari, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.cont}"), cboCont, org.jdesktop.beansbinding.BeanProperty.create("selectedItem"));
         bindingGroup.addBinding(binding);
 
-        lstOperatiuniContabile.setModel(new javax.swing.AbstractListModel() {
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, tblInregistrari, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.suma}"), txtSuma, org.jdesktop.beansbinding.BeanProperty.create("value"));
+        bindingGroup.addBinding(binding);
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Formular Operatiuni Contabile");
+
+        lstOperatiuni.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
 
         eLProperty = org.jdesktop.beansbinding.ELProperty.create("${operatiuni}");
-        org.jdesktop.swingbinding.JListBinding jListBinding = org.jdesktop.swingbinding.SwingBindings.createJListBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, eLProperty, lstOperatiuniContabile);
+        org.jdesktop.swingbinding.JListBinding jListBinding = org.jdesktop.swingbinding.SwingBindings.createJListBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, eLProperty, lstOperatiuni);
         jListBinding.setDetailBinding(org.jdesktop.beansbinding.ELProperty.create("${idOperatiune}"));
         bindingGroup.addBinding(jListBinding);
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${operatiuneContabila}"), lstOperatiuniContabile, org.jdesktop.beansbinding.BeanProperty.create("selectedElement"));
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${operatiuneContabila}"), lstOperatiuni, org.jdesktop.beansbinding.BeanProperty.create("selectedElement"));
         bindingGroup.addBinding(binding);
 
-        jScrollPane1.setViewportView(lstOperatiuniContabile);
+        jScrollPane1.setViewportView(lstOperatiuni);
 
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, lstOperatiuniContabile, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.idOperatiune}"), jTextField1, org.jdesktop.beansbinding.BeanProperty.create("text"));
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, lstOperatiuni, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.idOperatiune}"), txtID, org.jdesktop.beansbinding.BeanProperty.create("text"));
         bindingGroup.addBinding(binding);
 
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, lstOperatiuniContabile, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.dataContabilizare}"), jFormattedTextField1, org.jdesktop.beansbinding.BeanProperty.create("value"));
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, lstOperatiuni, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.dataContabilizare}"), txtDataContabilizare, org.jdesktop.beansbinding.BeanProperty.create("value"));
         bindingGroup.addBinding(binding);
 
         jLabel1.setText("Nr.op./ID");
 
         jLabel2.setText("Data");
 
-        jButton1.setText("Abandon");
-
-        jButton2.setText("Salveaza");
-
-        jToggleButton1.setText("Op. noua");
-
-        jButton3.setText("Sterge op.");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnAbandon.setText("Abandon");
+        btnAbandon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnAbandonActionPerformed(evt);
+            }
+        });
+
+        btnSalveaza.setText("Salveaza");
+        btnSalveaza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalveazaActionPerformed(evt);
+            }
+        });
+
+        btnOpNoua.setText("Op. noua");
+        btnOpNoua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOpNouaActionPerformed(evt);
+            }
+        });
+
+        btnStergeOp.setText("Sterge op.");
+        btnStergeOp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStergeOpActionPerformed(evt);
             }
         });
 
         eLProperty = org.jdesktop.beansbinding.ELProperty.create("${selectedElement.inregistrari}");
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, lstOperatiuniContabile, eLProperty, tblInregistrari, "tblInregistrariElements");
+        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, lstOperatiuni, eLProperty, tblInregistrari, "tblInregistrariElements");
         org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${nrOrdine}"));
         columnBinding.setColumnName("Nr Ordine");
         columnBinding.setColumnClass(Integer.class);
@@ -183,24 +223,24 @@ public class FormOperatiuniContabile extends javax.swing.JFrame {
 
         jScrollPane2.setViewportView(tblInregistrari);
 
-        jButton4.setText("Sterge inregistrare");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnStergeInregistrare.setText("Sterge inregistrare");
+        btnStergeInregistrare.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnStergeInregistrareActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Adauga Credit");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnAdaugareCredit.setText("Adauga Credit");
+        btnAdaugareCredit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnAdaugareCreditActionPerformed(evt);
             }
         });
 
-        jButton6.setText("Adauga Debit");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnAdaugareDebit.setText("Adauga Debit");
+        btnAdaugareDebit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnAdaugareDebitActionPerformed(evt);
             }
         });
 
@@ -220,22 +260,21 @@ public class FormOperatiuniContabile extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jFormattedTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
+                            .addComponent(txtDataContabilizare, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                            .addComponent(txtID, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                            .addComponent(btnSalveaza, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(btnAbandon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnStergeOp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnOpNoua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(cboCont, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(jButton6)
+                        .addGap(115, 115, 115)
+                        .addComponent(btnAdaugareDebit, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAdaugareCredit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnStergeInregistrare, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -247,25 +286,24 @@ public class FormOperatiuniContabile extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(jToggleButton1)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnOpNoua)
+                            .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(jButton3)
-                            .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnStergeOp)
+                            .addComponent(txtDataContabilizare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2))))
+                            .addComponent(btnAbandon)
+                            .addComponent(btnSalveaza))))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6)
-                    .addComponent(cboCont, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnStergeInregistrare)
+                    .addComponent(btnAdaugareCredit)
+                    .addComponent(btnAdaugareDebit))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -274,11 +312,25 @@ public class FormOperatiuniContabile extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void btnStergeOpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStergeOpActionPerformed
+        // preconditii
+        if (this.operatiuneContabila == null)
+                return;
+        // tranzactia cu suportul de persistenta
+        this.registruOperatiuni.removeOperatiuneContabila(this.operatiuneContabila);
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // actualizare model
+        this.operatiuni.remove(this.operatiuneContabila);
+        this.operatiuneContabila = this.operatiuni.get(0);
+
+        this.bindingGroup.unbind();
+        this.bindingGroup.bind();
+        if (!this.operatiuni.isEmpty()){
+            this.lstOperatiuni.setSelectedIndex(0);
+        }
+    }//GEN-LAST:event_btnStergeOpActionPerformed
+
+    private void btnAdaugareDebitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdaugareDebitActionPerformed
             // preconditii
             if (this.operatiuneContabila == null)
                     return;
@@ -292,9 +344,9 @@ public class FormOperatiuniContabile extends javax.swing.JFrame {
 
             this.bindingGroup.getBinding("tblInregistrariElements").unbind();
             this.bindingGroup.getBinding("tblInregistrariElements").bind();
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_btnAdaugareDebitActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnAdaugareCreditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdaugareCreditActionPerformed
             // preconditii
             if (this.operatiuneContabila == null)
                     return;
@@ -308,9 +360,9 @@ public class FormOperatiuniContabile extends javax.swing.JFrame {
 
             this.bindingGroup.getBinding("tblInregistrariElements").unbind();
             this.bindingGroup.getBinding("tblInregistrariElements").bind();
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btnAdaugareCreditActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnStergeInregistrareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStergeInregistrareActionPerformed
 		// preconditii
 		if (this.operatiuneContabila == null)
 			return;
@@ -325,7 +377,46 @@ public class FormOperatiuniContabile extends javax.swing.JFrame {
 
             this.bindingGroup.getBinding("tblInregistrariElements").unbind();
             this.bindingGroup.getBinding("tblInregistrariElements").bind();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnStergeInregistrareActionPerformed
+
+    private void btnOpNouaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpNouaActionPerformed
+            // preconditii
+            // - fara (deocamdata)
+
+            // tranzactia cu suportul de persistenta
+            // - nu e necesara
+
+            // actualizare model
+            this.operatiuneContabila = new OperatiuneContabila();
+            this.operatiuneContabila.setIdOperatiune(9999);
+            this.operatiuneContabila.setDataContabilizare(new Date());
+
+        // refresh pe formular
+        this.bindingGroup.unbind();
+        this.bindingGroup.bind();
+        lstOperatiuni.setSelectedValue("9999", true); // 4
+    }//GEN-LAST:event_btnOpNouaActionPerformed
+
+    private void btnSalveazaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalveazaActionPerformed
+            // preconditii
+            if (this.operatiuneContabila == null)
+                return;
+            // tranzactia cu suportul de persistenta
+            this.registruOperatiuni.addOperatiuneContabila(this.operatiuneContabila);
+    }//GEN-LAST:event_btnSalveazaActionPerformed
+
+    private void btnAbandonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbandonActionPerformed
+        // preconditii
+        if (this.operatiuneContabila == null)
+                return;
+        this.registruOperatiuni.refreshOperatiune(this.operatiuneContabila);
+
+        // refresh pe formular
+        String elementCurent = this.operatiuneContabila.getIdOperatiune().toString();
+        this.bindingGroup.unbind();
+        this.bindingGroup.bind();
+        this.lstOperatiuni.setSelectedValue(elementCurent, true);
+    }//GEN-LAST:event_btnAbandonActionPerformed
 
 //        int idx = this.tblInregistrari.getSelectedRow();
 //        if (idx >= 0){
@@ -351,22 +442,23 @@ public class FormOperatiuniContabile extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAbandon;
+    private javax.swing.JButton btnAdaugareCredit;
+    private javax.swing.JButton btnAdaugareDebit;
+    private javax.swing.JToggleButton btnOpNoua;
+    private javax.swing.JButton btnSalveaza;
+    private javax.swing.JButton btnStergeInregistrare;
+    private javax.swing.JButton btnStergeOp;
     private javax.swing.JComboBox cboCont;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JList lstOperatiuniContabile;
+    private javax.swing.JList lstOperatiuni;
     private javax.swing.JTable tblInregistrari;
+    private javax.swing.JFormattedTextField txtDataContabilizare;
+    private javax.swing.JTextField txtID;
+    private javax.swing.JFormattedTextField txtSuma;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 
@@ -402,28 +494,54 @@ public class FormOperatiuniContabile extends javax.swing.JFrame {
         this.operatiuni = operatiuni;
     }
 
-    public TblColumnComboEditor getContCellEditor() {
+    public TableColumnEditor getContCellEditor() {
         return contCellEditor;
     }
-
-
-
     
 }
-class TblColumnComboEditor extends AbstractCellEditor implements TableCellEditor {
-    private JComboBox cbo;
-    public JComboBox getComponent() {
-        return cbo;
+class TableColumnEditor
+        extends AbstractCellEditor implements TableCellEditor {
+
+    private JComponent component;
+
+    public TableColumnEditor(JComponent component) {
+        this.component = component;
     }
-    public void setComponent(JComboBox component) {
-        this.cbo = component;
+
+    public JComponent getComponent() {
+        return component;
+    }
+    public void setComponent(JComponent component) {
+        this.component = component;
     }
     public Component getTableCellEditorComponent(JTable table, Object value,
             boolean isSelected, int rowIndex, int vColIndex) {
-        cbo.setVisible(true);
-        return cbo;
+        component.setVisible(true);
+        return component;
     }
     public Object getCellEditorValue() {
-        return cbo.getSelectedItem();
-    }   
+        if (component instanceof JComboBox){
+            return ((JComboBox)getComponent()).getSelectedItem();
+        }
+        if (component instanceof JFormattedTextField){
+            return ((JFormattedTextField)getComponent()).getValue();
+        }
+
+        return null;
+    }
+
+    /*
+    public Component getTableCellRendererComponent(JTable table, Object value,
+            boolean isSelected, boolean hasFocus, int row, int column) {
+
+        if (component instanceof JComboBox){
+            ((JComboBox)getComponent()).setSelectedItem(value);
+        }
+
+        if (component instanceof JFormattedTextField){
+            ((JFormattedTextField)getComponent()).setValue(value);
+        }
+
+        return component;
+    }*/
 }
