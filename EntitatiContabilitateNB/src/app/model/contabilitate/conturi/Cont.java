@@ -137,7 +137,8 @@ public class Cont implements Comparable, Serializable, Validatable{
 
     @Override
     public String toString() {
-        return "[Cont cod " + this.cod + " - denumire" + denumire +"]";
+        //return "[Cont cod " + this.cod + " - denumire" + denumire +"]";
+        return denumire;
     }
 
     public int compareTo(Object obj) {
