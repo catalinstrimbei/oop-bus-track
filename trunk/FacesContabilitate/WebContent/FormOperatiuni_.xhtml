@@ -63,75 +63,18 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 			</h:panelGrid>
 			
 		</h:panelGrid>
-
-			<h:dataTable border="1" id="tblInregistrari" 
-				var="inregistrare" 
-				value="#{formOperatiuni.modelGridDetalii}">
+		<h:dataTable border="1">
+			<h:column id="select">
+				<h:inputText value="#{inregistrare.nrOrdine}" id="txtNrOrdine"></h:inputText>
 
 				<f:facet name="header">
-					
-					<h:panelGrid columns="2" border="0" >
-						<h:outputText value="Inregistrari contabile"></h:outputText>
-						<h:panelGrid id="panouActiuni" columns="3" border="0">
-							<h:commandButton value="AdaugaDebit" 
-								actionListener="#{formOperatiuni.adaugaInregistrareDebit}" />
-							<h:commandButton value="AdaugaCredit" 
-								actionListener="#{formOperatiuni.adaugaInregistrareCredit}" />							
-							<h:commandButton id="btnStergeInregistrare" value="Sterge">
-								<f:ajax event="click" 
-								render="tblInregistrari"
-								listener="#{formOperatiuni.deleteInregistrare}" />
-							</h:commandButton>
-						</h:panelGrid>
-					</h:panelGrid>
+					<h:outputText value="Nr.crt"></h:outputText>
 				</f:facet>
+			</h:column>
+		</h:dataTable>
 
-		        <h:column>
-		            <f:facet name="header">
-		                <h:outputText value="Select" />
-		            </f:facet>
-		            <h:selectOneRadio onclick="selectTableRow(this,event)" 
-		            	valueChangeListener="#{formOperatiuni.setSelectedInregistrare}">
-		                <f:selectItem itemLabel="  " itemValue="0"/>
-		            </h:selectOneRadio>            
-		        </h:column>				
-				
-				<h:column id="colNr">
-					<h:inputText id="txtNr" value="#{inregistrare.nrOrdine}"/>
-					<f:facet name="header">Nr.</f:facet>
-				</h:column>
-				
-				<h:column id="colCont">
-					<h:selectOneMenu id="cboCont" value="#{inregistrare.cont}" 
-						converter="#{formOperatiuni}">
-						<f:selectItems value="#{formOperatiuni.conturi}" />
-					</h:selectOneMenu>
-					<f:facet name="header">Cont</f:facet>
-				</h:column>
-					
-				<h:column id="colSuma">
-				
-				<h:inputText id="txtSuma" value="#{inregistrare.suma}">
-				<f:convertNumber maxFractionDigits="2" minFractionDigits="2" />
-				</h:inputText>
-				
-					<f:facet name="header">Suma</f:facet>
-				</h:column>
 
-				<h:column id="colTip">
-					<h:outputText id="txtTip" value="#{inregistrare.tip}" />
-					<f:facet name="header">Debit/Credit</f:facet>
-				</h:column>
-				 
-			<f:facet name="footer">
-				Numar inregistrari op. curenta : #{formOperatiuni.inregistrariCount} 
-				<h:outputText id="txtNrInregCurenta" 
-					value=" Numar inregistrarea curenta : #{formOperatiuni.currentDetailRow}"/>
-				
-			</f:facet>
-							
-			</h:dataTable>
-			
+
 	</h:form>
 </f:view>
 

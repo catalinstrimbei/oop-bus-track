@@ -54,12 +54,12 @@ public class FormConturi implements Converter{
 	}
 	private void initForm(){
         this.conturi = new ArrayList<Cont>(registruConturi.getConturi());
+        this.claseConturi = new ArrayList<ClasaConturi>(registruConturi.getClaseConturi());
+        
         if (this.conturi != null && !this.conturi.isEmpty()){
         	// initializare cont curent implicit
         	this.cont = this.conturi.get(0);
         }		
-        
-        this.claseConturi = new ArrayList<ClasaConturi>(registruConturi.getClaseConturi());       
 	}
 	
 	public Map<String, Object> getConturi() {

@@ -14,50 +14,50 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 <f:view>
 <title><pre><p align="center">APLICATIE CONTABILA</p></pre></title>
 
-<h:form id="formOperatiuniSecond">
+<h:form id="formOperatiuni">
 
 		<h:panelGrid columns="3" border="1">
 			<f:facet name="header">
 			<h:commandLink
 				style="color: Red; font-size: 14px; font-family: Tahoma, Verdana, Arial, Sans-Serif; font-weight: bold; text-align: center" 
 				value="Aplicatie Contabilitate"
-				action="#{formOperatiuniSecond.showMainForm}" />			
+				action="#{formOperatiuni.showMainForm}" />			
 				<h:outputText value=" - Form Operatiuni contabile"></h:outputText>
 			</f:facet>
 			<f:facet name="footer">
-				Numar operatiuni: #{formOperatiuniSecond.operatiuniCount}
+				Numar operatiuni: #{formOperatiuni.operatiuniCount}
 			</f:facet>
 			<h:selectOneMenu id="cboOperatiuni" style="width: 121px; "
-				value="#{formOperatiuniSecond.operatiuneContabila}" 
-					converter="#{formOperatiuniSecond}" 
+				value="#{formOperatiuni.operatiuneContabila}" 
+					converter="#{formOperatiuni}" 
 					styleClass="rowHighlighted">
-				<f:selectItems value="#{formOperatiuniSecond.operatiuni}" />
+				<f:selectItems value="#{formOperatiuni.operatiuni}" />
 				<f:ajax render="txtId txtData tblInregistrari" />
 			</h:selectOneMenu>
 			<h:panelGrid columns="2" border="0">
 				<h:commandButton value="Prev" id="btnPrevious" 
-				actionListener="#{formOperatiuniSecond.previousOperatiune}"/>
+				actionListener="#{formOperatiuni.previousOperatiune}"/>
 				<h:commandButton value="Next" id="btnNext" 
-				actionListener="#{formOperatiuniSecond.nextOperatiune}"/>
+				actionListener="#{formOperatiuni.nextOperatiune}"/>
 			</h:panelGrid>
 			<h:commandButton value="Op.noua" 
-				actionListener="#{formOperatiuniSecond.adaugaOperatiune}" style="width: 94px; "/>
+				actionListener="#{formOperatiuni.adaugaOperatiune}" style="width: 94px; "/>
 			<h:outputText value="Nr.op." />
 			<h:inputText id="txtId" 
-				value="#{formOperatiuniSecond.operatiuneContabila.idOperatiune}"
+				value="#{formOperatiuni.operatiuneContabila.idOperatiune}"
 				disabled = "false"/>
 			<h:commandButton value="Sterge op." 
-				actionListener="#{formOperatiuniSecond.stergeOperatiune}" />
+				actionListener="#{formOperatiuni.stergeOperatiune}" />
 			<h:outputText value="Data" />
 			<h:inputText id="txtData" 
-				value="#{formOperatiuniSecond.operatiuneContabila.dataContabilizare}" >
+				value="#{formOperatiuni.operatiuneContabila.dataContabilizare}" >
 				<f:convertDateTime pattern="dd/MM/yyyy" />
 			</h:inputText>
-			<h:panelGrid columns="2" border="1"><h:commandButton value="Salveaza" actionListener="#{formOperatiuniSecond.salveaza}">
+			<h:panelGrid columns="2" border="1"><h:commandButton value="Salveaza" actionListener="#{formOperatiuni.salveaza}">
 				<f:ajax execute="@form" />
 			</h:commandButton>
 				<h:commandButton id="btnAbandon"
-					actionListener="#{formOperatiuniSecond.abandon}" value="Abandon"></h:commandButton>
+					actionListener="#{formOperatiuni.abandon}" value="Abandon"></h:commandButton>
 			</h:panelGrid>
 			
 		</h:panelGrid>
@@ -68,17 +68,17 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 					<h:outputText value="Inregistrari contabile"></h:outputText>
 					<h:panelGrid id="panouActiuni" columns="3" border="0">
 						<h:commandButton value="AdaugaDebit" 
-							actionListener="#{formOperatiuniSecond.adaugaInregistrareDebit}" />
+							actionListener="#{formOperatiuni.adaugaInregistrareDebit}" />
 						<h:commandButton value="AdaugaCredit" 
-							actionListener="#{formOperatiuniSecond.adaugaInregistrareCredit}" />							
+							actionListener="#{formOperatiuni.adaugaInregistrareCredit}" />							
 						<h:commandButton id="btnStergeInregistrare" 
 							value="Sterge" 
-							actionListener="#{formOperatiuniSecond.stergeInregistrare}"/>
+							actionListener="#{formOperatiuni.stergeInregistrare}"/>
 					</h:panelGrid>
 				</h:panelGrid>
 			</f:facet>
 
-			<h:dataTable border="1" id="tblInregistrari" var="inregistrare" value="#{formOperatiuniSecond.modelGridDetalii}">
+			<h:dataTable border="1" id="tblInregistrari" var="inregistrare" value="#{formOperatiuni.modelGridDetalii}">
 
 		        <h:column>
 		            <f:facet name="header">
@@ -89,7 +89,7 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 		                <f:selectItem itemLabel="  " itemValue="0"/>
 		            </h:selectOneRadio>
 					<h:commandButton id="btnSelect" 
-						actionListener="#{formOperatiuniSecond.selectInregistrareContabila}" 
+						actionListener="#{formOperatiuni.selectInregistrareContabila}" 
 						value="Select" style="display: none">
 						<f:ajax render="txtNrInregCurenta" execute="tblInregistrari"/>
 					</h:commandButton>		            
@@ -102,8 +102,8 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 				
 				<h:column id="colCont">
 					<h:selectOneMenu id="cboCont" value="#{inregistrare.cont}" 
-						converter="#{formOperatiuniSecond}">
-						<f:selectItems value="#{formOperatiuniSecond.conturi}" />
+						converter="#{formOperatiuni}">
+						<f:selectItems value="#{formOperatiuni.conturi}" />
 					</h:selectOneMenu>
 					<f:facet name="header">Cont</f:facet>
 				</h:column>
@@ -119,9 +119,9 @@ xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
 				</h:column>
 				 
 			<f:facet name="footer">
-				Numar inregistrari op. curenta : #{formOperatiuniSecond.inregistrariCount} 
+				Numar inregistrari op. curenta : #{formOperatiuni.inregistrariCount} 
 				<h:outputText id="txtNrInregCurenta" 
-					value=" Numar inregistrarea curenta : #{formOperatiuniSecond.currentDetailRow}"/>
+					value=" Numar inregistrarea curenta : #{formOperatiuni.currentDetailRow}"/>
 				
 			</f:facet>
 							
