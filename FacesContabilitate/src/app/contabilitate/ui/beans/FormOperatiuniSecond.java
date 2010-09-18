@@ -138,7 +138,7 @@ public class FormOperatiuniSecond implements Converter{
 			throws ConverterException {
 		
 		if ("cboOperatiuni".equals(uiComponent.getId())){
-			for (OperatiuneContabila o: this.operatiuni){
+			/*for (OperatiuneContabila o: this.operatiuni){
 				if ("Noua".equals(uiValue)) {
 					if (o.getIdOperatiune() == null)
 						return o;
@@ -149,7 +149,9 @@ public class FormOperatiuniSecond implements Converter{
 
 				if (o.getIdOperatiune().equals(Integer.valueOf(uiValue)))
 					return o;
-			}
+			}*/
+			int idx = this.operatiuni.indexOf(uiValue);
+			return this.operatiuni.get(idx);
 		}
 		
 		/*
@@ -164,10 +166,12 @@ public class FormOperatiuniSecond implements Converter{
 		*/
 		
 		if ("cboCont".equals(uiComponent.getId())){
-			for (Cont o: this.conturi){
+			/*for (Cont o: this.conturi){
 				if (o.getDenumire().equals(uiValue))
 					return o;
-			}
+			}*/
+			int idx = this.conturi.indexOf(uiValue);
+			return this.conturi.get(idx);			
 		}		
 		
 		return null;
@@ -176,13 +180,14 @@ public class FormOperatiuniSecond implements Converter{
 	public String getAsString(FacesContext arg0, UIComponent uiComponent, Object value)
 			throws ConverterException {
 		
-		if ("cboOperatiuni".equals(uiComponent.getId())){
-			if (value != null){
+		if ("cboOperatiuni".equals(uiComponent.getId()) && value != null){
+			/*if (value != null){
 				if (((OperatiuneContabila)value).getIdOperatiune() == null){
 					return "Noua";
 				}else
 					return ((OperatiuneContabila)value).getIdOperatiune().toString();
-			}
+			}*/
+			return ((OperatiuneContabila)value).getIdOperatiune().toString();
 		}
 		
 		/*
@@ -192,9 +197,10 @@ public class FormOperatiuniSecond implements Converter{
 		}
 		*/
 		
-		if ("cboCont".equals(uiComponent.getId())){
+		if ("cboCont".equals(uiComponent.getId()) && value != null){
 			if (value != null)
-				return ((Cont)value).getDenumire().toString();
+				return ((Cont)value).getCod();
+				//return ((Cont)value).getDenumire().toString();
 		}
 		
 		return null;
