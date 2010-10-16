@@ -21,6 +21,7 @@ import produse.model.Produs;
  * 	- interpretare navigare in ierarhie:
  * 		- return categorii parinte (de la sub-categorie)
  * 		- return sub categorii (de la categorie parinte)
+ * 
  */
 public class Catalog {
 	
