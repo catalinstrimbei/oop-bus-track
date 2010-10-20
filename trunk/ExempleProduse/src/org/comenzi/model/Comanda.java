@@ -1,4 +1,4 @@
-package produse.model;
+package org.comenzi.model;
 
 import java.util.ArrayList;
 import java.util.Date;

@@ -1,4 +1,4 @@
-package produse.model;
+package org.comenzi.model;
 
 public class Produs {
 	private Integer cod;

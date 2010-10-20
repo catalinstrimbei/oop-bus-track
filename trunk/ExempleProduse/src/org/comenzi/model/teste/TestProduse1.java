@@ -1,4 +1,4 @@
-package produse.teste;
+package org.comenzi.model.teste;
 
 import java.util.ArrayList;
 import java.util.List;

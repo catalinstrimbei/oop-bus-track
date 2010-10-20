@@ -1,4 +1,4 @@
-package produse.categorii.model;
+package org.comenzi.model.categorii;
 
 import java.util.ArrayList;
 import java.util.Collection;

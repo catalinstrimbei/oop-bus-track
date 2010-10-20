@@ -1,4 +1,4 @@
-package produse.categorii.model;
+package org.comenzi.model.categorii;
 
 public class Categorie {
 	private Integer id;
