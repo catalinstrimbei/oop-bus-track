@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import produse.model.ArticolComanda;
-import produse.model.Comanda;
-import produse.model.Produs;
+import org.comenzi.model.Comanda;
+import org.comenzi.model.Produs;
+
 
 public class TestComenzi3 {
 	/**

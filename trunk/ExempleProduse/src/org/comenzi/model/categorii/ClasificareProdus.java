@@ -1,6 +1,7 @@
 package org.comenzi.model.categorii;
 
-import produse.model.Produs;
+import org.comenzi.model.Produs;
+
 
 public class ClasificareProdus {
 	private Produs produs;
