@@ -3,7 +3,8 @@ package org.comenzi.model.teste;
 import java.util.ArrayList;
 import java.util.List;
 
-import produse.model.Produs;
+import org.comenzi.model.Produs;
+
 
 public class TestProduse1 {
 	public static void main(String[] args) {

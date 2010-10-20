@@ -8,7 +8,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import produse.model.Produs;
+import org.comenzi.model.Produs;
+
 
 /*
  * Problema manipulare ierarhii cu subiecti
