@@ -1,14 +1,19 @@
-package org.comenzi.model.categorii;
+package org.comenzi.model;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Categorie {
 	private Integer id;
+	private String denumire;
 	private Categorie categorieParinte;
 	
 	public Categorie() {
 	}
 
-	public Categorie(Integer id, Categorie categorieParinte) {
+	public Categorie(Integer id, String denumire, Categorie categorieParinte) {
 		this.id = id;
+		this.denumire = denumire;
 		this.categorieParinte = categorieParinte;
 	}
 	
@@ -23,6 +28,14 @@ public class Categorie {
 	}
 	public void setCategorieParinte(Categorie categorieParinte) {
 		this.categorieParinte = categorieParinte;
+	}
+	
+	public String getDenumire() {
+		return denumire;
+	}
+
+	public void setDenumire(String denumire) {
+		this.denumire = denumire;
 	}
 
 	@Override
@@ -50,5 +63,19 @@ public class Categorie {
 		return true;
 	}
 	
+	public List<Categorie> getSuperCategorii(){
+		
+		List<Categorie> superCategorii = new ArrayList<Categorie>();
+		Categorie parinte = this.categorieParinte;
+		
+		if(parinte != null ){
+			superCategorii.add(parinte);
+			superCategorii.addAll(
+					parinte.getSuperCategorii()
+			);
+		}
+		
+		return superCategorii;
+	}	
 	
 }
