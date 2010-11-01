@@ -1,6 +1,5 @@
-package org.comenzi.model.categorii;
+package org.comenzi.model;
 
-import org.comenzi.model.Produs;
 
 
 public class ClasificareProdus {
