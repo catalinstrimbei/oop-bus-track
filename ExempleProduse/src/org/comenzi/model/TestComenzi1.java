@@ -1,15 +1,12 @@
-package org.comenzi.model.teste;
+package org.comenzi.model;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.comenzi.model.Comanda;
-import org.comenzi.model.Produs;
 
 
-
-public class TestComenzi2 {
+public class TestComenzi1 {
 	/**
 	 * Se face o comanda pentru un calculator in valoare de 1850 si doua imprimante in valoare de 450 fiecare.
 	 * Care este valoare totala a comenzii ?
@@ -20,8 +17,13 @@ public class TestComenzi2 {
 		produse[1] = new Produs(2, "Imprimanta", "buc", 450.0);
 		
 		Comanda comanda = new Comanda(1, new Date());
-		comanda.adauga(produse[0], 1.0);
-		comanda.adauga(produse[1], 2.0);
+		
+		List<ArticolComanda> articole = new ArrayList<ArticolComanda>();
+		articole.add(new ArticolComanda(1, produse[0], 1.0));
+		articole.add(new ArticolComanda(2, produse[1], 2.0));
+		articole.add(null);
+		
+		comanda.setArticole(articole);
 		
 		System.out.println(comanda.getValoareComanda());
 	}
