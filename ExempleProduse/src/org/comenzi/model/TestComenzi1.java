@@ -21,7 +21,6 @@ public class TestComenzi1 {
 		List<ArticolComanda> articole = new ArrayList<ArticolComanda>();
 		articole.add(new ArticolComanda(1, produse[0], 1.0));
 		articole.add(new ArticolComanda(2, produse[1], 2.0));
-		articole.add(null);
 		
 		comanda.setArticole(articole);
 		
