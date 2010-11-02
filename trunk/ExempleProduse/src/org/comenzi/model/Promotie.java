@@ -1,9 +1,9 @@
 package org.comenzi.model;
 
 public abstract class Promotie {
-	
 	protected Integer id;
 	protected Produs produs;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -16,12 +16,18 @@ public abstract class Promotie {
 	public void setProdus(Produs produs) {
 		this.produs = produs;
 	}
-	public Promotie(Integer id, Produs produs) {
-		this.id = id;
-		this.produs = produs;
+	
+	public Double getValoareDiscountComanda(Comanda comanda){
+		Double valoareDiscountComanda = 0.0;
+		for(ArticolComanda articol: comanda.getArticole()){
+			if (produs.equals(articol.getProdus()))
+				valoareDiscountComanda += getValoareDiscount(articol.getCantitate());
+		}
+		return valoareDiscountComanda;
 	}
-	public Promotie() {
-	}
+	
+	public abstract Double getValoareDiscount(Double cantitate);
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -46,5 +52,13 @@ public abstract class Promotie {
 		return true;
 	}
 	
+	public Promotie(Integer id, Produs produs) {
+		super();
+		this.id = id;
+		this.produs = produs;
+	}
+	public Promotie() {
+		super();
+	}
 	
 }

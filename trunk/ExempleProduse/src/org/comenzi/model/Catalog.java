@@ -74,6 +74,7 @@ public class Catalog {
 		
 		for (ClasificareProdus c: this.categoriiProduse){
 			if (produs.equals(c.getProdus())){
+				categorii.add(c.getCategorie());
 				categorii.addAll(c.getCategorie().getSuperCategorii());
 			}
 		}

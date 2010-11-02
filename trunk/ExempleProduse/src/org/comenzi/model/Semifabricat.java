@@ -7,7 +7,7 @@ import java.util.List;
  * @author catalin.strimbei
  *
  */
-public class Semifabricat {
+public class Semifabricat extends Produs{
 	protected String fazaPrelucrare;
 	protected List<ProdusFinit> pfCompatibile = new ArrayList<ProdusFinit>();
 	public String getFazaPrelucrare() {
@@ -24,5 +24,10 @@ public class Semifabricat {
 	}
 	public Semifabricat() {
 		super();
+	}
+	public Semifabricat(Integer cod, String denumire, String um,
+			Double pretUnitar, String fazaPrelucrare) {
+		super(cod, denumire, um, pretUnitar);
+		this.fazaPrelucrare = fazaPrelucrare;
 	}
 }

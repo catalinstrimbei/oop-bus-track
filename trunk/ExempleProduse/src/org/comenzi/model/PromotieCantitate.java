@@ -1,25 +1,39 @@
 package org.comenzi.model;
 
 public class PromotieCantitate extends Promotie {
-	private Double cantitate;
-	private Double gratuitati;
+	private Integer pragCantitate;
+	private Integer cantitateGratuitati;
+
+	public Integer getPragCantitate() {
+		return pragCantitate;
+	}
+
+	public void setPragCantitate(Integer pragCantitate) {
+		this.pragCantitate = pragCantitate;
+	}
+
+	public Integer getCantitateGratuitati() {
+		return cantitateGratuitati;
+	}
+
+	public void setCantitateGratuitati(Integer cantitateGratuitati) {
+		this.cantitateGratuitati = cantitateGratuitati;
+	}
+
+	@Override
+	public Double getValoareDiscount(Double cantitate) {
+		if (cantitate > pragCantitate)
+			return cantitateGratuitati * this.produs.getPretUnitar();
+		return 0.0;
+	}
 	
-	public void setCantitate(Double cantitate) {
-		this.cantitate = cantitate;
-	}
-	public Double getCantitate() {
-		return cantitate;
-	}
-	public void setGratuitati(Double gratuitati) {
-		this.gratuitati = gratuitati;
-	}
-	public Double getGratuitati() {
-		return gratuitati;
-	}
-	public PromotieCantitate(Integer id, Produs produs, Double cantitate,
-			Double gratuitati) {
+	public PromotieCantitate(Integer id, Produs produs, Integer pragCantitate,
+			Integer cantitateGratuitati) {
 		super(id, produs);
-		this.cantitate = cantitate;
-		this.gratuitati = gratuitati;
+		this.pragCantitate = pragCantitate;
+		this.cantitateGratuitati = cantitateGratuitati;
 	}
+
+	public PromotieCantitate() {
+	}	
 }

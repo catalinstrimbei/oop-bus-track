@@ -1,37 +1,42 @@
 package org.comenzi.model;
 
-public class PromotieValoare extends Promotie{
-
-	private Double valoare;
+public class PromotieValoare extends Promotie {
+	private Double pragValoare;
+	private Double procentReducere;
 	
-	private Double procent;
-
-	public Double getProcent() {
-		return procent;
+	public Double getPragValoare() {
+		return pragValoare;
 	}
 
-	public void setProcent(Double procent) {
-		this.procent = procent;
+	public void setPragValoare(Double pragValoare) {
+		this.pragValoare = pragValoare;
 	}
 
-	public Double getValoare() {
-		return valoare;
+	public Double getProcentReducere() {
+		return procentReducere;
 	}
 
-	public void setValoare(Double valoare) {
-		this.valoare = valoare;
+	public void setProcentReducere(Double procentReducere) {
+		this.procentReducere = procentReducere;
+	}
+
+	@Override
+	public Double getValoareDiscount(Double cantitate) {
+		Double valoareAchizitie = cantitate * this.produs.getPretUnitar(); 
+		if (valoareAchizitie > pragValoare)
+			return valoareAchizitie * procentReducere/100;
+		return 0.0;
+	}
+
+	public PromotieValoare(Integer id, Produs produs, Double pragValoare,
+			Double procentReducere) {
+		super(id, produs);
+		this.pragValoare = pragValoare;
+		this.procentReducere = procentReducere;
 	}
 
 	public PromotieValoare() {
 		super();
 	}
-
-	public PromotieValoare(Integer id, Produs produs, Double valoare,
-			Double procent) {
-		super(id, produs);
-		this.valoare = valoare;
-		this.procent = procent;
-	}
-
 
 }
