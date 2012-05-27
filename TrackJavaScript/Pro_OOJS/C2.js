@@ -63,6 +63,10 @@ function testCreareClase(){
 	console.log(defDenCont);
 }
 
+function testSiruri(){
+	
+}
+
 //
 function includeJS(jsPath){
 	  var script = document.createElement("script");
