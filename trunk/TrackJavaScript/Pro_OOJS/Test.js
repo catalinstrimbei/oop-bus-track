@@ -4,7 +4,10 @@ includeJS("C2.js");
 function main(){
 	// test();
 	// testCreareObiecte();
-	testCreareClase();
+	// testCreareClase();
+	// testSiruri();
+	// testDate();
+	testExceptions();
 }
 
 function test(){
