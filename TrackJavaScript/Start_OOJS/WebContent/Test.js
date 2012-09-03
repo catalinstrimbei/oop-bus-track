@@ -1,5 +1,6 @@
 includeJS("C1.js");
 includeJS("C2.js");
+includeJS("C3.js");
 
 function main(){
 	// test();
@@ -7,7 +8,9 @@ function main(){
 	// testCreareClase();
 	// testSiruri();
 	// testDate();
-	testExceptions();
+	// testExceptions();
+	testPolimorfism();
+	
 }
 
 function test(){

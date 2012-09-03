@@ -1,6 +1,7 @@
 
-function testCreareClase(){
-	console.log("C3: TESTE POLIMORFISM");
+function testPolimorfism(){
+	console.log("C3: TESTE POLIMORFISM !!!");
+	
 }
 
 /* C3: Polimodfism si genericitate
