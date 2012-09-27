@@ -1,0 +1,7 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Body>
+      <ns2:addResponse xmlns:ns2="http://calculator.me.org/">
+         <return>9</return>
+      </ns2:addResponse>
+   </soap:Body>
+</soap:Envelope>
