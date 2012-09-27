@@ -96,13 +96,6 @@ public class TestSOAP_Dynamic_v1 {
         SOAPElement message = payload.addChildElement("name");
         message.addTextNode(msg);
         request.saveChanges();
-        
-        /*
-        SOAPElement operation = body.addChildElement("hello", "ns1", namespace);
-        SOAPElement value = operation.addChildElement("name");
-        value.addTextNode(msg);
-        request.saveChanges();
-        */
         // Invoke the endpoint synchronously
         SOAPMessage reply = null;
         //Invoke Endpoint Operation and read response
