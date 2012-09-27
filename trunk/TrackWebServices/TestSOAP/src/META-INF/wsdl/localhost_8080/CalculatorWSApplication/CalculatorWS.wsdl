@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions name="CalculatorWSService" targetNamespace="http://calculator.me.org/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://calculator.me.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+        <xs:schema elementFormDefault="unqualified" targetNamespace="http://calculator.me.org/" version="1.0" xmlns:tns="http://calculator.me.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="add" type="tns:add" />
+            <xs:element name="addResponse" type="tns:addResponse" />
+            <xs:element name="hello" type="tns:hello" />
+            <xs:element name="helloResponse" type="tns:helloResponse" />
+            <xs:complexType name="add">
+                <xs:sequence>
+                    <xs:element name="i" type="xs:int" />
+                    <xs:element name="j" type="xs:int" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="addResponse">
+                <xs:sequence>
+                    <xs:element name="return" type="xs:int" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="hello">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="name" type="xs:string" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="helloResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="xs:string" />
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="add">
+        <wsdl:part element="tns:add" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="hello">
+        <wsdl:part element="tns:hello" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="addResponse">
+        <wsdl:part element="tns:addResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="helloResponse">
+        <wsdl:part element="tns:helloResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="CalculatorWS">
+        <wsdl:operation name="add">
+            <wsdl:input message="tns:add" name="add">
+            </wsdl:input>
+            <wsdl:output message="tns:addResponse" name="addResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="hello">
+            <wsdl:input message="tns:hello" name="hello">
+            </wsdl:input>
+            <wsdl:output message="tns:helloResponse" name="helloResponse">
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CalculatorWSServiceSoapBinding" type="tns:CalculatorWS">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="add">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="add">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="addResponse">
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="hello">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input name="hello">
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output name="helloResponse">
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CalculatorWSService">
+        <wsdl:port binding="tns:CalculatorWSServiceSoapBinding" name="CalculatorWSPort">
+            <soap:address location="http://localhost:8080/CalculatorWSApplication/CalculatorWS" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
