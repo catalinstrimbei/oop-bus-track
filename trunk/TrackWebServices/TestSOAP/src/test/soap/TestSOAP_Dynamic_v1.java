@@ -31,8 +31,8 @@ import javax.xml.ws.soap.SOAPBinding;
  * Test with Asynchronous Programming Model
  * @author catalin.strimbei
  */
-public class TestSOAP_Asynchronousv1 {
-    static Logger logger = Logger.getLogger(TestSOAP_Asynchronousv1.class.getName());
+public class TestSOAP_Dynamic_v1 {
+    static Logger logger = Logger.getLogger(TestSOAP_Dynamic_v1.class.getName());
     /**
      * @param args the command line arguments
      */

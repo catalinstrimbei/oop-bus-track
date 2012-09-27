@@ -4,6 +4,7 @@
  */
 package test.soap;
 
+import org.me.calculator.CalculatorWSHello;
 import java.net.MalformedURLException;
 import java.net.URL;
 import javax.xml.namespace.QName;
@@ -12,10 +13,10 @@ import org.me.calculator.CalculatorWS;
 
 
 /**
- * Test with Dispatch Client Model
+ * Test with Dynamic Invocation Interface DII
  * @author catalin.strimbei
  */
-public class TestSOAP_Dispatchv1 {
+public class TestSOAP_StaticProxy_v2 {
 
     /**
      * @param args the command line arguments
@@ -38,8 +39,8 @@ public class TestSOAP_Dispatchv1 {
         QName portQN = new QName(namespace, portName);
         
         // service endpoint interface SEI invocation
-        // TODO
-        
-        return null;
+        //CalculatorWS helloPort = service.getPort(portQN, CalculatorWS.class);
+        CalculatorWSHello helloPort = service.getPort(portQN, CalculatorWSHello.class);
+        return helloPort.hello(name);
     }
 }

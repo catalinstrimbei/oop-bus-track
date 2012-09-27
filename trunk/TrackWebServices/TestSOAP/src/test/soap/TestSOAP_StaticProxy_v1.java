@@ -8,7 +8,7 @@ package test.soap;
  *
  * @author catalin.strimbei
  */
-public class TestSOAP_DynamicProxyv1 {
+public class TestSOAP_StaticProxy_v1 {
 
     /**
      * @param args the command line arguments
