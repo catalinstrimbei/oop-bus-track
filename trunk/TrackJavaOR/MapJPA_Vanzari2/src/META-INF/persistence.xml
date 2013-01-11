@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="MapJPA">
+		<class>org.app.vanzari.LinieFacturaPK</class>
+		<class>org.app.vanzari.LinieFactura</class>
+		<class>org.app.vanzari.Grupa</class>
+		<class>org.app.vanzari.Factura</class>
+		<class>org.app.vanzari.ElementFacturabil</class>
+		<class>org.app.vanzari.Serviciu</class>
+		<class>org.app.vanzari.ServiciuTarifFix</class>
+		<class>org.app.vanzari.ServiciuTarifVariabil</class>
+		<class>org.app.vanzari.Produs</class>
+	</persistence-unit>
+</persistence>
