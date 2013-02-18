@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Test Form Customers ... </title>
+<script type="text/javascript" src="StartUIController.js"></script>
+</head>
+<body>
+	<div> Form CUSTOMER </div>
+	<form name="FormCustomer">
+		<fieldset>
+			<legend> Customer Form</legend>
+		<p> 
+			<label for="txtCustomerID">CustomerID :</label>
+			<input id="txtCustomerID" name="customerID" type="text" placeholder="Customer Identifier" required>
+		</p>
+		<p> 
+			<label for="txtCompanyName">Company Name:</label>
+			<input id="txtCompanyName" name="companyName" type="text" placeholder="Customer Name" required>
+		</p>		
+		<p> 
+			<label for="txtCity">City:</label>
+			<input id="txtCity" name="city" type="text" placeholder="City" required>
+		</p>		
+		<p> 
+			<label for="txtZipCode">Zip Code:</label>
+			<input id="nmbZipCode" name="zipCode" type="text" placeholder="Zip Code" required>
+		</p>		
+		<p> 
+			<label for="txtZipCode">E@mail:</label>
+			<input id="txtemail" name="email" type="email" placeholder="your@mail" required>
+		</p>	
+		<p> 
+			<label for="registrationDate">Registration Date:</label>
+			<input id="registrationDate" name="registrationDate" type="date" >
+		</p>	
+		<p> 
+			<datalist id="stateList">
+				<option value = "active" label = "Active"></option>
+				<option value = "registered" label = "Registered"></option>
+				<option value = "inactive" label = "Inactive"></option>
+			</datalist>
+			<label for="registrationDate">Account State:</label>
+			<input id="state" name="state" type="text" list="stateList" >
+		</p>	
+		<p> 
+			<label for="sold">Sold:</label>
+			<input id="sold" name="sold" type="number" required>
+		</p>		
+		</fieldset>
+		<p><input type="submit" name="save" value="Save" id="cmdSave">
+		<input type="submit" name="cancel" value="Cancel" id="cmdCancel"></p>
+	</form>
+
+</body>
+</html>
