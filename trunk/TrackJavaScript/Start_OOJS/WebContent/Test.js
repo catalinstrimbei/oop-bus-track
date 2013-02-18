@@ -7,9 +7,9 @@ function main(){
 	// testCreareObiecte();
 	// testCreareClase();
 	// testSiruri();
-	// testDate();
+	testDate();
 	// testExceptions();
-	testPolimorfism();
+	// testPolimorfism();
 	
 }
 
