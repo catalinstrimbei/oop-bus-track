@@ -2,7 +2,6 @@
 // Plugin base object
 $.gShuffle = function()
 {	
-	
 	alert();
 }
 
