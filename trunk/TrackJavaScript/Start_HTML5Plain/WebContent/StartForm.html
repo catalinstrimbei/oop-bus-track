@@ -10,7 +10,7 @@
 
 <body>
 	<div id="divFormHeader">Form CUSTOMER </div>
-	<form name="FormCustomer" id="FormCustomer" method="post">
+	<form name="FormCustomer" id="FormCustomer" method="post" onsubmit="submitFormCustomer();">
 		<fieldset> <legend> Customer Details</legend>
 			<p> 
 				<label for="customerID">Customer ID:</label>
@@ -59,11 +59,15 @@
 					
 		</fieldset>
 		
-		<p><input type="submit" name="save" value="Save" id="cmdSave" onclick="checkFormCustomerValidation();">
-		<input type="submit" name="cancel" value="Cancel" id="cmdCancel"></p>
+		<p>
+			<input type="submit" name="save" value="Save" id="cmdSave" 
+				onclick="checkFormCustomerValidation();" >
+			<input type="submit" name="cancel" value="Cancel" id="cmdCancel">
+		</p>
 	</form>
 
 </body>
 
 <script type="text/javascript" src="StartFormValidationController.js"></script>
+<script type="text/javascript" src="StartFormActionController.js"></script>
 </html>
