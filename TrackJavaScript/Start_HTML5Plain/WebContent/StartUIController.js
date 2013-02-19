@@ -1,1 +1,1 @@
-alert("Loading StartForm ... ");
+console.log("Loading StartForm ... " + Date());
