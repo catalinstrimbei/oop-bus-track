@@ -2,14 +2,19 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
+	<meta http-equiv="Access-Control-Allow-Origin" content="*">
 	<title>Test Form Customers ... </title>
-	<script type="text/javascript" src="StartUIController.js"></script>	
 	<link rel="stylesheet" type="text/css" href="StartFormStyles.css">
 </head>
 
 <body>
 	<div id="divFormHeader">Form CUSTOMER </div>
 	<form name="FormCustomer" id="FormCustomer" method="post" onsubmit="submitFormCustomer();">
+		<fieldset> <legend> Select next customer:</legend>
+			<select name="customers" id="customers">
+				<option id="defCustomerElement">... to be loaded ... </option>
+			</select>
+		</fieldset>
 		<fieldset> <legend> Customer Details</legend>
 			<p> 
 				<label for="customerID">Customer ID:</label>
@@ -60,13 +65,15 @@
 		
 		<p>
 			<input type="submit" name="save" value="Save" id="cmdSave" 
-				onclick="checkFormCustomerValidation();" >
+				onclick="checkFormCustomerValidation()" >
 			<input type="submit" name="cancel" value="Cancel" id="cmdCancel">
+			<input type="button" name="refresh" value="Refresh" id="cmdRefresh" onclick="getCustomers();">
 		</p>
 	</form>
-
+	
+	<p id="response">Response: null</p>
 </body>
-
+<script type="text/javascript" src="StartUIController.js"></script>
 <script type="text/javascript" src="StartFormValidationController.js"></script>
 <script type="text/javascript" src="StartFormActionController.js"></script>
 </html>
