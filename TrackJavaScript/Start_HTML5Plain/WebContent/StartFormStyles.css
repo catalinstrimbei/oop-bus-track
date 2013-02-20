@@ -40,10 +40,14 @@ form#FormCustomer textarea {
 	width: 200px;
 	height: 100px;
 }
-form#FormCustomer input:not([type=submit]) {
+
+form#FormCustomer input:not([type=submit])
+{
 	width: 200px;
 }
-form#FormCustomer input[type=submit]{
+
+form#FormCustomer input[type=submit], form#FormCustomer input[type=button]
+{
 	background: #384313;
 	border: none;
 	-moz-border-radius: 20px;
@@ -58,7 +62,9 @@ form#FormCustomer input[type=submit]{
 	text-shadow: 0 1px 1px #000000;
 	text-transform: uppercase;
 }
-form#FormCustomer input[type=submit]:hover {
+
+form#FormCustomer input[type=submit], 
+form#FormCustomer input[type=button]:hover,{
 	background: blue;
 	cursor: pointer;
 }

@@ -3,9 +3,7 @@ function submitFormCustomer(){
 	console.log("Submited form ... ");
 }
 // CRUD
-function getCustomers(){
-	
-}
+
 function createCustomer(){
 	
 }
