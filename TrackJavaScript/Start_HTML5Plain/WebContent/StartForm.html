@@ -5,13 +5,15 @@
 	<meta http-equiv="Access-Control-Allow-Origin" content="*">
 	<title>Test Form Customers ... </title>
 	<link rel="stylesheet" type="text/css" href="StartFormStyles.css">
+	<script type="text/javascript" src="JSONRequest.js"></script>
+	<script type="text/javascript" src="JSONRequestError.js"></script>
 </head>
 
 <body>
 	<div id="divFormHeader">Form CUSTOMER </div>
 	<form name="FormCustomer" id="FormCustomer" method="post" onsubmit="submitFormCustomer();">
 		<fieldset> <legend> Select next customer:</legend>
-			<select name="customers" id="customers">
+			<select name="customers" id="customers" onchange="selectCurrentCustomer()">
 				<option id="defCustomerElement">... to be loaded ... </option>
 			</select>
 		</fieldset>
@@ -68,6 +70,7 @@
 				onclick="checkFormCustomerValidation()" >
 			<input type="submit" name="cancel" value="Cancel" id="cmdCancel">
 			<input type="button" name="refresh" value="Refresh" id="cmdRefresh" onclick="getCustomers();">
+			<input type="button" name="post" value="Post" id="cmdPost" onclick="postFormCustomer();">
 		</p>
 	</form>
 	
