@@ -1,6 +1,8 @@
 package org.app.backend.rest;
 
+import javax.jws.HandlerChain;
 import javax.ws.rs.GET;
+import javax.ws.rs.HeaderParam;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -22,25 +24,75 @@ public class Hello {
   @GET
   @Produces(MediaType.TEXT_PLAIN)
   public String sayPlainTextHello() {
-    return "Hello Jersey";
+    return "Hello Jersey REST";
   }
 
   // This method is called if XML is request
   @GET
   @Produces(MediaType.TEXT_XML)
   public String sayXMLHello() {
-    return "<?xml version=\"1.0\"?>" + "<hello> Hello Jersey" + "</hello>";
+    return "<?xml version=\"1.0\"?>" + "<hello> Hello Jersey REST!" + "</hello>";
   }
 
   // This method is called if HTML is request
   @GET
   @Produces(MediaType.TEXT_HTML)
   public String sayHtmlHello() {
-    return "<html> " + "<title>" + "Hello Jersey" + "</title>"
-        + "<body><h1>" + "Hello Jersey" + "</body></h1>" + "</html> ";
+    return "<html> " + "<title>" + "Hello Jersey REST" + "</title>"
+        + "<body><h1>" + "Hello Jersey REST" + "</body></h1>" + "</html> ";
+  }
+  
+  // JSON output
+  @GET
+  @Path("/json/getcustomer")
+  @Produces(MediaType.APPLICATION_JSON)
+  //@HeaderParam("Access-Control-Allow-Origin: *")
+  public Customer getJSONCustomer(){
+	  Customer customer = new Customer();
+	  customer.setId(1001l);
+	  customer.setName("First Customer JSONed");
+	  
+	  return customer;
   }
 
 } 
+
+class Customer{
+	private Long id;
+	private String name;
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	
+}
+
+/*
+	http://localhost:9999/restbackend/hello
+	http://localhost:9999/restbackend/hello/json/getcustomer
+	
+	
+	http://theopentutorials.com/examples/java-ee/jax-rs/create-a-simple-restful-web-service-using-jersey-jax-rs/
+	http://www.vogella.com/articles/REST/article.html	
+	
+	
+	--disable-web-security
+	
+	<init-param>
+	    <param-name>com.sun.jersey.spi.container.ContainerResponseFilters</param-name>
+	    <param-value>org.app.backend.rest.SecurityFilter</param-value>
+	</init-param> 	
+*/
+
 
 /*
 	http://localhost:8080/ProRest_Backend/rest/hello

@@ -1,5 +1,8 @@
 package org.app.backend.services.rest;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -15,8 +18,8 @@ import javax.ws.rs.core.MediaType;
 // The browser requests per default the HTML MIME type.
 
 //Sets the path to base URL + /hello
-@Path("/hello")
-public class Hello {
+@Path("/customer")
+public class CustomerRestService {
 
   // This method is called if TEXT_PLAIN is request
   @GET
@@ -47,10 +50,20 @@ public class Hello {
   public Customer getJSONCustomer(){
 	  Customer customer = new Customer();
 	  customer.setId(1001l);
-	  customer.setName("First Customer JSONed");
+	  customer.setName("First Customer");
 	  return customer;
   }
 
+  @GET
+  @Path("/json/getcustomers")
+  @Produces(MediaType.APPLICATION_JSON)
+  public List<Customer> getJSONCustomers(){
+	  List<Customer> customers = new ArrayList<>();
+	  customers.add(new Customer(1001l, "First Customer"));
+	  customers.add(new Customer(1002l, "Second Customer"));
+	  customers.add(new Customer(1003l, "Third Customer"));
+	  return customers;
+  }  
 } 
 
 class Customer{
@@ -67,6 +80,14 @@ class Customer{
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public Customer(Long id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+	public Customer() {
+		super();
 	}
 	
 	
