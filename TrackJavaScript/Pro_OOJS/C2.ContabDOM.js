@@ -31,7 +31,7 @@ function Cont(cod, denumire, contParinte){
 		_contParinte = contParinte;
 	};	
 }
-// like static members of object
+// like static members of object (?!, not quite)
 Cont.prototype = {
 	numeOrganizatie : "Alfa SA"
 };
