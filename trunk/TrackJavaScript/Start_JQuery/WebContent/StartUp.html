@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+</script>
+<script>
+alert("About to start jQuery!");
+
+/* Var 1: To start jQuery event processing
+$(document).ready(startJQuery);
+
+function startJQuery(){
+  $("#notStarted").hide();
+  $("#started").css("visibility", "visible");
+};
+*/
+
+/* Var 2: To start jQuery event processing */
+$(document).ready(function (){
+  $("#notStarted").hide();
+  $("#started").css("visibility", "visible");
+  
+  $("#started").mouseenter(function(){
+	$(this).css("color", "blue");
+  });
+
+  $("#started").mouseleave(function(){
+	$(this).css("color", "red");
+  });
+
+});
+
+</script>
+<style type="text/css">
+	#started{
+		visibility:hidden;
+		color:red;
+	}
+	
+	#notStarted{
+		visibility:visible;
+	}	
+</style>
+</head>
+
+<body>
+
+<p id="notStarted">JQuery is not started up!</p>
+<p id="started">JQuery is started up!</p>
+<script type="text/javascript">
+	$("#notStarted").css("color", "red");
+	alert("Not yet started jQuery: wait for ready event to process!!");
+</script>
+
+</body>
+
+</html>
