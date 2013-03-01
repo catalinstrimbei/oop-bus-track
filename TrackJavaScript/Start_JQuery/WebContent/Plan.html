@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>Start JQuery Plan</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" />
 </head>
+
 <body>
-	<h1>Plan to start JQuery </h1>
+	<h1>Plan to start JQuery and DOM</h1>
 	
 	<h4>Intent</h4>
 	<ul>
@@ -30,13 +33,32 @@
 	<ul>
 		<li>C1.Working with objects</li>
 			<ul>
+				<li>jQuery object $;</li>
 				<li>object creation;</li>
-				<li>object data structures;</li>
+				<li>object access from DOM; (selectors and manipulation)</li>
+				<li>object data structures; (iterating over objects)</li>
 			</ul>
 		<li>C2.Object Structures</li>
 		<li>C3.Polymorphism and Genericity</li>
+			<ul>
+				<li>Extend jQuery with prototype (jQuery.fn, jQuery.extend())</li>
+				<li>Create jQuery ui components ($.widget())</li>
+			</ul>
 		<li>C4.Other essential techniques</li>
 	</ul>
 	
 </body>
 </html>
+
+<script>
+	$(document).ready(function (){
+	  $("h1").mouseenter(function(){
+		$(this).css("color", "blue");
+	  });
+	
+	  $("h1").mouseleave(function(){
+		$(this).css("color", "red");
+	  });
+	
+	});
+</script>
