@@ -5,17 +5,52 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>Start JQuery Plan</title>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" />
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+
+<script>
+	$(document).ready(function (){
+	  $("h1").mouseenter(function(){
+		$(this).css("color", "blue");
+	  });
+	
+	  $("h1").mouseleave(function(){
+		$(this).css("color", "red");
+	  });
+	
+	  $(function() {
+		  $( "#tab_wrapper" ).tabs();
+	  });	  
+	  
+	  $("#tab1").focus();
+	});
+</script>
+
 </head>
 
 <body>
+	
 	<h1>Plan to start JQuery and DOM</h1>
+	 
+<div id="tab_wrapper">
+	<ul>
+	       <li><a href="#tab1">Intent</a></li>
+	       <li><a href="#tab2">Points</a></li>
+	       <li><a href="#tab3">Plan Details</a></li>
+	</ul>
+
+	
+	<div id="tab1">
 	
 	<h4>Intent</h4>
 	<ul>
 		<li>jQuery as object oriented programming style for JavaScript</li>
 	</ul>
+	</div>
 	
+	<div id="tab2">
 	<h4>Interest points:</h4>
 	<ul>
 		<li>jQuery programming approach</li>
@@ -28,7 +63,9 @@
 			</ul>
 		</li>
 	</ul>
+	</div>
 	
+	<div id="tab3">
 	<h4>Plan tutorials, samples:</h4>
 	<ul>
 		<li>C1.Working with objects</li>
@@ -46,19 +83,8 @@
 			</ul>
 		<li>C4.Other essential techniques</li>
 	</ul>
+	</div>
 	
+</div>
 </body>
 </html>
-
-<script>
-	$(document).ready(function (){
-	  $("h1").mouseenter(function(){
-		$(this).css("color", "blue");
-	  });
-	
-	  $("h1").mouseleave(function(){
-		$(this).css("color", "red");
-	  });
-	
-	});
-</script>
