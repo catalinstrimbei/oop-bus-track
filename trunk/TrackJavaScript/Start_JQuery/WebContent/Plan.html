@@ -11,6 +11,7 @@
 <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 
 <script>
+
 	$(document).ready(function (){
 	  $("h1").mouseenter(function(){
 		$(this).css("color", "blue");
@@ -23,10 +24,20 @@
 	  $(function() {
 		  $( "#tab_wrapper" ).tabs();
 		  $( "#tab_wrapper" ).tabs({ active: 1 });
-	  });	  
-
+	  });	
+	  
+	  /*
+	  var els = document.getElementsByTagName("li");
+	  for(i in els){
+	   if(els[i].style)
+		els[i].style.color = "red";
+	  }
+	  */
+	  $('li').css("color", "green");
+	  //$("li").css("text-transform", "capitalize");
 	  
 	});
+
 </script>
 
 </head>
@@ -74,6 +85,7 @@
 				<li>jQuery object $;</li>
 				<li>object creation;</li>
 				<li>object access from DOM; (selectors and manipulation)</li>
+				<li>object access from DOM; (attributes, css-prop manipulation)</li>
 				<li>object data structures; (iterating over objects)</li>
 			</ul>
 		<li>C2.Object Structures</li>
@@ -88,4 +100,5 @@
 	
 </div>
 </body>
+
 </html>
