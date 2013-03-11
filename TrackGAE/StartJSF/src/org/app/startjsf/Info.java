@@ -29,4 +29,8 @@ http://startjsf.appspot.com/faces/welcome.xhtml
 
 https://sites.google.com/a/wildstartech.com/adventures-in-java/Java-Platform-Enterprise-Edition/JavaServer-Faces/javaserver-faces-20/configuring-javaserver-faces-20-to-run-on-the-google-appengine
 http://myfaces.apache.org/core20/myfaces2-googleappengine-eclipse-tutorial.html
+
+http://stackoverflow.com/questions/9401631/my-phaselistener-does-not-work
+
+http://myfaces.apache.org/core20/googleappenginesupport.html
 */
