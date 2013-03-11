@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Start JQuery Plan</title>
+
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+
+<script>
+	$(document).ready(function() {
+		$(function() {
+			$("#tab_wrapper").tabs();
+			$("#tab_wrapper").tabs({
+				active : 4
+			});
+		});
+
+		/*tab3-fonts: source code*/
+		$("li.font-family").mouseenter(function() {
+			$(this).css("color", "red");
+			$(this).css("font-family", "Arial");
+			$(this).text("font-family: Arial");
+		});
+		
+		$("li.font-weight").mouseenter(function() {
+			$(this).css("color", "red");
+			$(this).css("font-weight", "200");
+			$(this).text("font-weight: 200");
+		});
+		
+		/*tab4-links: source code*/
+		$("#firstLink").hover(
+			function(){
+				$(this).css("color", "yellow");
+				$(this).css("background-color", "green");
+				$(this).css("font-style", "italic");
+			},
+			function(){
+				$(this).css("color", "black");
+				$(this).css("background-color", "white");
+				$(this).css("font-style", "normal");
+			}			
+		);			
+		
+		/*tab5-lists: source code*/
+		$("ul.a").hover(
+			function(){
+				$(this).css("list-style-type", "square");
+			},
+			function(){
+				$(this).css("list-style-type", "circle");
+			}
+		);
+	});
+
+	
+	/*tab3-fonts: source code*/	
+	function changeFont(){
+		var lis = document.getElementsByTagName("li");
+		for(i in lis){
+			if (lis[i]){
+				if (lis[i].className == "font-style"){
+					lis[i].style.color = "red";
+					lis[i].style.fontStyle = "normal";
+					lis[i].innerHTML = "font-style: normal";
+				}
+				if (lis[i].className == "font-size"){
+					lis[i].style.color = "red";
+					lis[i].style.fontSize = "1.2em";
+					lis[i].innerHTML = "font-size: 1.2em (20px/16=1.2em)";					
+				}
+			}
+		}
+	}
+	
+	/*tab4-links: source code*/
+	function changeLink(link){
+		/*var thirdLink = document.getElementById("thirdLink");
+		if (thirdLink)
+			thirdLink.style.color = "pink";*/
+		link.style.color = "red";
+		link.style.fontStyle = "italic";
+	}
+	
+	/*tab5-lists: source code*/
+	function changeList(list){
+		list.style.listStyleType = "lower-roman";
+		list.style.fontStyle = "italic";
+	}	
+</script>
+
+<style>
+
+/*tab3: Fonts' styles*/
+li.font-family {
+	font-family: "Times New Roman";
+}
+
+li.font-style {
+	font-style:italic;
+}
+
+li.font-size {
+	font-size: 40px;
+}
+
+li.font-weight {
+	font-weight: bold;
+}
+
+/*tab4: links*/
+a:link 	  {color:red;}      /* unvisited link */
+a:visited {color:blue;}     /* visited link */
+a:hover   {color:green;}    /* mouse over link */
+a:active  {color:yellow;}   /* selected link */
+
+/*tab5: lists*/
+ul.a {list-style-type: circle;}
+ol.b {list-style-type: lower-latin;}
+
+
+</style>
+
+</head>
+
+<body>
+
+	<h1>CSS Spot Samples. How to change:</h1>
+
+	<div id="tab_wrapper">
+		<ul>
+			<li><a href="#tab1" id="first">Backgrounds </a></li>
+			<li><a href="#tab2" id="second">Change text properties</a></li>
+			<li><a href="#tab3" id="third">Change font properties</a></li>
+			<li><a href="#tab4" id="forth">Change link properties</a></li>
+			<li><a href="#tab5" id="fifth">Change list properties</a></li>
+		</ul>
+
+
+		<div id="tab1">
+			<h4>Backgrounds</h4>
+			<ul>
+				<li>background-color</li>
+				<li>background-image</li>
+				<li>background-repeat</li>
+				<li>background-attachment</li>
+				<li>background-position</li>
+			</ul>
+		</div>
+
+		<div id="tab2">
+			<h4>Text</h4>
+			<ul>
+				<li>text-align</li>
+				<li>text-transform</li>
+				<li>text-decoration</li>
+				<li>line-height</li>
+				<li>word-spacing</li>
+				<li>letter-spacing</li>
+				<li>color</li>
+			</ul>
+		</div>
+
+		<div id="tab3">
+			<h4>Fonts</h4>
+			<ul>
+				<li class="font-family">font-family: "Times New Roman"</li>
+				<li class="font-style" onmousemove="changeFont()">
+					font-style: italic
+				</li>
+				<li class="font-size">font-size : 40px</li>
+				<li class="font-weight">font-weight: bold</li>
+			</ul>
+		</div>
+
+		<div id="tab4">
+			<h4>Links - states</h4>
+			<ul>
+				<li class="link" > <a id="firstLink"  href="" > First  link </a> </li>
+				<li class="link" > <a id="secondLink" href=""> Second link </a> </li>
+				<li class="link" > 
+					<a href="" id="thirdLink" onmousemove="changeLink(this);"> Third link </a> 
+				</li>
+			</ul>
+		</div>
+
+
+	<div id="tab5">
+		<h4>Lists</h4>
+		<b>First unordered list:</b>
+		<ul class="a"> 
+			<li> First  unordered item  </li>
+			<li> Second unordered item  </li>
+			<li> Last   unordered item  </li>
+		</ul>
+		<b>Second unordered list:</b>
+		<ol class="b" onmousemove="changeList(this)"> 
+			<li> First  ordered item  </li>
+			<li> Second ordered item  </li>
+			<li> Last   ordered item  </li>
+		</ol>
+	</div>
+	
+	</div>	
+</body>
+
+</html>
