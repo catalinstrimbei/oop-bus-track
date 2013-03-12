@@ -16,7 +16,7 @@
 		$(function() {
 			$("#tab_wrapper").tabs();
 			$("#tab_wrapper").tabs({
-				active : 4
+				active : 5
 			});
 		});
 
@@ -49,14 +49,31 @@
 		
 		/*tab5-lists: source code*/
 		$("ul.a").hover(
+				function(){
+					$(this).css("list-style-type", "square");
+				},
+				function(){
+					$(this).css("list-style-type", "circle");
+				}
+			);
+		});		
+
+		/*tab6-box: source code*/
+		$("#liBorder").click(
 			function(){
-				$(this).css("list-style-type", "square");
-			},
-			function(){
-				$(this).css("list-style-type", "circle");
+				alert("Hover...");
+				$(this).css("border-width", "5px");
+				$(this).css("border-color", "blue");
 			}
-		);
-	});
+			);
+			/*
+			,function(){
+				$(this).css("border-width", "3px");
+				$(this).css("border-color", "red");
+
+			}
+		);*/
+		
 
 	
 	/*tab3-fonts: source code*/	
@@ -92,6 +109,10 @@
 		list.style.listStyleType = "lower-roman";
 		list.style.fontStyle = "italic";
 	}	
+	
+	function changeOutline(item){
+		item.style.outlineColor = "red";
+	}
 </script>
 
 <style>
@@ -123,14 +144,36 @@ a:active  {color:yellow;}   /* selected link */
 ul.a {list-style-type: circle;}
 ol.b {list-style-type: lower-latin;}
 
-
+/*tab5: box*/
+.border {padding:5px; width:232px;
+	border-width: 3px; 
+	border-style: solid;
+	border-color: red; 
+}
+.outline{border: 1px solid red; padding:10px; width:232px;margin-bottom:10px; 
+	outline-color:green;
+	outline-style: outset;
+	outline-width: 10px;
+}
+.padding{border: 1px solid gray; width:232px;  background-color: pink;
+	padding:30px;
+}
+.margins{
+	border: 1px solid gray; 
+	padding:10px; width:232px;
+	color: blue;
+	margin-top:30px;
+	margin-bottom:30px;
+	margin-right:0px;
+	margin-left:0px;
+}
 </style>
 
 </head>
 
 <body>
 
-	<h1>CSS Spot Samples. How to change:</h1>
+	<h1>CSS Spot Samples</h1>
 
 	<div id="tab_wrapper">
 		<ul>
@@ -139,6 +182,7 @@ ol.b {list-style-type: lower-latin;}
 			<li><a href="#tab3" id="third">Change font properties</a></li>
 			<li><a href="#tab4" id="forth">Change link properties</a></li>
 			<li><a href="#tab5" id="fifth">Change list properties</a></li>
+			<li><a href="#tab6" id="sixth">Box Model</a></li>
 		</ul>
 
 
@@ -205,6 +249,16 @@ ol.b {list-style-type: lower-latin;}
 			<li> Last   ordered item  </li>
 		</ol>
 	</div>
+	
+	<div id="tab6">
+		<h4>The Box Model and Tables</h4>
+		<ul> 
+			<li class="border" id="liBorder"> Border   </li>
+			<li class="margins"> Margins  </li>
+			<li class="outline"  onmousemove="changeOutline(this);"> Outline  </li>
+			<li class="padding"> Padding  </li>
+		</ul>
+	</div>	
 	
 	</div>	
 </body>
