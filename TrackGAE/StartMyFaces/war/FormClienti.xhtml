@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+ 
+<h:head>
+	<title>Form Client</title>
+</h:head>
+<h:body>
+	<h1>Form Client JSF 2.0 example - GAE</h1>
+	<h:form>
+		<h:panelGrid columns="2" border="1">
+			
+			<f:facet name="header">
+				<h:outputText value="Selectati:"></h:outputText>
+				<h:selectOneMenu id="cboClienti" value="#{formClienti.client}"
+					style="width: 209px; " converter="#{formClienti}">
+					<f:selectItems value="#{formClienti.clientiMap}"></f:selectItems>
+					<f:ajax render="id denumire"></f:ajax>
+				</h:selectOneMenu>				
+			</f:facet>
+			
+			<h:outputText value="ID Client:" ></h:outputText>
+			<h:inputText value="#{formClienti.client.id}" id="id"></h:inputText>
+
+			<h:outputText value="Denumire Client:"></h:outputText>
+			<h:inputText value="#{formClienti.client.denumire}" id="denumire"></h:inputText>
+			
+			<f:facet name="footer">
+				<h:panelGrid columns="4" border="0">
+					<h:commandButton value="Adaugare" actionListener="#{formClienti.adaugareClient}"></h:commandButton>
+					<h:commandButton value="Stergere" actionListener="#{formClienti.stergeClient}"></h:commandButton>
+					<h:commandButton value="Salveaza" actionListener="#{formClienti.salvareClient}"></h:commandButton>
+					<h:commandButton value="Abandon" actionListener="#{formClienti.abandonClient}"></h:commandButton>
+				</h:panelGrid>
+			</f:facet>			
+
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>
