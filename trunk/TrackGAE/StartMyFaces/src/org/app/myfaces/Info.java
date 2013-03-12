@@ -33,10 +33,12 @@ public class Info implements Serializable {
 
 /*
 http://localhost:8888/welcome.jsf
-
 http://localhost:8888/faces/hello.xhtml
 http://localhost:8888/faces/welcome.xhtml
+http://localhost:8888/faces/FormClienti.xhtml
+
 http://startmyfaces.appspot.com/faces/welcome.xhtml
+http://startmyfaces.appspot.com/faces/FormClienti.xhtml
 
 https://sites.google.com/a/wildstartech.com/adventures-in-java/Java-Platform-Enterprise-Edition/JavaServer-Faces/javaserver-faces-20/configuring-javaserver-faces-20-to-run-on-the-google-appengine
 
