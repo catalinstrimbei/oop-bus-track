@@ -23,6 +23,7 @@ import org.app.entities.EMF;
  * 3. Rezultatul interogarilor trebuie impachetat intr-un ArrayList explicit [eroare de ne-seriabilitate]
  * 
  * TestURL: http://localhost:8888/faces/FormClienti.xhtml sau http://startmyfaces.appspot.com/faces/FormClienti.xhtml
+ * La testul direct de pe GAE tb inceputa OBLIGATORIU o noua sesiune, adica anulata (inchis browserul) cea anterioara.
  */
 
 
