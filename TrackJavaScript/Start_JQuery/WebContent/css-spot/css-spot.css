@@ -1,4 +1,17 @@
 @CHARSET "ISO-8859-1";
+
+/*tab1: background styles*/
+.background-color{
+	background-color: white;
+	color: black;
+}
+.background-image{
+	background-image: url('img-flower.jpg');
+	/*background-image: url('../images/img-flower1.jpg');*/
+	background-repeat: no-repeat;
+	color: black;
+}
+
 /*tab3: Fonts' styles*/
 li.font-family {
 	font-family: "Times New Roman";
@@ -33,17 +46,16 @@ ol.b {list-style-type: lower-latin;}
 	border-color: red; 
 }
 .outline{border: 1px solid red; padding:10px; width:232px;margin-bottom:10px; 
-	outline-color:green;
+	outline-color:red;
 	outline-style: outset;
 	outline-width: 10px;
 }
-.padding{border: 1px solid gray; width:232px;  background-color: pink;
+.padding{border: 1px solid gray; width:232px;  background-color: red;
 	padding:30px;
 }
 .margins{
 	border: 1px solid gray; 
 	padding:10px; width:232px;
-	color: blue;
 	margin-top:30px;
 	margin-bottom:30px;
 	margin-right:0px;

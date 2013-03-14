@@ -1,11 +1,25 @@
+/** START jQuery Scripting ***********************************************/
 $(document).ready(function() {
 	$(function() {
 		$("#tab_wrapper").tabs();
 		$("#tab_wrapper").tabs({
-			active : 5
+			active : 0
 		});
 	});
 
+	/* tab1-backgrounds: source code */
+	$("li.background-color").hover(function() {
+		$(this).css("color", "red");
+		$(this).css("background-color", "blue");
+		$(this).css("font-style", "italic");
+		$(this).text("background-color-red");
+	}, function() {
+		$(this).css("color", "black");
+		$(this).css("background-color", "white");
+		$(this).css("font-style", "normal");
+		$(this).text("background-color-default");
+	});
+	
 	/* tab3-fonts: source code */
 	$("li.font-family").mouseenter(function() {
 		$(this).css("color", "red");
@@ -36,19 +50,31 @@ $(document).ready(function() {
 	}, function() {
 		$(this).css("list-style-type", "circle");
 	});
-});
+	
+	/* tab6-box: source code */
+	$("li.border").hover(function() {
+		$(this).css("border-width", "5px");
+		$(this).css("border-color", "blue");
+		$(this).css("color", "red");
+	});
+	$("li.margins").hover(function() {
+		$(this).css("margin-top", "35px");
+		$(this).css("margin-bottom", "35px");
+		$(this).css("color", "blue");
+	}, function() {
+		$(this).css("margin-top", "30px");
+		$(this).css("margin-bottom", "30px");
+		$(this).css("color", "red");
+	});	
+	$("li.padding").hover(function() {
+		$(this).css("background-color", "blue");
+		$(this).css("color", "red");
+	});	
+	
+}); /** END jQuery Scripting ***********************************************/
 
-/* tab6-box: source code */
-$("#liBorder").click(function() {
-	alert("Hover...");
-	$(this).css("border-width", "5px");
-	$(this).css("border-color", "blue");
-});
-/*
- * ,function(){ $(this).css("border-width", "3px"); $(this).css("border-color",
- * "red");
- *  } );
- */
+/* tab1-backgrounds: source code */
+//object.style.backgroundImage="url(stars.gif)"
 
 /* tab3-fonts: source code */
 function changeFont() {
@@ -71,10 +97,6 @@ function changeFont() {
 
 /* tab4-links: source code */
 function changeLink(link) {
-	/*
-	 * var thirdLink = document.getElementById("thirdLink"); if (thirdLink)
-	 * thirdLink.style.color = "pink";
-	 */
 	link.style.color = "red";
 	link.style.fontStyle = "italic";
 }
@@ -87,5 +109,6 @@ function changeList(list) {
 
 /* tab6-box: source code */
 function changeOutline(item) {
-	item.style.outlineColor = "red";
+	item.style.outlineColor = "blue";
+	item.style.color = "red";	
 }
