@@ -77,8 +77,7 @@ class Customer{
 }
 
 /*
-	http://localhost:9999/restbackend/hello
-	http://localhost:9999/restbackend/hello/json/getcustomer
+	http://localhost:8080/ProRest_WebBackend/rest/hello
 	
 	
 	http://theopentutorials.com/examples/java-ee/jax-rs/create-a-simple-restful-web-service-using-jersey-jax-rs/
