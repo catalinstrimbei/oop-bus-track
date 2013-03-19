@@ -6,13 +6,18 @@
 	<title>Test Form Customers ... </title>
 	<link rel="stylesheet" type="text/css" href="start-css/SharedStyles.css">
 	
+	<script type="text/javascript" src="start-script/ValidationController.js"></script>	
+	<script type="text/javascript" src="start-script/BindingController.js"></script>
+	<script type="text/javascript" src="start-script/CustomerServiceProvider.js"></script>
+	<script type="text/javascript" src="start-script/ActionController.js"></script>
+	<script type="text/javascript" src="start-script/MainController.js"></script>	
 </head>
 
 <body>
 	<div id="divFormHeader">Form CUSTOMERS </div>
-	<form name="FormCustomer" id="FormCustomer" method="post" onsubmit="submitFormCustomer();">
+	<form name="FormCustomer" id="FormCustomer" method="post">
 		<fieldset> <legend> Select next customer:</legend>
-			<select name="customers" id="customers" onchange="selectCurrentCustomer()">
+			<select name="customers" id="customers" onchange="selectCurrentCustomer();">
 				<option id="defCustomerElement">... to be loaded ... </option>
 			</select>
 		</fieldset>
@@ -76,9 +81,4 @@
 	<p id="response">Response: null</p>
 </body>
 
-<script type="text/javascript" src="start-script/ValidationController.js"></script>	
-<script type="text/javascript" src="start-script/BindingController.js"></script>
-<script type="text/javascript" src="start-script/CustomerServiceProvider.js"></script>
-<script type="text/javascript" src="start-script/ActionController.js"></script>
-<script type="text/javascript" src="start-script/MainController.js"></script>
 </html>
