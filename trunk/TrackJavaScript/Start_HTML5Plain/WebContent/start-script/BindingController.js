@@ -2,11 +2,11 @@
  * - binding [data model] - to - [form fields] [synchronization]
  */
 function bindingForm(){
-	console.log(" - bindingForm ... " + Date());
-	// bind data navigation component
-	bindDataBrowseComponent();
-	// bind form fields
-	bindFormFields();
+		console.log(" - bindingForm ... " + Date());
+		// bind data navigation component
+		bindDataBrowseComponent();
+		// bind form fields
+		bindFormFields();
 }
 
 function bindDataBrowseComponent(){
@@ -37,4 +37,22 @@ function bindFormFields(){
 		// log
 		document.getElementById("response").innerHTML = customers[0].id + " - " + customers[0].name;		
 	}	
+}
+
+function selectCurrentCustomer(){
+	
+	var selectCustomers = document.getElementById("customers");
+	var currentId = selectCustomers.value;
+	console.log("currentId = " + currentId);
+	
+	if(currentId){
+		for(var i = 0; i < customers.length; i++) {
+			if (customers[i].id == currentId)
+				customer = customers[i];
+		}
+		// refresh form
+		console.log("customer.id = " + customer.id);
+		document.getElementById("customerID").value = customer.id;
+		document.getElementById("customerName").value = customer.name;	
+	}
 }

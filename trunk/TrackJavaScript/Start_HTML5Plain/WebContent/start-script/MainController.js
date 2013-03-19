@@ -7,7 +7,6 @@
  * - control form lifecycle (ex. initialization)
  */
 
-
 // CFG: backend services integration configuration
 var urlRestBase = "http://localhost:8080/ProRest_WebBackend/services/customer/json/";
 
@@ -19,9 +18,8 @@ var customers;
 
 // Form life-cycle: init
 window.onload = function(){
-	console.log("Loading StartForm ... " + Date());
+	console.log("Loading StartForm. " + Date() + " WebWorkers support: " + typeof(Worker));
 	initDataModel();
-	bindingForm();
 };
 // Form life-cycle: ending
 window.onunload = function(){
@@ -30,10 +28,9 @@ window.onunload = function(){
 	// cleanup resource usage
 }
 
-// Form life-cycle callbacks: data model
+// Form life-cycle callbacks: data model 
 function initDataModel(){
-	console.log(" - initDataModel ... " + Date());
-	customers = customerService.getCustomers();
-	if (customers)
-		customer = customers[0];
+	console.log(" - initDataModel ... " + Date());	
+	// asynchronous binding form
+	customerService.getCustomers(bindingForm);
 }
