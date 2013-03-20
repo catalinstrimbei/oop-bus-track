@@ -20,6 +20,7 @@ var customers;
 window.onload = function(){
 	console.log("Loading StartForm. " + Date() + " WebWorkers support: " + typeof(Worker));
 	initDataModel();
+	
 };
 // Form life-cycle: ending
 window.onunload = function(){
@@ -30,7 +31,19 @@ window.onunload = function(){
 
 // Form life-cycle callbacks: data model 
 function initDataModel(){
-	console.log(" - initDataModel ... " + Date());	
-	// asynchronous binding form
+	console.log(" - initDataModel ... " + Date());
+	
+	// asynchronous binding form 
 	customerService.getCustomers(bindingForm);
+	
+	// Disable form
+	disableFormContent(true);	
+}
+
+function disableFormContent(enable){
+	document.getElementById("fldsNav").disabled= enable;
+	document.getElementById("fldsId").disabled= enable;
+	document.getElementById("fldsDetails").disabled= enable;
+	document.getElementById("fldsAdress").disabled= enable;
+	document.getElementById("fldsActions").disabled= enable;
 }
