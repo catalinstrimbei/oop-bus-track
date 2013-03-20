@@ -32,10 +32,8 @@ window.onunload = function(){
 // Form life-cycle callbacks: data model 
 function initDataModel(){
 	console.log(" - initDataModel ... " + Date());
-	
 	// asynchronous binding form 
 	customerService.getCustomers(bindingForm);
-	
 	// Disable form
 	disableFormContent(true);	
 }
