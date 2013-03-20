@@ -6,8 +6,8 @@
 	color: black;
 }
 .background-image{
-	background-image: url('img-flower.jpg');
-	/*background-image: url('../images/img-flower1.jpg');*/
+	/*background-image: url('img-flower.jpg');*/
+	background-image: url('../images/img-flower1.jpg');
 	background-repeat: no-repeat;
 	color: black;
 }
