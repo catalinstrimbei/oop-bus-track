@@ -1,5 +1,4 @@
 function loopSearchCollection(key, keyCollection){
-	//console.log("QueryDataCollectionWorker in progrress: loopSearchCollection for " + key + " in " + keyCollection);
 	for(var i = 0; i < keyCollection.length; i++) {
 		if (keyCollection[i].id == key)
 			return keyCollection[i];
@@ -7,14 +6,12 @@ function loopSearchCollection(key, keyCollection){
 }
 
 onmessage = function(event){
-	//console.log("QueryDataCollectionWorker in progrress: " + event.data);
-	var currentKey = event[0];
-	var currentKeyCollection = event[1];
+	var currentKey = event.data[0];
+	var currentKeyCollection = event.data[1];
+	// DEBUG throw new Error("WORKER FORCE ERROR DEBUG: " + event.data + " - " +  currentKey + " - " + currentKeyCollection);
 	var value = null; 
-	
-	//if (currentKey && currentKeyCollection){
+	if (currentKey && currentKeyCollection){
 		value = loopSearchCollection(currentKey, currentKeyCollection);
-	//}
-	
+	}	
 	postMessage(value);
 }

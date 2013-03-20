@@ -44,24 +44,28 @@ function bindFormFields(){
 }
 
 function selectCurrentCustomer(){
+	var selectCustomers = document.getElementById("customers");
+	var currentId = selectCustomers.value;
+	console.log("selectCurrentCustomer - currentId = " + currentId + " in " + customers);
+	if(currentId){
+		for(var i = 0; i < customers.length; i++) {
+			if (customers[i].id == currentId)
+				customer = customers[i];
+		}
+		// refresh form
+		console.log("customer.id = " + customer.id);
+		document.getElementById("customerID").value = customer.id;
+		document.getElementById("customerName").value = customer.name;	
+	}
+}
+
+function selectCurrentCustomerAsync(){
 	
 	var selectCustomers = document.getElementById("customers");
 	var currentId = selectCustomers.value;
 	console.log("selectCurrentCustomer - currentId = " + currentId + " in " + customers);
 	
-	if(currentId){
-		/*
-		for(var i = 0; i < customers.length; i++) {
-			if (customers[i].id == currentId)
-				customer = customers[i];
-		}
-		
-		// refresh form
-		console.log("customer.id = " + customer.id);
-		document.getElementById("customerID").value = customer.id;
-		document.getElementById("customerName").value = customer.name;	
-		*/
-		
+	if(currentId){		
 		/* using worker */
 		disableFormContent(true);
 		// disable form
@@ -77,6 +81,11 @@ function selectCurrentCustomer(){
 			// enable form
 			disableFormContent(false);			
 		}
+		// catch error
+		worker.onerror = function(event){
+			console.log("DEBUG selectCurrentCustomer: " + event.data);
+		}
+		
 		worker.postMessage([currentId, customers]);
 	}
 }
