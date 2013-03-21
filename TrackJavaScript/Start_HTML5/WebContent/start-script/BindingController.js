@@ -3,14 +3,20 @@
  */
 function bindingForm(){
 		console.log(" - bindingForm ... " + Date());
-		//document.getElementById("FormCustomer").disabled=false;
-		// bind data navigation component
-		bindDataBrowseComponent();
-		// bind form fields
-		bindFormFields();
 		
-		// enable form
-		disableFormContent(false);			
+		var timeout = setTimeout(function(){
+			alert(" - bindingForm ... " + Date());
+			
+			// bind data navigation component
+			bindDataBrowseComponent();
+			// bind form fields
+			bindFormFields();
+			
+			// enable form
+			disableFormContent(false);			
+			
+		},1000);
+		
 }
 
 function bindDataBrowseComponent(){

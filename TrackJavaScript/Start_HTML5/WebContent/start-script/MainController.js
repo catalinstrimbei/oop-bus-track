@@ -38,10 +38,11 @@ function initDataModel(){
 	disableFormContent(true);	
 }
 
-function disableFormContent(enable){
-	document.getElementById("fldsNav").disabled= enable;
-	document.getElementById("fldsId").disabled= enable;
-	document.getElementById("fldsDetails").disabled= enable;
-	document.getElementById("fldsAdress").disabled= enable;
-	document.getElementById("fldsActions").disabled= enable;
-}
+
+
+/* INFOS
+ * - Change HTTP Preview Default Port in .metadata.plugins\org.eclipse.wst.server.core/servers.xml
+ * 		-- add port="8081"
+ * 
+ * 
+ */

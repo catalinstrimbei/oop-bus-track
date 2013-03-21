@@ -1,4 +1,12 @@
-// JavaScript Wrapper for Customer REST Service
+/* JavaScript Wrapper (as JS object) for Customer REST Service
+ * CustomerService methods:
+ * 	- getCustomers(callback)
+ *  - saveCustomers(callback)
+ *  
+ * CustomerService methods fields:
+ *  - urlRestBase
+ */
+
 function CustomerService(url){
 	// service configuration attributes
 	this.urlRestBase = url;
@@ -10,7 +18,7 @@ function CustomerService(url){
 		reqRest.onload = function(){
 			if (reqRest.status == 200){
 				console.log("REST Response: " + reqRest.responseText);
-				// populate selectCustomers navigator combo from REST response
+				// get objects from REST response
 				customers = JSON.parse(reqRest.responseText);
 				// callback
 				dataHandler(customers);
