@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<meta http-equiv="Access-Control-Allow-Origin" content="*">
+	<title>Test Form Customers ... </title>
+	<link rel="stylesheet" type="text/css" href="start-css/SharedStyles.css">
+	<script type="text/javascript" src="start-script/MainController.js"></script>
+</head>
+
+<body>
+	<div id="divFormHeader">Form CUSTOMERS </div>
+	<form name="FormCustomer" id="FormCustomer" method="post" onsubmit="submitFormCustomer();">
+		<fieldset> <legend> Select next customer:</legend>
+			<select name="customers" id="customers" onchange="selectCurrentCustomer()">
+				<option id="defCustomerElement">... to be loaded ... </option>
+			</select>
+		</fieldset>
+		<p> 
+			<label for="customerID">Customer ID:</label>
+			<input id="customerID" name="customerID" type="text" placeholder="Customer Identifier" autofocus required>
+		</p>
+		<fieldset> <legend> Customer Details</legend>
+			<p> 
+				<label for="customerName">Customer Name:</label>
+				<input id="customerName" name="customerName" type="text" placeholder="Customer Name" required>
+			</p>		
+			<p> 
+				<label for="email">E@mail:</label>
+				<input id="email" name="email" type="email" placeholder="customer@mail">
+			</p>	
+			<p> 
+				<datalist id="stateList">
+					<option value = "active" label = "Active"></option>
+					<option value = "registered" label = "Registered"></option>
+					<option value = "inactive" label = "Inactive"></option>
+				</datalist>
+				<label for="registrationDate">Account State:</label>
+				<input id="state" name="state" type="text" list="stateList">
+			</p>	
+			<p> 
+				<label for="sold">Sold:</label>
+				<input id="sold" name="sold" type="number">
+			</p>		
+			<p> 
+				<label for="registrationDate">Registration Date:</label>
+				<input id="registrationDate" name="registrationDate" type="date" >
+			</p>	
+		</fieldset>
+		
+		<fieldset> <legend> Customer Address</legend>			
+			<p> 
+				<label for="txtCity">City:</label>
+				<input id="txtCity" name="city" type="text" placeholder="customer city">
+			</p>		
+			<p> 
+				<label for="txtZipCode">Zip Code:</label>
+				<input id="nmbZipCode" name="zipCode" type="text" placeholder="customer zip Code">
+			</p>
+			<p> 
+				<label for="adress">Address:</label>
+				<textarea id="adress" name="adress" placeholder="customer adress"></textarea>
+			</p>		
+					
+		</fieldset>
+		
+		<p>
+			<input type="submit" name="save" value="Save" id="cmdSave" 
+				onclick="checkFormCustomerValidation()" >
+			<input type="submit" name="cancel" value="Cancel" id="cmdCancel">
+			<input type="button" name="refresh" value="Refresh" id="cmdRefresh" onclick="getCustomers();">
+			<input type="button" name="post" value="Post" id="cmdPost" onclick="postFormCustomer();">
+		</p>
+	</form>
+	
+	<p id="response">Response: null</p>
+</body>
+<script type="text/javascript" src="start-script/ValidationController.js"></script>	
+</html>
