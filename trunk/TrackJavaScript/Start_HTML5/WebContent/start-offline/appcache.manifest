@@ -1,0 +1,18 @@
+CACHE MANIFEST
+# version number: 0.0.1
+
+# files to cache
+../StartForm.html
+../start-script/ValidationController.js	
+../start-script/BindingController.js
+../start-script/CustomerServiceProvider.js
+../start-script/ActionController.js
+../start-script/MainController.js
+../start-script/QueryDataCollectionWorker.js
+../start-css/SharedStyles.css
+log.js
+offline.js
+
+# do not cache
+NETWORK:
+*

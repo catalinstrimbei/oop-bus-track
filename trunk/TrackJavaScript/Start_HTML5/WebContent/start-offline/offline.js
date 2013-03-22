@@ -11,6 +11,9 @@ window.applicationCache.onnoupdate = function(e) {
 
 window.applicationCache.onupdateready = function(e) {
 	log("Application update ready");
+	if (confirm("A new version of this application is available. Reload now?")) {
+		window.location.reload();
+	}
 }
 
 window.applicationCache.onobsolete = function(e) {
@@ -47,6 +50,7 @@ showCacheStatus = function(n) {
 }
 
 install = function() {
+	clearLog();
 	log("Checking for updates");
 	try {
 		window.applicationCache.update();
@@ -55,14 +59,13 @@ install = function() {
 	}
 }
 
+/*
+ * START processing
+*/
 onload = function(e) {
 	// Check for required browser features
 	if (!window.applicationCache) {
 		log("HTML5 Offline Applications are not supported in your browser.");
-		return;
-	}
-	if (!navigator.geolocation) {
-		log("HTML5 Geolocation is not supported in your browser.");
 		return;
 	}
 	if (!window.localStorage) {
@@ -71,5 +74,6 @@ onload = function(e) {
 	}
 	log("Initial cache status: "
 			+ showCacheStatus(window.applicationCache.status));
-	document.getElementById("installButton").onclick = checkFor;
+	
+	document.getElementById("installButton").onclick = install;
 }
