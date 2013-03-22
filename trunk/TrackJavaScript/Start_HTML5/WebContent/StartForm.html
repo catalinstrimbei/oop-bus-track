@@ -32,7 +32,7 @@
 		</p>
 		</fieldset>
 		
-		<fieldset id="fldsDetails"> <legend> Customer Details</legend>
+		<fieldset id="fldsDetails" > <legend> Customer Details</legend>
 			<p> 
 				<label for="customerName">Customer Name:</label>
 				<input id="customerName" name="customerName" type="text" placeholder="Customer Name" required>
@@ -76,15 +76,17 @@
 					
 		</fieldset>
 		
-		<fieldset id="fldsActions">
-		<p>
-			<input type="submit" name="save" value="Save" id="cmdSave" 
-				onclick="checkFormCustomerValidation()" >
-			<input type="submit" name="cancel" value="Cancel" id="cmdCancel">
-			<input type="button" name="refresh" value="Refresh" id="cmdRefresh" onclick="getCustomers();">
-			<input type="button" name="post" value="Post" id="cmdPost" onclick="postFormCustomer();">
-		</p>
-		</fieldset>
+
+			<fieldset id="fldsActions" >
+			<p>
+				<input type="submit" name="save" value="Save" id="cmdSave" 
+					onclick="checkFormCustomerValidation()" >
+				<input type="submit" name="cancel" value="Cancel" id="cmdCancel">
+				<input type="button" name="refresh" value="Refresh" id="cmdRefresh" onclick="getCustomers();">
+				<input type="button" name="post" value="Post" id="cmdPost" onclick="postFormCustomer();">
+			</p>
+			</fieldset>
+		
 	</form>
 	
 	<p id="response">Response: null</p>
