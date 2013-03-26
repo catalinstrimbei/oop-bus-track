@@ -94,7 +94,8 @@ public class FormClienti implements Serializable, Converter{
 		clienti = new ArrayList(EMF.getEntityManager().createQuery("SELECT o FROM Client o").getResultList());
 		if (!clienti.isEmpty()){
 			client = clienti.get(0);
-		}		
+		}
+			
 	}
 	
 	/*End Implementare CRUD*/
