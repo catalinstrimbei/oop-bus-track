@@ -1,7 +1,8 @@
 CACHE MANIFEST
-# version number: 0.0.1
+# version number: 0.0.6
 
 # files to cache
+../StartOfflineApp.html
 ../StartForm.html
 ../start-script/ValidationController.js	
 ../start-script/BindingController.js

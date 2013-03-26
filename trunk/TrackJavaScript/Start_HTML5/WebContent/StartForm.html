@@ -17,7 +17,7 @@
 </head>
 
 <body>
-	<div id="divFormHeader">FORM CUSTOMERS = </div>
+	<div id="divFormHeader">FORM CUSTOMERS</div>
 	<form name="FormCustomer" id="FormCustomer" method="post">
 		<fieldset id="fldsNav"> <legend> Select next customer:</legend>
 			<select name="customers" id="customers" onchange="selectCurrentCustomerAsync();">
@@ -91,5 +91,14 @@
 	
 	<p id="response">Response: null</p>
 </body>
+
+<script type="text/javascript">
+	var online = navigator.onLine;
+	if(online){
+		document.getElementById("divFormHeader").innerHTML = "FORM CUSTOMERS + ONLINE";
+	}else{
+		document.getElementById("divFormHeader").innerHTML= "FORM CUSTOMERS + OFFLINE";
+	}	
+</script>
 
 </html>
