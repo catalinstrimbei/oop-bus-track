@@ -7,9 +7,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.KeyFactory;
+
 @Entity
 public class Client implements Serializable{
-	@Id //@GeneratedValue(strategy = GenerationType.AUTO)
+	@Id //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Key clientKey;	
+	
+	
+	//@Id //@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String denumire;
 	
@@ -18,6 +25,10 @@ public class Client implements Serializable{
 	}
 	public void setId(Long id) {
 		this.id = id;
+		System.out.println("this.id.toString() = " + this.id.toString());
+		Key key = KeyFactory.createKey(Client.class.getSimpleName(), this.id.toString());
+		System.out.println("key = " + key);
+		this.clientKey = key;
 	}
 	public String getDenumire() {
 		return denumire;
@@ -27,8 +38,9 @@ public class Client implements Serializable{
 	}
 	public Client(Long id, String denumire) {
 		super();
-		this.id = id;
+		this.setId(id);
 		this.denumire = denumire;
+		
 	}
 	public Client() {
 		super();
@@ -55,6 +67,10 @@ public class Client implements Serializable{
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+	@Override
+	public String toString() {
+		return "Client [id=" + id + ", denumire=" + denumire + "]";
 	}
 	
 	
