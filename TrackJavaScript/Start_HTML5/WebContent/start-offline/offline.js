@@ -52,15 +52,31 @@ showCacheStatus = function(n) {
 install = function() {
 	clearLog();
 	log("Checking for updates");
+	
+	
 	try {
 		window.applicationCache.update();
 	} catch (e) {
 		applicationCache.onerror();
 	}
+	
+}
+
+on_off = function() {
+	var online = navigator.onLine;
+	var onlineURL = "http://localhost:8081/Start_HTML5/StartOnlineApp.html";
+	if(online){
+		document.getElementById("statusButon").innerHTML = "ONLINE";
+		if (confirm("Online version is available. Switch to online ?[" + onlineURL + "]"))
+			window.location.href = onlineURL;
+	}else{
+		document.getElementById("statusButon").innerHTML= "OFFLINE";
+	}
 }
 
 /*
  * START processing
+ * http://html5demos.com/
 */
 onload = function(e) {
 	// Check for required browser features
@@ -75,5 +91,6 @@ onload = function(e) {
 	log("Initial cache status: "
 			+ showCacheStatus(window.applicationCache.status));
 	
+	document.getElementById("statusButon").onclick = on_off;
 	document.getElementById("installButton").onclick = install;
 }
