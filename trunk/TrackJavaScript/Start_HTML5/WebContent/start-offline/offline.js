@@ -76,7 +76,14 @@ on_off = function() {
 
 /*
  * START processing
+ * 
+ * Demos:
  * http://html5demos.com/
+ * 
+ * Chrome offline apps:
+ * chrome://appcache-internals/
+ * 
+ * 
 */
 onload = function(e) {
 	// Check for required browser features
