@@ -26,7 +26,7 @@ function CustomerService(url){
 				console.log("REST Request problem or ERROR ");
 			}
 		};
-		reqRest.open("GET", urlRest);
+		reqRest.open("GET", urlRest, true);
 		reqRest.send(null);		
 	}
 	this.saveCustomers =  function(){
