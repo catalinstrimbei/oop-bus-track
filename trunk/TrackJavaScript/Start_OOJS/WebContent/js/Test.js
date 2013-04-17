@@ -1,6 +1,6 @@
-includeJS("C1.js");
-includeJS("C2.js");
-includeJS("C3.js");
+includeJS("js/C1.js");
+includeJS("js/C2.js");
+includeJS("js/C3.js");
 
 function main(){
 	// test();

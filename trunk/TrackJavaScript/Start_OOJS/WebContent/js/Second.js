@@ -1,0 +1,1 @@
+_second_1_prop : "Second first prop";
