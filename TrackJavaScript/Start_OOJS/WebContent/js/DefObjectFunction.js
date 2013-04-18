@@ -1,4 +1,4 @@
-function test(){
+function testDefObjectFunction(){
 	console.log("Test Object Function!");
 	
 	var poj = new Object(1);

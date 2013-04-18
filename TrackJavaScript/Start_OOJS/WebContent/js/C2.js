@@ -1,4 +1,4 @@
-includeJS("C2.ContabDOM.js");
+includeJS("js/C2.ContabDOM.js");
 
 function testCreareClase(){
 	console.log("C2: TESTE CREARE CLASE");

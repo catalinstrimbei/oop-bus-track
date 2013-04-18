@@ -5,9 +5,9 @@ includeJS("js/C3.js");
 function main(){
 	// test();
 	// testCreareObiecte();
-	// testCreareClase();
+	testCreareClase();
 	// testSiruri();
-	testDate();
+	//testDate();
 	// testExceptions();
 	// testPolimorfism();
 	
