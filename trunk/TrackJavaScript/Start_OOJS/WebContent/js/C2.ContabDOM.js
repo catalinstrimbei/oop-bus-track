@@ -3,10 +3,12 @@
 
 // like instante members of objects
 function Cont(cod, denumire, contParinte){
+	// private members
 	var _cod = cod ? cod : "000"; // like default value
 	var _denumire = denumire ? denumire : "Cont - nedefinit";
 	var _contParinte = contParinte;
-	
+
+	// public members
 	this.getCod = function (){
 		return _cod;
 	};
