@@ -1,3 +1,4 @@
+console.log("Load DefObjects.js ...");
 function testDefObjectFunction(){
 	console.log("Test Object Function!");
 	
