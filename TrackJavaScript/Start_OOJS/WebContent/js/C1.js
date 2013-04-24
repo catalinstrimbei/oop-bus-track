@@ -120,6 +120,7 @@ function testCreareObiecte(){
 	console.log("Operatiune contabila : " + op.idOperatiune + " credit : " + serviciuOperatiuni.getCredit(op));
 	console.log("Operatiune contabila : " + op.idOperatiune + " sold : " + serviciuOperatiuni.getSold(op));
 	
+	op.inregistrari = new Array();
 	op.inregistrari["I"] = i1;
 	op.inregistrari["II"] = i2;
 	for(var i in op.inregistrari){
@@ -138,14 +139,39 @@ function testCreareObiecte(){
  * 
  * 1.2 Definire si creare
  * - creare/initializare declarativa instanta Object: {} sau new Object();
- * - definire dinamica structura object
+ * - definire dinamica structura object: obj.prop = val, obj.method = function(){}, obj[prop] = val
  * - creare instanta si definire structurala dinamica prin invocare functie_valoare-obiect-anonima; 
  * - conventional: definire tip si instantiere prin declaratie functie constructor
  * [locul de definire a structurii obiectelor nu este o definitie de clasa, ci codul procedural al unei functii speciale constructor]
  * 
  * 
  * 1.3 Interactiune - apeluri intre obiecte
- * ???
+ * 
+ * 1.4 Arrays
+ * - definire: [], new Array()
+ * - adaugare elemente: 
+ * 		simpla: a[index] = val, a[key] = val
+ * 		stack: a.push(el)
+ * 		queue: a.unshift(el)
+ * - redimensionare a.length = newLengthVal
+ * - localizare a.indexOf(el), a.lastIndexOf()
+ * - check array Array.isArray(a)
+ * - parcurgere iterativa:
+ * 		- indexata: for(var i in a) ...
+ * 		- a.every(processingObject) - as callback of processingObject = function(item, index, array)
+ * 		- a.filter(filterCallback) - filterCallback(item, index, array)
+ * 		- foreach(), map(), some()
+ * - manipulare iterativa
+ * 		- stack: a.pop() get (out) last element
+ * 		- queue: a.shift() get out (first) element
+ * - procesare
+ * 		- a.sort(), a.reverse()
+ * 		- a.sort(comparatorObj) - function comparatorObj(val1, val2)
+ * - array set manipulation
+ * 		- a4 = a1.concat(a2, a3)
+ * 		- a2 = a1.slice(start, stop) retain items from start to end position (from 1 base)
+ * 		- a2 = a1.splice(start, stop) retain items outside from start to end position (from 1 base)
+ * 
  * 
  */
 
