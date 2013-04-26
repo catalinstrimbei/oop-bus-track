@@ -106,7 +106,15 @@ public class CustomerRestService {
   @Produces(MediaType.TEXT_XML)
   @Path("/getxmlcustomers")
   public String getXMLCustomers() throws IOException {
-	 return convertXMLFileToString("sdo/data/customerSDO.xsd") + "\n" + convertXMLFileToString("sdo/data/customerSDO.xml");
+	 //return convertXMLFileToString("sdo/data/customerSDO.xsd") + "\n" + convertXMLFileToString("sdo/data/customerSDO.xml");
+	  return convertXMLFileToString("sdo/data/customerSDO.xml");
+  }  
+  
+  @GET
+  @Produces(MediaType.TEXT_XML)
+  @Path("/getxsdcustomers")
+  public String getXSDCustomers() throws IOException {
+	  return convertXMLFileToString("sdo/data/customerSDO.xsd");
   }  
 
   private String convertXMLFileToString(String fileName) { 
@@ -126,22 +134,24 @@ public class CustomerRestService {
 	      
   }  
   
-
-  public Response getMediaTypeMappings() {
-	  
-      MultiPart multiPart = new MultiPart()
-	 	.bodyPart(new BodyPart(convertXMLFileToString("sdo/data/customerSDO.xsd"), MediaType.APPLICATION_XML_TYPE))
-	 	.bodyPart(new BodyPart(convertXMLFileToString("sdo/data/customerSDO.xml"), MediaType.APPLICATION_XML_TYPE));
-      
-      
-      return Response.ok(multiPart, MultiPartMediaTypes.MULTIPART_MIXED).build();
-      //return Response.ok(multiPart, MediaType.MULTIPART_FORM_DATA).build(); 
-      // Response.ok(multiPart, MultiPartMediaTypes.MULTIPART_MIXED).build(); 
-  }
-  
-  	@GET
-  	@Path("/getxmlcustomersmultipart")
+	@GET
+	@Path("/getxmlcustomersmultipart")
 	@Produces("application/xml")
+	public Response getMediaTypeMappings() {
+		  
+	      MultiPart multiPart = new MultiPart()
+		 	.bodyPart(new BodyPart(convertXMLFileToString("sdo/data/customerSDO.xsd"), MediaType.APPLICATION_XML_TYPE))
+		 	.bodyPart(new BodyPart(convertXMLFileToString("sdo/data/customerSDO.xml"), MediaType.APPLICATION_XML_TYPE));
+	  
+	  
+	  return Response.ok(multiPart, MultiPartMediaTypes.MULTIPART_MIXED).build();
+	  // return Response.ok(multiPart, MediaType.MULTIPART_FORM_DATA).build(); 
+	  // Response.ok(multiPart, MultiPartMediaTypes.MULTIPART_MIXED).build(); 
+	}
+  
+//  	@GET
+//  	@Path("/getxmlcustomersmultipart")
+//		@Produces("application/xml")
 	public Response getFile() throws IOException {
 		File fileResponse = new File("customerSDO_out.xml");
 		String fileName = "sdo/data/customerSDO.xsd";
@@ -211,4 +221,14 @@ public class CustomerRestService {
     <servlet-name>Customer_REST_Service</servlet-name>
     <url-pattern>/customer/*</url-pattern>
   </servlet-mapping>	
+  
+  
+  
+<?xml version="1.0" encoding="UTF-8"?>
+<customer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="customer">
+   <address>
+      <street>123 Any Street</street>
+   </address>
+   <name>Jobs Steve</name>
+</customer>  
 */
