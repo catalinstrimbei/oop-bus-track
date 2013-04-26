@@ -1,23 +1,29 @@
 package org.app.backend.services.rest;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.StringWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
+import com.sun.jersey.multipart.BodyPart;
+import com.sun.jersey.multipart.MultiPart;
+import com.sun.jersey.multipart.MultiPartMediaTypes;
 
 // Plain old Java Object it does not extend as class or implements 
 // an interface
@@ -93,57 +99,44 @@ public class CustomerRestService {
   @Produces(MediaType.TEXT_XML)
   @Path("/getxmlcustomers")
   public String getXMLCustomers() throws IOException {
-	  InputStream fis = Thread.currentThread().getContextClassLoader().getResourceAsStream("sdo/data/customerSDO.xml");
-	  
-	  BufferedReader br = new BufferedReader(new InputStreamReader(fis, "UTF-8"));
-	  StringBuilder sb = new StringBuilder();
-	    try {
-	        String line = br.readLine();
+	 return convertXMLFileToString("sdo/data/customerSDO.xsd");
+  }  
+  
 
-	        while (line != null) {
-	            sb.append(line);
-	            sb.append("\n");
-	            line = br.readLine();
-	        }
-	        String everything = sb.toString();
-	    } finally {
-	        br.close();
-	    }	
-
-	    return sb.toString() ;
-    
-    /*
-     ------------------------
-     //String getXMLCustomers(@Context HttpServletResponse  serv) throws IOException
-	    ServletOutputStream o =serv.getOutputStream();
-	    StringBuffer sb = new StringBuffer();
-	    try {
-	        FileInputStream fis = new FileInputStream(new File("src/sdo/data/customerSDO.xml"));
-	        int c;
-
-	        while ((c = fis.read()) != -1) {
-	           o.write(c);
-	           sb.append(b)
-	        }
-
-	        fis.close();
-	        o.close();
-	    } catch (Exception e) {
-	        System.err.println("e");
-	    } 
-
-	    return "OK" ;
-	    -------------------------     
-      @GET
-      @Produces("multipart/mixed")
-      public MultipartOutput get()
-      {
-         MultipartOutput output = new MultipartOutput();
-         output.addPart(new Customer("bill"), MediaType.APPLICATION_XML_TYPE);
-         output.addPart(new Customer("monica"), MediaType.APPLICATION_XML_TYPE);
-         return output;
-      }    
-    */
+  public Response getXMLCustomersMultiPart(){
+	  //@Produces(MediaType.APPLICATION_XML)
+	 MultiPart multiPart = new MultiPart()
+	 	.bodyPart(new BodyPart(convertXMLFileToString("sdo/data/customerSDO.xsd"), MediaType.APPLICATION_XML_TYPE))
+	 	.bodyPart(new BodyPart(convertXMLFileToString("sdo/data/customerSDO.xml"), MediaType.APPLICATION_XML_TYPE));
+	 
+	 return Response.ok(multiPart, MultiPartMediaTypes.MULTIPART_MIXED_TYPE).build(); 
+  }
+  
+  @GET
+  @Path("/getxmlcustomersmultipart")
+  @Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_XML})   
+  public Map<String, MediaType> getMediaTypeMappings() {
+      Map<String, MediaType> m = new HashMap<String, MediaType> ();
+      m.put(convertXMLFileToString("sdo/data/customerSDO.xsd"), MediaType.APPLICATION_XML_TYPE);
+      m.put(convertXMLFileToString("sdo/data/customerSDO.xml"), MediaType.APPLICATION_XML_TYPE);
+      return m;
+  }  
+  
+  private String convertXMLFileToString(String fileName) { 
+    try{ 
+      DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance(); 
+      InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(fileName);
+      org.w3c.dom.Document doc = documentBuilderFactory.newDocumentBuilder().parse(inputStream); 
+      StringWriter stw = new StringWriter(); 
+      Transformer serializer = TransformerFactory.newInstance().newTransformer(); 
+      serializer.transform(new DOMSource(doc), new StreamResult(stw)); 
+      return stw.toString(); 
+    } 
+    catch (Exception e) { 
+      e.printStackTrace(); 
+    } 
+      return null; 
+      
   }  
 } 
 
@@ -154,6 +147,7 @@ public class CustomerRestService {
 	http://localhost:8080/ProRest_WebBackend/services/customer/sayXMLHello
 	http://localhost:8080/ProRest_WebBackend/services/customer/getxml
 	http://localhost:8080/ProRest_WebBackend/services/customer/getxmlcustomers
+	http://localhost:8080/ProRest_WebBackend/services/customer/getxmlcustomersmultipart
 	
 	http://theopentutorials.com/examples/java-ee/jax-rs/create-a-simple-restful-web-service-using-jersey-jax-rs/
 	http://www.vogella.com/articles/REST/article.html	
