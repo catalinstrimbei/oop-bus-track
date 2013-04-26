@@ -101,6 +101,26 @@ public class CustomerRestService {
 	  return jsonCustomer;
   }    
   
+  @GET
+  @Produces(MediaType.TEXT_XML)
+  @Path("/getxmlcustomersdo")
+  public String getXMLCustomersData() throws IOException {
+	  String xmlTagSchema = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>";
+	  String xmlTagData = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
+	  
+	  System.out.println(xmlTagSchema);
+	  
+	  String beginEnvelope = "<envelope>\n";
+	  String endEnvelope = "\n</envelope>";
+	  
+	  String schema = convertXMLFileToString("sdo/data/customerSDO.xsd")
+			  .replace(xmlTagSchema, "");
+	  System.out.println("Schema \n " + schema);
+	  String data = convertXMLFileToString("sdo/data/customerSDO.xml")
+			  .replace(xmlTagSchema, "\n");
+	  
+	  return beginEnvelope + schema + data + endEnvelope;
+  }    
   
   @GET
   @Produces(MediaType.TEXT_XML)
