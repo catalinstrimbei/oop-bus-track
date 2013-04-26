@@ -1,7 +1,11 @@
 package org.app.backend.services.rest;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,11 +19,14 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.ResponseBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 
 import com.sun.jersey.multipart.BodyPart;
 import com.sun.jersey.multipart.MultiPart;
@@ -99,12 +106,60 @@ public class CustomerRestService {
   @Produces(MediaType.TEXT_XML)
   @Path("/getxmlcustomers")
   public String getXMLCustomers() throws IOException {
-	 return convertXMLFileToString("sdo/data/customerSDO.xsd");
+	 return convertXMLFileToString("sdo/data/customerSDO.xsd") + "\n" + convertXMLFileToString("sdo/data/customerSDO.xml");
+  }  
+
+  private String convertXMLFileToString(String fileName) { 
+	    try{ 
+	      DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance(); 
+	      InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(fileName);
+	      org.w3c.dom.Document doc = documentBuilderFactory.newDocumentBuilder().parse(inputStream); 
+	      StringWriter stw = new StringWriter(); 
+	      Transformer serializer = TransformerFactory.newInstance().newTransformer(); 
+	      serializer.transform(new DOMSource(doc), new StreamResult(stw)); 
+	      return stw.toString(); 
+	    } 
+	    catch (Exception e) { 
+	      e.printStackTrace(); 
+	    } 
+	      return null; 
+	      
   }  
   
 
+  public Response getMediaTypeMappings() {
+	  
+      MultiPart multiPart = new MultiPart()
+	 	.bodyPart(new BodyPart(convertXMLFileToString("sdo/data/customerSDO.xsd"), MediaType.APPLICATION_XML_TYPE))
+	 	.bodyPart(new BodyPart(convertXMLFileToString("sdo/data/customerSDO.xml"), MediaType.APPLICATION_XML_TYPE));
+      
+      
+      return Response.ok(multiPart, MultiPartMediaTypes.MULTIPART_MIXED).build();
+      //return Response.ok(multiPart, MediaType.MULTIPART_FORM_DATA).build(); 
+      // Response.ok(multiPart, MultiPartMediaTypes.MULTIPART_MIXED).build(); 
+  }
+  
+  	@GET
+  	@Path("/getxmlcustomersmultipart")
+	@Produces("application/xml")
+	public Response getFile() throws IOException {
+		File fileResponse = new File("customerSDO_out.xml");
+		String fileName = "sdo/data/customerSDO.xsd";
+		InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(fileName);
+		FileOutputStream outputStream=new FileOutputStream(fileResponse);
+		IOUtils.copy(inputStream, outputStream);
+		
+		ResponseBuilder response = Response.ok((Object) fileResponse);
+		response.header("Content-Disposition",
+				"attachment; customerSDO_out.xml");
+		return response.build();
+
+	}  
+} 
+  /*
+  @Produces(MediaType.APPLICATION_XML)
   public Response getXMLCustomersMultiPart(){
-	  //@Produces(MediaType.APPLICATION_XML)
+	  //
 	 MultiPart multiPart = new MultiPart()
 	 	.bodyPart(new BodyPart(convertXMLFileToString("sdo/data/customerSDO.xsd"), MediaType.APPLICATION_XML_TYPE))
 	 	.bodyPart(new BodyPart(convertXMLFileToString("sdo/data/customerSDO.xml"), MediaType.APPLICATION_XML_TYPE));
@@ -122,23 +177,7 @@ public class CustomerRestService {
       return m;
   }  
   
-  private String convertXMLFileToString(String fileName) { 
-    try{ 
-      DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance(); 
-      InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(fileName);
-      org.w3c.dom.Document doc = documentBuilderFactory.newDocumentBuilder().parse(inputStream); 
-      StringWriter stw = new StringWriter(); 
-      Transformer serializer = TransformerFactory.newInstance().newTransformer(); 
-      serializer.transform(new DOMSource(doc), new StreamResult(stw)); 
-      return stw.toString(); 
-    } 
-    catch (Exception e) { 
-      e.printStackTrace(); 
-    } 
-      return null; 
-      
-  }  
-} 
+  */
 
 
 /*
