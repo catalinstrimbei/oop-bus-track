@@ -119,7 +119,14 @@ public class CustomerRestService {
 	  String data = convertXMLFileToString("sdo/data/customerSDO.xml")
 			  .replace(xmlTagSchema, "\n");
 	  
-	  return beginEnvelope + schema + data + endEnvelope;
+	  String beginSDOData = "\n<sdodata>";
+	  String endSDOData = "\n</sdodata>";	  
+	  return beginEnvelope 
+			  + schema 
+			  	+ beginSDOData
+			  		+ data
+			  	+ endSDOData
+			  + endEnvelope;
   }    
   
   @GET
