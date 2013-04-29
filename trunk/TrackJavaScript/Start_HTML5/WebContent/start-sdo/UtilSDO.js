@@ -17,7 +17,7 @@ function showData(data){
 	console.log("Show JSON XML SCHEMA: ");
 	console.log(JSON.stringify(data.envelope["xsd:schema"]));	
 	console.log("Show JSON DATA: ");
-	console.log(JSON.stringify(data.envelope.customer));
+	console.log(JSON.stringify(data.envelope.sdodata));
 }
 
 function CustomerServiceSDO(url){
