@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Java Script MVC Front End</title>
+<script type="text/javascript" src="js-MVC/Event.js"></script>
+<script type="text/javascript" src="js-MVC/Model.js"></script>
+<script type="text/javascript" src="js-MVC/View.js"></script>
+<script type="text/javascript" src="js-MVC/Controller.js"></script>
+<script type="text/javascript">
+function init(){
+	var model = new ListModel(['PHP', 'JavaScript']),
+    view = new ListView(model, {
+        'list' : document.getElementById("list"), 
+        'addButton' : document.getElementById("plusBtn"), 
+        'delButton' : document.getElementById("minusBtn")
+    }),
+    controller = new ListController(model, view);
+
+	view.show();	
+}
+</script>
+</head>
+
+<body onload="init();">
+	<p style="font-weight: bold;" >JavaScript MVC Example: </p>
+	<select id="list" size="10" style="width: 15em"></select><br/>
+	<button id="plusBtn">  +  </button>
+	<button id="minusBtn">  -  </button>
+</body>
+</html>
