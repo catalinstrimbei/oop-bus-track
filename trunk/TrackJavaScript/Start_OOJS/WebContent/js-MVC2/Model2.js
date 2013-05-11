@@ -19,6 +19,7 @@ ListModel.prototype = {
     },
 
     addItem : function (item) {
+    	console.log('model addItem');
         this._items.push(item);
         this.itemAdded.notify({ item : item });
     },

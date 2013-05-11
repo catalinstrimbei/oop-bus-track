@@ -3,16 +3,29 @@
  * 
  * The View. View presents the model and provides
  * the UI events. The controller is attached to these
- * events to handle the user interraction.
+ * events to handle the user interaction.
  */
+function EventListModified(){};
+function EventAddButtonClicked(){};
+function EventDelButtonClicked(){};
+
 function ListView(elements) {
     this._elements = elements;
-
-    this.listModified = new Event(this);
-    this.addButtonClicked = new Event(this);
-    this.delButtonClicked = new Event(this);
-
     var _this = this;
+    
+    
+    EventListModified.prototype = new Event(_this);
+    this.listModified = new EventListModified();
+//	console.log("event type: " + (this.listModified instanceof EventListModified)); 
+    
+    
+    EventAddButtonClicked.prototype = new Event(_this);
+    this.addButtonClicked = new EventAddButtonClicked();
+    
+    
+    EventDelButtonClicked.prototype = new Event(_this);
+    this.delButtonClicked = new EventDelButtonClicked();
+
 
     // attach listeners to HTML controls
     console.log('set list.onchange');    
@@ -20,7 +33,6 @@ function ListView(elements) {
     	console.log('list.onchange');
         _this.listModified.notify({ index : e.target.selectedIndex });
     };
-
     console.log('set addButton.onClick');
     this._elements.addButton.onclick = function () {
     	console.log('addButton.onClick');
@@ -34,8 +46,8 @@ function ListView(elements) {
 }
 
 ListView.prototype = {
-    show : function () {
-        this.rebuildList();
+    show : function (model) {
+        this.rebuildList(model.getItems());
     },
 
     rebuildList : function (items) {
@@ -51,5 +63,10 @@ ListView.prototype = {
             	list.add(opt);
             }
         }
-    }
+    },
+    
+    handle : function(event, args){
+    	console.log('view.handle EventAddButtonClicked');
+    	this.rebuildList(event.getSender().getItems());
+    }    
 };
