@@ -4,23 +4,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Java Script MVC [Second version] Front End</title>
+<script type="text/javascript" src="js-MVC2/StartMVC2.js"></script>
 <script type="text/javascript" src="js-MVC2/Event2.js"></script>
 <script type="text/javascript" src="js-MVC2/Model2.js"></script>
 <script type="text/javascript" src="js-MVC2/View2.js"></script>
 <script type="text/javascript" src="js-MVC2/Controller2.js"></script>
-<script type="text/javascript">
-function init(){
-	var model = new ListModel(['PHP', 'JavaScript']),
-    view = new ListView(model, {
-        'list' : document.getElementById("list"), 
-        'addButton' : document.getElementById("plusBtn"), 
-        'delButton' : document.getElementById("minusBtn")
-    }),
-    controller = new ListController(model, view);
-
-	view.show();	
-}
-</script>
 </head>
 
 <body onload="init();">
