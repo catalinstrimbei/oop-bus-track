@@ -1,10 +1,28 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="ISO-8859-1">
-<title>jQuery Model-View-Controller Front End</title>
-</head>
-<body>
+<title>jQuery Script MVC Front End</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.js"></script>
+<script type="text/javascript" src="jQ-MVC/jqStartMVC.js"></script>
+<script type="text/javascript" src="jQ-MVC/jqEvent.js"></script>
+<script type="text/javascript" src="jQ-MVC/jqModel.js"></script>
+<script type="text/javascript" src="jQ-MVC/jqView.js"></script>
+<script type="text/javascript" src="jQ-MVC/jqController.js"></script>
 
+<script type="text/javascript">
+$(document).ready(function(){
+	init();
+});
+</script>
+</head>
+
+<body>
+	<p style="font-weight: bold;" >jQuery MVC Example: </p>
+	<select id="list" size="10" style="width: 15em"></select><br/>
+	<button id="plusBtn">  +  </button>
+	<button id="minusBtn">  -  </button>
 </body>
 </html>
