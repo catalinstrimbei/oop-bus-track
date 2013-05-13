@@ -4,13 +4,25 @@
  * The Model. Model stores items and notifies
  * observers about changes.
  */
+
+function EventItemAdded(){this.setClass();};
+function EventItemRemoved(){this.setClass();};
+function EventSelectedIndexChanged(){this.setClass();};
+
 function ListModel(items) {
     this._items = items;
     this._selectedIndex = -1;
 
-    this.itemAdded = new Event(this);
-    this.itemRemoved = new Event(this);
-    this.selectedIndexChanged = new Event(this);
+    console.log('start model events');
+    EventItemAdded.prototype = new Event(this);
+    this.itemAdded = new EventItemAdded();
+    
+    EventItemRemoved.prototype = new Event(this);
+    this.itemRemoved = new EventItemRemoved();
+    
+    EventSelectedIndexChanged.prototype = new Event(this);
+    this.selectedIndexChanged = new EventSelectedIndexChanged();
+    console.log('end model events');
 }
 
 ListModel.prototype = {
