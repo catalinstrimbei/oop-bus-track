@@ -38,7 +38,13 @@ ListView.prototype = {
 
         for (key in items) {
             if (items.hasOwnProperty(key)) {
-                list.append($('<option>' + items[key] + '</option>'));
+                //list.append($('<option>' + items[key] + '</option>'));            	
+            	/*
+            	var opt = $('<option>');
+            	opt.append(items[key]);
+            	list.append(opt);
+            	*/
+            	list.append($('<option>').append(items[key]));
             }
         }
     },
