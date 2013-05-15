@@ -1,11 +1,9 @@
-/**
- * http://www.alexatnet.com/articles/model-view-controller-mvc-javascript
- * 
- * The Controller. Controller responds to user actions and
- * invokes changes on the model.
- */
-function ListController(model) {
+function ListController(model, view) {
     this._model = model;
+    this._this = this;
+    model.setEvents(view);
+    view.setEvents(this);
+    view.show(model);
 }
 
 ListController.prototype = {
@@ -28,40 +26,21 @@ ListController.prototype = {
     updateSelected : function (index) {
         this._model.setSelectedIndex(index);
     },    
-    /*
+    
     handle : function(event, args){
-    	console.log('controller.handle : ');
-    	if (event instanceof EventAddButtonClicked){
-    		console.log('controller.handle EventAddButtonClicked');
-    		this.addItem();
-    	}
-    	if (event instanceof EventDelButtonClicked){
-    		this.delItem();
-    	}
-    	if (event instanceof EventListModified){
-    		this.updateSelected(args.index);
-    	}
-    },
-    */
-    handler : function(event, args){
-    	//console.log('controller.handle : ' + event.type);
     	console.log('controller.handle : ');
     	if (event.type == "addButtonClicked"){
     		console.log('controller.handle addButtonClicked');
     		this.addItem();
-    	}    	
-    	/*
-    	if (event instanceof EventAddButtonClicked){
-    		console.log('controller.handle EventAddButtonClicked');
-    		this.addItem();
     	}
-    	if (event instanceof EventDelButtonClicked){
+    	if (event.type == "delButtonClicked"){
+    		console.log('controller.handle delButtonClicked');
     		this.delItem();
-    	}
-    	if (event instanceof EventListModified){
+    	}   
+    	if (event.type == "listModified"){
+    		console.log('controller.handle listModified');
     		this.updateSelected(args.index);
     	}
-    	*/
     }
     
 };

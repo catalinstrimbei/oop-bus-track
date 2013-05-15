@@ -1,51 +1,17 @@
-/**
- * http://www.alexatnet.com/articles/model-view-controller-mvc-javascript
- * 
- * The View. View presents the model and provides
- * the UI events. The controller is attached to these
- * events to handle the user interaction.
- */
-
-function EventListModified(){};	
-function EventAddButtonClicked(){};
-function EventDelButtonClicked(){};
-
 function ListView(elements) {
-
     this._elements = elements;
     var _this = this;
-    
-    console.log('start listview events');
-    /*
-    this.listModified = new EventListModified();
-    this.listModified = $.extend(this.listModified, new Event(_this));
-    
-    this.addButtonClicked = new EventAddButtonClicked();
-    this.addButtonClicked = $.extend(this.addButtonClicked, new Event(_this));
-    
-    this.delButtonClicked = new EventDelButtonClicked();
-    this.delButtonClicked = $.extend(this.delButtonClicked, new Event(_this));  
-    */  
-    this.listModified = $.Event("listModified");
-    this.addButtonClicked = $.Event("addButtonClicked");
-    this.delButtonClicked = $.Event("delButtonClicked");
-    
-    
-    console.log('end listview events');
-
     // attach listeners to HTML controls
     $("#list").change(
 		function (e) {
 	    	console.log('list.onchange');
-	        //_this.listModified.notify({ index : e.target.selectedIndex });
-	    	$(_this).trigger("listModified");
+	    	$(_this).trigger("listModified", { index : this.selectedIndex });
 	    }    		
     );
     
     $("#plusBtn").click(
 		function () {
 	    	console.log('addButton.onClick');
-	        //_this.addButtonClicked.notify();
 	    	$(_this).trigger("addButtonClicked");
 	    }    		
     );    
@@ -53,7 +19,6 @@ function ListView(elements) {
     $("#minusBtn").click(
 		function () {
 	    	console.log('delButton.onClick');
-	        //_this.delButtonClicked.notify();
 	    	$(_this).trigger("delButtonClicked");
 	    	
 	    }    		
@@ -78,13 +43,28 @@ ListView.prototype = {
         }
     },
     
-    handle : function(event, args){
-    	console.log('view.handle EventAddButtonClicked');
-    	this.rebuildList(event.getSender().getItems());
+    handle : function(event, model){
+    	console.log('view.handle ' + event.type);
+    	this.rebuildList(model.getItems());
     },
     
-    handler : function(event, model){
-    	console.log('view.handlee ');
-    	this.rebuildList(model.getItems());
-    }     
+    setEvents : function(controller){
+    	$(this).bind("listModified", 
+    			function handleAddButtonClicked(event, args){
+    				controller.handle(event, args);
+    			}
+    		);
+    		
+    	$(this).bind("addButtonClicked", 
+    		function handleAddButtonClicked(event, args){
+    			controller.handle(event, args);
+    		}
+    	);
+
+    	$(this).bind("delButtonClicked", 
+    		function handleAddButtonClicked(event, args){
+    			controller.handle(event, args);
+    		}
+    	);     	
+    }
 };
