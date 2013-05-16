@@ -16,6 +16,7 @@ function ListView(elements) {
 	    }    		
     );    
     
+    
     $("#minusBtn").click(
 		function () {
 	    	console.log('delButton.onClick');
@@ -34,7 +35,7 @@ ListView.prototype = {
         var list, key;
 
         list = this._elements.list;
-        list.html('');
+        list.empty();
 
         for (key in items) {
             if (items.hasOwnProperty(key)) {
@@ -45,6 +46,7 @@ ListView.prototype = {
             	list.append(opt);
             	*/
             	list.append($('<option>').append(items[key]));
+            	
             }
         }
     },
@@ -55,22 +57,33 @@ ListView.prototype = {
     },
     
     setEvents : function(controller){
+    	$(this).on("listModified", 
+    			$.proxy(controller.handle, controller)
+        );
+    	$(this).on("addButtonClicked", 
+    			$.proxy(controller.handle, controller)
+        );
+    	$(this).on("delButtonClicked", 
+    			$.proxy(controller.handle, controller)
+        );    	
+    	
+/*    	
     	$(this).bind("listModified", 
     			function handleAddButtonClicked(event, args){
     				controller.handle(event, args);
     			}
     		);
-    		
+   		
     	$(this).bind("addButtonClicked", 
     		function handleAddButtonClicked(event, args){
     			controller.handle(event, args);
     		}
     	);
-
     	$(this).bind("delButtonClicked", 
     		function handleAddButtonClicked(event, args){
     			controller.handle(event, args);
     		}
     	);     	
+*/
     }
 };
