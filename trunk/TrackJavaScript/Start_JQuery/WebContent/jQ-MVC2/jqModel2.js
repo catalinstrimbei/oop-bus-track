@@ -42,6 +42,13 @@ ListModel.prototype = {
     },
     
     setEvents : function(view){
+    	$(this).on("itemAdded", 
+    			$.proxy(view.handle, view)
+        );    	
+    	$(this).on("itemRemoved", 
+    			$.proxy(view.handle, view)
+        );
+/*    	
         $(this).bind("itemAdded", 
         		function handleAddButtonClicked(event, args){
         			view.handle(event, args);
@@ -52,6 +59,7 @@ ListModel.prototype = {
     			view.handle(event, args);
     		}
         );    	
+*/
     }
 };
 
