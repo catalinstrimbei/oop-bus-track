@@ -11,17 +11,16 @@ ListModel.prototype = {
     addItem : function (item) {
     	console.log('model addItem');
         this._items.push(item);
-        $(this).trigger("itemAdded", this);
+        //$(this).trigger("itemAdded", this);
+        $(this).trigger($.Event("itemAdded", this));
     },
 
     removeItemAt : function (index) {
         var item;
-
         item = this._items[index];
         this._items.splice(index, 1);
-        
-        $(this).trigger("itemRemoved", this);
-        
+        //$(this).trigger("itemRemoved", this);        
+        $(this).trigger($.Event("itemRemoved", this));
         if (index === this._selectedIndex) {
             this.setSelectedIndex(-1);
         }
@@ -33,12 +32,10 @@ ListModel.prototype = {
 
     setSelectedIndex : function (index) {
         var previousIndex;
-
         previousIndex = this._selectedIndex;
         this._selectedIndex = index;
-        
-        $(this).trigger("selectedIndexChanged", this);
-        
+        //$(this).trigger("selectedIndexChanged", this);
+        $(this).trigger($.Event("selectedIndexChanged", this));        
     },
     
     setEvents : function(view){

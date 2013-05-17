@@ -53,7 +53,8 @@ ListView.prototype = {
     
     handle : function(event, model){
     	console.log('view.handle ' + event.type);
-    	this.rebuildList(model.getItems());
+    	//this.rebuildList(model.getItems());
+    	this.rebuildList(event.getItems());
     },
     
     setEvents : function(controller){
