@@ -5,6 +5,7 @@ angularMVCApp.controller(
 		'mainController',
 		function($scope){
 			$scope.items = ['PHP', 'JavaScript'];
+			$scope.item = $scope.items[0];
 			$scope.index = -1;
 			
 			
@@ -17,12 +18,14 @@ angularMVCApp.controller(
 			
 			$scope.removeItem = function(){
 				//$scope.items.splice($scope.index, 1);
+				// or
+				$scope.items.splice($scope.items.indexOf($scope.item), 1);
 			};
 			
 			$scope.changeSelectedItem = function(){
-				$scope.index = this.selectedIndex;
+				$scope.index = $('#list').prop("selectedIndex");
 				console.log("index: " + $scope.index);
-				console.log("slectedItem " + $scope.selectedItem);
+				console.log("item: " + $scope.item);
 			};
 		}
 );
