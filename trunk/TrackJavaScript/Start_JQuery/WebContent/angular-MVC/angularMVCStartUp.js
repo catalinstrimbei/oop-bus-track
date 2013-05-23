@@ -1,6 +1,6 @@
 var urlBase = '/Start_JQuery';
 var angularMVCApp = angular.module('angularMVCApp', []);
-
+// config controllers
 angularMVCApp.controller(
 		'mainController',
 		function($scope){
@@ -17,9 +17,9 @@ angularMVCApp.controller(
 			};
 			
 			$scope.removeItem = function(){
-				//$scope.items.splice($scope.index, 1);
+				$scope.items.splice($scope.index, 1);
 				// or
-				$scope.items.splice($scope.items.indexOf($scope.item), 1);
+				//$scope.items.splice($scope.items.indexOf($scope.item), 1);
 			};
 			
 			$scope.changeSelectedItem = function(){
@@ -29,4 +29,3 @@ angularMVCApp.controller(
 			};
 		}
 );
-
