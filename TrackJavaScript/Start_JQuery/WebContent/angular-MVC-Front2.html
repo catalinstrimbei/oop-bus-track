@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="ISO-8859-1">
+<title>AngularJS MVC Example 2</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.js"></script>
+	<script src="angular-MVC2/angular.js"></script>
+</head>
+
+<body id="body" ng-app="angularMVCApp">
+
+	<div ng-controller="mainController">
+
+		<p style="font-weight: bold;" >AngularJS MVC Example 2: </p>
+
+		<select id="list" size="10" style="width: 15em"  
+			ng-model="item"
+			ng-change="changeSelectedItem()">
+			<option ng-repeat="item in items">{{ item }}</option>
+		</select><br/>
+
+		<button id="plusBtn" ng-click="addItem()">  +  </button>
+		<button id="minusBtn" ng-click="removeItem()">  -  </button>
+		<a href='#/additem'>Add New Item</a>
+	</div>
+	
+	<div ng-view>
+		
+	</div>
+</body>
+
+<script src="angular-MVC2/angularMVCStartUp2.js"></script>
+</html>

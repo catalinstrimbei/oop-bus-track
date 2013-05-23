@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html ng-app>
+
+<head >
+	<meta charset="ISO-8859-1">
+	<title>Angular Start simple</title>
+	<script src="angular-MVC/angular.js"></script>
+</head>
+
+<body ng-controller = 'StartSimpleController'>
+	<p><b> {{welcomeText}} </b></p>
+</body>
+
+<script type="text/javascript">
+	function StartSimpleController($scope){
+		$scope.welcomeText = "AngularJS Start Simple!";
+	}
+</script>
+
+</html>
