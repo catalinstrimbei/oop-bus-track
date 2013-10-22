@@ -17,3 +17,8 @@ constructor Actor::Actor(myName : String)
 }
 
 // http://blog.requirements.ws/2013/01/qvt-transformations-with-eclipse.html
+
+// http://www.siegfried-nolte.de/forum/mda/smda.html
+// http://www.siegfried-nolte.de/forum/mda/smda.html	
+// http://www.springer.com/computer/swe/book/978-3-540-92170-7
+// http://www.alice-dsl.net/siegfried.nolte/forum/mda/mdaproject/mda.html
