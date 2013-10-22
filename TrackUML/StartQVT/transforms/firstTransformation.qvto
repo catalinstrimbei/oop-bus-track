@@ -1,0 +1,19 @@
+modeltype UseCase uses UseCase('http://www.cin.ufpe.br/useCaseUri');
+transformation AddActor(inout useCaseModel : UseCase);
+
+main()
+{
+  useCaseModel.rootObjects()[Model].map applyAddActor();
+}
+
+mapping inout Model::applyAddActor()
+{
+   self.actor += new Actor("testActor");
+}
+
+constructor Actor::Actor(myName : String)
+{
+   name := myName;
+}
+
+// http://blog.requirements.ws/2013/01/qvt-transformations-with-eclipse.html
