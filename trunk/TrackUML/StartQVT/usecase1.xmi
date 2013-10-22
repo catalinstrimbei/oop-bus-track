@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UseCase:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:UseCase="http://www.cin.ufpe.br/useCaseUri" xsi:schemaLocation="http://www.cin.ufpe.br/useCaseUri UseCase.ecore">
+  <actor name="MeetingOrganizer"/>
+  <actor name="MeetingParticipant"/>
+  <actor name="newActor"/>
+  <actor name="testActor"/>
+  <useCase name="CharacterizeMeeting"/>
+  <useCase name="RequestTimetables"/>
+  <useCase name="DefineSchedule"/>
+  <useCase name="CancelMeeting"/>
+  <useCase name="SendTimetable"/>
+  <usesLink actor="//@actor.1" useCase="//@useCase.4"/>
+  <usesLink actor="//@actor.0" useCase="//@useCase.0"/>
+  <usesLink actor="//@actor.0" useCase="//@useCase.1"/>
+  <usesLink actor="//@actor.0" useCase="//@useCase.2"/>
+  <usesLink actor="//@actor.0" useCase="//@useCase.3"/>
+</UseCase:Model>

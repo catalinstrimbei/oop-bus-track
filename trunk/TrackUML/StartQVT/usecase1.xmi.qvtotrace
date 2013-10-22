@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trace:Trace xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:trace="http:///www.eclipse.org/m2m/qvt/operational/trace.ecore">
+  <traceRecords>
+    <mappingOperation name="applyAddActor" package="AddActor" module="AddActor">
+      <runtimeMappingOperation href="transforms/firstTransformation.qvtox#//applyAddActor"/>
+    </mappingOperation>
+    <context>
+      <context kind="INOUT" name="self" type="Model">
+        <value>
+          <modelElement href="usecase1.xmi#/"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result/>
+  </traceRecords>
+</trace:Trace>
