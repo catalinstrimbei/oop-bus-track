@@ -16,9 +16,18 @@ Story 0.1: &#xD;
     <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#_0"/>
   </packageImport>
   <packagedElement xmi:type="uml:Package" xmi:id="_XmoLIDcxEeObreURXdy-Cg" name="org.app.scrum">
-    <ownedComment xmi:type="uml:Comment" xmi:id="_S9pYUDpnEeObrIpWPUJq-Q">
-      <body>specialitate - tip enum Specialitate&#xD;
-rol - tip enum Rol</body>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_2Ul80DvdEeOykqJIqx8NfQ">
+      <body>Un proiect este realizat de una sau mai multe echipe cu diferite specializari, formate din membri cu resposabilitati de analisti, testeri, programatori s.a.&#xD;
+Fiecare proiect este planificat din punctul de vedere al evolutie incorporarii functionaliatilor propuse de catre un product-owner.&#xD;
+Fiecare proiect este gestionat de un manager-de-proiect/scrum-master care urmareste realizarea/evolutia sarcinilor/taskurilor repartizate membrilor. &#xD;
+</body>
+    </ownedComment>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_yA7SwDveEeOykqJIqx8NfQ">
+      <body>Evolutia iterativa a proiectelor este realizata prin planificarea de sprinturi &#xD;
+ce-si propun realizarea unui sub-set de cerinte functionale si tehnice (sprint backlog)&#xD;
+in ordinea in care sunt prioritizate in setul principal.&#xD;
+Fiecare cerinta este descompusa in mai multe sarcini de realizare (analiza, proiectare, implementare) &#xD;
+repartizate membrilor echipei/echipelor implicate in proiect.</body>
     </ownedComment>
     <packagedElement xmi:type="uml:Class" xmi:id="_bbj1UDcxEeObreURXdy-Cg" name="Proiect">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_lIZuEDcxEeObreURXdy-Cg" name="proiectNr" visibility="public">
@@ -103,7 +112,7 @@ rol - tip enum Rol</body>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_a6bQYDfwEeOXdLoEgavdtA" name="BacklogSprint"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_fwSzIDfwEeOXdLoEgavdtA" name="Task">
+    <packagedElement xmi:type="uml:Class" xmi:id="_fwSzIDfwEeOXdLoEgavdtA" clientDependency="_veVeYDvXEeOykqJIqx8NfQ _wX2gUDvXEeOykqJIqx8NfQ" name="Task">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_sMzMMDoWEeOxlJbLJZ_wdQ" name="categorie" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tQ67oDoWEeOxlJbLJZ_wdQ" value="1"/>
@@ -116,12 +125,67 @@ rol - tip enum Rol</body>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Jy3_8TppEeObrIpWPUJq-Q" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Jy3_8jppEeObrIpWPUJq-Q" value="1"/>
       </ownedAttribute>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_lLM8oDfwEeOXdLoEgavdtA" name="CerintaFunctionala">
-      <generalization xmi:type="uml:Generalization" xmi:id="_3WfkMDpoEeObrIpWPUJq-Q" general="_z75FkDpoEeObrIpWPUJq-Q"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_n_BIEDfwEeOXdLoEgavdtA" name="CerintaTehnica">
-      <generalization xmi:type="uml:Generalization" xmi:id="_4wD_MDpoEeObrIpWPUJq-Q" general="_z75FkDpoEeObrIpWPUJq-Q"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_ikUUcDvWEeOykqJIqx8NfQ" name="idTask" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_o6sAoDvWEeOykqJIqx8NfQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_o6snsDvWEeOykqJIqx8NfQ" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_o6vrADvWEeOykqJIqx8NfQ">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_sPVoQDvWEeOykqJIqx8NfQ" name="denumire" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tWHDEDvWEeOykqJIqx8NfQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tWHqIDvWEeOykqJIqx8NfQ" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_tWIRMDvWEeOykqJIqx8NfQ">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_twuigDvWEeOykqJIqx8NfQ" name="descriere" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uvhGADvWEeOykqJIqx8NfQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uvhtEDvWEeOykqJIqx8NfQ" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_uvi7MDvWEeOykqJIqx8NfQ">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vLjhwDvWEeOykqJIqx8NfQ" name="dataStart" visibility="public" type="_LFJLEDcyEeObreURXdy-Cg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wR0mQDvWEeOykqJIqx8NfQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wR1NUDvWEeOykqJIqx8NfQ" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_wR2bcDvWEeOykqJIqx8NfQ">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_xgLPwDvWEeOykqJIqx8NfQ" name="timpEstimat" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zz3wsDvWEeOykqJIqx8NfQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zz4XwDvWEeOykqJIqx8NfQ" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_zz5l4DvWEeOykqJIqx8NfQ">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_0PzewDvWEeOykqJIqx8NfQ" name="timpRamas" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1mkdYDvWEeOykqJIqx8NfQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1mlEcDvWEeOykqJIqx8NfQ" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_1mlrgDvWEeOykqJIqx8NfQ">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_2qQvADvWEeOykqJIqx8NfQ" name="status" visibility="public" type="_5lwPwDvWEeOykqJIqx8NfQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3kgJsDvWEeOykqJIqx8NfQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3khX0DvWEeOykqJIqx8NfQ" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_3kh-4DvWEeOykqJIqx8NfQ">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_OoFaEDvXEeOykqJIqx8NfQ" name="categorie" visibility="public" type="_SJCNwDvWEeOykqJIqx8NfQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_QhekoDvXEeOykqJIqx8NfQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_QhfLsDvXEeOykqJIqx8NfQ" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_QhfywDvXEeOykqJIqx8NfQ">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_vczvUDfwEeOXdLoEgavdtA" name="Echipa">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_HYwVoDpjEeObrIpWPUJq-Q" name="membri" type="_xdTncDfwEeOXdLoEgavdtA" association="_HYw8sDpjEeObrIpWPUJq-Q">
@@ -131,7 +195,7 @@ rol - tip enum Rol</body>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_RPLg0DpmEeObrIpWPUJq-Q" name="idEchipa">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_lKCswDpmEeObrIpWPUJq-Q" name="specialitate" visibility="public" type="_aObeUDpnEeObrIpWPUJq-Q">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_lKCswDpmEeObrIpWPUJq-Q" name="specializare" visibility="public" type="_aObeUDpnEeObrIpWPUJq-Q">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1vSnwDpmEeObrIpWPUJq-Q" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1vTO0DpmEeObrIpWPUJq-Q" value="1"/>
         <defaultValue xmi:type="uml:LiteralString" xmi:id="_1vajkDpmEeObrIpWPUJq-Q">
@@ -186,7 +250,7 @@ rol - tip enum Rol</body>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HYw8szpjEeObrIpWPUJq-Q" value="1"/>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Enumeration" xmi:id="_aObeUDpnEeObrIpWPUJq-Q" name="Specialitate">
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_aObeUDpnEeObrIpWPUJq-Q" name="Specializare">
       <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_eGnQ0DpnEeObrIpWPUJq-Q" name="BACKEND"/>
       <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_g9XbgDpnEeObrIpWPUJq-Q" name="FRONTEND"/>
       <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_mpeCsDpnEeObrIpWPUJq-Q" name="DATABASE"/>
@@ -198,10 +262,41 @@ rol - tip enum Rol</body>
       <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_v8dRADpnEeObrIpWPUJq-Q" name="ANALIST"/>
       <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_zk8aoDpnEeObrIpWPUJq-Q" name="TESTER"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_z75FkDpoEeObrIpWPUJq-Q" name="Cerinta">
+    <packagedElement xmi:type="uml:Class" xmi:id="_z75FkDpoEeObrIpWPUJq-Q" clientDependency="_tI9icDvXEeOykqJIqx8NfQ" name="Cerinta">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_A1l74DppEeObrIpWPUJq-Q" name="taskuri" type="_fwSzIDfwEeOXdLoEgavdtA" aggregation="shared" association="_A1mi8DppEeObrIpWPUJq-Q">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_A1l74TppEeObrIpWPUJq-Q" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_A1l74jppEeObrIpWPUJq-Q" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Tkr-UDvUEeOykqJIqx8NfQ" name="idCerinta" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_atZtcDvUEeOykqJIqx8NfQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_atbioDvUEeOykqJIqx8NfQ" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_atel8DvUEeOykqJIqx8NfQ">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_D-U4ADvVEeOykqJIqx8NfQ" name="denumire" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LIzhsDvVEeOykqJIqx8NfQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LI0v0DvVEeOykqJIqx8NfQ" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_LI3zIDvVEeOykqJIqx8NfQ">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_ceZUgDvVEeOykqJIqx8NfQ" name="descriere" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hF3O4DvVEeOykqJIqx8NfQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hF318DvVEeOykqJIqx8NfQ" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_hF65QDvVEeOykqJIqx8NfQ">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_3bP8gDvVEeOykqJIqx8NfQ" name="categorie" visibility="public" type="_6nyxADvVEeOykqJIqx8NfQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5LDGMDvVEeOykqJIqx8NfQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5LDtQDvVEeOykqJIqx8NfQ" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_5LE7YDvVEeOykqJIqx8NfQ">
+          <value xsi:nil="true"/>
+        </defaultValue>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_-fnjADpoEeObrIpWPUJq-Q" name="sprint_cerinta_1" memberEnd="_-fnjATpoEeObrIpWPUJq-Q _-fm78DpoEeObrIpWPUJq-Q">
@@ -222,6 +317,25 @@ rol - tip enum Rol</body>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Jy4nAzppEeObrIpWPUJq-Q" value="1"/>
       </ownedEnd>
     </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_6nyxADvVEeOykqJIqx8NfQ" name="CategorieCerinta">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_8n2kQDvVEeOykqJIqx8NfQ" name="FUNCTIONALA"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_-jOEwDvVEeOykqJIqx8NfQ" name="TEHNICA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_SJCNwDvWEeOykqJIqx8NfQ" name="CategorieTask">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_UuU1ADvWEeOykqJIqx8NfQ" name="ANALIZA"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_VF0vADvWEeOykqJIqx8NfQ" name="DESIGN"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_VyOiADvWEeOykqJIqx8NfQ" name="IMPLEMENTARE"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_gNYSQDvWEeOykqJIqx8NfQ" name="TEST"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_5lwPwDvWEeOykqJIqx8NfQ" name="StatusTask">
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_7n5GoDvWEeOykqJIqx8NfQ" name="IN_CURS"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_8zLOADvWEeOykqJIqx8NfQ" name="FINALIZAT"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="__8l2ADvWEeOykqJIqx8NfQ" name="BLOCAT"/>
+      <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_BQr7IDvXEeOykqJIqx8NfQ" name="SUSPENDAT"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_tI9icDvXEeOykqJIqx8NfQ" name="" client="_z75FkDpoEeObrIpWPUJq-Q" supplier="_6nyxADvVEeOykqJIqx8NfQ"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_veVeYDvXEeOykqJIqx8NfQ" name="" client="_fwSzIDfwEeOXdLoEgavdtA" supplier="_SJCNwDvWEeOykqJIqx8NfQ"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_wX2gUDvXEeOykqJIqx8NfQ" name="" client="_fwSzIDfwEeOXdLoEgavdtA" supplier="_5lwPwDvWEeOykqJIqx8NfQ"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_GXyrIDcyEeObreURXdy-Cg" name="java.util">
     <packagedElement xmi:type="uml:DataType" xmi:id="_LFJLEDcyEeObreURXdy-Cg" name="Date"/>
