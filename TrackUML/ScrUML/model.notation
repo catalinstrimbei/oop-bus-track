@@ -165,6 +165,13 @@
           <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_fwWdgzfwEeOXdLoEgavdtA" source="QualifiedName">
             <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_fwWdhDfwEeOXdLoEgavdtA" key="QualifiedNameDepth" value="1000"/>
           </eAnnotations>
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_1Q3lYDziEeOsPt1MkuDYDQ" source="Stereotype_Annotation">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-9HoQDziEeOsPt1MkuDYDQ" key="StereotypeWithQualifiedNameList" value=""/>
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-9HoQTziEeOsPt1MkuDYDQ" key="StereotypeList" value=""/>
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-9HoQjziEeOsPt1MkuDYDQ" key="Stereotype_Presentation_Kind" value="HorizontalStereo"/>
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-9HoQzziEeOsPt1MkuDYDQ" key="PropStereoDisplay" value=""/>
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-9HoRDziEeOsPt1MkuDYDQ" key="StereotypePropertyLocation" value="Compartment"/>
+          </eAnnotations>
           <children xmi:type="notation:DecorationNode" xmi:id="_fwWdhTfwEeOXdLoEgavdtA" type="5014"/>
           <children xmi:type="notation:BasicCompartment" xmi:id="_fwXEkDfwEeOXdLoEgavdtA" type="7011">
             <children xmi:type="notation:Shape" xmi:id="_sPOOEDoWEeOxlJbLJZ_wdQ" type="3012" fontName="Segoe UI" lineColor="0">
