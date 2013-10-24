@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ScrumProfile="http:///schemas/ScrumProfile/_-IUuQDziEeOsPt1MkuDYDQ/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:l2="http://www.eclipse.org/uml2/4.0.0/UML/Profile/L2" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///schemas/ScrumProfile/_-IUuQDziEeOsPt1MkuDYDQ/1 ScrumProfile.profile.uml#_-IUuQTziEeOsPt1MkuDYDQ">
+<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ScrumProfile="http:///schemas/ScrumProfile/_EKpnoDzkEeOsPt1MkuDYDQ/3" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:l2="http://www.eclipse.org/uml2/4.0.0/UML/Profile/L2" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///schemas/ScrumProfile/_EKpnoDzkEeOsPt1MkuDYDQ/3 ScrumProfile.profile.uml#_EKpnoTzkEeOsPt1MkuDYDQ">
   <uml:Model xmi:id="_mKOz8DcwEeObreURXdy-Cg" name="Model">
     <ownedComment xmi:type="uml:Comment" xmi:id="_MqJosDfwEeOXdLoEgavdtA">
       <body>Vocabular Scrum Scrum Story&#xD;
@@ -355,7 +355,7 @@ repartizate membrilor echipei/echipelor implicate in proiect.</body>
     </profileApplication>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_wVw9UDziEeOsPt1MkuDYDQ">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_wWQFgDziEeOsPt1MkuDYDQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="ScrumProfile.profile.uml#_-IUuQTziEeOsPt1MkuDYDQ"/>
+        <references xmi:type="ecore:EPackage" href="ScrumProfile.profile.uml#_EKpnoTzkEeOsPt1MkuDYDQ"/>
       </eAnnotations>
       <appliedProfile xmi:type="uml:Profile" href="ScrumProfile.profile.uml#_YlT_4DziEeOsPt1MkuDYDQ"/>
     </profileApplication>
