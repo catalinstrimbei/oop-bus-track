@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Profile xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_YlT_4DziEeOsPt1MkuDYDQ" name="ScrumProfile" metaclassReference="_jASJ8DziEeOsPt1MkuDYDQ" metamodelReference="_YlT_4TziEeOsPt1MkuDYDQ">
   <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_oucmoDziEeOsPt1MkuDYDQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <contents xmi:type="ecore:EPackage" xmi:id="_EKpnoTzkEeOsPt1MkuDYDQ" name="ScrumProfile" nsURI="http:///schemas/ScrumProfile/_EKpnoDzkEeOsPt1MkuDYDQ/3" nsPrefix="ScrumProfile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_EKqOsTzkEeOsPt1MkuDYDQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_EKqOsjzkEeOsPt1MkuDYDQ" key="Version" value="0.0.4"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_EKqOszzkEeOsPt1MkuDYDQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_EKqOtDzkEeOsPt1MkuDYDQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_EKqOtTzkEeOsPt1MkuDYDQ" key="Date" value="2013-10-24"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_EKqOtjzkEeOsPt1MkuDYDQ" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_EKpnojzkEeOsPt1MkuDYDQ" name="ScrumArtifact">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_EKpnozzkEeOsPt1MkuDYDQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_eOyJ0DziEeOsPt1MkuDYDQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_EKpnpDzkEeOsPt1MkuDYDQ" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_lqWuETzjEeOsPt1MkuDYDQ" name="ScrumProfile" nsURI="http:///schemas/ScrumProfile/_lqWuEDzjEeOsPt1MkuDYDQ/2" nsPrefix="ScrumProfile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_lqXVITzjEeOsPt1MkuDYDQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_lqXVIjzjEeOsPt1MkuDYDQ" key="Version" value="0.0.3"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_lqXVIzzjEeOsPt1MkuDYDQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_lqXVJDzjEeOsPt1MkuDYDQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_lqXVJTzjEeOsPt1MkuDYDQ" key="Date" value="2013-10-24"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_lqXVJjzjEeOsPt1MkuDYDQ" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_lqWuEjzjEeOsPt1MkuDYDQ" name="ScrumArtifact">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_lqWuEzzjEeOsPt1MkuDYDQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_eOyJ0DziEeOsPt1MkuDYDQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_lqWuFDzjEeOsPt1MkuDYDQ" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
     <contents xmi:type="ecore:EPackage" xmi:id="_-IUuQTziEeOsPt1MkuDYDQ" name="ScrumProfile" nsURI="http:///schemas/ScrumProfile/_-IUuQDziEeOsPt1MkuDYDQ/1" nsPrefix="ScrumProfile">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-IVVUTziEeOsPt1MkuDYDQ" source="PapyrusVersion">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-IVVUjziEeOsPt1MkuDYDQ" key="Version" value="0.0.2"/>
