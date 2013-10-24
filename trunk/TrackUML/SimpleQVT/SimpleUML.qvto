@@ -1,0 +1,67 @@
+modeltype UML_MM1 uses 'http://www.eclipse.org/uml2/2.1.0/UML';
+modeltype UML_MM2 uses 'http://www.eclipse.org/uml2/2.1.0/UML';
+
+transformation SimpleUML(in uml : UML_MM1, out UML_MM2);
+
+main() {
+	log ('modelUML-to-modelUML main'); 
+	uml.rootObjects()[UML_MM1::Model]->map model2Model();
+}
+
+mapping in UML_MM1::Model::model2Model() : UML_MM2::Model {
+	log ('modelUML-to-modelUML start'); 
+	name   := self.name;
+	uml.objectsOfType(Package)->map transformPackage();
+	
+	log ('modelUML-to-modelUML end'); 
+}
+
+mapping in Package::transformPackage() : Package 
+{
+   log ('transformPackage: ' + self.name);
+   name   := self.name;
+   self.ownedElement[Class]->map transformClasses();
+   self.ownedElement[DataType]->map transformDataTypes();
+   
+   /*
+   self.ownedElement.getAppliedStereotypes()-> forEach(stereotype){
+		log("applied stereotype ------->  " + stereotype.name);
+   };       
+   */
+}
+
+mapping in Class::transformClasses() : Class{
+	log ('transformClasses: ' + self.name);
+	name   := self.name;
+	
+   self.getAppliedStereotypes()-> forEach(stereotype){
+		log("applied stereotype ------->  " + self.name + " - " + stereotype.name);
+   };  	
+} 
+
+mapping in DataType::transformDataTypes() : DataType{
+	log ('transformDataTypes: ' + self.name);
+	name   := self.name;
+	
+   self.getAppliedStereotypes()-> forEach(stereotype){
+		log("applied stereotype ------->  " + self.name + " - " + stereotype.name);
+   };	
+} 
+
+
+   /*
+   if (1=0)
+   then {
+   		log ('check if enumeration: ' + self.name)
+   } else { 
+   		log ('');
+   } endif;
+   self.ownedElement.stereotypedBy("Enumeration")
+   
+	var stereo : Stereotype = uml.objectsOfType(Stereotype)![name = "Specification"];
+   log('stereo: ' + stereo.toString());  
+   
+   self.ownedElement.getApplicableStereotypes()-> forEach(stereotype){
+		log("applicable stereotype: " + stereotype.name);
+   };        
+   */
