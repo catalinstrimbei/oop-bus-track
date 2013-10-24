@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trace:Trace xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:trace="http:///www.eclipse.org/m2m/qvt/operational/trace.ecore">
+  <traceRecords>
+    <mappingOperation name="model2Model" package="SimpleUML" module="SimpleUML">
+      <runtimeMappingOperation href="SimpleUML.qvtox#//model2Model"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Model">
+        <value>
+          <modelElement href="../ScrUML/model.uml#_mKOz8DcwEeObreURXdy-Cg"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Model">
+        <value>
+          <modelElement href="psm.simpleuml#/0"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformPackage" package="SimpleUML" module="SimpleUML">
+      <runtimeMappingOperation href="SimpleUML.qvtox#//transformPackage"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Package">
+        <value>
+          <modelElement href="../ScrUML/model.uml#_mKOz8DcwEeObreURXdy-Cg"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Package">
+        <value>
+          <modelElement href="psm.simpleuml#/1"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformPackage" package="SimpleUML" module="SimpleUML">
+      <runtimeMappingOperation href="SimpleUML.qvtox#//transformPackage"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Package">
+        <value>
+          <modelElement href="../ScrUML/model.uml#_XmoLIDcxEeObreURXdy-Cg"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Package">
+        <value>
+          <modelElement href="psm.simpleuml#/2"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformClasses" package="SimpleUML" module="SimpleUML">
+      <runtimeMappingOperation href="SimpleUML.qvtox#//transformClasses"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Class">
+        <value>
+          <modelElement href="../ScrUML/model.uml#_vczvUDfwEeOXdLoEgavdtA"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Class">
+        <value>
+          <modelElement href="psm.simpleuml#/3"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformClasses" package="SimpleUML" module="SimpleUML">
+      <runtimeMappingOperation href="SimpleUML.qvtox#//transformClasses"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Class">
+        <value>
+          <modelElement href="../ScrUML/model.uml#_3lUHgDfwEeOXdLoEgavdtA"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Class">
+        <value>
+          <modelElement href="psm.simpleuml#/4"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformClasses" package="SimpleUML" module="SimpleUML">
+      <runtimeMappingOperation href="SimpleUML.qvtox#//transformClasses"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Class">
+        <value>
+          <modelElement href="../ScrUML/model.uml#_Yy4VEDfwEeOXdLoEgavdtA"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Class">
+        <value>
+          <modelElement href="psm.simpleuml#/5"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformClasses" package="SimpleUML" module="SimpleUML">
+      <runtimeMappingOperation href="SimpleUML.qvtox#//transformClasses"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Class">
+        <value>
+          <modelElement href="../ScrUML/model.uml#_xdTncDfwEeOXdLoEgavdtA"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Class">
+        <value>
+          <modelElement href="psm.simpleuml#/6"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformClasses" package="SimpleUML" module="SimpleUML">
+      <runtimeMappingOperation href="SimpleUML.qvtox#//transformClasses"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Class">
+        <value>
+          <modelElement href="../ScrUML/model.uml#_bbj1UDcxEeObreURXdy-Cg"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Class">
+        <value>
+          <modelElement href="psm.simpleuml#/7"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformClasses" package="SimpleUML" module="SimpleUML">
+      <runtimeMappingOperation href="SimpleUML.qvtox#//transformClasses"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Class">
+        <value>
+          <modelElement href="../ScrUML/model.uml#_z75FkDpoEeObrIpWPUJq-Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Class">
+        <value>
+          <modelElement href="psm.simpleuml#/8"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformClasses" package="SimpleUML" module="SimpleUML">
+      <runtimeMappingOperation href="SimpleUML.qvtox#//transformClasses"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Class">
+        <value>
+          <modelElement href="../ScrUML/model.uml#_0Dp-oDfwEeOXdLoEgavdtA"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Class">
+        <value>
+          <modelElement href="psm.simpleuml#/9"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformClasses" package="SimpleUML" module="SimpleUML">
+      <runtimeMappingOperation href="SimpleUML.qvtox#//transformClasses"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Class">
+        <value>
+          <modelElement href="../ScrUML/model.uml#_fwSzIDfwEeOXdLoEgavdtA"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Class">
+        <value>
+          <modelElement href="psm.simpleuml#/10"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformClasses" package="SimpleUML" module="SimpleUML">
+      <runtimeMappingOperation href="SimpleUML.qvtox#//transformClasses"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Class">
+        <value>
+          <modelElement href="../ScrUML/model.uml#_a6bQYDfwEeOXdLoEgavdtA"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Class">
+        <value>
+          <modelElement href="psm.simpleuml#/11"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformClasses" package="SimpleUML" module="SimpleUML">
+      <runtimeMappingOperation href="SimpleUML.qvtox#//transformClasses"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Class">
+        <value>
+          <modelElement href="../ScrUML/model.uml#_-OwWIDfvEeOXdLoEgavdtA"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Class">
+        <value>
+          <modelElement href="psm.simpleuml#/12"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformDataTypes" package="SimpleUML" module="SimpleUML">
+      <runtimeMappingOperation href="SimpleUML.qvtox#//transformDataTypes"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="DataType">
+        <value>
+          <modelElement href="../ScrUML/model.uml#_aObeUDpnEeObrIpWPUJq-Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="DataType">
+        <value>
+          <modelElement href="psm.simpleuml#/13"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformDataTypes" package="SimpleUML" module="SimpleUML">
+      <runtimeMappingOperation href="SimpleUML.qvtox#//transformDataTypes"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="DataType">
+        <value>
+          <modelElement href="../ScrUML/model.uml#_SJCNwDvWEeOykqJIqx8NfQ"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="DataType">
+        <value>
+          <modelElement href="psm.simpleuml#/14"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformDataTypes" package="SimpleUML" module="SimpleUML">
+      <runtimeMappingOperation href="SimpleUML.qvtox#//transformDataTypes"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="DataType">
+        <value>
+          <modelElement href="../ScrUML/model.uml#_pidpEDpnEeObrIpWPUJq-Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="DataType">
+        <value>
+          <modelElement href="psm.simpleuml#/15"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformDataTypes" package="SimpleUML" module="SimpleUML">
+      <runtimeMappingOperation href="SimpleUML.qvtox#//transformDataTypes"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="DataType">
+        <value>
+          <modelElement href="../ScrUML/model.uml#_5lwPwDvWEeOykqJIqx8NfQ"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="DataType">
+        <value>
+          <modelElement href="psm.simpleuml#/16"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformDataTypes" package="SimpleUML" module="SimpleUML">
+      <runtimeMappingOperation href="SimpleUML.qvtox#//transformDataTypes"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="DataType">
+        <value>
+          <modelElement href="../ScrUML/model.uml#_6nyxADvVEeOykqJIqx8NfQ"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="DataType">
+        <value>
+          <modelElement href="psm.simpleuml#/17"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformPackage" package="SimpleUML" module="SimpleUML">
+      <runtimeMappingOperation href="SimpleUML.qvtox#//transformPackage"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Package">
+        <value>
+          <modelElement href="../ScrUML/model.uml#_GXyrIDcyEeObreURXdy-Cg"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Package">
+        <value>
+          <modelElement href="psm.simpleuml#/18"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="transformDataTypes" package="SimpleUML" module="SimpleUML">
+      <runtimeMappingOperation href="SimpleUML.qvtox#//transformDataTypes"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="DataType">
+        <value>
+          <modelElement href="../ScrUML/model.uml#_LFJLEDcyEeObreURXdy-Cg"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="DataType">
+        <value>
+          <modelElement href="psm.simpleuml#/19"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+</trace:Trace>

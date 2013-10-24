@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML">
+  <uml:Model name="Model"/>
+  <uml:Package name="Model"/>
+  <uml:Package name="org.app.scrum"/>
+  <uml:Class name="Echipa"/>
+  <uml:Class name="Release"/>
+  <uml:Class name="Sprint"/>
+  <uml:Class name="Membru"/>
+  <uml:Class name="Proiect"/>
+  <uml:Class name="Cerinta"/>
+  <uml:Class name="Rol"/>
+  <uml:Class name="Task"/>
+  <uml:Class name="BacklogSprint"/>
+  <uml:Class name="BacklogProdus"/>
+  <uml:DataType name="Specializare"/>
+  <uml:DataType name="CategorieTask"/>
+  <uml:DataType name="Rol"/>
+  <uml:DataType name="StatusTask"/>
+  <uml:DataType name="CategorieCerinta"/>
+  <uml:Package name="java.util"/>
+  <uml:DataType name="Date"/>
+</xmi:XMI>
