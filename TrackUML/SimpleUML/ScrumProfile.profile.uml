@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Profile xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_YlT_4DziEeOsPt1MkuDYDQ" name="SampleProfile" metaclassReference="_jASJ8DziEeOsPt1MkuDYDQ _TKZBUD18EeOghakyrx5RRg _ihvl0D18EeOghakyrx5RRg _ihvl0T18EeOghakyrx5RRg" metamodelReference="_YlT_4TziEeOsPt1MkuDYDQ">
+  <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_oucmoDziEeOsPt1MkuDYDQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <contents xmi:type="ecore:EPackage" xmi:id="_kcZ7sD18EeOghakyrx5RRg" name="SampleProfile" nsURI="http:///schemas/SampleProfile/_kcXfcD18EeOghakyrx5RRg/12" nsPrefix="SampleProfile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kcaixT18EeOghakyrx5RRg" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kcaixj18EeOghakyrx5RRg" key="Version" value="0.0.13"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kcaixz18EeOghakyrx5RRg" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kcaiyD18EeOghakyrx5RRg" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kcaiyT18EeOghakyrx5RRg" key="Date" value="2013-10-25"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kcaiyj18EeOghakyrx5RRg" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_kcZ7sT18EeOghakyrx5RRg" name="ScrumArtifact">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kcZ7sj18EeOghakyrx5RRg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_eOyJ0DziEeOsPt1MkuDYDQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_kcZ7sz18EeOghakyrx5RRg" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_kcZ7tT18EeOghakyrx5RRg" name="ScrumActivity">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kcZ7tj18EeOghakyrx5RRg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_3fn_4D16EeOghakyrx5RRg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_kcZ7tz18EeOghakyrx5RRg" name="base_OpaqueAction" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//OpaqueAction"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_kcZ7uT18EeOghakyrx5RRg" name="base_Action" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Action"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_kcZ7uz18EeOghakyrx5RRg" name="base_Activity" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Activity"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_kcZ7vT18EeOghakyrx5RRg" name="ScrumElement">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kcZ7vj18EeOghakyrx5RRg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_D1jlUD18EeOghakyrx5RRg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_kcZ7vz18EeOghakyrx5RRg" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_d5FYoT18EeOghakyrx5RRg" name="SampleProfile" nsURI="http:///schemas/SampleProfile/_d5FYoD18EeOghakyrx5RRg/11" nsPrefix="SampleProfile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_d5F_sz18EeOghakyrx5RRg" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_d5F_tD18EeOghakyrx5RRg" key="Version" value="0.0.12"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_d5F_tT18EeOghakyrx5RRg" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_d5F_tj18EeOghakyrx5RRg" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_d5F_tz18EeOghakyrx5RRg" key="Date" value="2013-10-25"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_d5F_uD18EeOghakyrx5RRg" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_d5FYoj18EeOghakyrx5RRg" name="ScrumArtifact">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_d5FYoz18EeOghakyrx5RRg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_eOyJ0DziEeOsPt1MkuDYDQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_d5FYpD18EeOghakyrx5RRg" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_d5FYpj18EeOghakyrx5RRg" name="ScrumActivity">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_d5FYpz18EeOghakyrx5RRg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_3fn_4D16EeOghakyrx5RRg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_d5FYqD18EeOghakyrx5RRg" name="base_OpaqueAction" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//OpaqueAction"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_d5FYqj18EeOghakyrx5RRg" name="ScrumElement">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_d5FYqz18EeOghakyrx5RRg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_D1jlUD18EeOghakyrx5RRg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_d5FYrD18EeOghakyrx5RRg" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_WY9PED18EeOghakyrx5RRg" name="SampleProfile" nsURI="http:///schemas/SampleProfile/_WY8oAD18EeOghakyrx5RRg/10" nsPrefix="SampleProfile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WY92Ij18EeOghakyrx5RRg" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WY92Iz18EeOghakyrx5RRg" key="Version" value="0.0.11"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WY92JD18EeOghakyrx5RRg" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WY92JT18EeOghakyrx5RRg" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WY92Jj18EeOghakyrx5RRg" key="Date" value="2013-10-25"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WY92Jz18EeOghakyrx5RRg" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_WY9PET18EeOghakyrx5RRg" name="ScrumArtifact">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WY9PEj18EeOghakyrx5RRg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_eOyJ0DziEeOsPt1MkuDYDQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_WY9PEz18EeOghakyrx5RRg" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_WY9PFT18EeOghakyrx5RRg" name="ScrumActivity">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WY9PFj18EeOghakyrx5RRg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_3fn_4D16EeOghakyrx5RRg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_WY9PFz18EeOghakyrx5RRg" name="base_OpaqueAction" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//OpaqueAction"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_WY9PGT18EeOghakyrx5RRg" name="ScrumElement">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WY9PGj18EeOghakyrx5RRg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_D1jlUD18EeOghakyrx5RRg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_WY9PGz18EeOghakyrx5RRg" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_MaEkET18EeOghakyrx5RRg" name="SampleProfile" nsURI="http:///schemas/SampleProfile/_MaEkED18EeOghakyrx5RRg/9" nsPrefix="SampleProfile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_MaFLIT18EeOghakyrx5RRg" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_MaFLIj18EeOghakyrx5RRg" key="Version" value="0.0.10"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_MaFLIz18EeOghakyrx5RRg" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_MaFLJD18EeOghakyrx5RRg" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_MaFLJT18EeOghakyrx5RRg" key="Date" value="2013-10-25"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_MaFLJj18EeOghakyrx5RRg" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_MaEkEj18EeOghakyrx5RRg" name="ScrumArtifact">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_MaEkEz18EeOghakyrx5RRg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_eOyJ0DziEeOsPt1MkuDYDQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_MaEkFD18EeOghakyrx5RRg" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_MaEkFj18EeOghakyrx5RRg" name="ScrumActivity">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_MaEkFz18EeOghakyrx5RRg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_3fn_4D16EeOghakyrx5RRg"/>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_MaEkGD18EeOghakyrx5RRg" name="ScrumElement">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_MaEkGT18EeOghakyrx5RRg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_D1jlUD18EeOghakyrx5RRg"/>
+      </eClassifiers>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_0RYs0T17EeOghakyrx5RRg" name="SampleProfile" nsURI="http:///schemas/SampleProfile/_0RYs0D17EeOghakyrx5RRg/8" nsPrefix="SampleProfile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0RZT4D17EeOghakyrx5RRg" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_0RZT4T17EeOghakyrx5RRg" key="Version" value="0.0.9"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_0RZT4j17EeOghakyrx5RRg" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_0RZT4z17EeOghakyrx5RRg" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_0RZT5D17EeOghakyrx5RRg" key="Date" value="2013-10-25"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_0RZT5T17EeOghakyrx5RRg" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_0RYs0j17EeOghakyrx5RRg" name="ScrumArtifact">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0RYs0z17EeOghakyrx5RRg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_eOyJ0DziEeOsPt1MkuDYDQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_0RYs1D17EeOghakyrx5RRg" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_0RYs1j17EeOghakyrx5RRg" name="ScrumActivity">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_0RYs1z17EeOghakyrx5RRg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_3fn_4D16EeOghakyrx5RRg"/>
+      </eClassifiers>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_i7Tx0j17EeOghakyrx5RRg" name="SampleProfile" nsURI="http:///schemas/SampleProfile/_i7Tx0T17EeOghakyrx5RRg/7" nsPrefix="SampleProfile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_i7UY4j17EeOghakyrx5RRg" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_i7UY4z17EeOghakyrx5RRg" key="Version" value="0.0.8"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_i7UY5D17EeOghakyrx5RRg" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_i7UY5T17EeOghakyrx5RRg" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_i7UY5j17EeOghakyrx5RRg" key="Date" value="2013-10-25"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_i7UY5z17EeOghakyrx5RRg" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_i7Tx0z17EeOghakyrx5RRg" name="ScrumArtifact">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_i7Tx1D17EeOghakyrx5RRg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_eOyJ0DziEeOsPt1MkuDYDQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_i7Tx1T17EeOghakyrx5RRg" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_i7Tx1z17EeOghakyrx5RRg" name="ScrumActivity">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_i7Tx2D17EeOghakyrx5RRg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_3fn_4D16EeOghakyrx5RRg"/>
+      </eClassifiers>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_VtrS4T17EeOghakyrx5RRg" name="SampleProfile" nsURI="http:///schemas/SampleProfile/_VtrS4D17EeOghakyrx5RRg/6" nsPrefix="SampleProfile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_VtshAD17EeOghakyrx5RRg" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_VtshAT17EeOghakyrx5RRg" key="Version" value="0.0.7"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_VtshAj17EeOghakyrx5RRg" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_VtshAz17EeOghakyrx5RRg" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_VtshBD17EeOghakyrx5RRg" key="Date" value="2013-10-25"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_VtshBT17EeOghakyrx5RRg" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_VtrS4j17EeOghakyrx5RRg" name="ScrumArtifact">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_VtrS4z17EeOghakyrx5RRg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_eOyJ0DziEeOsPt1MkuDYDQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_VtrS5D17EeOghakyrx5RRg" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_VtrS5j17EeOghakyrx5RRg" name="ScrumActivity">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_VtrS5z17EeOghakyrx5RRg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_3fn_4D16EeOghakyrx5RRg"/>
+      </eClassifiers>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_6gJxoD16EeOghakyrx5RRg" name="SampleProfile" nsURI="http:///schemas/SampleProfile/_6gGuUD16EeOghakyrx5RRg/5" nsPrefix="SampleProfile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_6gLm0j16EeOghakyrx5RRg" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_6gLm0z16EeOghakyrx5RRg" key="Version" value="0.0.6"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_6gLm1D16EeOghakyrx5RRg" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_6gLm1T16EeOghakyrx5RRg" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_6gLm1j16EeOghakyrx5RRg" key="Date" value="2013-10-25"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_6gLm1z16EeOghakyrx5RRg" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_6gJxoT16EeOghakyrx5RRg" name="ScrumArtifact">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_6gJxoj16EeOghakyrx5RRg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_eOyJ0DziEeOsPt1MkuDYDQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_6gJxoz16EeOghakyrx5RRg" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_6gJxpT16EeOghakyrx5RRg" name="ScrumActivity">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_6gJxpj16EeOghakyrx5RRg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_3fn_4D16EeOghakyrx5RRg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_6gJxpz16EeOghakyrx5RRg" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_qzfXMD1IEeOkJdCJNN1fWA" name="SampleProfile" nsURI="http:///schemas/SampleProfile/_qzcT4D1IEeOkJdCJNN1fWA/4" nsPrefix="SampleProfile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qzhMYT1IEeOkJdCJNN1fWA" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qzhMYj1IEeOkJdCJNN1fWA" key="Version" value="0.0.5"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qzhMYz1IEeOkJdCJNN1fWA" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qzhMZD1IEeOkJdCJNN1fWA" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qzhMZT1IEeOkJdCJNN1fWA" key="Date" value="2013-10-25"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_qzhMZj1IEeOkJdCJNN1fWA" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_qzfXMT1IEeOkJdCJNN1fWA" name="ScrumArtifact">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_qzfXMj1IEeOkJdCJNN1fWA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_eOyJ0DziEeOsPt1MkuDYDQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_qzfXMz1IEeOkJdCJNN1fWA" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_EKpnoTzkEeOsPt1MkuDYDQ" name="ScrumProfile" nsURI="http:///schemas/ScrumProfile/_EKpnoDzkEeOsPt1MkuDYDQ/3" nsPrefix="ScrumProfile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_EKqOsTzkEeOsPt1MkuDYDQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_EKqOsjzkEeOsPt1MkuDYDQ" key="Version" value="0.0.4"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_EKqOszzkEeOsPt1MkuDYDQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_EKqOtDzkEeOsPt1MkuDYDQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_EKqOtTzkEeOsPt1MkuDYDQ" key="Date" value="2013-10-24"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_EKqOtjzkEeOsPt1MkuDYDQ" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_EKpnojzkEeOsPt1MkuDYDQ" name="ScrumArtifact">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_EKpnozzkEeOsPt1MkuDYDQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_eOyJ0DziEeOsPt1MkuDYDQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_EKpnpDzkEeOsPt1MkuDYDQ" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_lqWuETzjEeOsPt1MkuDYDQ" name="ScrumProfile" nsURI="http:///schemas/ScrumProfile/_lqWuEDzjEeOsPt1MkuDYDQ/2" nsPrefix="ScrumProfile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_lqXVITzjEeOsPt1MkuDYDQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_lqXVIjzjEeOsPt1MkuDYDQ" key="Version" value="0.0.3"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_lqXVIzzjEeOsPt1MkuDYDQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_lqXVJDzjEeOsPt1MkuDYDQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_lqXVJTzjEeOsPt1MkuDYDQ" key="Date" value="2013-10-24"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_lqXVJjzjEeOsPt1MkuDYDQ" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_lqWuEjzjEeOsPt1MkuDYDQ" name="ScrumArtifact">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_lqWuEzzjEeOsPt1MkuDYDQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_eOyJ0DziEeOsPt1MkuDYDQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_lqWuFDzjEeOsPt1MkuDYDQ" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_-IUuQTziEeOsPt1MkuDYDQ" name="ScrumProfile" nsURI="http:///schemas/ScrumProfile/_-IUuQDziEeOsPt1MkuDYDQ/1" nsPrefix="ScrumProfile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-IVVUTziEeOsPt1MkuDYDQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-IVVUjziEeOsPt1MkuDYDQ" key="Version" value="0.0.2"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-IVVUzziEeOsPt1MkuDYDQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-IVVVDziEeOsPt1MkuDYDQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-IVVVTziEeOsPt1MkuDYDQ" key="Date" value="2013-10-24"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-IVVVjziEeOsPt1MkuDYDQ" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_-IUuQjziEeOsPt1MkuDYDQ" name="ScrumArtifact">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-IUuQzziEeOsPt1MkuDYDQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_eOyJ0DziEeOsPt1MkuDYDQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_-IUuRDziEeOsPt1MkuDYDQ" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_oudNsDziEeOsPt1MkuDYDQ" name="Profile" nsURI="http:///schemas/Profile/_ouZjUDziEeOsPt1MkuDYDQ/0" nsPrefix="Profile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_oufp8DziEeOsPt1MkuDYDQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_oufp8TziEeOsPt1MkuDYDQ" key="Version" value="0.0.1"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_oufp8jziEeOsPt1MkuDYDQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_oufp8zziEeOsPt1MkuDYDQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_oufp9DziEeOsPt1MkuDYDQ" key="Date" value="2013-10-24"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_oufp9TziEeOsPt1MkuDYDQ" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_oudNsTziEeOsPt1MkuDYDQ" name="ScrumArtifact">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_oudNsjziEeOsPt1MkuDYDQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_eOyJ0DziEeOsPt1MkuDYDQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_oudNszziEeOsPt1MkuDYDQ" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
+  </eAnnotations>
+  <elementImport xmi:type="uml:ElementImport" xmi:id="_jASJ8DziEeOsPt1MkuDYDQ" alias="Class">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+  </elementImport>
+  <elementImport xmi:type="uml:ElementImport" xmi:id="_TKZBUD18EeOghakyrx5RRg" alias="OpaqueAction">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#OpaqueAction"/>
+  </elementImport>
+  <elementImport xmi:type="uml:ElementImport" xmi:id="_ihvl0D18EeOghakyrx5RRg" alias="Action">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Action"/>
+  </elementImport>
+  <elementImport xmi:type="uml:ElementImport" xmi:id="_ihvl0T18EeOghakyrx5RRg" alias="Activity">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Activity"/>
+  </elementImport>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_YlT_4TziEeOsPt1MkuDYDQ">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_0"/>
+  </packageImport>
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_YlT_4jziEeOsPt1MkuDYDQ">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_eOyJ0DziEeOsPt1MkuDYDQ" name="ScrumArtifact">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_mH40EDziEeOsPt1MkuDYDQ" name="base_Class" association="_mH6CMDziEeOsPt1MkuDYDQ">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_mH6CMDziEeOsPt1MkuDYDQ" name="E_ScrumArtifact_Class1" memberEnd="_mH6CMTziEeOsPt1MkuDYDQ _mH40EDziEeOsPt1MkuDYDQ">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_mH6CMTziEeOsPt1MkuDYDQ" name="extension_ScrumArtifact" type="_eOyJ0DziEeOsPt1MkuDYDQ" aggregation="composite" association="_mH6CMDziEeOsPt1MkuDYDQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_3fn_4D16EeOghakyrx5RRg" name="ScrumActivity">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_UDhBsD18EeOghakyrx5RRg" name="base_OpaqueAction" association="_UDhowD18EeOghakyrx5RRg">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#OpaqueAction"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_jG128D18EeOghakyrx5RRg" name="base_Action" association="_jG2eAD18EeOghakyrx5RRg">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Action"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_js38MD18EeOghakyrx5RRg" name="base_Activity" association="_js4jQD18EeOghakyrx5RRg">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Activity"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_D1jlUD18EeOghakyrx5RRg" name="ScrumElement">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_VQOscD18EeOghakyrx5RRg" name="base_Class" association="_VQP6kD18EeOghakyrx5RRg">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_UDhowD18EeOghakyrx5RRg" name="E_ScrumActivity_OpaqueAction1" memberEnd="_UDhowT18EeOghakyrx5RRg _UDhBsD18EeOghakyrx5RRg">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_UDhowT18EeOghakyrx5RRg" name="extension_ScrumActivity" type="_3fn_4D16EeOghakyrx5RRg" aggregation="composite" association="_UDhowD18EeOghakyrx5RRg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_VQP6kD18EeOghakyrx5RRg" name="E_ScrumElement_Class1" memberEnd="_VQP6kT18EeOghakyrx5RRg _VQOscD18EeOghakyrx5RRg">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_VQP6kT18EeOghakyrx5RRg" name="extension_ScrumElement" type="_D1jlUD18EeOghakyrx5RRg" aggregation="composite" association="_VQP6kD18EeOghakyrx5RRg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_jG2eAD18EeOghakyrx5RRg" name="E_ScrumActivity_Action1" memberEnd="_jG2eAT18EeOghakyrx5RRg _jG128D18EeOghakyrx5RRg">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_jG2eAT18EeOghakyrx5RRg" name="extension_ScrumActivity" type="_3fn_4D16EeOghakyrx5RRg" aggregation="composite" association="_jG2eAD18EeOghakyrx5RRg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_js4jQD18EeOghakyrx5RRg" name="E_ScrumActivity_Activity1" memberEnd="_js4jQT18EeOghakyrx5RRg _js38MD18EeOghakyrx5RRg">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_js4jQT18EeOghakyrx5RRg" name="extension_ScrumActivity" type="_3fn_4D16EeOghakyrx5RRg" aggregation="composite" association="_js4jQD18EeOghakyrx5RRg"/>
+  </packagedElement>
+</uml:Profile>
