@@ -3,21 +3,25 @@
   <uml:Model name="Model"/>
   <uml:Package name="Model"/>
   <uml:Package name="org.app.scrum"/>
+  <uml:Class name="Echipa"/>
+  <uml:Class name="Rol"/>
   <uml:Class name="Proiect"/>
   <uml:Class name="Cerinta"/>
-  <uml:Class name="BacklogSprint"/>
-  <uml:Class name="Rol"/>
-  <uml:Class name="BacklogProdus"/>
-  <uml:Class name="Release"/>
+  <uml:Class name="MainProcess"/>
   <uml:Class name="Task"/>
-  <uml:Class name="Sprint"/>
-  <uml:Class name="Echipa"/>
+  <uml:Class name="BacklogProdus"/>
+  <uml:Class name="BacklogSprint"/>
   <uml:Class name="Membru"/>
-  <uml:DataType name="Specializare"/>
-  <uml:DataType name="CategorieTask"/>
-  <uml:DataType name="StatusTask"/>
+  <uml:Class name="Release"/>
+  <uml:Class name="Sprint"/>
   <uml:DataType name="Rol"/>
+  <uml:DataType name="CategorieTask"/>
   <uml:DataType name="CategorieCerinta"/>
+  <uml:DataType name="Specializare"/>
+  <uml:DataType name="StatusTask"/>
+  <uml:Activity/>
+  <uml:OpaqueAction/>
+  <uml:OpaqueAction/>
   <uml:Package name="java.util"/>
   <uml:DataType name="Date"/>
 </xmi:XMI>
