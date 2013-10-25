@@ -1,5 +1,10 @@
+
+modeltype UML23 uses 'http://www.eclipse.org/uml2/3.0.0/UML';
+modeltype UML24 uses 'http://www.eclipse.org/uml2/4.0.0/UML';
+
 modeltype UML_MM1 uses 'http://www.eclipse.org/uml2/2.1.0/UML';
 modeltype UML_MM2 uses 'http://www.eclipse.org/uml2/2.1.0/UML';
+
 
 transformation SimpleUML(in uml : UML_MM1, out UML_MM2);
 
@@ -13,7 +18,9 @@ mapping in UML_MM1::Model::model2Model() : UML_MM2::Model {
 	name   := self.name;
 	uml.objectsOfType(Package)->map transformPackage();
 	
-	log ('modelUML-to-modelUML end'); 
+	log ('modelUML-to-modelUML end');
+	
+	
 }
 
 mapping in Package::transformPackage() : Package 
@@ -22,6 +29,7 @@ mapping in Package::transformPackage() : Package
    name   := self.name;
    self.ownedElement[Class]->map transformClasses();
    self.ownedElement[DataType]->map transformDataTypes();
+   self.ownedElement[Activity]->map transformActivities();
    
    /*
    self.ownedElement.getAppliedStereotypes()-> forEach(stereotype){
@@ -36,6 +44,7 @@ mapping in Class::transformClasses() : Class{
 	
    self.getAppliedStereotypes()-> forEach(stereotype){
 		log("applied stereotype ------->  " + self.name + " - " + stereotype.name);
+		
    };  	
 } 
 
@@ -48,6 +57,22 @@ mapping in DataType::transformDataTypes() : DataType{
    };	
 } 
 
+mapping in Activity::transformActivities() : Activity{
+	log ('transformActivities: ' + self.name);
+	self.ownedElement[OpaqueAction]->map transformActions();
+	
+   self.getAppliedStereotypes()-> forEach(stereotype){
+		log("applied stereotype for activity ------->  " + self.name + " - " + stereotype.name);
+   };		
+}
+
+mapping in OpaqueAction::transformActions() : OpaqueAction{
+	log ('transformActions: ' + self.name);
+	
+   self.getAppliedStereotypes()-> forEach(stereotype){
+		log("applied stereotype for activity ------->  " + self.name + " - " + stereotype.name);
+   };		
+}
 
    /*
    if (1=0)
