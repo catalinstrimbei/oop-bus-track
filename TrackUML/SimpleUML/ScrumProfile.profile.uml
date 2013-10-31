@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Profile xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_YlT_4DziEeOsPt1MkuDYDQ" name="SampleProfile" metaclassReference="_jASJ8DziEeOsPt1MkuDYDQ _TKZBUD18EeOghakyrx5RRg _ihvl0D18EeOghakyrx5RRg _ihvl0T18EeOghakyrx5RRg" metamodelReference="_YlT_4TziEeOsPt1MkuDYDQ">
   <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_oucmoDziEeOsPt1MkuDYDQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <contents xmi:type="ecore:EPackage" xmi:id="_xLaS4D8GEeOU9dNraMsEtQ" name="SampleProfile" nsURI="http:///schemas/SampleProfile/_xLWogD8GEeOU9dNraMsEtQ/13" nsPrefix="SampleProfile">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_xLdWMD8GEeOU9dNraMsEtQ" source="PapyrusVersion">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_xLdWMT8GEeOU9dNraMsEtQ" key="Version" value="0.0.14"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_xLdWMj8GEeOU9dNraMsEtQ" key="Comment" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_xLdWMz8GEeOU9dNraMsEtQ" key="Copyright" value=""/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_xLdWND8GEeOU9dNraMsEtQ" key="Date" value="2013-10-27"/>
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_xLdWNT8GEeOU9dNraMsEtQ" key="Author" value=""/>
+      </eAnnotations>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_xLaS4T8GEeOU9dNraMsEtQ" name="ScrumArtifact">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_xLaS4j8GEeOU9dNraMsEtQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_eOyJ0DziEeOsPt1MkuDYDQ"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_xLaS4z8GEeOU9dNraMsEtQ" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_xLaS5T8GEeOU9dNraMsEtQ" name="ScrumActivity">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_xLaS5j8GEeOU9dNraMsEtQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_3fn_4D16EeOghakyrx5RRg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_xLaS5z8GEeOU9dNraMsEtQ" name="base_OpaqueAction" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//OpaqueAction"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_xLaS6T8GEeOU9dNraMsEtQ" name="base_Action" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Action"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_xLaS6z8GEeOU9dNraMsEtQ" name="base_Activity" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Activity"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_xLaS7T8GEeOU9dNraMsEtQ" name="ScrumElement">
+        <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_xLaS7j8GEeOU9dNraMsEtQ" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_D1jlUD18EeOghakyrx5RRg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_xLaS7z8GEeOU9dNraMsEtQ" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/4.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
     <contents xmi:type="ecore:EPackage" xmi:id="_kcZ7sD18EeOghakyrx5RRg" name="SampleProfile" nsURI="http:///schemas/SampleProfile/_kcXfcD18EeOghakyrx5RRg/12" nsPrefix="SampleProfile">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kcaixT18EeOghakyrx5RRg" source="PapyrusVersion">
         <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kcaixj18EeOghakyrx5RRg" key="Version" value="0.0.13"/>
