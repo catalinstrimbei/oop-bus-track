@@ -958,6 +958,21 @@
       <element xmi:type="uml:Comment" href="sample_model.uml#_yA7SwDveEeOykqJIqx8NfQ"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yA9vATveEeOykqJIqx8NfQ" x="60" y="480" width="528"/>
     </children>
+    <children xmi:type="notation:Shape" xmi:id="_PX44kD8HEeOU9dNraMsEtQ" type="2011" fontName="Segoe UI" lineColor="0">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_PX5foD8HEeOU9dNraMsEtQ" source="ShadowFigure">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_PX6GsD8HEeOU9dNraMsEtQ" key="ShadowFigure_Value" value="false"/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_PX6GsT8HEeOU9dNraMsEtQ" source="displayNameLabelIcon">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_PX6Gsj8HEeOU9dNraMsEtQ" key="displayNameLabelIcon_value" value="false"/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_PX6Gsz8HEeOU9dNraMsEtQ" source="QualifiedName">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_PX6GtD8HEeOU9dNraMsEtQ" key="QualifiedNameDepth" value="1000"/>
+      </eAnnotations>
+      <children xmi:type="notation:DecorationNode" xmi:id="_PX6GtT8HEeOU9dNraMsEtQ" type="5037"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_PX6Gtj8HEeOU9dNraMsEtQ" type="5159"/>
+      <element xmi:type="uml:Constraint" href="sample_model.uml#_PXlWkD8HEeOU9dNraMsEtQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PX44kT8HEeOU9dNraMsEtQ" x="516" y="48" width="157"/>
+    </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_wEadsTpoEeObrIpWPUJq-Q"/>
     <element xmi:type="uml:Package" href="sample_model.uml#_XmoLIDcxEeObreURXdy-Cg"/>
     <edges xmi:type="notation:Connector" xmi:id="_-fr0cDpoEeObrIpWPUJq-Q" type="4001" source="_xHedMDpoEeObrIpWPUJq-Q" target="_z79XADpoEeObrIpWPUJq-Q" lineColor="0">
