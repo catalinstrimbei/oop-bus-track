@@ -61,10 +61,13 @@ repartizate membrilor echipei/echipelor implicate in proiect.</body>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_Vv5PwDpiEeObrIpWPUJq-Q" name="echipa" type="_vczvUDfwEeOXdLoEgavdtA" association="_Vv6d4DpiEeObrIpWPUJq-Q">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Vv5PwTpiEeObrIpWPUJq-Q" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Vv5PwjpiEeObrIpWPUJq-Q" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Vv5PwjpiEeObrIpWPUJq-Q" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_HoOjYD71EeOU9dNraMsEtQ" name="releaseuri" type="_3lUHgDfwEeOXdLoEgavdtA" association="_HoPxgD71EeOU9dNraMsEtQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HoOjYT71EeOU9dNraMsEtQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HoOjYj71EeOU9dNraMsEtQ" value="1"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_-OwWIDfvEeOXdLoEgavdtA" name="BacklogProdus"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_Yy4VEDfwEeOXdLoEgavdtA" name="Sprint">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_-fm78DpoEeObrIpWPUJq-Q" name="sprintBacklog" type="_z75FkDpoEeObrIpWPUJq-Q" association="_-fnjADpoEeObrIpWPUJq-Q">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-fm78TpoEeObrIpWPUJq-Q" value="1"/>
@@ -108,7 +111,7 @@ repartizate membrilor echipei/echipelor implicate in proiect.</body>
           <value xsi:nil="true"/>
         </defaultValue>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_bMIKwDppEeObrIpWPUJq-Q" name="comentariiReview" visibility="public">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_bMIKwDppEeObrIpWPUJq-Q" name="review" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_biWSYDppEeObrIpWPUJq-Q" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_biW5cDppEeObrIpWPUJq-Q" value="1"/>
@@ -117,16 +120,7 @@ repartizate membrilor echipei/echipelor implicate in proiect.</body>
         </defaultValue>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_a6bQYDfwEeOXdLoEgavdtA" name="BacklogSprint"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_fwSzIDfwEeOXdLoEgavdtA" clientDependency="_veVeYDvXEeOykqJIqx8NfQ _wX2gUDvXEeOykqJIqx8NfQ" name="Task">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_sMzMMDoWEeOxlJbLJZ_wdQ" name="categorie" visibility="public">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tQ67oDoWEeOxlJbLJZ_wdQ" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_tREsoDoWEeOxlJbLJZ_wdQ" value="1"/>
-        <defaultValue xmi:type="uml:LiteralString" xmi:id="_tRGh0DoWEeOxlJbLJZ_wdQ">
-          <value xsi:nil="true"/>
-        </defaultValue>
-      </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_Jy3_8DppEeObrIpWPUJq-Q" name="membru" type="_xdTncDfwEeOXdLoEgavdtA" association="_Jy4nADppEeObrIpWPUJq-Q">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Jy3_8TppEeObrIpWPUJq-Q" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Jy3_8jppEeObrIpWPUJq-Q" value="1"/>
@@ -193,7 +187,7 @@ repartizate membrilor echipei/echipelor implicate in proiect.</body>
         </defaultValue>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_vczvUDfwEeOXdLoEgavdtA" name="Echipa">
+    <packagedElement xmi:type="uml:Class" xmi:id="_vczvUDfwEeOXdLoEgavdtA" clientDependency="_Xwt0cD72EeOU9dNraMsEtQ" name="Echipa">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_HYwVoDpjEeObrIpWPUJq-Q" name="membri" type="_xdTncDfwEeOXdLoEgavdtA" association="_HYw8sDpjEeObrIpWPUJq-Q">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HYwVoTpjEeObrIpWPUJq-Q"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HYwVojpjEeObrIpWPUJq-Q" value="*"/>
@@ -208,7 +202,7 @@ repartizate membrilor echipei/echipelor implicate in proiect.</body>
           <value xsi:nil="true"/>
         </defaultValue>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_3zPcgDpmEeObrIpWPUJq-Q" name="detaliiCompetente" visibility="public">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_3zPcgDpmEeObrIpWPUJq-Q" name="competente" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_726tUDpmEeObrIpWPUJq-Q" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7277cDpmEeObrIpWPUJq-Q" value="1"/>
@@ -217,7 +211,7 @@ repartizate membrilor echipei/echipelor implicate in proiect.</body>
         </defaultValue>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_xdTncDfwEeOXdLoEgavdtA" name="Membru">
+    <packagedElement xmi:type="uml:Class" xmi:id="_xdTncDfwEeOXdLoEgavdtA" clientDependency="_PEz0QD72EeOU9dNraMsEtQ" name="Membru">
       <ownedAttribute xmi:type="uml:Property" xmi:id="__ltTQDpmEeObrIpWPUJq-Q" name="idMembru" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Dcsy8DpnEeObrIpWPUJq-Q" value="1"/>
@@ -234,7 +228,7 @@ repartizate membrilor echipei/echipelor implicate in proiect.</body>
           <value xsi:nil="true"/>
         </defaultValue>
       </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_MtQYUDpnEeObrIpWPUJq-Q" name="rol" visibility="public" type="_0Dp-oDfwEeOXdLoEgavdtA">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_MtQYUDpnEeObrIpWPUJq-Q" name="rol" visibility="public">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Pr1CQDpnEeObrIpWPUJq-Q" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Pr1pUDpnEeObrIpWPUJq-Q" value="1"/>
         <defaultValue xmi:type="uml:LiteralString" xmi:id="_Pr4soDpnEeObrIpWPUJq-Q">
@@ -242,8 +236,51 @@ repartizate membrilor echipei/echipelor implicate in proiect.</body>
         </defaultValue>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_0Dp-oDfwEeOXdLoEgavdtA" name="Rol"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_3lUHgDfwEeOXdLoEgavdtA" name="Release"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_3lUHgDfwEeOXdLoEgavdtA" name="Release">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_kEgMMD70EeOU9dNraMsEtQ" name="idRelease" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lGa8MD70EeOU9dNraMsEtQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lGcxYD70EeOU9dNraMsEtQ" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_lGd_gD70EeOU9dNraMsEtQ">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_pFlgcD70EeOU9dNraMsEtQ" name="numeCod" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_prGBQD70EeOU9dNraMsEtQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_prGoUD70EeOU9dNraMsEtQ" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_prH2cD70EeOU9dNraMsEtQ">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vde2oD70EeOU9dNraMsEtQ" name="indicativ" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vxLOsD70EeOU9dNraMsEtQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vxL1wD70EeOU9dNraMsEtQ" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_vxND4D70EeOU9dNraMsEtQ">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_zGrx8D70EeOU9dNraMsEtQ" name="descriere" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_za1dAD70EeOU9dNraMsEtQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_za2rID70EeOU9dNraMsEtQ" value="*"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_za3SMD70EeOU9dNraMsEtQ">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_2ZUnYD70EeOU9dNraMsEtQ" name="dataPublicare" visibility="public" type="_LFJLEDcyEeObreURXdy-Cg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2uT_8D70EeOU9dNraMsEtQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2uUnAD70EeOU9dNraMsEtQ" value="1"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_2uV1ID70EeOU9dNraMsEtQ">
+          <value xsi:nil="true"/>
+        </defaultValue>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Ir9RQD71EeOU9dNraMsEtQ" name="sprinturi" type="_Yy4VEDfwEeOXdLoEgavdtA" association="_Ir-fYD71EeOU9dNraMsEtQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Ir9RQT71EeOU9dNraMsEtQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Ir9RQj71EeOU9dNraMsEtQ" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_Vv6d4DpiEeObrIpWPUJq-Q" name="" memberEnd="_Vv6d4TpiEeObrIpWPUJq-Q _Vv5PwDpiEeObrIpWPUJq-Q">
       <ownedEnd xmi:type="uml:Property" xmi:id="_Vv6d4TpiEeObrIpWPUJq-Q" name="proiect" type="_bbj1UDcxEeObreURXdy-Cg" association="_Vv6d4DpiEeObrIpWPUJq-Q">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Vv6d4jpiEeObrIpWPUJq-Q" value="1"/>
@@ -342,6 +379,20 @@ repartizate membrilor echipei/echipelor implicate in proiect.</body>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_tI9icDvXEeOykqJIqx8NfQ" name="" client="_z75FkDpoEeObrIpWPUJq-Q" supplier="_6nyxADvVEeOykqJIqx8NfQ"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_veVeYDvXEeOykqJIqx8NfQ" name="" client="_fwSzIDfwEeOXdLoEgavdtA" supplier="_SJCNwDvWEeOykqJIqx8NfQ"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="_wX2gUDvXEeOykqJIqx8NfQ" name="" client="_fwSzIDfwEeOXdLoEgavdtA" supplier="_5lwPwDvWEeOykqJIqx8NfQ"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_HoPxgD71EeOU9dNraMsEtQ" name="proiect_release_1" memberEnd="_HoPxgT71EeOU9dNraMsEtQ _HoOjYD71EeOU9dNraMsEtQ">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_HoPxgT71EeOU9dNraMsEtQ" name="proiect" type="_bbj1UDcxEeObreURXdy-Cg" association="_HoPxgD71EeOU9dNraMsEtQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_HoPxgj71EeOU9dNraMsEtQ" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_HoPxgz71EeOU9dNraMsEtQ" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_Ir-fYD71EeOU9dNraMsEtQ" name="release_sprint_1" memberEnd="_Ir-fYT71EeOU9dNraMsEtQ _Ir9RQD71EeOU9dNraMsEtQ" navigableOwnedEnd="_Ir-fYT71EeOU9dNraMsEtQ">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_Ir-fYT71EeOU9dNraMsEtQ" name="release" type="_3lUHgDfwEeOXdLoEgavdtA" association="_Ir-fYD71EeOU9dNraMsEtQ">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Ir-fYj71EeOU9dNraMsEtQ"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Ir-fYz71EeOU9dNraMsEtQ" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_PEz0QD72EeOU9dNraMsEtQ" name="Dependency1" client="_xdTncDfwEeOXdLoEgavdtA" supplier="_pidpEDpnEeObrIpWPUJq-Q"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_Xwt0cD72EeOU9dNraMsEtQ" name="Dependency2" client="_vczvUDfwEeOXdLoEgavdtA" supplier="_aObeUDpnEeObrIpWPUJq-Q"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_GXyrIDcyEeObreURXdy-Cg" name="java.util">
     <packagedElement xmi:type="uml:DataType" xmi:id="_LFJLEDcyEeObreURXdy-Cg" name="Date"/>
