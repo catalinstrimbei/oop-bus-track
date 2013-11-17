@@ -18,6 +18,7 @@ public class TestSiruriDeCaractere {
 //		testStringImmutable();
 //		testSubStrings_1();
 		testSubStrings_2();
+		
 		//3
 //		multiply_StringBuffer("aaa", 500);
 //		multiply_OperatorConcatenare("aaa", 500);
@@ -26,7 +27,8 @@ public class TestSiruriDeCaractere {
 	}
 
 	void testCharArrays() {
-		char[] char_seq = { 'P', 'R', 'O' };
+		//char[] char_seq = { 'P', 'R', 'O' };
+		Character[] char_seq = { 'P', 'R', 'O' };
 		for (char c : char_seq) {
 			System.out.print(c + ",");
 		}
@@ -119,7 +121,7 @@ public class TestSiruriDeCaractere {
 		String s_str_3 = str_1.substring(str_1.indexOf(s_str_2)
 				+ s_str_2.length() + 1);
 		System.out.println("s_str_3: " + s_str_3);
-		String str_2 = s_str_1.concat("").concat(s_str_2).concat("")
+		String str_2 = s_str_1.concat(" ").concat(s_str_2).concat(" ")
 				.concat(s_str_3);
 		System.out.println("str_2 : " + str_2);
 		System.out.println("str_1.startsWith(s_str_1) :: "

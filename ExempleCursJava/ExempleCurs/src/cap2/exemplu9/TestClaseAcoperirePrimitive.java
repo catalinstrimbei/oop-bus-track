@@ -23,6 +23,7 @@ public class TestClaseAcoperirePrimitive {
 		//1) Autoboxing initializare
 		Integer a = 7;
 		Double b = 7.0;
+//		int c = 2;
 		Integer c = 2;
 		System.out.println("1) a = " + a + ", "
 				+ "b = " + b + ", "
