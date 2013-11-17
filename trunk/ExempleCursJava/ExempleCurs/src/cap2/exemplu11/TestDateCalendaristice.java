@@ -91,7 +91,7 @@ public class TestDateCalendaristice {
 		c4.add(Calendar.MONTH, 2);
 		System.out.println("Data finala = data start + 2luni : "
 				+ f3.format(c4.getTime()));
-		// 4.2 Scadere 15 zile interval calendaristic
+		// 4.2 Scadere 14 zile interval calendaristic
 		Calendar c5 = Calendar.getInstance();
 		System.out.println("4.2 Data start: " + f3.format(c5.getTime()));
 		c5.add(Calendar.WEEK_OF_MONTH, -2);
