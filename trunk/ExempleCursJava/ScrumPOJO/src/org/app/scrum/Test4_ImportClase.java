@@ -8,7 +8,7 @@ import org.app.scrum.sprint.Cerinta;
 import org.app.scrum.sprint.Sprint;
 import org.app.scrum.sprint.Task;
 
-public class Test3_IncapsulareOperatii {
+public class Test4_ImportClase {
 	
 	public static void main(String[] args) {
 		Date d1 = new Date();
@@ -33,8 +33,8 @@ public class Test3_IncapsulareOperatii {
 		
 		List<Cerinta> cerinte = new ArrayList<>();
 		Cerinta c1 = new Cerinta();
-		
-		
+		cerinte.add(c1);
+		s1.setCerinte(cerinte);
 		
 		List<Task> taskuri = new ArrayList<>();
 		Task t1 = new Task();
@@ -49,12 +49,8 @@ public class Test3_IncapsulareOperatii {
 		taskuri.add(t2);
 		
 		c1.setTaskuri(taskuri);
-		cerinte.add(c1);
-		
-		s1.setCerinte(cerinte);
 		
 		// Access proprietate (get)dataFinalizare
-		
 		System.out.println("Data start:      " + s1.getDataStart());
 		System.out.println("Data finalizare: " + s1.getDataFinalizare());
 		

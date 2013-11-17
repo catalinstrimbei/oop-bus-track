@@ -4,6 +4,7 @@ public class Membru {
 	private Integer idMembru;
 	private Integer numePrenume;
 	private Rol rol;
+	
 	public Integer getIdMembru() {
 		return idMembru;
 	}

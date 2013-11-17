@@ -1,16 +1,20 @@
-package org.app.scrum;
+package org.app.scrum.sprint;
 
 import java.util.Date;
+
+import org.app.scrum.team.Membru;
 
 public class Task {
 	private Integer idTask;
 	private String denumire;
 	private String descriere;
 	private Date dataStart;
-	private Integer timpEstimat; // initial
-	private Integer timpRamas; // actualizat
+	private Integer timpEstimat; // initial, exprimat in ore
+	private Integer timpRamas; // actualizat, exprimat in ore
 	private StatusTask statusTask;
 	private CategorieTask categorieTask;
+	private Membru responsabil;
+	
 	public Integer getIdTask() {
 		return idTask;
 	}

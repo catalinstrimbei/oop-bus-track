@@ -7,8 +7,14 @@ public class Proiect {
 	private String numeProiect;
 	private Date dataStart;
 	private String releaseCurent;
+	private ManagerProiect managerProiect;
 	
-	
+	public ManagerProiect getManagerProiect() {
+		return managerProiect;
+	}
+	public void setManagerProiect(ManagerProiect managerProiect) {
+		this.managerProiect = managerProiect;
+	}
 	public Integer getNrProiect() {
 		return nrProiect;
 	}
