@@ -2,6 +2,8 @@ package org.app.scrum;
 
 import java.util.Date;
 
+import org.app.scrum.team.ManagerProiect;
+
 public class Proiect {
 	private Integer nrProiect;
 	private String numeProiect;

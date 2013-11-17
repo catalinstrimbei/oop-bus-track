@@ -3,8 +3,6 @@ package org.app.scrum.sprint;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.app.scrum.ICerinta;
-
 
 public class Cerinta 
 //implements ICerinta
