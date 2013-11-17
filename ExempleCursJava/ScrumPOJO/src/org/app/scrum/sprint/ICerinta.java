@@ -1,6 +1,5 @@
-package org.app.scrum;
+package org.app.scrum.sprint;
 
-import org.app.scrum.sprint.CategorieCerinta;
 
 public interface ICerinta {
 	 Integer getIdCerinta() ;

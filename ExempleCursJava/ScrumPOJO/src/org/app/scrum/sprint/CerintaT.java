@@ -1,6 +1,5 @@
 package org.app.scrum.sprint;
 
-import org.app.scrum.ICerinta;
 
 public class CerintaT implements ICerinta{
 
