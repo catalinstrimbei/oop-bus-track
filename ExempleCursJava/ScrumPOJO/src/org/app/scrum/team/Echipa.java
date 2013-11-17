@@ -8,6 +8,14 @@ public class Echipa {
 	private Specializare specializare;
 	private String competente;
 	private List<Membru> membri = new ArrayList<Membru>();
+	private LiderEchipa liderEchipa;
+	
+	public LiderEchipa getLiderEchipa() {
+		return liderEchipa;
+	}
+	public void setLiderEchipa(LiderEchipa liderEchipa) {
+		this.liderEchipa = liderEchipa;
+	}
 	public Integer getIdEchipa() {
 		return idEchipa;
 	}
