@@ -4,7 +4,7 @@ public class Membru {
 	private Integer idMembru;
 	private String numePrenume;
 	private Rol rol;
-	
+
 	public Integer getIdMembru() {
 		return idMembru;
 	}
@@ -33,5 +33,14 @@ public class Membru {
 		super();
 	}
 	
+	// caz supra-incarcare
+	private String competente;
+	
+	public String getCompetente() {
+		return competente;
+	}
+	public void setCompetente(String competente) {
+		this.competente = competente;
+	}	
 	
 }

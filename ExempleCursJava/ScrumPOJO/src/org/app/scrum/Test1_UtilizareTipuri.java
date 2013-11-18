@@ -15,7 +15,7 @@ public class Test1_UtilizareTipuri {
 		cerinta1.setIdCerinta(1);
 		cerinta1.setDenumire("c1");
 		//cerinta1.setCategorie(CategorieCerinta.FUNCTIONALA);
-		cerinta1.setCategorie(org.app.scrum.sprint.Cerinta.ECategorieCerinta.FUNCTIONALA);
+		cerinta1.setCategorie(CategorieCerinta.FUNCTIONALA);
 		
 		// Tipizare cerinta din interfata ICerinta cu getteri/setteri
 		ICerinta cerinta2 = new CerintaT();
