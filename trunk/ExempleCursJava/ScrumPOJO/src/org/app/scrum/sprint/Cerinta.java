@@ -10,7 +10,8 @@ public class Cerinta
 	protected Integer idCerinta;
 	private String denumire;
 	private String descriere;
-	private ECategorieCerinta categorie;
+//	private ECategorieCerinta categorie;
+	CategorieCerinta categorie;
 	private List<Task> taskuri = new ArrayList<>();
 	
 	public List<Task> getTaskuri() {
@@ -37,10 +38,10 @@ public class Cerinta
 	public void setDescriere(String descriere) {
 		this.descriere = descriere;
 	}
-	public ECategorieCerinta getCategorie() {
+	public CategorieCerinta getCategorie() {
 		return categorie;
 	}
-	public void setCategorie(ECategorieCerinta categorie) {
+	public void setCategorie(CategorieCerinta categorie) {
 		this.categorie = categorie;
 	}
 
@@ -48,19 +49,22 @@ public class Cerinta
 		super();
 	}
 
-	
-	
 	public Cerinta(Integer idCerinta, String denumire, String descriere) {
 		super();
 		this.idCerinta = idCerinta;
 		this.denumire = denumire;
 		this.descriere = descriere;
 	}
-
-
-
+	
 	public enum ECategorieCerinta {
 		FUNCTIONALA, TEHNICA;
 	}
+
+	@Override
+	public String toString() {
+		return "Cerinta [idCerinta=" + idCerinta + ", denumire=" + denumire
+				+ ", descriere=" + descriere + "]";
+	}
+	
 	
 }

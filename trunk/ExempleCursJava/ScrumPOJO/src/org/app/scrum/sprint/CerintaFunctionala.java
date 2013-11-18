@@ -24,7 +24,27 @@ public class CerintaFunctionala extends Cerinta {
 		this.idCerinta = idCerinta;
 		this.categorieFunctionala = categorieFunctionala;
 		this.descriereUseCase = descriereUseCase;
+		
+		this.categorie = CategorieCerinta.FUNCTIONALA;
 	}
 	
+	
+	
+	public CerintaFunctionala() {
+		super();
+		
+		this.categorie = CategorieCerinta.FUNCTIONALA;
+	}
+	
+	@Override
+	public String toString() {
+		return super.toString() + " CerintaFunctionala [categorieFunctionala="
+				+ categorieFunctionala + ", descriereUseCase="
+				+ descriereUseCase + "]";
+	}
+	
+	public void setCategorie(CategorieCerinta categorie) {
+		throw new Error("Proprietatea categorie nu poate fi schimbata!");
+	}
 	
 }

@@ -49,6 +49,14 @@ public class ManagerProiect extends Membru{
 	}
 	
 	
+	// caz supra-incarcare
+	public String getCompetente(TipCompetenta tip) {
+		if (TipCompetenta.MANAGERIAL.equals(tip))
+			return "manageriale: " + competenteManageriale;
+		if (TipCompetenta.TEHNIC.equals(tip))
+			return "tehnice: " + getCompetente();
+		return null;
+	}	
 	
-	
+	public enum TipCompetenta {MANAGERIAL, TEHNIC};
 }

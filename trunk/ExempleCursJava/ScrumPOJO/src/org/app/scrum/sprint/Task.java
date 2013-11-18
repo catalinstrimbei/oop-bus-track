@@ -81,11 +81,3 @@ public class Task {
 	
 	
 }
-
-enum StatusTask{
-	IN_CURS, BLOCAT, FINALIZAT, SUSPENDAT;
-}
-
-enum CategorieTask{
-	ANALIZA, DESIGN, IMPLEMENTARE, TEST;
-}
