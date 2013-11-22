@@ -5,21 +5,21 @@ public class TextX_Scrum_Works {
 	public static void main(String[] args) {
 		// - Creare proiect nou
 		
-			// - Stabileste ProductBacklog pentru proiect
+			// - Stabileste ProductBacklog pentru proiect: proiect.setProductBacklog(productBacklog)
 			
-			// - Stabileste Echipa pentru proiect		
+			// - Stabileste Echipa pentru proiect: proiect.setEchipa(echipa)
 		
 		// + Planifica desfasurare proiect
 		
 			// - Creare release nou cu ReleaseBacklog: transfer din main Backlog (ProductBacklog)
 		
-		// + Proiect Start release
+		// + Proiect Start release: proiect.startRelease(release)
 			
-			// - Stabilire release curent
+			// - Stabilire release curent: proiect.setReleaseCurent(release)
 			
 			// + Planificare release curent
 				
-				// - Creare sprint nou cu SprintBacklog: preluare din Release Backlog
+				// - Creare sprint nou cu SprintBacklog: preluare din Release Backlog: sprint.setSprintBacklog(sprintBacklog)
 				
 				// - Creare task nou pentru Story din SprintBacklog cu asignare catre membru echipa
 			
