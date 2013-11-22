@@ -1,4 +1,4 @@
-package org.app.scrum.sprint;
+package org.app.scrum;
 
 public class CerintaFunctionala extends Cerinta {
 	private String categorieFunctionala; // basic, improvement
@@ -32,7 +32,6 @@ public class CerintaFunctionala extends Cerinta {
 	
 	public CerintaFunctionala() {
 		super();
-		
 		this.categorie = CategorieCerinta.FUNCTIONALA;
 	}
 	
@@ -43,6 +42,7 @@ public class CerintaFunctionala extends Cerinta {
 				+ descriereUseCase + "]";
 	}
 	
+	@Override
 	public void setCategorie(CategorieCerinta categorie) {
 		throw new Error("Proprietatea categorie nu poate fi schimbata!");
 	}

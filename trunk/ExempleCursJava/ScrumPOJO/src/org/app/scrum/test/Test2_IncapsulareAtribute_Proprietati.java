@@ -1,4 +1,4 @@
-package org.app.scrum;
+package org.app.scrum.test;
 
 public class Test2_IncapsulareAtribute_Proprietati {
 

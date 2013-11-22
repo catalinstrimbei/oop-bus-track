@@ -1,17 +1,20 @@
-package org.app.scrum.sprint;
+package org.app.scrum;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.app.scrum.sprint.Task;
+
 
 public class Cerinta 
-//implements ICerinta
+implements ICerinta
 {
 	protected Integer idCerinta;
 	private String denumire;
 	private String descriere;
 //	private ECategorieCerinta categorie;
 	CategorieCerinta categorie;
+	
 	private List<Task> taskuri = new ArrayList<>();
 	
 	public List<Task> getTaskuri() {

@@ -1,4 +1,4 @@
-package org.app.scrum.sprint;
+package org.app.scrum;
 
 public enum CategorieCerinta {
 	FUNCTIONALA, TEHNICA;
