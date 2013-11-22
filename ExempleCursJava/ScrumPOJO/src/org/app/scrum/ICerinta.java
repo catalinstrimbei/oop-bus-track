@@ -1,4 +1,5 @@
-package org.app.scrum.sprint;
+package org.app.scrum;
+
 
 
 public interface ICerinta {

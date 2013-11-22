@@ -9,6 +9,9 @@ public class Release {
 	private String descriere;
 	private Date dataPublicare; // dataEstimarePublicare
 	
+	// Added
+	private Proiect proiect;
+	
 	public Integer getIdRelease() {
 		return idRelease;
 	}
@@ -21,12 +24,16 @@ public class Release {
 	public void setNumeCod(String numeCod) {
 		this.numeCod = numeCod;
 	}
+	
+	/*
 	public String getIndicativRelease() {
 		return indicativ;
 	}
 	public void setIndicativRelease(String indicativRelease) {
 		this.indicativ = indicativRelease;
 	}
+	*/
+	
 	public String getDescriere() {
 		return descriere;
 	}
@@ -39,6 +46,7 @@ public class Release {
 	public void setDataPublicare(Date dataPublicare) {
 		this.dataPublicare = dataPublicare;
 	}
+	/*
 	public Release(Integer idRelease, String numeCod,
 			String indicativRelease, String descriere, Date dataPublicare) {
 		super();
@@ -48,6 +56,32 @@ public class Release {
 		this.descriere = descriere;
 		this.dataPublicare = dataPublicare;
 	}
+	*/
 	
-	
+	// Added
+	public String getIndicativ() {
+		return indicativ;
+	}
+	public void setIndicativ(String indicativ) {
+		this.indicativ = indicativ;
+	}
+	public Proiect getProiect() {
+		return proiect;
+	}
+	public void setProiect(Proiect proiect) {
+		this.proiect = proiect;
+	}
+	public Release() {
+		super();
+	}
+	public Release(Integer idRelease, String numeCod, String indicativ,
+			String descriere, Date dataPublicare, Proiect proiect) {
+		super();
+		this.idRelease = idRelease;
+		this.numeCod = numeCod;
+		this.indicativ = indicativ;
+		this.descriere = descriere;
+		this.dataPublicare = dataPublicare;
+		this.proiect = proiect;
+	}
 }

@@ -1,9 +1,12 @@
-package org.app.scrum;
+package org.app.scrum.test;
 
 //import org.app.scrum.sprint.CategorieCerinta;
 //import org.app.scrum.sprint.Cerinta;
 //import org.app.scrum.sprint.CerintaT;
 
+import org.app.scrum.CategorieCerinta;
+import org.app.scrum.Cerinta;
+import org.app.scrum.ICerinta;
 import org.app.scrum.sprint.*;
 
 public class Test1_UtilizareTipuri {
@@ -18,7 +21,7 @@ public class Test1_UtilizareTipuri {
 		cerinta1.setCategorie(CategorieCerinta.FUNCTIONALA);
 		
 		// Tipizare cerinta din interfata ICerinta cu getteri/setteri
-		ICerinta cerinta2 = new CerintaT();
+		ICerinta cerinta2 = new Cerinta();
 		cerinta2.setIdCerinta(1);
 		cerinta2.setDenumire("c1");
 		

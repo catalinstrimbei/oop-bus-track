@@ -1,12 +1,12 @@
-package org.app.scrum;
+package org.app.scrum.test;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.app.scrum.sprint.CategorieCerinta;
-import org.app.scrum.sprint.Cerinta;
-import org.app.scrum.sprint.CerintaFunctionala;
+import org.app.scrum.CategorieCerinta;
+import org.app.scrum.Cerinta;
+import org.app.scrum.CerintaFunctionala;
 import org.app.scrum.sprint.Sprint;
 import org.app.scrum.sprint.Task;
 

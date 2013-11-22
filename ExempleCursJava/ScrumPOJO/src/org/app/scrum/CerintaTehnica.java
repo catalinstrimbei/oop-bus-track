@@ -1,4 +1,4 @@
-package org.app.scrum.sprint;
+package org.app.scrum;
 
 public class CerintaTehnica extends Cerinta {
 	
@@ -24,4 +24,26 @@ public class CerintaTehnica extends Cerinta {
 	public void setDescriereFluxArhitecural(String descriereFluxArhitecural) {
 		this.descriereFluxArhitecural = descriereFluxArhitecural;
 	}
+	
+	@Override
+	public void setCategorie(CategorieCerinta categorie) {
+		throw new Error("Proprietatea categorie nu poate fi schimbata!");
+	}
+	
+	public CerintaTehnica() {
+		super();
+		this.categorie = CategorieCerinta.TEHNICA;
+	}
+	public CerintaTehnica(Integer idCerinta, String denumire, String descriere,
+			String nivelArhitectural, String competenteTehniceNecesare,
+			String descriereFluxArhitecural) {
+		super(idCerinta, denumire, descriere);
+		this.nivelArhitectural = nivelArhitectural;
+		this.competenteTehniceNecesare = competenteTehniceNecesare;
+		this.descriereFluxArhitecural = descriereFluxArhitecural;
+		
+		this.categorie = CategorieCerinta.TEHNICA;
+	}
+	
+	
 }

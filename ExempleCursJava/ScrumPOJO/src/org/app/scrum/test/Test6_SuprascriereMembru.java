@@ -1,4 +1,4 @@
-package org.app.scrum;
+package org.app.scrum.test;
 
 import org.app.scrum.team.ManagerProiect;
 import org.app.scrum.team.Membru;

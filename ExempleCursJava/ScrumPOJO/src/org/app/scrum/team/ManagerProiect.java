@@ -33,8 +33,10 @@ public class ManagerProiect extends Membru{
 	public void setCompetenteManageriale(String competenteManageriale) {
 		this.competenteManageriale = competenteManageriale;
 	}
+	
 	public ManagerProiect() {
 		super();
+		super.setRol(Rol.MANAGER);
 	}
 	
 	public ManagerProiect(Integer id, String numePrenume,
@@ -57,6 +59,12 @@ public class ManagerProiect extends Membru{
 			return "tehnice: " + getCompetente();
 		return null;
 	}	
+	
+	// caz supra-scriere
+	@Override
+	public void setRol(Rol rol) {
+		throw new Error("Proprietatea rol nu poate fi schimbata!");
+	}
 	
 	public enum TipCompetenta {MANAGERIAL, TEHNIC};
 }
