@@ -21,7 +21,7 @@ public class LiderEchipa extends Membru{
 	public String getCompetenteTehnologice() {
 		return competenteTehnologice;
 	}
-	public void setCompetenteTehnologice(String competenteTehnologice) {
+	private void setCompetenteTehnologice(String competenteTehnologice) {
 		this.competenteTehnologice = competenteTehnologice;
 	}
 	public LiderEchipa(Integer id, String numePrenume,
@@ -36,5 +36,21 @@ public class LiderEchipa extends Membru{
 		super();
 	}
 	
+	// Polimorfism
+	@Override
+	public void setCompetente(String competente) {
+		this.setCompetenteTehnologice(competente);
+	}	
 	
+	// Supraincarcare
+	public void setCompetente(String competente, TipCompetente tip) {
+		if (tip.equals(TipCompetente.MANAGERIALE))
+			setCompetente(competente);
+		
+		if (tip.equals(TipCompetente.TEHNOLOGICE))
+			setCompetenteTehnologice(competente);
+		
+	}
+	
+	public enum TipCompetente {MANAGERIALE, TEHNOLOGICE}
 }

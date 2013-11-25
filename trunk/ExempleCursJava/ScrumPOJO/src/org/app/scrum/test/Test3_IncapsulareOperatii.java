@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.app.scrum.Cerinta;
+import org.app.scrum.CerintaFunctionala;
 import org.app.scrum.sprint.Sprint;
 import org.app.scrum.sprint.Task;
 
@@ -32,7 +33,7 @@ public class Test3_IncapsulareOperatii {
 		s1.setDataStart(new Date());
 		
 		List<Cerinta> cerinte = new ArrayList<>();
-		Cerinta c1 = new Cerinta();
+		Cerinta c1 = new CerintaFunctionala();
 		
 		
 		

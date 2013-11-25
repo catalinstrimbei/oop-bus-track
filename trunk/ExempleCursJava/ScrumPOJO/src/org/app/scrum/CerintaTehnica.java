@@ -44,6 +44,9 @@ public class CerintaTehnica extends Cerinta {
 		
 		this.categorie = CategorieCerinta.TEHNICA;
 	}
+	public CerintaTehnica(Integer idCerinta, String denumire, String descriere) {
+		super(idCerinta, denumire, descriere);
+	}
 	
 	
 }

@@ -1,6 +1,8 @@
 package org.app.scrum.sprint;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.app.scrum.team.Membru;
 
@@ -14,6 +16,9 @@ public class Task {
 	private StatusTask statusTask;
 	private CategorieTask categorieTask;
 	private Membru responsabil;
+	
+	// Burn down
+	private Map<Date, Integer> burnDownRecords = new HashMap<>();
 	
 	public Integer getIdTask() {
 		return idTask;
@@ -50,6 +55,7 @@ public class Task {
 	}
 	public void setTimpRamas(Integer timpRamas) {
 		this.timpRamas = timpRamas;
+		burnDownRecords.put(new Date(), timpRamas);
 	}
 	public StatusTask getStatusTask() {
 		return statusTask;
@@ -63,6 +69,21 @@ public class Task {
 	public void setCategorieTask(CategorieTask categorieTask) {
 		this.categorieTask = categorieTask;
 	}
+	
+	// interfete si polimorfism 
+	public Membru getResponsabil() {
+		return responsabil;
+	}
+	public void setResponsabil(Membru responsabil) {
+		this.responsabil = responsabil;
+	}
+	public Map<Date, Integer> getBurnDownRecords() {
+		return burnDownRecords;
+	}
+	public void setBurnDownRecords(Map<Date, Integer> burnDownRecords) {
+		this.burnDownRecords = burnDownRecords;
+	}
+	
 	public Task(Integer idTask, String denumire, String descriere,
 			Date dataStart, Integer timpEstimat, StatusTask statusTask,
 			CategorieTask categorieTask) {
