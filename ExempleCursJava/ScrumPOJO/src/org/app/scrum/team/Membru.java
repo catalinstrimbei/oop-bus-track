@@ -1,6 +1,6 @@
 package org.app.scrum.team;
 
-public class Membru {
+public class Membru implements Comparable<Membru>{
 	private Integer idMembru;
 	private String numePrenume;
 	private Rol rol;
@@ -41,6 +41,42 @@ public class Membru {
 	}
 	public void setCompetente(String competente) {
 		this.competente = competente;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((idMembru == null) ? 0 : idMembru.hashCode());
+		result = prime * result + ((rol == null) ? 0 : rol.hashCode());
+		return result;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+//		if (getClass() != obj.getClass())
+//			return false;
+		Membru other = (Membru) obj;
+		if (idMembru == null) {
+			if (other.idMembru != null)
+				return false;
+		} else if (!idMembru.equals(other.idMembru))
+			return false;
+		if (rol != other.rol)
+			return false;
+		return true;
+	}
+	
+	@Override
+	public int compareTo(Membru other) {
+		if (this.equals(other))
+			return 0;
+		return this.getNumePrenume().compareTo(other.getNumePrenume());
 	}	
+	
 	
 }

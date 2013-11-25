@@ -50,9 +50,13 @@ public class Echipa {
 		super();
 	}
 	
+	// polimorfism parametrizare
+	public void adaugaMembru(Membru membru){
+		this.membri.add(membru);
+	}
 	
+	public enum Specializare {
+		BACKEND, FRONTEND, DATABASE;
+	}	
 }
 
-enum Specializare {
-	BACKEND, FRONTEND, DATABASE;
-}
