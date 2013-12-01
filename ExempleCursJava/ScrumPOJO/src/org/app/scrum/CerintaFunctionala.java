@@ -28,6 +28,16 @@ public class CerintaFunctionala extends Cerinta {
 		this.categorie = CategorieCerinta.FUNCTIONALA;
 	}
 	
+	public CerintaFunctionala(Integer idCerinta, String denumire,
+			String descriere, 
+			String descriereUseCase) {
+		super(idCerinta, denumire, descriere);
+		this.idCerinta = idCerinta;
+		this.categorieFunctionala = categorieFunctionala;
+		this.descriereUseCase = descriereUseCase;
+		
+		this.categorie = CategorieCerinta.FUNCTIONALA;
+	}	
 	
 	
 	public CerintaFunctionala() {

@@ -4,9 +4,10 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.app.scrum.BurnDownItem;
 import org.app.scrum.team.Membru;
 
-public class Task {
+public class Task implements BurnDownItem{
 	private Integer idTask;
 	private String denumire;
 	private String descriere;
