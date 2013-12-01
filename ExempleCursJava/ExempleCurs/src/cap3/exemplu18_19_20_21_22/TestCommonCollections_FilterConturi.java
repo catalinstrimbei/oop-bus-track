@@ -51,6 +51,9 @@ public class TestCommonCollections_FilterConturi {
 		for(Cont c: conturiFiltrate)
 			System.out.println("Cont rezultat:" + c.getDenumire());
 		
+		
+		
+		
 	}
 
 }

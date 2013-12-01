@@ -6,9 +6,9 @@ public class TestObiecteExceptii {
 		new TestObiecteExceptii().
 //			testFinally();
 //		testLocalExceptions("UPDATE");
-//		testDeclaredExceptions("UPDATE");
+		testDeclaredExceptions("UPDATE");
 //		testErrors("DELETE");
-		testUncheckedExceptions("UPDATE");
+//		testUncheckedExceptions("UPDATE");
 	}
 	
 	void testFinally(){

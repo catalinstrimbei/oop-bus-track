@@ -17,19 +17,19 @@ public class TestSiruriDeCaractere {
 //		testStringInstance();
 //		testStringImmutable();
 //		testSubStrings_1();
-		testSubStrings_2();
+//		testSubStrings_2();
 		
 		//3
-//		multiply_StringBuffer("aaa", 500);
-//		multiply_OperatorConcatenare("aaa", 500);
-//		multiply_OperatieConcat("aaa", 500);
+//		multiply_StringBuffer("aaa", 10000);
+//		multiply_OperatorConcatenare("aaa", 10000);
+		multiply_OperatieConcat("aaa", 10000);
 
 	}
 
 	void testCharArrays() {
 		//char[] char_seq = { 'P', 'R', 'O' };
 		Character[] char_seq = { 'P', 'R', 'O' };
-		for (char c : char_seq) {
+		for (Character c : char_seq) {
 			System.out.print(c + ",");
 		}
 		System.out.println();
