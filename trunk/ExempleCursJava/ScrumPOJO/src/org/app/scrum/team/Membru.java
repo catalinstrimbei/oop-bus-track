@@ -1,6 +1,7 @@
 package org.app.scrum.team;
 
-public class Membru implements Comparable<Membru>{
+public class Membru 
+implements Comparable<Membru>{
 	private Integer idMembru;
 	private String numePrenume;
 	private Rol rol;

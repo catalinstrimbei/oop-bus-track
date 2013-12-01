@@ -45,7 +45,7 @@ public class LiderEchipa extends Membru{
 	// Supraincarcare
 	public void setCompetente(String competente, TipCompetente tip) {
 		if (tip.equals(TipCompetente.MANAGERIALE))
-			setCompetente(competente);
+			super.setCompetente(competente);
 		
 		if (tip.equals(TipCompetente.TEHNOLOGICE))
 			setCompetenteTehnologice(competente);

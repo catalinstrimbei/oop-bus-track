@@ -18,19 +18,24 @@ public class Test7_Polimorfism {
 		
 		Membru membru = new ManagerProiect(1, "M1", 2, "agile, scrum, xp");
 		membru.setCompetente("MSFT Project, Redmine, ScrumSoft"); // polimorfism operatie
+		
+//		ManagerProiect manager = (ManagerProiect) membru;
+//		manager.setExperientaManageriala(5);
+		((ManagerProiect) membru).setExperientaManageriala(5);
+		
 		echipa.adaugaMembru(membru);
 		
-		membru = new LiderEchipa(1, "M2", null); // variabila polimorfica
+		membru = new LiderEchipa(2, "M2", null); // variabila polimorfica
 		membru.setCompetente("Java, JEE, SQL, Oracle, JavaScript, HTML5");  // polimorfism operatie
 		((LiderEchipa)membru).setCompetente("Redmine", LiderEchipa.TipCompetente.MANAGERIALE); // spraincarcare
 		
 		echipa.adaugaMembru(membru);
 		
-		membru = new Membru(2, "M3", Rol.DEVELOPER);
+		membru = new Membru(3, "M3", Rol.DEVELOPER);
 		membru.setCompetente("Java, JEE");  // polimorfism operatie
 		echipa.adaugaMembru(membru); // apel polimorfic
 		
-		membru = new Membru(3, "M4", Rol.TESTER);
+		membru = new Membru(4, "M4", Rol.TESTER);
 		membru.setCompetente("JUnit");
 		echipa.adaugaMembru(membru);
 		
