@@ -41,7 +41,7 @@ public class Test9_Colectii_Tipologie {
 			System.out.println("mapArrayCerinte[" + i +"]=" + mapArrayCerinte[i]);
 		}
 		
-		/* Ex 2: Operatii colectii: *********************************************************/
+		
 		
 		/* Ex 3: Interogare/cautare colectii: ***********************************************/
 		
