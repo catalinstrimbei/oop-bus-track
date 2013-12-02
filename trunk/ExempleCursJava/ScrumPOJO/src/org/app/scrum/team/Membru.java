@@ -76,7 +76,14 @@ implements Comparable<Membru>{
 	public int compareTo(Membru other) {
 		if (this.equals(other))
 			return 0;
-		return this.getNumePrenume().compareTo(other.getNumePrenume());
+		//return this.getNumePrenume().compareTo(other.getNumePrenume());
+		return this.getIdMembru().compareTo(other.getIdMembru());
+	}
+	
+	@Override
+	public String toString() {
+		return "Membru [idMembru=" + idMembru + ", numePrenume=" + numePrenume
+				+ ", rol=" + rol + "]";
 	}	
 	
 	
