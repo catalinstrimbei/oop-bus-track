@@ -6,7 +6,7 @@ import org.app.scrum.CategorieCerinta;
 import org.app.scrum.Cerinta;
 import org.app.scrum.CerintaFunctionala;
 
-public class Test9_Colectii {
+public class Test9_Colectii_Tipologie {
 	public static void main(String[] args){
 		/* Ex 1: Tipuri de colectii: *********************************************************/
 		// Array-Collection-List-Set-Map-Set-Array
@@ -31,7 +31,6 @@ public class Test9_Colectii {
 		setCerinte.addAll(listCerinte);
 		// 5. Map-a tipizata
 		Map<Integer, Cerinta> mapCerinte = new HashMap<Integer, Cerinta>();
-		Iterator<Cerinta> iteratorCerinte = setCerinte.iterator();
 		for(Cerinta c: setCerinte)
 			mapCerinte.put(c.getIdCerinta(), c);
 		// 6. Set din cheile-map
