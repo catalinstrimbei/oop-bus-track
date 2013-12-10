@@ -1,5 +1,7 @@
 package org.app.scrum;
 
+import static javax.persistence.CascadeType.ALL;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -12,19 +14,18 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.app.scrum.team.ManagerProiect;
-
-
-
-
-import static javax.persistence.CascadeType.ALL;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Proiect {
 	@Id
 	private Integer nrProiect;
 	
+	@NotEmpty
+	@Size(min=5, max=100, message="Numele proiectului: size 5..100 caractere!")
 	private String numeProiect;
 	
 	@Temporal(TemporalType.DATE)
@@ -113,6 +114,11 @@ public class Proiect {
 		} else if (!nrProiect.equals(other.nrProiect))
 			return false;
 		return true;
+	}
+	@Override
+	public String toString() {
+		return "Proiect [nrProiect=" + nrProiect + ", numeProiect="
+				+ numeProiect + "]";
 	}
 	
 	
