@@ -12,6 +12,7 @@ import javax.persistence.MappedSuperclass;
 
 import org.app.scrum.sprint.Task;
 import org.app.scrum.team.Membru;
+import static javax.persistence.EnumType.STRING;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
@@ -22,7 +23,7 @@ public abstract class Cerinta implements Comparable<Cerinta>
 	private String denumire;
 	private String descriere;
 	
-	@Enumerated
+	@Enumerated(STRING)
 	protected CategorieCerinta categorie;
 	
 	private List<Task> taskuri = new ArrayList<>();
