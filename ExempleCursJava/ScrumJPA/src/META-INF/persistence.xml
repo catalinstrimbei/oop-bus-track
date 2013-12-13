@@ -10,7 +10,6 @@
 			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://10.10.0.7:5432/postgres"></property>
 			<property name="javax.persistence.jdbc.user" value="scrum"/>
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-			<property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
 			<property name="javax.persistence.jdbc.password" value="scrum"/>
 			<property name="eclipselink.temporal.mutable" value="true"/>
 		</properties>
