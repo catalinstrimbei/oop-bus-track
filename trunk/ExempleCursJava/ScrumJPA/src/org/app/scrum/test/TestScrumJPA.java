@@ -12,12 +12,16 @@ public class TestScrumJPA {
 	public static void main(String[] args) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("ScrumJPA");
 		EntityManager em = emf.createEntityManager();
-		
-		Proiect proiect = new ProiectBuilder().buildProiect(1, "Proiect Test", 3);
-		
 		em.getTransaction().begin();
-		System.out.println("Saving proiect!");
-		em.persist(proiect);
+		
+		Proiect proiect;
+		for(int i=1; i <= 4; i++){
+			proiect = new ProiectBuilder().buildProiect(i, "Proiect Test", i+2);
+			em.persist(proiect);
+		}
+		
+		System.out.println("Salvare proiecte!");
+		
 		em.getTransaction().commit();
 		
 		System.out.println("End");
