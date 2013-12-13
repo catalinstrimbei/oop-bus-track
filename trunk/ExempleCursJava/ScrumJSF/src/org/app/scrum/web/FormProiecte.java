@@ -24,7 +24,7 @@ public class FormProiecte {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("ScrumJPA");
 		em = emf.createEntityManager();
 		
-		List<Proiect> lst = em.createQuery("SELECT p FROM Proiect p").getResultList();
+		List<Proiect> lst = em.createQuery("SELECT p FROM Proiect p ORDER BY p.nrProiect").getResultList();
 		proiecte.addAll(lst);
 		
 		if (lst != null){
