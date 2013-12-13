@@ -89,12 +89,15 @@ public class FormClienti implements Converter
 
 	/* Implementare navigare */
 	public void previousClient(ActionEvent evt) {
+		/*
 		Integer idxCurent = this.clienti.indexOf(client);
 		if (idxCurent > 0)
 			this.client = this.clienti.get(idxCurent - 1);
+		*/
 	}
 
 	public void nextClient(ActionEvent evt) {
+		/*
 		Integer idxCurent = this.clienti.indexOf(client);
 		if ((idxCurent + 1) < this.clienti.size())
 			this.client = this.clienti.get(idxCurent + 1);
@@ -105,7 +108,7 @@ public class FormClienti implements Converter
 		System.out.println("uiComponent.id: nume"  + "- " + getUIComponentValue("nume"));
 		System.out.println("uiInput.id: nume"  + "- new value" + getUIInputValue("nume"));
 		System.out.println("uiInput.id: nume"  + "- old value" + getUIInputOldValue("nume"));
-		
+		*/
 	}
 
 
@@ -346,4 +349,31 @@ public class FormClienti implements Converter
 		}
 		return result;
 	}
+	
+	/* Alimentare cboClienti simplificata */
+//	private Integer idClient;
+	
+	public Integer getIdClient(){
+//		System.out.println("DEBUG: Get idClient: " + idClient);
+//		return idClient;
+		System.out.println("DEBUG: Get idClient: " + this.client.getId());
+		return this.client.getId();
+	}
+	public void setIdClient(Integer id){
+		System.out.println("DEBUG: Changed idClient: " + id);
+//		this.idClient = id;
+		Integer idx = this.clienti.indexOf(new Client(id, ""));
+		this.client = this.clienti.get(idx);
+	}
 }
+
+
+/*
+
+<h:selectOneMenu id="cboClienti" value="#{formClienti.client}"
+				style="width: 209px; " converter="#{formClienti}">
+				<p:selectItems value="#{formClienti.clientiList}" var="item" itemLabel="#{item.nume}"></p:selectItems>
+				<p:ajax render="id nume"></p:ajax>
+			</h:selectOneMenu>
+
+*/
