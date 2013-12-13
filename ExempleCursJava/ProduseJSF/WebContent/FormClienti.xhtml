@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://java.sun.com/jsf/core">
+<body>
+	<div
+		style="width: 100%; font-size: 36px; line-height: 48px; background-color: navy; color: white">FormClienti
+		1.0</div>
+	<h:form id="formClientiForm">
+		<h:panelGrid columns="3" border="1">
+			<p:facet name="header">
+				<h:outputText value="Formular_Clienti_"></h:outputText>
+			</p:facet>
+
+			<h:selectOneMenu id="cboClienti" value="#{formClienti.client}"
+				style="width: 209px; " converter="#{formClienti}">
+				<p:selectItems value="#{formClienti.clienti}"></p:selectItems>
+				<p:ajax render="id nume"></p:ajax>
+			</h:selectOneMenu>
+			<h:panelGrid columns="2" border="1">
+				<h:commandButton id="cmdPrev"
+					actionListener="#{formClienti.previousClient}" value="Prev"></h:commandButton>
+				<h:commandButton id="cmdNext"
+					actionListener="#{formClienti.nextClient}" value="Next"></h:commandButton>
+			</h:panelGrid>
+			<h:message></h:message>
+			<h:outputText value="ID Client:"></h:outputText>
+			<h:inputText id="id" value="#{formClienti.client.id}" required="true"
+				requiredMessage="IDul este obligatoriu!"
+				validatorMessage="Domeniu valori ID: 1..99!"
+				validator="#{formClienti.validate}">
+				<p:validateLongRange minimum="1" maximum="9999"></p:validateLongRange>
+			</h:inputText>
+			<h:message for="id"></h:message>
+			<h:outputText value="Nume Client:"></h:outputText>
+			<h:inputText id="nume" value="#{formClienti.client.nume}"
+				validator="#{formClienti.validate}"></h:inputText>
+			<h:message for="nume"></h:message>
+			<h:panelGrid columns="2" border="1">
+				<h:commandButton id="cmdAdaugare"
+					actionListener="#{formClienti.adaugareClient}" value="Adaugare"></h:commandButton>
+				<h:commandButton id="cmdStergere"
+					actionListener="#{formClienti.stergereClient}" value="Stergere"></h:commandButton>
+			</h:panelGrid>
+
+
+			<h:panelGrid columns="2" border="1">
+				<h:commandButton id="cmdAbandon"
+					actionListener="#{formClienti.abandonClient}" value="Abandon"
+					immediate="true"></h:commandButton>
+				<h:commandButton id="cmdSalvare"
+					actionListener="#{formClienti.salvareClient}" value="Salvare"></h:commandButton>
+			</h:panelGrid>
+			<h:message></h:message>
+		</h:panelGrid>
+		<h:messages
+			style="border-bottom-width: 1px; color: #FF0000; border-right-width: 1px; border-left-width: 1px; border-top-width: 1px"></h:messages>
+	</h:form>
+</body>
+</html>
+
+

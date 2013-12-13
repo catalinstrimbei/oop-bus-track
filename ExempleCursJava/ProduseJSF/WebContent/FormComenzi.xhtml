@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://java.sun.com/jsf/core">
+	
+<body>
+	<div
+		style="width: 100%; font-size: 36px; line-height: 48px; background-color: navy; color: white">Formular
+		Comenzi 1.0</div>
+	<h:form id="formComenziForm">
+		<h:panelGrid columns="3" border="1">
+			<p:facet name="header">
+				<h:outputText value="Formular Comenzi M/D"></h:outputText>
+			</p:facet>
+			<h:selectOneMenu id="cboComenzi" value="#{formComenzi.comanda}"
+				converter="#{formComenzi}">
+				<p:selectItems value="#{formComenzi.comenzi}"></p:selectItems>
+				<p:ajax render="@form"></p:ajax>
+			</h:selectOneMenu>
+			<h:panelGrid columns="2" border="1">
+				<h:commandButton id="btnPrevious"
+					actionListener="#{formComenzi.previousComanda}" value="Inapoi"></h:commandButton>
+				<h:commandButton id="cmdNext"
+					actionListener="#{formComenzi.nextComanda}" value="Inainte"></h:commandButton>
+			</h:panelGrid> 
+			<h:message></h:message>
+			<h:outputText value="Id:"></h:outputText>
+			<h:inputText id="id" value="#{formComenzi.comanda.id}"
+				validatorMessage="IDul este obligatoriu!">
+			<p:validateDoubleRange minimum="0"></p:validateDoubleRange></h:inputText>
+			<h:message for="id" style="color: #FF0000"></h:message>
+			<h:outputText value="Data Comanda:"></h:outputText>
+			<h:inputText id="dataComanda"
+				value="#{formComenzi.comanda.dataComanda}">
+				<p:convertDateTime pattern="dd/MM/yyyy"></p:convertDateTime>
+			</h:inputText>
+			<h:message for="comanda_dataComanda"></h:message>
+			<h:outputText value="Valoare Comanda:"></h:outputText>
+			<h:inputText id="valoareComanda"
+				value="#{formComenzi.comanda.valoareComanda}" readonly="true"></h:inputText>
+			<h:message for="valoareComanda"></h:message>
+			<h:panelGrid columns="2" border="1">
+				<h:commandButton id="cmdAdaugare"
+					actionListener="#{formComenzi.adaugareComanda}" value="Adaugare"></h:commandButton>
+				<h:commandButton id="cmdSterge"
+					actionListener="#{formComenzi.stergereComanda}" value="Stergere"></h:commandButton>
+			</h:panelGrid>
+			<h:panelGrid columns="2" border="1">
+				<h:commandButton id="cmdAbandon"
+					actionListener="#{formComenzi.abandon}" value="Abandon"></h:commandButton>
+				<h:commandButton id="cmdSalvare"
+					actionListener="#{formComenzi.salvareComanda}" value="Salvare"></h:commandButton>
+			</h:panelGrid>
+			<h:message></h:message>
+		</h:panelGrid>
+		<h:messages></h:messages>
+		<h:dataTable value="#{formComenzi.comanda.articole}" var="linieComanda" border="1">
+			<h:column>
+				<p:facet name="header">
+					<h:outputText value="Id"></h:outputText>
+				</p:facet>
+				<h:outputText id="id" value="#{linieComanda.id}"></h:outputText>
+			</h:column>
+			<h:column>
+				<h:selectOneMenu id="cboProdus" value="#{linieComanda.produs}"
+					converter="#{formComenzi}">
+					<p:selectItems value="#{formComenzi.produse}"></p:selectItems>
+				</h:selectOneMenu>
+				<p:facet name="header">
+					<h:outputText value="Produs"></h:outputText>
+				</p:facet>
+
+			</h:column>
+			<h:column>
+				<p:facet name="header">
+					<h:outputText value="Cantitate"></h:outputText>
+				</p:facet>
+				<h:inputText id="cantitate" value="#{linieComanda.cantitate}"></h:inputText>
+			</h:column>
+			<h:column>
+				<p:facet name="header">
+					<h:outputText value="Valoare Articol"></h:outputText>
+				</p:facet>
+				<h:outputText id="valoareArticol"
+					value="#{linieComanda.valoareArticol}"></h:outputText>
+			</h:column>
+			<h:column>
+				<h:commandButton id="cmdStergeArticol"
+					actionListener="#{formComenzi.stergeArticol}" value="Sterge">
+					<p:attribute name="selectedId" value="#{linieComanda.id}"></p:attribute>
+				</h:commandButton>
+				<p:facet name="header">
+					<h:outputText value="Column"></h:outputText>
+				</p:facet>
+			</h:column>
+			<p:facet name="footer">
+				<h:outputText value="Table Footer"></h:outputText>
+			</p:facet>
+		</h:dataTable>
+		<h:commandButton id="cmdAdaugaArticol"
+			actionListener="#{formComenzi.adaugaArticol}" value="Adauga articol"></h:commandButton>
+	</h:form>
+</body>
+
+</html>
