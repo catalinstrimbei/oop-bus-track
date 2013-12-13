@@ -11,11 +11,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import static javax.persistence.CascadeType.ALL;
+import javax.persistence.GeneratedValue;
 
 
 @Entity
 public class Release {
 	@Id
+	@GeneratedValue
 	private Integer idRelease;
 	private String numeCod; // NEW born
 	private String indicativ; // vers 1.1
