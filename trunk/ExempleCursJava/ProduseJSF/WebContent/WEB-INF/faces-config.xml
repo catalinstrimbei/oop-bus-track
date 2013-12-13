@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+    version="2.0">
+	<application>
+		<message-bundle>resources.application</message-bundle>
+		<locale-config>
+			<default-locale>en</default-locale>
+		</locale-config>
+	</application>
+	<managed-bean>
+		<managed-bean-name>formClienti</managed-bean-name>
+		<managed-bean-class>org.comenzi.forms.FormClienti</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>formComenzi</managed-bean-name>
+		<managed-bean-class>org.comenzi.forms.FormComenzi</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>formMenu</managed-bean-name>
+		<managed-bean-class>org.comenzi.forms.FormMenu</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<lifecycle>
+		<phase-listener>org.comenzi.forms.PhaseTracker</phase-listener>
+	</lifecycle>
+</faces-config>

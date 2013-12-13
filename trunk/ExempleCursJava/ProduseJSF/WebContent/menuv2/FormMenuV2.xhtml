@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://java.sun.com/jsf/core"
+	xmlns:utils="http://java.sun.com/jsf/composite/utils">
+	
+<body>
+	<div
+		style="width: 100%; font-size: 36px; line-height: 48px; background-color: navy; color: white">APLICATIE VAZARI menuV2</div>
+	<h:form id="mainForm">
+	<h:panelGrid columns="1" border="1">
+
+			<p:facet name="footer">
+				<h:outputText id="footerTxt" binding="#{formMenu.footerTxt}"/>
+			</p:facet>		
+			<h:panelGrid columns="5" border="1">
+
+				<h:commandLink id="FormClienti"
+					actionListener="#{formMenu.actionSrcChangeForm}"
+					action="#{formMenu.changeSrcFormCurent}" value="Editare clienti">
+					<p:attribute name="srcForm" value="FormClienti"></p:attribute>
+				</h:commandLink>
+				<h:commandLink id="FormComenzi"
+					actionListener="#{formMenu.actionSrcChangeForm}"
+					action="#{formMenu.changeSrcFormCurent}" value="Editare comenzi">
+					<p:attribute name="srcForm" value="FormComenzi"></p:attribute>
+				</h:commandLink>
+
+				<h:commandLink id="FormProduse"
+					actionListener="#{formMenu.actionSrcChangeForm}"
+					action="#{formMenu.changeSrcFormCurent}" value="Editare produse">
+				</h:commandLink>
+				<h:commandLink id="RaportClienti"
+					actionListener="#{formMenu.actionSrcChangeForm}"
+					action="#{formMenu.changeFormCurent}" value="Listare clienti">
+				</h:commandLink>
+				<utils:raport srcRaport="Raport1" labelRaport="Test raport ..." />
+			</h:panelGrid>
+		<h:panelGrid columns="1" border="1">
+			<ui:include src="#{formMenu.srcCurentForm}"></ui:include>
+		</h:panelGrid>
+	</h:panelGrid>
+	</h:form>
+</body>
+
+</html>
