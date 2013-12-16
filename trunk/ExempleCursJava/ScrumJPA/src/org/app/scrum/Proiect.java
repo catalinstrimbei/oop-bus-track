@@ -13,6 +13,7 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 import org.app.scrum.team.ManagerProiect;
+
 import static javax.persistence.CascadeType.ALL;
 
 @Entity
@@ -107,6 +108,16 @@ public class Proiect {
 		} else if (!nrProiect.equals(other.nrProiect))
 			return false;
 		return true;
+	}
+	public Proiect(Integer nrProiect, String numeProiect) {
+		super();
+		this.nrProiect = nrProiect;
+		this.numeProiect = numeProiect;
+	}
+	@Override
+	public String toString() {
+		return "Proiect [nrProiect=" + nrProiect + ", numeProiect="
+				+ numeProiect + ", dataStart=" + dataStart + "]";
 	}
 	
 	
