@@ -3,6 +3,7 @@ package org.app.scrum.web;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.event.ActionEvent;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -54,5 +55,11 @@ public class FormProiecte {
 		System.out.println("DEBUG getNrProiect: " + nrProiect);
 		Integer idx = this.proiecte.indexOf(new Proiect(nrProiect, null, null));
 		this.proiect = this.proiecte.get(idx);
+	}
+	
+	// pentru selectie din grid
+	public void selectProiect(ActionEvent evt){
+		Integer selectedId = Integer.valueOf(evt.getComponent().getAttributes().get("selectedId").toString());
+		this.setNrProiect(selectedId);
 	}
 }
