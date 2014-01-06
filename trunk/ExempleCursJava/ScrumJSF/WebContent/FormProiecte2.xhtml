@@ -11,10 +11,10 @@
 	<h:form id="formProiecteForm">
 		<h:panelGrid id="p1" columns="3" border="1">
 			<p:facet name="header">
-				<h:outputText id="o1" value="Formular Proiecte"></h:outputText>
+				<h:outputText id="o1" value="Formular Proiecte 2 - ComboBox"></h:outputText>
 			</p:facet>
 			<h:outputText id="o2" value="Proiect:"></h:outputText>
-			<h:selectOneListbox id="proiect" value="#{formProiecte.nrProiect}">
+			<h:selectOneMenu id="proiect" value="#{formProiecte.nrProiect}">
 				<p:selectItems id="s1" value="#{formProiecte.proiecte}" 
 					var="item" 
 					itemLabel="#{item.numeProiect}" 
@@ -22,7 +22,7 @@
 				</p:selectItems>
 				<p:ajax
 					render="proiect_numeProiect proiect_nrProiect proiect_dataStart"></p:ajax>
-			</h:selectOneListbox>
+			</h:selectOneMenu>
 			<h:message id="m1" for="proiect"></h:message>
 			<h:outputText id="o3" value="Nume Proiect:"></h:outputText>
 			<h:inputText id="proiect_numeProiect"
