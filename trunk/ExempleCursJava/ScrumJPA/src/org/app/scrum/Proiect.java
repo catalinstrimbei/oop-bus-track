@@ -11,6 +11,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
 
 import org.app.scrum.team.ManagerProiect;
 
@@ -21,6 +22,7 @@ public class Proiect {
 	@Id
 	private Integer nrProiect;
 	
+	@NotNull
 	private String numeProiect;
 	
 	@Temporal(TemporalType.DATE)

@@ -8,6 +8,7 @@ import javax.persistence.Persistence;
 
 import org.app.scrum.Proiect;
 import org.app.scrum.ProiectBuilder;
+import org.app.scrum.ProiectView;
 
 public class TestScrumJPAQL {
 
@@ -27,9 +28,13 @@ public class TestScrumJPAQL {
 //			System.out.println("Proiect: " + p[0] + " - " + p[1]);		
 
 		/* OK */
-		Integer nrProiecte = (Integer) em.createNativeQuery("SELECT COUNT(*) FROM proiect p").getSingleResult();
+//		Integer nrProiecte = (Integer) em.createNativeQuery("SELECT COUNT(*) FROM proiect p").getSingleResult();
+//		System.out.println("Nr proiecte: " + nrProiecte);
 		
-		System.out.println("Nr proiecte: " + nrProiecte);
+		List<ProiectView> pList = em.createQuery("SELECT NEW org.app.scrum.ProiectView(p.nrProiect, p.numeProiect) FROM Proiect p").getResultList();
+		for(ProiectView p: pList)
+			System.out.println("Proiect: " + p);		
+
 		
 		
 		System.out.println("End");
