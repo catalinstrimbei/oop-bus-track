@@ -25,20 +25,27 @@ import javax.persistence.Persistence;
 
 import org.comenzi.model.Client;
 
-public class FormClienti implements Converter
-//, Validator 
-{
+public class FormClienti implements Converter, Validator {
+	
 	private List<Client> clienti = new ArrayList<Client>();
 	private Client client;
 	private EntityManager em;
 
-	/*
-	 * public List<Client> getClienti() { return clienti; } public void
-	 * setClienti(List<Client> clienti) { this.clienti = clienti; }
-	 */
+	public List<Client> getClienti() {
+		return this.clienti;
+	}
 
+	public Integer getIdClient(){
+		return this.client.getId();
+	}
+	
+	public void setIdClient(Integer id){
+		Integer idx = this.clienti.indexOf(new Client(id, ""));
+		this.client = this.clienti.get(idx);
+	}	
+	
 	/* Implementare suport pentru navigare-selectie lista combinata */
-	public Map<String, Client> getClienti() {
+	public Map<String, Client> getClientiMap() {
 		Map<String, Client> mapClienti = new HashMap<String, Client>();
 		for (Client c : clienti) {
 			mapClienti.put(c.getNume(), c);
@@ -46,9 +53,6 @@ public class FormClienti implements Converter
 		return mapClienti;
 	}
 
-	public List<Client> getClientiList() {
-		return this.clienti;
-	}
 
 	@Override
 	// operatie invocata la selectie din lista, dar inainte de setClient
@@ -89,19 +93,20 @@ public class FormClienti implements Converter
 
 	/* Implementare navigare */
 	public void previousClient(ActionEvent evt) {
-		/*
+		
 		Integer idxCurent = this.clienti.indexOf(client);
 		if (idxCurent > 0)
 			this.client = this.clienti.get(idxCurent - 1);
-		*/
+		
 	}
 
 	public void nextClient(ActionEvent evt) {
-		/*
+		
 		Integer idxCurent = this.clienti.indexOf(client);
 		if ((idxCurent + 1) < this.clienti.size())
 			this.client = this.clienti.get(idxCurent + 1);
 		
+		/*
 		System.out.println(getBeanPropStringValue("formClienti.client.nume", String.class));
 		UIComponent uiComponent = evt.getComponent();
 		System.out.println("uiComponent.id: " + uiComponent.getId() + "-" + uiComponent.getClientId());
@@ -109,6 +114,7 @@ public class FormClienti implements Converter
 		System.out.println("uiInput.id: nume"  + "- new value" + getUIInputValue("nume"));
 		System.out.println("uiInput.id: nume"  + "- old value" + getUIInputOldValue("nume"));
 		*/
+		
 	}
 
 
@@ -353,17 +359,10 @@ public class FormClienti implements Converter
 	/* Alimentare cboClienti simplificata */
 //	private Integer idClient;
 	
-	public Integer getIdClient(){
-//		System.out.println("DEBUG: Get idClient: " + idClient);
-//		return idClient;
-		System.out.println("DEBUG: Get idClient: " + this.client.getId());
-		return this.client.getId();
-	}
-	public void setIdClient(Integer id){
-		System.out.println("DEBUG: Changed idClient: " + id);
-//		this.idClient = id;
-		Integer idx = this.clienti.indexOf(new Client(id, ""));
-		this.client = this.clienti.get(idx);
+	public void selectTblClient(ActionEvent evt){
+		Integer selectedId = Integer.valueOf(evt.getComponent().getAttributes().get("selectedId").toString());
+		this.setIdClient(selectedId);
+		
 	}
 }
 
