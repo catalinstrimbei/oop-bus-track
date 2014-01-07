@@ -5,11 +5,12 @@
 	xmlns:p="http://java.sun.com/jsf/core">
 <body>
 	<div
-		style="width: 100%; font-size: 36px; line-height: 48px; background-color: navy; color: white">FormClienti</div>
+		style="width: 100%; font-size: 36px; line-height: 48px; background-color: navy; color: white">FormClienti
+		1.0</div>
 	<h:form id="formClientiForm">
 		<h:panelGrid columns="3" border="1">
 			<p:facet name="header">
-				<h:outputText value="Formular editare clienti"></h:outputText>
+				<h:outputText value="Formular_Clienti_"></h:outputText>
 			</p:facet>
 
 			<h:selectOneMenu id="cboClienti" value="#{formClienti.client}"
@@ -17,6 +18,7 @@
 				<p:selectItems value="#{formClienti.clientiMap}"></p:selectItems>
 				<p:ajax render="id nume"></p:ajax>
 			</h:selectOneMenu>
+			
 			<h:panelGrid columns="2" border="1">
 				<h:commandButton id="cmdPrev"
 					actionListener="#{formClienti.previousClient}" value="Prev"></h:commandButton>

@@ -5,7 +5,7 @@
 	xmlns:p="http://java.sun.com/jsf/core">
 <body>
 	<div
-		style="width: 100%; font-size: 36px; line-height: 48px; background-color: navy; color: white">FormClienti.2.0.0</div>
+		style="width: 100%; font-size: 36px; line-height: 48px; background-color: navy; color: white">FormClienti.2.0</div>
 	<h:form id="formClientiForm">
 		<h:panelGrid columns="3" border="1">
 			<p:facet name="header">
@@ -13,7 +13,7 @@
 			</p:facet>
 
 			<h:selectOneListbox id="cboClienti" value="#{formClienti.idClient}" style="width: 209px; ">
-				<p:selectItems value="#{formClienti.clientiList}"  
+				<p:selectItems value="#{formClienti.clienti}"  
 					var="item" 
 				    itemValue="#{item.id}" 
 					itemLabel="#{item.nume}">
