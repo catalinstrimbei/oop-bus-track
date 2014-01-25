@@ -16,6 +16,7 @@ import javax.validation.constraints.NotNull;
 import org.app.scrum.team.ManagerProiect;
 
 import static javax.persistence.CascadeType.ALL;
+import static javax.persistence.FetchType.LAZY;
 
 @Entity
 public class Proiect {
@@ -32,7 +33,7 @@ public class Proiect {
 	private ManagerProiect managerProiect;
 	
 	// Added
-	@OneToMany(mappedBy="proiect", cascade = ALL)
+	@OneToMany(mappedBy="proiect", cascade = ALL, fetch = LAZY)
 	private List<Release> releases = new ArrayList<>();
 	
 	@OneToOne(cascade = ALL)
