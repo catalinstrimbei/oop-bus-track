@@ -69,7 +69,7 @@ repartizate membrilor echipei/echipelor implicate in proiect.</body>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_Yy4VEDfwEeOXdLoEgavdtA" name="Sprint">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_-fm78DpoEeObrIpWPUJq-Q" name="sprintBacklog" type="_z75FkDpoEeObrIpWPUJq-Q" association="_-fnjADpoEeObrIpWPUJq-Q">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_-fm78DpoEeObrIpWPUJq-Q" name="cerinte" type="_z75FkDpoEeObrIpWPUJq-Q" association="_-fnjADpoEeObrIpWPUJq-Q">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-fm78TpoEeObrIpWPUJq-Q" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-fm78jpoEeObrIpWPUJq-Q" value="*"/>
       </ownedAttribute>
