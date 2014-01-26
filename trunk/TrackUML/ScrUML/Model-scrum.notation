@@ -1938,29 +1938,29 @@
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Sfyecoa9EeOzs_Z1tiYrlA"/>
       </children>
       <children xmi:type="notation:BasicCompartment" xmi:id="_Sfyec4a9EeOzs_Z1tiYrlA" type="7007">
-        <children xmi:type="notation:Shape" xmi:id="_SfyedIa9EeOzs_Z1tiYrlA" type="3007" fontName="Segoe UI" lineColor="0">
-          <element xmi:type="uml:Operation" href="Model-scrum.uml#_n-p3EIaREeOzs_Z1tiYrlA"/>
-          <layoutConstraint xmi:type="notation:Location" xmi:id="_SfyedYa9EeOzs_Z1tiYrlA"/>
+        <children xmi:type="notation:Shape" xmi:id="_9H3PMIbCEeOzs_Z1tiYrlA" type="3007" fontName="Segoe UI" lineColor="0">
+          <element xmi:type="uml:Operation" href="Model-scrum.uml#_prlSIIbBEeOzs_Z1tiYrlA"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_9H3PMYbCEeOzs_Z1tiYrlA"/>
         </children>
-        <children xmi:type="notation:Shape" xmi:id="_Sfyedoa9EeOzs_Z1tiYrlA" type="3007" fontName="Segoe UI" lineColor="0">
-          <element xmi:type="uml:Operation" href="Model-scrum.uml#_9lCz4IaVEeOzs_Z1tiYrlA"/>
-          <layoutConstraint xmi:type="notation:Location" xmi:id="_Sfyed4a9EeOzs_Z1tiYrlA"/>
+        <children xmi:type="notation:Shape" xmi:id="_9H32QIbCEeOzs_Z1tiYrlA" type="3007" fontName="Segoe UI" lineColor="0">
+          <element xmi:type="uml:Operation" href="Model-scrum.uml#_p_YX4IbBEeOzs_Z1tiYrlA"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_9H32QYbCEeOzs_Z1tiYrlA"/>
         </children>
-        <children xmi:type="notation:Shape" xmi:id="_SfyeeIa9EeOzs_Z1tiYrlA" type="3007" fontName="Segoe UI" lineColor="0">
-          <element xmi:type="uml:Operation" href="Model-scrum.uml#_LJnMIIaWEeOzs_Z1tiYrlA"/>
-          <layoutConstraint xmi:type="notation:Location" xmi:id="_SfyeeYa9EeOzs_Z1tiYrlA"/>
+        <children xmi:type="notation:Shape" xmi:id="_9H4dUIbCEeOzs_Z1tiYrlA" type="3007" fontName="Segoe UI" lineColor="0">
+          <element xmi:type="uml:Operation" href="Model-scrum.uml#_qEKxQIbBEeOzs_Z1tiYrlA"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_9H4dUYbCEeOzs_Z1tiYrlA"/>
         </children>
-        <children xmi:type="notation:Shape" xmi:id="_SfzE0Ia9EeOzs_Z1tiYrlA" type="3007" fontName="Segoe UI" lineColor="0">
-          <element xmi:type="uml:Operation" href="Model-scrum.uml#_LT7lwIaWEeOzs_Z1tiYrlA"/>
-          <layoutConstraint xmi:type="notation:Location" xmi:id="_SfzE0Ya9EeOzs_Z1tiYrlA"/>
+        <children xmi:type="notation:Shape" xmi:id="_9H5EYIbCEeOzs_Z1tiYrlA" type="3007" fontName="Segoe UI" lineColor="0">
+          <element xmi:type="uml:Operation" href="Model-scrum.uml#_qLN0cIbBEeOzs_Z1tiYrlA"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_9H5EYYbCEeOzs_Z1tiYrlA"/>
         </children>
-        <children xmi:type="notation:Shape" xmi:id="_SfzE0oa9EeOzs_Z1tiYrlA" type="3007" fontName="Segoe UI" lineColor="0">
-          <element xmi:type="uml:Operation" href="Model-scrum.uml#_LcbacIaWEeOzs_Z1tiYrlA"/>
-          <layoutConstraint xmi:type="notation:Location" xmi:id="_SfzE04a9EeOzs_Z1tiYrlA"/>
+        <children xmi:type="notation:Shape" xmi:id="_9H5rcIbCEeOzs_Z1tiYrlA" type="3007" fontName="Segoe UI" lineColor="0">
+          <element xmi:type="uml:Operation" href="Model-scrum.uml#_f1YMkIbCEeOzs_Z1tiYrlA"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_9H5rcYbCEeOzs_Z1tiYrlA"/>
         </children>
-        <children xmi:type="notation:Shape" xmi:id="_SfzE1Ia9EeOzs_Z1tiYrlA" type="3007" fontName="Segoe UI" lineColor="0">
-          <element xmi:type="uml:Operation" href="Model-scrum.uml#_LkRH0IaWEeOzs_Z1tiYrlA"/>
-          <layoutConstraint xmi:type="notation:Location" xmi:id="_SfzE1Ya9EeOzs_Z1tiYrlA"/>
+        <children xmi:type="notation:Shape" xmi:id="_9H6SgIbCEeOzs_Z1tiYrlA" type="3007" fontName="Segoe UI" lineColor="0">
+          <element xmi:type="uml:Operation" href="Model-scrum.uml#_f1YzoIbCEeOzs_Z1tiYrlA"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_9H6SgYbCEeOzs_Z1tiYrlA"/>
         </children>
         <styles xmi:type="notation:TitleStyle" xmi:id="_SfzE1oa9EeOzs_Z1tiYrlA"/>
         <styles xmi:type="notation:SortingStyle" xmi:id="_SfzE14a9EeOzs_Z1tiYrlA"/>
