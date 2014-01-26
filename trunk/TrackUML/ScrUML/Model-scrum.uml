@@ -229,6 +229,7 @@ repartizate membrilor echipei/echipelor implicate in proiect.</body>
         </defaultValue>
       </ownedAttribute>
       <ownedAttribute xmi:type="uml:Property" xmi:id="_MtQYUDpnEeObrIpWPUJq-Q" name="rol" visibility="public">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Pr1CQDpnEeObrIpWPUJq-Q" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Pr1pUDpnEeObrIpWPUJq-Q" value="1"/>
         <defaultValue xmi:type="uml:LiteralString" xmi:id="_Pr4soDpnEeObrIpWPUJq-Q">
@@ -306,7 +307,7 @@ repartizate membrilor echipei/echipelor implicate in proiect.</body>
       <ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_zk8aoDpnEeObrIpWPUJq-Q" name="TESTER"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_z75FkDpoEeObrIpWPUJq-Q" clientDependency="_tI9icDvXEeOykqJIqx8NfQ" name="Cerinta">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_A1l74DppEeObrIpWPUJq-Q" name="taskuri" type="_fwSzIDfwEeOXdLoEgavdtA" aggregation="shared" association="_A1mi8DppEeObrIpWPUJq-Q">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_A1l74DppEeObrIpWPUJq-Q" name="taskuri" type="_fwSzIDfwEeOXdLoEgavdtA" association="_A1mi8DppEeObrIpWPUJq-Q">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_A1l74TppEeObrIpWPUJq-Q" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_A1l74jppEeObrIpWPUJq-Q" value="*"/>
       </ownedAttribute>
@@ -348,7 +349,7 @@ repartizate membrilor echipei/echipelor implicate in proiect.</body>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-fnjAzpoEeObrIpWPUJq-Q" value="1"/>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_A1mi8DppEeObrIpWPUJq-Q" name="cerinta_task_1" memberEnd="_A1mi8TppEeObrIpWPUJq-Q _A1l74DppEeObrIpWPUJq-Q">
+    <packagedElement xmi:type="uml:Association" xmi:id="_A1mi8DppEeObrIpWPUJq-Q" name="cerinta_task_1" memberEnd="_A1mi8TppEeObrIpWPUJq-Q _A1l74DppEeObrIpWPUJq-Q" navigableOwnedEnd="_A1mi8TppEeObrIpWPUJq-Q">
       <ownedEnd xmi:type="uml:Property" xmi:id="_A1mi8TppEeObrIpWPUJq-Q" name="cerinta" type="_z75FkDpoEeObrIpWPUJq-Q" association="_A1mi8DppEeObrIpWPUJq-Q">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_A1mi8jppEeObrIpWPUJq-Q" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_A1mi8zppEeObrIpWPUJq-Q" value="1"/>
@@ -396,6 +397,14 @@ repartizate membrilor echipei/echipelor implicate in proiect.</body>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_GXyrIDcyEeObreURXdy-Cg" name="java.util">
     <packagedElement xmi:type="uml:DataType" xmi:id="_LFJLEDcyEeObreURXdy-Cg" name="Date"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="__j3qUIaQEeOzs_Z1tiYrlA" name="ScrumTeamService">
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_n-p3EIaREeOzs_Z1tiYrlA" name="getTotalOreLucruCerinta">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="__6SJwIaREeOzs_Z1tiYrlA" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_NFdxoIaSEeOzs_Z1tiYrlA" name="membru" type="_xdTncDfwEeOXdLoEgavdtA"/>
+    </ownedOperation>
   </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_TwnqMDzUEeOnHa56VvETGA">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_TxSYkDzUEeOnHa56VvETGA" source="http://www.eclipse.org/uml2/2.0.0/UML">
