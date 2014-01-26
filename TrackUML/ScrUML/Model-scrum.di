@@ -17,7 +17,7 @@
       <emfPageIdentifier href="Model-scrum.notation#_W0zlwIaHEeOzs_Z1tiYrlA"/>
     </availablePage>
     <availablePage>
-      <emfPageIdentifier href="Model-scrum.notation#_oy_QUIaMEeOzs_Z1tiYrlA"/>
+      <emfPageIdentifier href="Model-scrum.notation#_Sfx2sIa9EeOzs_Z1tiYrlA"/>
     </availablePage>
   </pageList>
   <sashModel currentSelection="//@sashModel/@windows.0/@children.0">
@@ -39,7 +39,7 @@
           <emfPageIdentifier href="Model-scrum.notation#_W0zlwIaHEeOzs_Z1tiYrlA"/>
         </children>
         <children>
-          <emfPageIdentifier href="Model-scrum.notation#_oy_QUIaMEeOzs_Z1tiYrlA"/>
+          <emfPageIdentifier href="Model-scrum.notation#_Sfx2sIa9EeOzs_Z1tiYrlA"/>
         </children>
       </children>
     </windows>
