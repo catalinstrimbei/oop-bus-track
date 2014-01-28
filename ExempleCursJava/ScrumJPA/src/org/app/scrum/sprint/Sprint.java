@@ -10,6 +10,8 @@ public class Sprint {
 	private Integer idSprint;
 	private String obiectiv;
 	private List<Cerinta> cerinte = new ArrayList<>();
+	private Date dataStart;
+	private String review;
 	
 	public List<Cerinta> getCerinte() {
 		return cerinte;
@@ -18,7 +20,7 @@ public class Sprint {
 		this.cerinte = cerinte;
 	}
 	/*******************************/
-	private Date dataStart;
+	
 	// proprietatea dataStart
 	public Date getDataStart() {
 		return dataStart;
@@ -54,9 +56,6 @@ public class Sprint {
 		return dataFinalizare;
 	}	
 	// --------------------------------------------------------------------- //
-	
-	
-	private String review;
 	public Integer getIdSprint() {
 		return idSprint;
 	}
@@ -83,6 +82,12 @@ public class Sprint {
 
 	public Sprint() {
 		super();
+	}
+	public Sprint(Integer idSprint, String obiectiv, Date dataStart) {
+		super();
+		this.idSprint = idSprint;
+		this.obiectiv = obiectiv;
+		this.dataStart = dataStart;
 	}
 	
 	
