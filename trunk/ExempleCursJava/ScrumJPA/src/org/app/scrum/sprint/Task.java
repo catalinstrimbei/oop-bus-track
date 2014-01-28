@@ -10,12 +10,17 @@ public class Task {
 	private Integer idTask;
 	private String denumire;
 	private String descriere;
+	
+	// timing
 	private Date dataStart;
 	private Integer timpEstimat; // initial, exprimat in ore
 	private Integer timpRamas; // actualizat, exprimat in ore
+	private Integer timpEfectiv;	
 	private StatusTask statusTask;
-	private CategorieTask categorieTask;
+	
+	// assessment
 	private Membru responsabil;
+	private CategorieTask categorieTask;
 	
 	// Burn down
 	private Map<Date, Integer> burnDownRecords = new HashMap<>();
@@ -69,6 +74,13 @@ public class Task {
 	public void setCategorieTask(CategorieTask categorieTask) {
 		this.categorieTask = categorieTask;
 	}
+	public Integer getTimpEfectiv() {
+		return timpEfectiv;
+	}
+	public void setTimpEfectiv(Integer timpEfectiv) {
+		this.timpEfectiv = timpEfectiv;
+	}
+	
 	
 	// interfete si polimorfism 
 	public Membru getResponsabil() {
@@ -98,6 +110,39 @@ public class Task {
 	}
 	public Task() {
 		super();
+	}
+	public Task(Integer idTask, String denumire, String descriere,
+			Date dataStart, Integer timpEstimat, Integer timpRamas,
+			Integer timpEfectiv, StatusTask statusTask, Membru responsabil,
+			CategorieTask categorieTask) {
+		super();
+		this.idTask = idTask;
+		this.denumire = denumire;
+		this.descriere = descriere;
+		this.dataStart = dataStart;
+		this.timpEstimat = timpEstimat;
+		this.timpRamas = timpRamas;
+		this.timpEfectiv = timpEfectiv;
+		this.statusTask = statusTask;
+		this.responsabil = responsabil;
+		this.categorieTask = categorieTask;
+	}
+	public Task(Integer idTask, String denumire, Date dataStart,
+			Integer timpEstimat) {
+		super();
+		this.idTask = idTask;
+		this.denumire = denumire;
+		this.dataStart = dataStart;
+		this.timpEstimat = timpEstimat;
+	}
+	public Task(Integer idTask, String denumire, Date dataStart,
+			Integer timpEstimat, Membru responsabil) {
+		super();
+		this.idTask = idTask;
+		this.denumire = denumire;
+		this.dataStart = dataStart;
+		this.timpEstimat = timpEstimat;
+		this.responsabil = responsabil;
 	}
 	
 	

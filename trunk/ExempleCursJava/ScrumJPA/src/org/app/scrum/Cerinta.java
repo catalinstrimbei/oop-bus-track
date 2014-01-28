@@ -13,9 +13,11 @@ import javax.persistence.MappedSuperclass;
 import org.app.scrum.sprint.Task;
 import org.app.scrum.team.Membru;
 
+//abstract 
+
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
-public abstract class Cerinta implements Comparable<Cerinta>
+public class Cerinta implements Comparable<Cerinta>
 {
 	@Id
 	protected Integer idCerinta;
@@ -57,6 +59,8 @@ public abstract class Cerinta implements Comparable<Cerinta>
 	public void setCategorie(CategorieCerinta categorie) {
 		this.categorie = categorie;
 	}
+	
+	
 
 	public Cerinta() {
 		super();
@@ -113,6 +117,11 @@ public abstract class Cerinta implements Comparable<Cerinta>
 		if (this.equals(other))
 			return 0;
 		return this.getDenumire().compareTo(other.getDenumire());
+	}
+	public Cerinta(Integer idCerinta, String denumire) {
+		super();
+		this.idCerinta = idCerinta;
+		this.denumire = denumire;
 	}	
 		
 	

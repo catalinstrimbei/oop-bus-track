@@ -10,6 +10,7 @@ public class Echipa {
 	private List<Membru> membri = new ArrayList<Membru>();
 	private LiderEchipa liderEchipa;
 	
+	// properties from bean accessors
 	public LiderEchipa getLiderEchipa() {
 		return liderEchipa;
 	}
@@ -50,6 +51,11 @@ public class Echipa {
 		super();
 	}
 	
+	public Echipa(Integer idEchipa, Specializare specializare) {
+		super();
+		this.idEchipa = idEchipa;
+		this.specializare = specializare;
+	}
 	// polimorfism parametrizare
 	public void adaugaMembru(Membru membru){
 		this.membri.add(membru);
