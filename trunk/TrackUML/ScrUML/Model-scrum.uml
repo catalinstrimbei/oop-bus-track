@@ -138,7 +138,7 @@ repartizate membrilor echipei/echipelor implicate in proiect.</body>
       </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_fwSzIDfwEeOXdLoEgavdtA" clientDependency="_veVeYDvXEeOykqJIqx8NfQ _wX2gUDvXEeOykqJIqx8NfQ" name="Task">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_Jy3_8DppEeObrIpWPUJq-Q" name="membru" type="_xdTncDfwEeOXdLoEgavdtA" association="_Jy4nADppEeObrIpWPUJq-Q">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Jy3_8DppEeObrIpWPUJq-Q" name="responsabil" type="_xdTncDfwEeOXdLoEgavdtA" association="_Jy4nADppEeObrIpWPUJq-Q">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Jy3_8TppEeObrIpWPUJq-Q" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Jy3_8jppEeObrIpWPUJq-Q" value="1"/>
       </ownedAttribute>
@@ -503,9 +503,7 @@ repartizate membrilor echipei/echipelor implicate in proiect.</body>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_qLN0cIbBEeOzs_Z1tiYrlA" name="getTotalOreAvansDepasireCerinta">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_qLN0cYbBEeOzs_Z1tiYrlA" name="cerinta" type="_z75FkDpoEeObrIpWPUJq-Q"/>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_qLN0cobBEeOzs_Z1tiYrlA" name="rol">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_qLN0cobBEeOzs_Z1tiYrlA" name="echipa" type="_vczvUDfwEeOXdLoEgavdtA"/>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_qLN0c4bBEeOzs_Z1tiYrlA" direction="return">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedParameter>
@@ -519,10 +517,20 @@ repartizate membrilor echipei/echipelor implicate in proiect.</body>
     </ownedOperation>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_f1YzoIbCEeOzs_Z1tiYrlA" name="getTotalOreEfectiveCerinta">
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_f1YzoYbCEeOzs_Z1tiYrlA" name="cerinta" type="_z75FkDpoEeObrIpWPUJq-Q"/>
-      <ownedParameter xmi:type="uml:Parameter" xmi:id="_f1YzoobCEeOzs_Z1tiYrlA" name="rol">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_f1YzoobCEeOzs_Z1tiYrlA" name="echipa" type="_vczvUDfwEeOXdLoEgavdtA"/>
       <ownedParameter xmi:type="uml:Parameter" xmi:id="_f1Yzo4bCEeOzs_Z1tiYrlA" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_I6MRcIf6EeOMYudPRFz-Og" name="getTotalOreRamaseCerinta">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_I6MRcYf6EeOMYudPRFz-Og" name="cerinta" type="_z75FkDpoEeObrIpWPUJq-Q"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_I6MRc4f6EeOMYudPRFz-Og" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_I6TmMIf6EeOMYudPRFz-Og" name="getTotalOreEstimateCerinta">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_I6TmMYf6EeOMYudPRFz-Og" name="cerinta" type="_z75FkDpoEeObrIpWPUJq-Q"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_I6TmM4f6EeOMYudPRFz-Og" direction="return">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
       </ownedParameter>
     </ownedOperation>
