@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_LINxEJynEeOdVbFTC9_hIw" name="Model">
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_LINxEJynEeOdVbFTC9_hIw" name="MVN_POM">
   <ownedComment xmi:type="uml:Comment" xmi:id="_qcA5QJypEeOdVbFTC9_hIw">
     <body>Maven concepts&#xD;
 POM Files&#xD;
@@ -27,15 +27,34 @@ site -  generating documentation </body>
   </ownedComment>
   <ownedComment xmi:type="uml:Comment" xmi:id="_oXe_QJy1EeOdVbFTC9_hIw" annotatedElement="_W8k6gJyoEeOdVbFTC9_hIw">
     <body>Instances:&#xD;
+--------------------------------------&#xD;
+[default build lifesycle]&#xD;
 validate - check dependencies&#xD;
 compile - compile source code&#xD;
 test - run tests using test unit framework&#xD;
 package - pack compiled code in distributable file formats (wars, jars, ears)&#xD;
+integration test - process and deploy the package if necessary into an environment where integration tests can be run&#xD;
 install - into local repository&#xD;
-deploy - into target container/app_server ...</body>
+deploy - into integration or release env. as an container/app_server ...&#xD;
+--------------------------------------&#xD;
+[Clean lifecycle]&#xD;
+clean up build artifact from prior builds&#xD;
+--------------------------------------&#xD;
+[Site lifecycle]&#xD;
+generate project documentation&#xD;
+--------------------------------------</body>
   </ownedComment>
   <ownedComment xmi:type="uml:Comment" xmi:id="_kf50QJy2EeOdVbFTC9_hIw" annotatedElement="_RbHSgJynEeOdVbFTC9_hIw">
     <body>Described within pom.xml file</body>
+  </ownedComment>
+  <ownedComment xmi:type="uml:Comment" xmi:id="_zDaW8J3oEeOW5Y0paOh18g">
+    <body>MVN Commands:&#xD;
+* mvn plugin:scope &#xD;
+[e.g. mvn archetype:generate]&#xD;
+* mvn phase&#xD;
+[e.g. mvn compile ... executing building process up to compile> validate|generate-sources|process-sources|generate-resources|compile]&#xD;
+* mvn phase1 phase2 plugin1:scope&#xD;
+[combined customed build process]</body>
   </ownedComment>
   <packageImport xmi:type="uml:PackageImport" xmi:id="_LINxEZynEeOdVbFTC9_hIw">
     <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
@@ -75,6 +94,12 @@ deploy - into target container/app_server ...</body>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_59jMIJy3EeOdVbFTC9_hIw" name="profiles" type="_fnCycJy3EeOdVbFTC9_hIw" association="_59jzMJy3EeOdVbFTC9_hIw">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_59jMIZy3EeOdVbFTC9_hIw"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_59jMIpy3EeOdVbFTC9_hIw" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_oOxvsJ3oEeOW5Y0paOh18g" name="name">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_qBayAJ3oEeOW5Y0paOh18g" name="url">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
     </ownedAttribute>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_usCqYJyxEeOdVbFTC9_hIw" name="build"/>
   </packagedElement>
@@ -200,4 +225,6 @@ deploy - into target container/app_server ...</body>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_59jzM5y3EeOdVbFTC9_hIw" value="1"/>
     </ownedEnd>
   </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_TIVhcJ3oEeOW5Y0paOh18g" name="Archetype"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_cSniEJ4cEeOW5Y0paOh18g" name="Plugin"/>
 </uml:Model>
