@@ -25,7 +25,7 @@ default - compiling and packaging&#xD;
 clean -  removing temporary files from the output directory&#xD;
 site -  generating documentation </body>
   </ownedComment>
-  <ownedComment xmi:type="uml:Comment" xmi:id="_oXe_QJy1EeOdVbFTC9_hIw" annotatedElement="_W8k6gJyoEeOdVbFTC9_hIw">
+  <ownedComment xmi:type="uml:Comment" xmi:id="_oXe_QJy1EeOdVbFTC9_hIw">
     <body>Instances:&#xD;
 --------------------------------------&#xD;
 [default build lifesycle]&#xD;
@@ -45,7 +45,8 @@ generate project documentation&#xD;
 --------------------------------------</body>
   </ownedComment>
   <ownedComment xmi:type="uml:Comment" xmi:id="_kf50QJy2EeOdVbFTC9_hIw" annotatedElement="_RbHSgJynEeOdVbFTC9_hIw">
-    <body>Described within pom.xml file</body>
+    <body>Described within pom.xml file&#xD;
+Coordinates: groupId:artifactId:packaging:version</body>
   </ownedComment>
   <ownedComment xmi:type="uml:Comment" xmi:id="_zDaW8J3oEeOW5Y0paOh18g">
     <body>MVN Commands:&#xD;
@@ -100,6 +101,18 @@ generate project documentation&#xD;
     </ownedAttribute>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_qBayAJ3oEeOW5Y0paOh18g" name="url">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="__z0ZgJ-4EeOBXrz2ByhdjA" name="licences" type="_8RVxQJ-4EeOBXrz2ByhdjA" association="__z1AkJ-4EeOBXrz2ByhdjA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__z0ZgZ-4EeOBXrz2ByhdjA"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__z0Zgp-4EeOBXrz2ByhdjA" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_AShHsJ-5EeOBXrz2ByhdjA" name="organization" type="_9faG4J-4EeOBXrz2ByhdjA" association="_AShuwp-5EeOBXrz2ByhdjA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AShuwJ-5EeOBXrz2ByhdjA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_AShuwZ-5EeOBXrz2ByhdjA" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_AvILMJ-5EeOBXrz2ByhdjA" name="developers" type="_-m89wJ-4EeOBXrz2ByhdjA" association="_AvILM5-5EeOBXrz2ByhdjA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AvILMZ-5EeOBXrz2ByhdjA"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_AvILMp-5EeOBXrz2ByhdjA" value="*"/>
     </ownedAttribute>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_usCqYJyxEeOdVbFTC9_hIw" name="build"/>
   </packagedElement>
@@ -156,8 +169,9 @@ generate project documentation&#xD;
     <ownedAttribute xmi:type="uml:Property" xmi:id="_eslZgJywEeOdVbFTC9_hIw" name="version">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
     </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_nkw7IJywEeOdVbFTC9_hIw" name="scope">
-      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_VliysJ-0EeOBXrz2ByhdjA" name="scope" type="_C6-_AJypEeOdVbFTC9_hIw" association="_VllO8J-0EeOBXrz2ByhdjA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VliysZ-0EeOBXrz2ByhdjA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Vliysp-0EeOBXrz2ByhdjA" value="1"/>
     </ownedAttribute>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_NguxgJywEeOdVbFTC9_hIw" name="project_dependency_1" memberEnd="_NguxgZywEeOdVbFTC9_hIw _NgtjYJywEeOdVbFTC9_hIw">
@@ -226,5 +240,43 @@ generate project documentation&#xD;
     </ownedEnd>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_TIVhcJ3oEeOW5Y0paOh18g" name="Archetype"/>
-  <packagedElement xmi:type="uml:Class" xmi:id="_cSniEJ4cEeOW5Y0paOh18g" name="Plugin"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_cSniEJ4cEeOW5Y0paOh18g" name="Plugin">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_t6uqUJ-zEeOBXrz2ByhdjA" name="goal" type="_C6-_AJypEeOdVbFTC9_hIw" association="_t663kJ-zEeOBXrz2ByhdjA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_t6uqUZ-zEeOBXrz2ByhdjA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_t6uqUp-zEeOBXrz2ByhdjA" value="*"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_t663kJ-zEeOBXrz2ByhdjA" name="plugin_goal_1" memberEnd="_t663kZ-zEeOBXrz2ByhdjA _t6uqUJ-zEeOBXrz2ByhdjA">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_t663kZ-zEeOBXrz2ByhdjA" name="plugin" type="_cSniEJ4cEeOW5Y0paOh18g" association="_t663kJ-zEeOBXrz2ByhdjA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_t663kp-zEeOBXrz2ByhdjA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_t663k5-zEeOBXrz2ByhdjA" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_VllO8J-0EeOBXrz2ByhdjA" name="dependency_goal_1" memberEnd="_VllO8Z-0EeOBXrz2ByhdjA _VliysJ-0EeOBXrz2ByhdjA">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_VllO8Z-0EeOBXrz2ByhdjA" name="dependency" type="_K0WDwJywEeOdVbFTC9_hIw" association="_VllO8J-0EeOBXrz2ByhdjA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VllO8p-0EeOBXrz2ByhdjA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_VllO85-0EeOBXrz2ByhdjA" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_8RVxQJ-4EeOBXrz2ByhdjA" name="Licence"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_9faG4J-4EeOBXrz2ByhdjA" name="Organization"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_-m89wJ-4EeOBXrz2ByhdjA" name="Developer"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="__z1AkJ-4EeOBXrz2ByhdjA" name="project_licence_1" memberEnd="__z1AkZ-4EeOBXrz2ByhdjA __z0ZgJ-4EeOBXrz2ByhdjA">
+    <ownedEnd xmi:type="uml:Property" xmi:id="__z1AkZ-4EeOBXrz2ByhdjA" name="project" type="_RbHSgJynEeOdVbFTC9_hIw" association="__z1AkJ-4EeOBXrz2ByhdjA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__z1Akp-4EeOBXrz2ByhdjA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__z1Ak5-4EeOBXrz2ByhdjA" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_AShuwp-5EeOBXrz2ByhdjA" name="project_organization_1" memberEnd="_AShuw5-5EeOBXrz2ByhdjA _AShHsJ-5EeOBXrz2ByhdjA">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_AShuw5-5EeOBXrz2ByhdjA" name="project" type="_RbHSgJynEeOdVbFTC9_hIw" association="_AShuwp-5EeOBXrz2ByhdjA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AShuxJ-5EeOBXrz2ByhdjA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_AShuxZ-5EeOBXrz2ByhdjA" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_AvILM5-5EeOBXrz2ByhdjA" name="project_developer_1" memberEnd="_AvILNJ-5EeOBXrz2ByhdjA _AvILMJ-5EeOBXrz2ByhdjA">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_AvILNJ-5EeOBXrz2ByhdjA" name="project" type="_RbHSgJynEeOdVbFTC9_hIw" association="_AvILM5-5EeOBXrz2ByhdjA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AvILNZ-5EeOBXrz2ByhdjA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_AvILNp-5EeOBXrz2ByhdjA" value="1"/>
+    </ownedEnd>
+  </packagedElement>
 </uml:Model>
