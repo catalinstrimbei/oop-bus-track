@@ -118,6 +118,10 @@ Coordinates: groupId:artifactId:packaging:version</body>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aHcqoaBDEeO4q7kujO7h8g" value="1"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aHcqoqBDEeO4q7kujO7h8g" value="1"/>
     </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_XbY7UKC3EeOUK8X9enNUaw" name="properties" type="_ToHeAKC3EeOUK8X9enNUaw" association="_XbvgoKC3EeOUK8X9enNUaw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XbY7UaC3EeOUK8X9enNUaw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XbY7UqC3EeOUK8X9enNUaw" value="*"/>
+    </ownedAttribute>
     <ownedOperation xmi:type="uml:Operation" xmi:id="_usCqYJyxEeOdVbFTC9_hIw" name="build"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_OajPEJyoEeOdVbFTC9_hIw" name="BuildProcess"/>
@@ -131,10 +135,6 @@ Coordinates: groupId:artifactId:packaging:version</body>
     <ownedAttribute xmi:type="uml:Property" xmi:id="_KaIRIJypEeOdVbFTC9_hIw" name="goals" type="_C6-_AJypEeOdVbFTC9_hIw" association="_KaI4MJypEeOdVbFTC9_hIw">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KaIRIZypEeOdVbFTC9_hIw" value="1"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KaIRIpypEeOdVbFTC9_hIw" value="*"/>
-    </ownedAttribute>
-    <ownedAttribute xmi:type="uml:Property" xmi:id="_pdr94JyrEeOdVbFTC9_hIw" name="nextbuildPhase" type="_W8k6gJyoEeOdVbFTC9_hIw" association="_pdwPUJyrEeOdVbFTC9_hIw">
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pdr94ZyrEeOdVbFTC9_hIw" value="1"/>
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pdr94pyrEeOdVbFTC9_hIw" value="1"/>
     </ownedAttribute>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_C6-_AJypEeOdVbFTC9_hIw" name="Goal"/>
@@ -153,12 +153,6 @@ Coordinates: groupId:artifactId:packaging:version</body>
   <packagedElement xmi:type="uml:Component" xmi:id="_T954AJyqEeOdVbFTC9_hIw" name="MVN_engine"/>
   <packagedElement xmi:type="uml:Component" xmi:id="_3mjygJyqEeOdVbFTC9_hIw" name="POM.xml_File"/>
   <packagedElement xmi:type="uml:Component" xmi:id="_BYiC4JyrEeOdVbFTC9_hIw" name="MVN_Command"/>
-  <packagedElement xmi:type="uml:Association" xmi:id="_pdwPUJyrEeOdVbFTC9_hIw" name="buildPhase_buildPhase_1" memberEnd="_pdwPUZyrEeOdVbFTC9_hIw _pdr94JyrEeOdVbFTC9_hIw">
-    <ownedEnd xmi:type="uml:Property" xmi:id="_pdwPUZyrEeOdVbFTC9_hIw" name="buildPhase" type="_W8k6gJyoEeOdVbFTC9_hIw" association="_pdwPUJyrEeOdVbFTC9_hIw">
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pdwPUpyrEeOdVbFTC9_hIw" value="1"/>
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pdwPU5yrEeOdVbFTC9_hIw" value="1"/>
-    </ownedEnd>
-  </packagedElement>
   <packagedElement xmi:type="uml:Component" xmi:id="_9hSPEJyrEeOdVbFTC9_hIw" name="MVN_Repository">
     <nestedClassifier xmi:type="uml:Component" xmi:id="_DxCV4JysEeOdVbFTC9_hIw" name="DependencyJAR"/>
   </packagedElement>
@@ -352,6 +346,13 @@ Coordinates: groupId:artifactId:packaging:version</body>
     <ownedEnd xmi:type="uml:Property" xmi:id="_alNvRKBEEeO4q7kujO7h8g" name="execution" type="_Dr-GoKBEEeO4q7kujO7h8g" association="_alNvQ6BEEeO4q7kujO7h8g">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_alNvRaBEEeO4q7kujO7h8g" value="1"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_alNvRqBEEeO4q7kujO7h8g" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_ToHeAKC3EeOUK8X9enNUaw" name="Property"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_XbvgoKC3EeOUK8X9enNUaw" name="project_property_1" memberEnd="_XbvgoaC3EeOUK8X9enNUaw _XbY7UKC3EeOUK8X9enNUaw">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_XbvgoaC3EeOUK8X9enNUaw" name="project" type="_RbHSgJynEeOdVbFTC9_hIw" association="_XbvgoKC3EeOUK8X9enNUaw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XbvgoqC3EeOUK8X9enNUaw" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Xbvgo6C3EeOUK8X9enNUaw" value="1"/>
     </ownedEnd>
   </packagedElement>
 </uml:Model>
