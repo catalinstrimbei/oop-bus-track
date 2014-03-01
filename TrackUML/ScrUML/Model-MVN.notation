@@ -279,7 +279,7 @@
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cSpXUZ4cEeOW5Y0paOh18g"/>
       </children>
       <element xmi:type="uml:Class" href="Model-MVN.uml#_cSniEJ4cEeOW5Y0paOh18g"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cSowMZ4cEeOW5Y0paOh18g" x="900" y="192"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cSowMZ4cEeOW5Y0paOh18g" x="840" y="192"/>
     </children>
     <children xmi:type="notation:Shape" xmi:id="_TCEwYJ-0EeOBXrz2ByhdjA" type="2008" fontName="Segoe UI" lineColor="0">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_TCGlkJ-0EeOBXrz2ByhdjA" source="ShadowFigure">
@@ -1640,5 +1640,41 @@
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XdDvQKC3EeOUK8X9enNUaw" id="(0.8390243902439024,0.7486338797814208)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XdDvQaC3EeOUK8X9enNUaw" id="(0.33,0.17)"/>
     </edges>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_WDKesKFoEeOs5Jt2aE6Erw" type="PapyrusUMLActivityDiagram" name="D0-SD Building Process" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_WDKesaFoEeOs5Jt2aE6Erw" type="2001" fontName="Segoe UI" lineColor="0">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WDKesqFoEeOs5Jt2aE6Erw" source="ShadowFigure">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WDKes6FoEeOs5Jt2aE6Erw" key="ShadowFigure_Value" value="false"/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WDKetKFoEeOs5Jt2aE6Erw" source="displayNameLabelIcon">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WDKetaFoEeOs5Jt2aE6Erw" key="displayNameLabelIcon_value" value="false"/>
+      </eAnnotations>
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WDKetqFoEeOs5Jt2aE6Erw" source="QualifiedName">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_WDKet6FoEeOs5Jt2aE6Erw" key="QualifiedNameDepth" value="1000"/>
+      </eAnnotations>
+      <children xmi:type="notation:DecorationNode" xmi:id="_WDKeuKFoEeOs5Jt2aE6Erw" type="5001"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_WDKeuqFoEeOs5Jt2aE6Erw" type="7001">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_WDKeu6FoEeOs5Jt2aE6Erw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_WDKevKFoEeOs5Jt2aE6Erw"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WDKevaFoEeOs5Jt2aE6Erw"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_WDKevqFoEeOs5Jt2aE6Erw" type="7002">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_WDKev6FoEeOs5Jt2aE6Erw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_WDKewKFoEeOs5Jt2aE6Erw"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WDKewaFoEeOs5Jt2aE6Erw"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_WDKewqFoEeOs5Jt2aE6Erw" type="7003">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_WDKew6FoEeOs5Jt2aE6Erw"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_WDKexKFoEeOs5Jt2aE6Erw"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WDKexaFoEeOs5Jt2aE6Erw"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_WDKexqFoEeOs5Jt2aE6Erw" type="7004">
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WDKex6FoEeOs5Jt2aE6Erw"/>
+      </children>
+      <element xmi:type="uml:Activity" href="Model-MVN.uml#_TCPrYKFoEeOs5Jt2aE6Erw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WDKeyKFoEeOs5Jt2aE6Erw"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_WDKeyaFoEeOs5Jt2aE6Erw"/>
+    <element xmi:type="uml:Activity" href="Model-MVN.uml#_TCPrYKFoEeOs5Jt2aE6Erw"/>
   </notation:Diagram>
 </xmi:XMI>
