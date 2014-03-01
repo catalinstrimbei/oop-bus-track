@@ -355,4 +355,5 @@ Coordinates: groupId:artifactId:packaging:version</body>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Xbvgo6C3EeOUK8X9enNUaw" value="1"/>
     </ownedEnd>
   </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_TCPrYKFoEeOs5Jt2aE6Erw" name="Software Process"/>
 </uml:Model>
