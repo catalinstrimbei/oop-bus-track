@@ -57,6 +57,23 @@ Coordinates: groupId:artifactId:packaging:version</body>
 * mvn phase1 phase2 plugin1:scope&#xD;
 [combined customed build process]</body>
   </ownedComment>
+  <ownedComment xmi:type="uml:Comment" xmi:id="_IZ28EKJHEeOqtdfuJvTlcg">
+    <body>Maven Build Process Model</body>
+  </ownedComment>
+  <ownedComment xmi:type="uml:Comment" xmi:id="_6BRQcKJHEeOqtdfuJvTlcg" annotatedElement="_W8k6gJyoEeOdVbFTC9_hIw">
+    <body>Instances:&#xD;
+compile&#xD;
+test&#xD;
+package&#xD;
+install</body>
+  </ownedComment>
+  <ownedComment xmi:type="uml:Comment" xmi:id="_K5dVkKJIEeOqtdfuJvTlcg" annotatedElement="_cSniEJ4cEeOW5Y0paOh18g">
+    <body>Instances:&#xD;
+archetype&#xD;
+compiler&#xD;
+surfire&#xD;
+jar</body>
+  </ownedComment>
   <packageImport xmi:type="uml:PackageImport" xmi:id="_LINxEZynEeOdVbFTC9_hIw">
     <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
   </packageImport>
@@ -237,7 +254,6 @@ Coordinates: groupId:artifactId:packaging:version</body>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_59jzM5y3EeOdVbFTC9_hIw" value="1"/>
     </ownedEnd>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_TIVhcJ3oEeOW5Y0paOh18g" name="Archetype"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_cSniEJ4cEeOW5Y0paOh18g" name="Plugin">
     <ownedAttribute xmi:type="uml:Property" xmi:id="_t6uqUJ-zEeOBXrz2ByhdjA" name="goal" type="_C6-_AJypEeOdVbFTC9_hIw" association="_t663kJ-zEeOBXrz2ByhdjA">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_t6uqUZ-zEeOBXrz2ByhdjA" value="1"/>
