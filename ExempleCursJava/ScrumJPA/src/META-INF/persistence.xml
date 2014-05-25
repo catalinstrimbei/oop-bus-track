@@ -14,4 +14,21 @@
 			<property name="eclipselink.temporal.mutable" value="true"/>
 		</properties>
 	</persistence-unit>
+	
+	
+	<persistence-unit name="source" transaction-type="RESOURCE_LOCAL">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider> 
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>
+            <property name="eclipselink.weaving" value="static"/>
+        </properties>
+	</persistence-unit>
+	
+	<persistence-unit name="target" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="eclipselink.weaving" value="static"/>
+        </properties>
+    </persistence-unit>	
 </persistence>
