@@ -46,33 +46,6 @@ public class Test_DynamicJPA {
 	}
 	
     public static EntityManagerFactory createEntityManagerFactory(DynamicClassLoader dcl, String persistenceUnit) {
-		/*
-		javax.persistence.jdbc.driver=oracle.jdbc.OracleDriver
-		javax.persistence.jdbc.url=jdbc:oracle:thin:@10.10.0.7:1521:ORCL
-		javax.persistence.jdbc.user=scrum
-		javax.persistence.jdbc.password=scrum
-		
-		eclipselink.jdbc.read-connections.min=1
-		eclipselink.jdbc.write-connections.min=1
-		
-		eclipselink.logging.level=CONFIG
-		eclipselink.logging.timestamp=false
-		eclipselink.logging.thread=false
-		eclipselink.logging.session=false
-		eclipselink.logging.exceptions=false
-		eclipselink.logging.level.sql=FINE
-		eclipselink.logging.level.ejb_or_metadata=WARNING 
-		
-		// properties.put("", "");   
-		File file = new File(filename);	
-		Properties exampleProps = new Properties();
-		InputStream in = new FileInputStream(file);
-		exampleProps.load(in);
-		in.close();
-		properties.putAll(exampleProps);
-		 */
-    	
-    	
         Map<Object, Object> properties = new HashMap<Object, Object>();
         properties.put("javax.persistence.jdbc.driver", "oracle.jdbc.OracleDriver");
         properties.put("javax.persistence.jdbc.url", "jdbc:oracle:thin:@10.10.0.7:1521:ORCL");
@@ -135,3 +108,30 @@ public class Test_DynamicJPA {
 //        
 //        return address;
 //    }
+
+
+/*
+javax.persistence.jdbc.driver=oracle.jdbc.OracleDriver
+javax.persistence.jdbc.url=jdbc:oracle:thin:@10.10.0.7:1521:ORCL
+javax.persistence.jdbc.user=scrum
+javax.persistence.jdbc.password=scrum
+
+eclipselink.jdbc.read-connections.min=1
+eclipselink.jdbc.write-connections.min=1
+
+eclipselink.logging.level=CONFIG
+eclipselink.logging.timestamp=false
+eclipselink.logging.thread=false
+eclipselink.logging.session=false
+eclipselink.logging.exceptions=false
+eclipselink.logging.level.sql=FINE
+eclipselink.logging.level.ejb_or_metadata=WARNING 
+
+// properties.put("", "");   
+File file = new File(filename);	
+Properties exampleProps = new Properties();
+InputStream in = new FileInputStream(file);
+exampleProps.load(in);
+in.close();
+properties.putAll(exampleProps);
+ */
