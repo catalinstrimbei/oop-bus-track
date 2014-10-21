@@ -3,7 +3,6 @@ package org.plain.scrum;
 import java.util.ArrayList;
 import java.util.List;
 
-//abstract 
 public class Cerinta implements Comparable<Cerinta>
 {
 	protected Integer idCerinta;
