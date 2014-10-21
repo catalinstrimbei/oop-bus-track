@@ -1,8 +1,7 @@
-package org.course.poo.cap1;
+package org.app.scrum.cap11;
 
 public class Cerinta{
 	Integer idCerinta;
 	String denumire;
 	String descriere;
-	
 }

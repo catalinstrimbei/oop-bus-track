@@ -1,8 +1,9 @@
-package org.course.poo.cap1;
+package org.app.scrum.cap11;
 
 import java.util.Date;
 
-public class TestCap1 {
+/* Obtinere obiecte */
+public class Test11_AppObiecte {
 
 	public static void main(String[] args) {
 		Proiect p = new Proiect();

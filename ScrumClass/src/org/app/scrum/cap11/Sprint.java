@@ -1,4 +1,4 @@
-package org.course.poo.cap1;
+package org.app.scrum.cap11;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -10,5 +10,5 @@ public class Sprint {
 	Date dataStart;
 	String review;
 	
-	List<Cerinta> cerinte = new ArrayList<>();
+	List<Cerinta> cerinte = new ArrayList<>();	
 }
