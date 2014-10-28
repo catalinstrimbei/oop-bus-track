@@ -7,7 +7,7 @@ import java.util.List;
 public class Proiect {
 	Integer nrProiect;	
 	String numeProiect;
-	Date dataStart;
+	Date dataStart = new Date();
 	
 	List<Release> releases = new ArrayList<>();
 	

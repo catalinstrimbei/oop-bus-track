@@ -65,7 +65,7 @@ public class Test12_InitArraysLists {
 	
 	static void exempluArrayListProiecte(){
 		// initializare tablou
-		ArrayList<Proiect> proiecte = new ArrayList<Proiect>();
+		ArrayList<Proiect> proiecte = new ArrayList<>();
 		
 		Proiect proiect = new Proiect(); 
 		proiect.nrProiect = 1;

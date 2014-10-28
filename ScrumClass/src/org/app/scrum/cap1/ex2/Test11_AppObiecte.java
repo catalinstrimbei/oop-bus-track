@@ -6,10 +6,10 @@ import java.util.Date;
 public class Test11_AppObiecte {
 
 	public static void main(String[] args) {
-		Proiect p = new Proiect();
-		p.nrProiect = 1;
-		p.numeProiect = "SRUM Agile App";
-		p.dataStart = new Date();
+		Proiect p = new Proiect(1, "SRUM Agile App", new Date());
+//		p.nrProiect = 1;
+//		p.numeProiect = "SRUM Agile App";
+//		p.dataStart = new Date();
 		
 		Release r1 = new Release();
 		r1.idRelease = 1;

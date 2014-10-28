@@ -7,7 +7,8 @@ public class Test11_AppObiecte {
 
 	public static void main(String[] args) {
 		Proiect p = new Proiect();
-		p.nrProiect = 1;
+	    //p.nrProiect = 1;
+		p.setNrProiect(1);
 		p.numeProiect = "SRUM Agile App";
 		p.dataStart = new Date();
 		
