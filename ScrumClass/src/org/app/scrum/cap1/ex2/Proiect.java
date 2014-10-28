@@ -28,6 +28,13 @@ public class Proiect {
 		this.nrProiect = nrProiect;
 		this.numeProiect = numeProiect;
 		this.dataStart = dataStart;
+	}
+
+	public Proiect(Integer nrProiect, String numeProiect) {
+		super();
+		this.nrProiect = nrProiect;
+		this.numeProiect = numeProiect;
 	}	
+	
 	
 }
