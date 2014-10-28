@@ -3,8 +3,6 @@ package cap2.ex3.org.app.scrum.team;
 import java.util.ArrayList;
 import java.util.List;
 
-import cap2.ex3.org.app.scrum.Specializare;
-
 public class Echipa {
 	private Integer idEchipa;
 	private Specializare specializare; // ENum

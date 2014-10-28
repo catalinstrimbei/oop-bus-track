@@ -1,6 +1,5 @@
 package cap2.ex3.org.app.scrum.team;
 
-import cap2.ex3.org.app.scrum.Rol;
 
 public class Membru {
 	private Integer idMembru;
