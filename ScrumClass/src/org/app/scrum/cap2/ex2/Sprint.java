@@ -5,10 +5,10 @@ import java.util.Date;
 import java.util.List;
 
 public class Sprint {
-	Integer idSprint;
-	String obiectiv;
-	Date dataStart;
-	String review;
+	private Integer idSprint;
+	private String obiectiv;
+	private Date dataStart;
+	private String review;
 	
 	List<Cerinta> cerinte = new ArrayList<>();
 
@@ -32,6 +32,47 @@ public class Sprint {
 		this.idSprint = idSprint;
 		this.obiectiv = obiectiv;
 		this.dataStart = dataStart;
+	}
+
+	public Integer getIdSprint() {
+		return idSprint;
+	}
+
+	public void setIdSprint(Integer idSprint) {
+		this.idSprint = idSprint;
+	}
+
+	public String getObiectiv() {
+		return obiectiv;
+	}
+
+	public void setObiectiv(String obiectiv) {
+		this.obiectiv = obiectiv;
+	}
+
+	public Date getDataStart() {
+		return dataStart;
+	}
+
+	public void setDataStart(Date dataStart) {
+		this.dataStart = dataStart;
+	}
+
+	public String getReview() {
+		return review;
+	}
+
+	public void setReview(String review) {
+		this.review = review;
+	}
+
+	public List<Cerinta> getCerinte() {
+		return cerinte;
+	}
+
+	public void setCerinte(List<Cerinta> cerinte) {
+		this.cerinte = cerinte;
 	}	
+	
 	
 }

@@ -1,10 +1,10 @@
-package org.app.scrum.cap2.ex1;
+package org.app.scrum.cap2.exn_n;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Proiect implements IProiect {
+public class Proiect {
 	Integer nrProiect;	
 	String numeProiect;
 	Date dataStart;
@@ -30,14 +30,4 @@ public class Proiect implements IProiect {
 		this.dataStart = dataStart;
 	}	
 	
-	public Proiect(Integer nrProiect, String numeProiect) {
-		super();
-		this.nrProiect = nrProiect;
-		this.numeProiect = numeProiect;
-	}
-
-	/*------------------------------------------*/
-	public Integer getReleaseCount(){
-		return this.releases.size();
-	}
 }

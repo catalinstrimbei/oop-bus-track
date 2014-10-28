@@ -1,4 +1,4 @@
-package org.app.scrum.cap2.ex1;
+package org.app.scrum.cap2.exn_n;
 
 
 /* Clasa: constructor si tip */
