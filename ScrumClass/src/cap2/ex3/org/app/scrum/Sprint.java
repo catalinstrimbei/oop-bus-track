@@ -4,17 +4,18 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
 public class Sprint {
 	private Integer idSprint;
 	private String obiectiv;
 	private Date dataStart;
 	private String review;
-	
+
 	List<Cerinta> cerinte = new ArrayList<>();
 
 	/*------------------------------------------*/
 	public Sprint() {
-		
+
 	}
 
 	public Sprint(Integer idSprint, String obiectiv, Date dataStart,
@@ -72,7 +73,33 @@ public class Sprint {
 
 	public void setCerinte(List<Cerinta> cerinte) {
 		this.cerinte = cerinte;
-	}	
-	
-	
+	}
+
+	// --------------------------------------------------------------------- //
+	private Long getDurataEstimataCerinta(Cerinta cerinta) {
+		Long durataEstimataCerinta = 0l; // 0 long
+		for (Task t : cerinta.getTaskuri()) {
+			durataEstimataCerinta += t.getTimpEstimat() * 60 * 60 * 1000;
+		}
+		return durataEstimataCerinta;
+	}
+
+	private Long getDurataEstimataSprint() {
+		Long durataEstimataSprint = 0l; // 0 long
+		for (Cerinta c : this.cerinte) {
+			durataEstimataSprint += getDurataEstimataCerinta(c);
+		}
+
+		return durataEstimataSprint;
+	}
+
+	// prop dataFinalizare
+	public Date getDataFinalizare() {
+		Long t1 = this.dataStart.getTime() + this.getDurataEstimataSprint();
+
+		Date dataFinalizare = new Date(t1);
+
+		return dataFinalizare;
+	}
+	// --------------------------------------------------------------------- //
 }

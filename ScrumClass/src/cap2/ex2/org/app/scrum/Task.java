@@ -1,10 +1,8 @@
-package cap2.ex3.org.app.scrum;
+package cap2.ex2.org.app.scrum;
 
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-
-import cap2.ex3.org.app.scrum.team.Membru;
 
 public class Task {
 	private Integer idTask;
@@ -80,9 +78,6 @@ public class Task {
 	public void setTimpEfectiv(Integer timpEfectiv) {
 		this.timpEfectiv = timpEfectiv;
 	}
-	
-	
-	// interfete si polimorfism 
 	public Membru getResponsabil() {
 		return responsabil;
 	}

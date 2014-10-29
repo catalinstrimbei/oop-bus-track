@@ -1,10 +1,13 @@
 package cap2.ex2.org.app.scrum;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Cerinta{
 	private Integer idCerinta;
 	private String denumire;
 	private String descriere;
-	
+	private List<Task> taskuri = new ArrayList<>();
 	/*------------------------------------------*/
 	public Cerinta() {
 		
@@ -33,7 +36,12 @@ public class Cerinta{
 	public void setDescriere(String descriere) {
 		this.descriere = descriere;
 	}
-	
+	public List<Task> getTaskuri() {
+		return taskuri;
+	}
+	public void setTaskuri(List<Task> taskuri) {
+		this.taskuri = taskuri;
+	}	
 	/*------------------------------------------*/
 	
 	
