@@ -30,22 +30,19 @@
           <emfPageIdentifier href="Model-scrum.notation#_mO7GsDcwEeObreURXdy-Cg"/>
         </children>
         <children>
-          <emfPageIdentifier href="Model-scrum.notation#_iN99QDcxEeObreURXdy-Cg"/>
+          <emfPageIdentifier href="Model-scrum.notation#_hkfVcE4SEeSziZyvgHFReg"/>
         </children>
         <children>
           <emfPageIdentifier href="Model-scrum.notation#_wEadsDpoEeObrIpWPUJq-Q"/>
         </children>
         <children>
-          <emfPageIdentifier href="Model-scrum.notation#_mfwZAD54EeOn5pvlXCmwSA"/>
+          <emfPageIdentifier href="Model-scrum.notation#_iN99QDcxEeObreURXdy-Cg"/>
         </children>
         <children>
-          <emfPageIdentifier href="Model-scrum.notation#_W0zlwIaHEeOzs_Z1tiYrlA"/>
+          <emfPageIdentifier href="Model-scrum.notation#_IodQAFkmEeS6CcrL6T25Bw"/>
         </children>
         <children>
-          <emfPageIdentifier href="Model-scrum.notation#_Sfx2sIa9EeOzs_Z1tiYrlA"/>
-        </children>
-        <children>
-          <emfPageIdentifier href="Model-scrum.notation#_hkfVcE4SEeSziZyvgHFReg"/>
+          <emfPageIdentifier href="Model-scrum.notation#_prfkYFksEeS6CcrL6T25Bw"/>
         </children>
       </children>
     </windows>
