@@ -1,4 +1,4 @@
-package cap2.exemplu9;
+package cap2.ex6;
 import java.text.DecimalFormat; 
 import java.text.DecimalFormatSymbols; 
 import java.text.NumberFormat;

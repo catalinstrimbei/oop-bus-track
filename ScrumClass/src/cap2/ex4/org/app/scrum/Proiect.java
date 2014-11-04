@@ -1,7 +1,6 @@
-package cap2.ex2.org.app.scrum;
+package cap2.ex4.org.app.scrum;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -79,15 +78,6 @@ public class Proiect implements IProiect {
 	}
 	
 	/*------------------------------------------*/
-	public Integer getZiStart(){
-		Calendar caledarUtil = Calendar.getInstance();
-		caledarUtil.setTime(this.dataStart);
-		
-		System.out.println("caledarUtil.get(Calendar.DAY_OF_WEEK) = " 
-				+ caledarUtil.get(Calendar.DAY_OF_WEEK));
-		System.out.println("this.dataStart.getDay() = " + this.dataStart.getDay());
-		
-		return caledarUtil.get(Calendar.DAY_OF_WEEK);
-	}
+	
 	
 }

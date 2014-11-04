@@ -1,4 +1,4 @@
-package cap2.exemplu10;
+package cap2.ex8;
 
 public class TestObiecteExceptii {
 	

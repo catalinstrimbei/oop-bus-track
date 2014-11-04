@@ -1,4 +1,4 @@
-package cap2.exemplu8;
+package cap2.ex5;
 
 import java.util.Date;
 

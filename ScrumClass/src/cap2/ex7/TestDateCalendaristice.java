@@ -1,4 +1,4 @@
-package cap2.exemplu11;
+package cap2.ex7;
 
 import java.sql.Date;
 import java.text.ParseException;
