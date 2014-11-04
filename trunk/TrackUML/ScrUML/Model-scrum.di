@@ -44,6 +44,9 @@
         <children>
           <emfPageIdentifier href="Model-scrum.notation#_prfkYFksEeS6CcrL6T25Bw"/>
         </children>
+        <children>
+          <emfPageIdentifier href="Model-scrum.notation#_AS5xEGPsEeSzzYaqJLi7Ew"/>
+        </children>
       </children>
     </windows>
   </sashModel>
