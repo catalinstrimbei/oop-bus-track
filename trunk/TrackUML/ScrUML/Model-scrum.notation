@@ -2856,7 +2856,7 @@
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WFqS3GPsEeSzzYaqJLi7Ew"/>
       </children>
       <element xmi:type="uml:Class" href="Model-scrum.uml#_xdTncDfwEeOXdLoEgavdtA"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WFqS4GPsEeSzzYaqJLi7Ew" x="76" y="536" width="186"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WFqS4GPsEeSzzYaqJLi7Ew" x="67" y="536" width="186"/>
     </children>
     <children xmi:type="notation:Shape" xmi:id="_WFrg4GPsEeSzzYaqJLi7Ew" type="2008" fontName="Segoe UI" lineColor="0">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WFrg4WPsEeSzzYaqJLi7Ew" source="ShadowFigure">
@@ -2903,7 +2903,7 @@
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WFrg_mPsEeSzzYaqJLi7Ew"/>
       </children>
       <element xmi:type="uml:Class" href="Model-scrum.uml#_vczvUDfwEeOXdLoEgavdtA"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WFrhAmPsEeSzzYaqJLi7Ew" x="67" y="335"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WFrhAmPsEeSzzYaqJLi7Ew" x="61" y="335" width="193"/>
     </children>
     <styles xmi:type="notation:StringValueStyle" xmi:id="_AS5xEWPsEeSzzYaqJLi7Ew" name="diagram_compatibility_version" stringValue="1.0.0"/>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_AS5xEmPsEeSzzYaqJLi7Ew"/>
@@ -3034,7 +3034,7 @@
       <styles xmi:type="notation:FontStyle" xmi:id="_WFsH_WPsEeSzzYaqJLi7Ew" fontName="Segoe UI"/>
       <element xmi:type="uml:Association" href="Model-scrum.uml#_HYw8sDpjEeObrIpWPUJq-Q"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_WFsH_mPsEeSzzYaqJLi7Ew"/>
-      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WFsH_2PsEeSzzYaqJLi7Ew" id="(0.5294117647058824,1.0)"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WFsH_2PsEeSzzYaqJLi7Ew" id="(0.49740932642487046,1.0)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WFsIAGPsEeSzzYaqJLi7Ew" id="(0.4838709677419355,0.0)"/>
     </edges>
     <edges xmi:type="notation:Connector" xmi:id="_hipTcGPsEeSzzYaqJLi7Ew" type="4001" source="_K0Po4GPsEeSzzYaqJLi7Ew" target="_WFrg4GPsEeSzzYaqJLi7Ew">
