@@ -14,7 +14,7 @@ public class TestObiecteExceptii {
 	void testFinally(){
         try{
             if (1==1){
-                throw new Throwable("Trebuie să-l prinzi!");
+                throw new Throwable("Trebuie sa-l prinzi!");
             }
             if (1==1){
                 throw new RuntimeException("Runtime Exception");

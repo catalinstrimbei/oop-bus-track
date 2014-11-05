@@ -6,7 +6,7 @@ public class Test34_App {
 
 	public static void main(String[] args) {
 		// Test instantiere clasa abstracta Cerinta prin clase concrete CerintaFunctionala, CerintaTehnica
-		
+		Cerinta c = new CerintaFunctionala();
 		// Test supraincarcare constructori
 
 	}

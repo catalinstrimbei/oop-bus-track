@@ -17,11 +17,11 @@ public class TestSiruriDeCaractere {
 //		testStringInstance();
 //		testStringImmutable();
 //		testSubStrings_1();
-		testSubStrings_2();
+//		testSubStrings_2();
 		//3
-//		multiply_StringBuffer("aaa", 500);
-//		multiply_OperatorConcatenare("aaa", 500);
-//		multiply_OperatieConcat("aaa", 500);
+		multiply_StringBuffer("aaa", 10000);
+//		multiply_OperatorConcatenare("aaa", 10000);
+//		multiply_OperatieConcat("aaa",10000);
 
 	}
 

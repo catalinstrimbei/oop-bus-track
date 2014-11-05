@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Cerinta{
 	protected Integer idCerinta;
-	private String denumire;
-	private String descriere;
+	protected String denumire;
+	protected String descriere;
 	protected CategorieCerinta categorie;
 	
 	private List<Task> taskuri = new ArrayList<>();

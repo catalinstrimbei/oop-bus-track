@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Echipa {
 	Integer idEchipa;
-	Specializare specializare; // ENum
+	Specializare specializare = Specializare.FRONTEND; // ENum
 	String competente;
 	List<Membru> membri = new ArrayList<Membru>();
 		

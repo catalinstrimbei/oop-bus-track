@@ -1,7 +1,9 @@
 package cap2.ex3.org.app.scrum;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import cap2.ex3.org.app.scrum.team.Membru;
@@ -145,5 +147,22 @@ public class Task {
 		this.responsabil = responsabil;
 	}
 	
+	public class DetaliuTask{
+		private String specificatie;
+		public String getSpecificatie(){
+			return specificatie;
+		}
+		public DetaliuTask(String s){
+			this.specificatie = s;
+		}
+	}
+	private List<DetaliuTask> detalii = new ArrayList<>();
+
+	public List<DetaliuTask> getDetalii() {
+		return detalii;
+	}
+	public void setDetalii(List<DetaliuTask> detalii) {
+		this.detalii = detalii;
+	}
 	
 }

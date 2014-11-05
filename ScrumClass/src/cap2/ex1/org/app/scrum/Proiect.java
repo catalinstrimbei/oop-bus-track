@@ -39,5 +39,6 @@ public class Proiect implements IProiect {
 	/*------------------------------------------*/
 	public Integer getReleaseCount(){
 		return this.releases.size();
+//		return null;
 	}
 }
