@@ -5,8 +5,14 @@
 console.log("Hello JavaScript");
 
 /*Script imports*/
-//include('tutorial/scrum_model.js');
-var doc = window.document.createElement('script');
+//include('scrum.model.js');
+phantom.page.injectJs('./scrum.model.js');
+
+var p = new Project(1, "Phantom project", new Date());
+console.log(p.numeProiect);
+
+console.log("End tutorial!");
+phantom.exit();
 
 /*--------------------------------------------------------------------*/
 // import js file
@@ -20,6 +26,7 @@ function include(filename)
     script.type = 'text/javascript';
 
     head.appendChild(script);
+    console.log(filename + " imported!");
 }
 
 /*
