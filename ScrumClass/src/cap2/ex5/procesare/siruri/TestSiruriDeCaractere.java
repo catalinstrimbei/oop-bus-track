@@ -1,4 +1,4 @@
-package cap2.ex5;
+package cap2.ex5.procesare.siruri;
 
 import java.util.Date;
 
