@@ -8,7 +8,7 @@ import java.util.List;
  * Test implementare interfete
  */
 
-public class Test33 {
+public class Test33_ServiceInterface {
 
 	public static void main(String[] args) throws Exception{
 		IServiciuScrumBurning serviciuScrumBurning = new ServiciuScrumBurning();

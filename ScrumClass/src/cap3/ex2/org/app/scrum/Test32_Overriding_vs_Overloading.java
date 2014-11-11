@@ -6,7 +6,7 @@ package cap3.ex2.org.app.scrum;
  * Test invocare constructori: super vs. this
  */
 
-public class Test32 {
+public class Test32_Overriding_vs_Overloading {
 
 	public static void main(String[] args) {
 		

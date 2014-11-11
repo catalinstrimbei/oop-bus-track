@@ -8,7 +8,7 @@ import java.util.List;
  * Test polimorfism
  */
 
-public class Test34 {
+public class Test34_Polimorfism {
 
 	public static void main(String[] args) {
 		// Baza: ierarhiile

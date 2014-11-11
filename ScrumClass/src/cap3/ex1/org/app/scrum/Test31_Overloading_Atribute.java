@@ -5,7 +5,7 @@ package cap3.ex1.org.app.scrum;
  * Test invocare constructori: super vs. this
  */
 
-public class Test31 {
+public class Test31_Overloading_Atribute {
 
 	public static void main(String[] args) {
 		
