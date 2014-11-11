@@ -1,14 +1,10 @@
 package cap3.ex3.org.app.scrum;
 
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 
-public abstract class Cerinta implements BurnDownItem{
+public abstract class Cerinta {
 	
 	protected Integer idCerinta;
 	protected String denumire;
@@ -76,30 +72,7 @@ public abstract class Cerinta implements BurnDownItem{
 	// operatie abstracta
 	public abstract String getDescriereCompleta();
 	
-	// implements BurnDownItem
-	@Override
-	public Map<Date, Integer> getBurnDownRecords() {
-		Map<Date, Integer> burnDownRecords = new HashMap<>();
-		Set<Date> recordDates = burnDownRecords.keySet();
-		Map<Date, Integer> taskBurnDownRecords = null;
-		for(Task t: this.taskuri){
-			taskBurnDownRecords= t.getBurnDownRecords();
-			for(Date d: taskBurnDownRecords.keySet()){
-				if(!recordDates.contains(d))
-					burnDownRecords.put(d, 0);
-				burnDownRecords.put(d, burnDownRecords.get(d) + taskBurnDownRecords.get(d));
-			}
-		}
-		return burnDownRecords;
+	public void adaugaTask(Task t){
+		this.taskuri.add(t);
 	}
-	@Override
-	public Integer getTimpEstimat() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public Integer getTimpRamas() {
-		// TODO Auto-generated method stub
-		return null;
-	}	
 }

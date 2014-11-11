@@ -11,27 +11,45 @@ import java.util.List;
 public class Test33_ServiceInterface {
 
 	public static void main(String[] args) throws Exception{
-		IServiciuScrumBurning serviciuScrumBurning = new ServiciuScrumBurning();
-		//
+		// BurnDownItems: Sprints and Tasks, nu Cerinta.
 		
-		CerintaFunctionala cerinta = new CerintaFunctionala(1, "Cerinta 2", "cerinta test mostenire", "basic", "use case generic");
-		List<Task> taskuri = new ArrayList<>();
-
-		Task task = new Task(); 
-		task.setDataStart(new Date());
-		task.setTimpEstimat(10);
-		taskuri.add(task);
+		// Sprints implements BurnDownItems
+		Sprint s = new Sprint();
 		
-		task = new Task();
-		task.setDataStart(new Date());
-		task.setTimpEstimat(12);
-		taskuri.add(task);
+		// Cerinta not implements BurnDownItems
+		CerintaFunctionala c1 = new CerintaFunctionala();
+		s.adaugaCerinta(c1);
+		CerintaFunctionala c2 = new CerintaFunctionala();
+		s.adaugaCerinta(c2);
 		
-		cerinta.setTaskuri(taskuri);		
+		// Tasks implements BurnDownItems
+		Task t1 = new Task(); 
+		t1.setDataStart(new Date());
+		t1.setTimpEstimat(10);
+		c1.adaugaTask(t1);
+		
+		Task t2 = new Task();
+		t2.setDataStart(new Date());
+		t2.setTimpEstimat(12);
+		c1.adaugaTask(t2);
+				
+		
+		Task t3 = new Task();
+		t3.setDataStart(new Date());
+		t3.setTimpEstimat(10);
+		c2.adaugaTask(t3);
+		
+		Task t4 = new Task();
+		t4.setDataStart(new Date());
+		t4.setTimpEstimat(6);
+		c2.adaugaTask(t4);		
 		
 		// TODO
-		serviciuScrumBurning.getScrumBurnDown(task);
-		serviciuScrumBurning.getScrumBurnDown(cerinta);
+		//ServiciuScrumBurning implements IServiciuScrumBurning
+		IServiciuScrumBurning serviciuScrumBurning = new ServiciuScrumBurning();
+		//		
+		serviciuScrumBurning.getScrumBurnDown(t1);
+		serviciuScrumBurning.getScrumBurnDown(s);
 	}
 
 }
