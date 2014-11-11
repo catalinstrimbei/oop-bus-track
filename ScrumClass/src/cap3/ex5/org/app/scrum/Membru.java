@@ -1,12 +1,11 @@
-package org.plain.scrum;
+package cap3.ex5.org.app.scrum;
 
 public class Membru 
 implements Comparable<Membru>{
 	private Integer idMembru;
 	private String numePrenume;
 	private Rol rol;
-	
-	// bean accessors
+
 	public Integer getIdMembru() {
 		return idMembru;
 	}
@@ -35,13 +34,6 @@ implements Comparable<Membru>{
 		super();
 	}
 	
-	public Membru(Integer idMembru, String numePrenume, String rol) {
-		super();
-		this.idMembru = idMembru;
-		this.numePrenume = numePrenume;
-//		this.rol = rol;
-	}	
-	
 	// caz supra-incarcare
 	private String competente;
 	
@@ -62,23 +54,10 @@ implements Comparable<Membru>{
 	}
 	
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-//		if (getClass() != obj.getClass())
-//			return false;
-		Membru other = (Membru) obj;
-		if (idMembru == null) {
-			if (other.idMembru != null)
-				return false;
-		} else if (!idMembru.equals(other.idMembru))
-			return false;
-		if (rol != other.rol)
-			return false;
-		return true;
-	}
+	public String toString() {
+		return "Membru [idMembru=" + idMembru + ", numePrenume=" + numePrenume
+				+ ", rol=" + rol + "]";
+	}	
 	
 	@Override
 	public int compareTo(Membru other) {
@@ -86,13 +65,5 @@ implements Comparable<Membru>{
 			return 0;
 		//return this.getNumePrenume().compareTo(other.getNumePrenume());
 		return this.getIdMembru().compareTo(other.getIdMembru());
-	}
-	
-	@Override
-	public String toString() {
-		return "Membru [idMembru=" + idMembru + ", numePrenume=" + numePrenume
-				+ ", rol=" + rol + "]";
 	}	
-	
-	
 }

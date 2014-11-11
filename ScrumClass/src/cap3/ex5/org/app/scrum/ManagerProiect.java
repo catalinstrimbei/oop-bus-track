@@ -1,4 +1,4 @@
-package org.plain.scrum;
+package cap3.ex5.org.app.scrum;
 
 
 public class ManagerProiect extends Membru{
