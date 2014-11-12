@@ -71,7 +71,17 @@ public class Task implements BurnDownItem{
 	public Task() {
 		super();
 	}
-	//
+	
+	@Override
+	public String toString() {
+		return "Task [idTask=" + idTask + ", denumire=" + denumire
+				+ ", descriere=" + descriere + ", dataStart=" + dataStart
+				+ ", timpEstimat=" + timpEstimat + ", timpRamas=" + timpRamas
+				+ ", statusTask=" + statusTask + ", categorieTask="
+				+ categorieTask + ", burnDownRecords=" + burnDownRecords + "]";
+	}
+	/*------------------------------------------------------------------*/
+	// implements BurnDownItem
 	public Integer getTimpEstimat() {
 		return timpEstimat;
 	}

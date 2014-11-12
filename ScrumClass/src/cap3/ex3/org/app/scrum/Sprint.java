@@ -87,11 +87,34 @@ public class Sprint implements BurnDownItem{
 		super();
 	}
 	
+	@Override
+	public String toString() {
+		return "Sprint [idSprint=" + idSprint + ", obiectiv=" + obiectiv
+				+ ", dataStart=" + dataStart
+				+ ", review=" + review + "]";
+	}
 	/*------------------------------------------------------------------*/
 	// implements BurnDownItem
 	@Override
 	public Map<Date, Integer> getBurnDownRecords() {
-		Map<Date, Integer> burnDownRecords = new HashMap<>();
+		// TODO from Tasks
+		return null;
+	}
+	@Override
+	public Integer getTimpEstimat() {
+		// TODO from Tasks 
+		return null;
+	}
+	@Override
+	public Integer getTimpRamas() {
+		// TODO from Tasks
+		return null;
+	}	
+}
+
+
+/*
+Map<Date, Integer> burnDownRecords = new HashMap<>();
 		Set<Date> recordDates = burnDownRecords.keySet();
 		Map<Date, Integer> taskBurnDownRecords = null;
 		for(Cerinta c: this.cerinte){
@@ -104,16 +127,5 @@ public class Sprint implements BurnDownItem{
 				}
 			}
 		}
-		return burnDownRecords;
-	}
-	@Override
-	public Integer getTimpEstimat() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public Integer getTimpRamas() {
-		// TODO Auto-generated method stub
-		return null;
-	}	
-}
+
+*/
