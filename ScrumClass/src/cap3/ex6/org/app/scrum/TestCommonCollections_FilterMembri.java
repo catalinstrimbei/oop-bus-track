@@ -26,7 +26,7 @@ public class TestCommonCollections_FilterMembri {
 		Membru maxMembru = Collections.max(listaMembriDeFiltrat, new ComparatorMembriID());
 		System.out.println("- membrul cu id-ul cel mai mare: " + maxMembru);
 		// Care este membrul cu id-ul 301?
-		Membru Membru_301 = Collections.max(listaMembriDeFiltrat, new ComparatorMembruuri_301());
+		Membru Membru_301 = Collections.max(listaMembriDeFiltrat, new ComparatorMembri_301());
 		System.out.println("- membrul cu id-ul 301: " + Membru_301);
 		// Care este membrul cu id-ul 401? - var 1
 		Membru Membru_401 = Collections.max(listaMembriDeFiltrat, new ComparatorMembri_ID("401"));
@@ -36,7 +36,7 @@ public class TestCommonCollections_FilterMembri {
 			new Comparator<Membru>(){
 				String idStringComparator = "401";
 				public int compare(Membru c1, Membru c2) {
-					return (c2.getIdMembru().equals(idStringComparator)?1:0);
+					return (c2.getIdMembru().equals(idStringComparator)?1:-1);
 				}				
 			}
 		);
@@ -61,10 +61,10 @@ class ComparatorMembriID implements Comparator<Membru>{
 }
 /*-------------------------------------------------------------*/
 // Comparator pentru aflarea membrului cu id-ul 301
-class ComparatorMembruuri_301 implements Comparator<Membru>{
+class ComparatorMembri_301 implements Comparator<Membru>{
 	@Override
 	public int compare(Membru c1, Membru c2) {
-		return (c2.getIdMembru().equals(301)?1:0);
+		return (c2.getIdMembru().equals(301)?1:-1);
 	}
 }
 /*-------------------------------------------------------------*/

@@ -10,7 +10,7 @@ public class Test364_TreeSetReleases {
         SimpleDateFormat format = 
 		new SimpleDateFormat("dd/MM/yyyy");
         Collection<Release> releases = 
-		new TreeSet<Release>();
+        		new TreeSet<Release>();
         releases.add(new Release(1, 
         		format.parse("01/06/2009")));
         releases.add(new Release(2, 

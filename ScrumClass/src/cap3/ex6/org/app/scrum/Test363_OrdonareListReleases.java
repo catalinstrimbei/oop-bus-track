@@ -22,14 +22,16 @@ public class Test363_OrdonareListReleases {
         		format.parse("01/04/2009")));
 
         Collections.sort(releases, 
-		new ComparatorReleasesDupaData());
+        		new ComparatorReleasesDupaData());
+        
         System.out.println("Ordonare release-uri dupa data :");
         for (Release o : releases)
             System.out.println(o.getIdRelease() + " -- " + 
                 format.format(o.getDataPublicare()));
 
         Collections.sort(releases, 
-		new ComparatorReleasesDupaId());
+        		new ComparatorReleasesDupaId());
+        
         System.out.println("Ordonare release-uri dupa id :");
         for (Release o : releases)
             System.out.println(o.getIdRelease() + " -- " +

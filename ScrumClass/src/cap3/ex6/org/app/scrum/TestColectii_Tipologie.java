@@ -2,7 +2,7 @@ package cap3.ex6.org.app.scrum;
 
 import java.util.*;
 
-public class Test36_Colectii_Tipologie {
+public class TestColectii_Tipologie {
 	public static void main(String[] args){
 		/* Ex 1: Tipuri de colectii: *********************************************************/
 		// Array-Collection-List-Set-Map-Set-Array
