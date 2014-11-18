@@ -1,4 +1,4 @@
-package cap3.ex2.org.app.scrum;
+package cap3.ex6.org.app.scrum;
 
 public class LiderEchipa extends Membru{
 //	private Integer id;
@@ -39,7 +39,7 @@ public class LiderEchipa extends Membru{
 	// Polimorfism
 	@Override
 	public void setCompetente(String competente) {
-		this.competenteTehnologice = competente;
+		this.setCompetenteTehnologice(competente);
 	}	
 	
 	// Supraincarcare
