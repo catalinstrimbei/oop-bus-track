@@ -9,7 +9,7 @@ import java.util.List;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.Predicate;
 
-public class TestCommonCollections_FilterMembri {
+public class Test366_CommonCollections_FilterMembri {
 
 	public static void main(String[] args) {
 		// TODO Creare lista Membruuri de filtrat
