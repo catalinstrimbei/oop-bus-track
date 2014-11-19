@@ -1,9 +1,9 @@
-package cap3.ex6.org.app.scrum;
+package cap3.ex5.org.app.scrum;
 
 import java.text.ParseException;
 import java.util.Arrays;
 
-public class Test360_GenericsManipulareTablou {
+public class Test35_GenericsManipulareTablou {
 	public static void main(String[] args) throws ParseException{
 		
 		Integer[] serieNumereIntregi = {50, 75, 25};
@@ -42,13 +42,19 @@ public class Test360_GenericsManipulareTablou {
 	}
 	
 	static void exempluGenericsPolimorfism(){
+		
+		SerieNumerica<Number> serieNumere;
+//		serieNumere = new SerieNumerica<Integer>(new Integer[]{50, 75, 25});		
+//		serieNumere = new SerieNumerica<Double>(new Double[]{50.0, 75.0, 25.0});
+
 		SerieNumerica<Integer> serieNumereIntregi;
 		serieNumereIntregi = new SerieNumerica<Integer>(new Integer[]{50, 75, 25});		
 //		serieNumereIntregi = new SerieNumerica<Double>(new Double[]{50.0, 75.0, 25.0});
 		
-		SerieNumerica<? extends Number> serieNumere;
-		serieNumere = new SerieNumerica<Integer>(new Integer[]{50, 75, 25});		
-		serieNumere = new SerieNumerica<Double>(new Double[]{50.0, 75.0, 25.0});
+		
+		SerieNumerica<? extends Number> serieNumereGenerica;
+		serieNumereGenerica = new SerieNumerica<Integer>(new Integer[]{50, 75, 25});		
+		serieNumereGenerica = new SerieNumerica<Double>(new Double[]{50.0, 75.0, 25.0});
 	}
 	
 	
