@@ -49,7 +49,6 @@ implements Comparable<Membru>{
 		int result = 1;
 		result = prime * result
 				+ ((idMembru == null) ? 0 : idMembru.hashCode());
-		result = prime * result + ((rol == null) ? 0 : rol.hashCode());
 		return result;
 	}
 	
@@ -64,6 +63,24 @@ implements Comparable<Membru>{
 		if (this.equals(other))
 			return 0;
 		//return this.getNumePrenume().compareTo(other.getNumePrenume());
-		return this.getIdMembru().compareTo(other.getIdMembru());
+		return this.idMembru.compareTo(other.idMembru);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Membru other = (Membru) obj;
+		if (idMembru == null) {
+			if (other.idMembru != null)
+				return false;
+		} else if (!idMembru.equals(other.idMembru))
+			return false;
+		return true;
 	}	
+	
+	
 }

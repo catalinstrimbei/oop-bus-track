@@ -27,6 +27,7 @@ public class Test34_Polimorfism {
 		
 		membru = new LiderEchipa(2, "M2", null); // variabila polimorfica
 		membru.setCompetente("Java, JEE, SQL, Oracle, JavaScript, HTML5");  // polimorfism operatie
+//		membru.setCompetente("Redmine", LiderEchipa.TipCompetente.MANAGERIALE);
 		((LiderEchipa)membru).setCompetente("Redmine", LiderEchipa.TipCompetente.MANAGERIALE); // spraincarcare
 		
 		echipa.adaugaMembru(membru);

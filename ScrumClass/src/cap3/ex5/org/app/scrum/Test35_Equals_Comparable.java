@@ -24,10 +24,21 @@ public class Test35_Equals_Comparable {
 		membru.setCompetente("JUnit");
 		echipa.adaugaMembru(membru);
 		
+		membru = new Membru(4, "M4", Rol.TESTER);
+		membru.setCompetente("JUnit");
+		echipa.adaugaMembru(membru);
+		
+		Membru m4, m5;
+		m4 = echipa.getMembri().get(3);
+		m5 = echipa.getMembri().get(4);
+		System.out.println("m4 == m5 " + (m4==m5));
+		System.out.println("m4.equals(m5): " + m4.equals(m5));
+		
 		// equals si Comparable
 		Membru m1, m2;
 		m1 = echipa.getMembri().get(0);
 		m2 = echipa.getMembri().get(1);
+		
 		System.out.println("m1.equals(m2): " + m1.equals(m2));
 		System.out.println("m1.compareTo(m2): " + m1.compareTo(m2));
 		
