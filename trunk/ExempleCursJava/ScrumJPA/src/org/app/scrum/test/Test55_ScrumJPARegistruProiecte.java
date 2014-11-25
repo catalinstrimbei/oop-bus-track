@@ -1,30 +1,27 @@
 package org.app.scrum.test;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 import org.app.scrum.Proiect;
 import org.app.scrum.ProiectBuilder;
 
-public class Test51_ScrumJPAConnect {
-
+public class Test55_ScrumJPARegistruProiecte {
 	public static void main(String[] args) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("ScrumJPA");
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
 		
-		Proiect proiect;
-		for(int i=1; i <= 4; i++){
-			proiect = new ProiectBuilder().buildProiect(i, "Proiect Test", i+2);
-			em.persist(proiect);
-		}
+		/* TODO CRUD Transactions*/
 		
-		System.out.println("Salvare proiecte!");
-		
-		em.getTransaction().commit();
 		
 		System.out.println("End");
 	}
-
 }

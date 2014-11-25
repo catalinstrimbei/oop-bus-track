@@ -5,12 +5,16 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 import org.app.scrum.Proiect;
 import org.app.scrum.ProiectBuilder;
 import org.app.scrum.ProiectView;
 
-public class Test52_ScrumJPAQL {
+public class Test54_ScrumJPAQueries {
 
 	public static void main(String[] args) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("ScrumJPA");
@@ -34,8 +38,6 @@ public class Test52_ScrumJPAQL {
 		List<ProiectView> pList = em.createQuery("SELECT NEW org.app.scrum.ProiectView(p.nrProiect, p.numeProiect) FROM Proiect p").getResultList();
 		for(ProiectView p: pList)
 			System.out.println("Proiect: " + p);		
-
-		
 		
 		System.out.println("End");
 	}

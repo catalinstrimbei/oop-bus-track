@@ -14,7 +14,7 @@ import javax.validation.ValidatorFactory;
 import org.app.scrum.Proiect;
 import org.app.scrum.ProiectBuilder;
 
-public class Test53_ScrumJPAValidator {
+public class Test56_ScrumJPAValidator {
 
 	public static void main(String[] args) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("ScrumJPA2");

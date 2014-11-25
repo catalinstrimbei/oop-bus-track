@@ -14,12 +14,16 @@ import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
 import org.app.scrum.team.ManagerProiect;
+import org.app.scrum.validare.ExceptieValidare;
+import org.app.scrum.validare.IntegerIntervalValidation;
+import org.app.scrum.validare.StringInitCapValidation;
+import org.app.scrum.validare.Validatable;
 
 import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.LAZY;
 
 @Entity
-public class Proiect {
+public class Proiect implements Validatable{
 	@Id
 	private Integer nrProiect;
 	
@@ -49,12 +53,16 @@ public class Proiect {
 		return nrProiect;
 	}
 	public void setNrProiect(Integer nrProiect) {
+		new IntegerIntervalValidation("Nr.proiect interval valid: 1..9999", 1, 9).validate(nrProiect);
+		
 		this.nrProiect = nrProiect;
 	}
 	public String getNumeProiect() {
 		return numeProiect;
 	}
 	public void setNumeProiect(String numeProiect) {
+		new StringInitCapValidation("Nume proiectului trebuie scris cu majuscula!").validate(numeProiect);
+		
 		this.numeProiect = numeProiect;
 	}
 	public Date getDataStart() {
@@ -114,13 +122,20 @@ public class Proiect {
 	}
 	public Proiect(Integer nrProiect, String numeProiect) {
 		super();
-		this.nrProiect = nrProiect;
-		this.numeProiect = numeProiect;
+		this.setNrProiect(nrProiect);
+		this.setNumeProiect(numeProiect);
 	}
 	@Override
 	public String toString() {
 		return "Proiect [nrProiect=" + nrProiect + ", numeProiect="
 				+ numeProiect + ", dataStart=" + dataStart + "]";
+	}
+	@Override
+	public boolean isValid() {
+		if(this.releases == null || this.releases.isEmpty())
+			throw new ExceptieValidare("Proiectul trebuie sa aiba cel putin un release!");
+		
+		return true;
 	}
 	
 	

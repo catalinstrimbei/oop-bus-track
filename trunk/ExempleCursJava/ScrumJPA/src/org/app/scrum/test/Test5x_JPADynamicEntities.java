@@ -17,7 +17,7 @@ import org.eclipse.persistence.jpa.dynamic.JPADynamicHelper;
 import org.eclipse.persistence.jpa.dynamic.JPADynamicTypeBuilder;
 import org.eclipse.persistence.tools.schemaframework.SchemaManager;
 
-public class Test54_JPADynamicEntities {
+public class Test5x_JPADynamicEntities {
 
 	public static void main(String[] args) {
 		// Create a dynamic class loader and create the types.
