@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="ScrumJPA" transaction-type="RESOURCE_LOCAL">
 		<class>org.app.scrum.Cerinta</class>
 		<class>org.app.scrum.CerintaFunctionala</class>
@@ -7,15 +7,15 @@
 		<class>org.app.scrum.Proiect</class>
 		<class>org.app.scrum.Release</class>
 		<properties>
-			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://10.10.0.7:5432/postgres"></property>
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://85.122.22.12:5432/postgres"></property>
+			<property name="javax.persistence.schema-generation.database.action" value="none"/>
 			<property name="javax.persistence.jdbc.user" value="scrum"/>
-			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
 			<property name="javax.persistence.jdbc.password" value="scrum"/>
-			<property name="eclipselink.temporal.mutable" value="true"/>
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
 		</properties>
 	</persistence-unit>
 	
-	
+	<!-- 
 	<persistence-unit name="source" transaction-type="RESOURCE_LOCAL">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider> 
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
@@ -31,4 +31,5 @@
             <property name="eclipselink.weaving" value="static"/>
         </properties>
     </persistence-unit>	
+    -->
 </persistence>
