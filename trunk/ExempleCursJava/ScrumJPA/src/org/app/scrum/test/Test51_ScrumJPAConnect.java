@@ -7,7 +7,7 @@ import javax.persistence.Persistence;
 import org.app.scrum.Proiect;
 import org.app.scrum.ProiectBuilder;
 
-public class TestScrumJPA {
+public class Test51_ScrumJPAConnect {
 
 	public static void main(String[] args) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("ScrumJPA");

@@ -10,7 +10,7 @@ import org.app.scrum.Proiect;
 import org.app.scrum.ProiectBuilder;
 import org.app.scrum.ProiectView;
 
-public class TestScrumJPAQL {
+public class Test52_ScrumJPAQL {
 
 	public static void main(String[] args) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("ScrumJPA");
