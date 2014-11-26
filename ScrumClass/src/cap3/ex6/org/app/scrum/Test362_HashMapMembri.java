@@ -67,6 +67,13 @@ public class Test362_HashMapMembri {
 
        System.out.println("IDul " + id +
 			" corespunde membrului " + mapMembri.get(id));
+       
+       //
+       System.out.println("-------- Parcurgere prin chei");
+       Set<Integer> keys = mapMembri.keySet();
+       for(Integer i: keys){
+    	   System.out.println("k=" + i + " -> " + mapMembri.get(i));
+       }
     }
 }
 
