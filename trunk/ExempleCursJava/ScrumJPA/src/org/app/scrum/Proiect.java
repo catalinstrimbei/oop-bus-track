@@ -82,7 +82,6 @@ public class Proiect implements Validatable{
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
 	// Added
 	public List<Release> getReleases() {
 		return releases;
