@@ -209,6 +209,7 @@ public class Test54_ScrumJPAQueries {
 		 * 1. Query with JOIN expressions
 		 * 2. Query with PATH joining expressions
 		 * 3. Analytical Query with groupBy and having
+		 * 4. Query with subQuery expression
 		*/
 		
 		System.out.println("End");
