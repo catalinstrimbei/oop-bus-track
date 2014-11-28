@@ -351,7 +351,43 @@ public class Test54_ScrumJPAQueries {
 		}
 		
 		System.out.println("-----------------------------------------------------------");		
-		nestedQueryCriteriaAPI(em);
+		/*Ex 9.2 SUB/NESTED QUERY 
+		 * SELECT r FROM Release r WHERE r.proiect.nrProiect IN 
+		 * 		(SELECT p.nrProiect FROM Proiect p WHERE p.nrProiect = 1)
+		 * */
+		System.out.println("----------------------------------------------------- Ex 9.1: SUB/NESTED QUERY");
+		CriteriaBuilder criteriaBuilderReleaseQuery = em.getCriteriaBuilder();
+		CriteriaQuery<Release> releaseCriteriaMainQuery = criteriaBuilderReleaseQuery.createQuery(Release.class);
+		// FROM Release r
+		Root<Release> mainQueryRootExpression = releaseCriteriaMainQuery.from(Release.class);
+		// <Sub-query> 
+		Subquery<Proiect> subQuery = releaseCriteriaMainQuery.subquery(Proiect.class);
+		// FROM Proiect p 
+		Root subQueryRootExpression = subQuery.from(Proiect.class);
+		subQuery
+			// SELECT p.nrProiect
+			.select(subQueryRootExpression.get("nrProiect"))
+			// WHERE p.nrProiect = :nrProiect
+			.where(criteriaBuilderReleaseQuery.equal(subQueryRootExpression.get("nrProiect"), 1))
+			;
+		// </Sub-query>
+		// Main Query predicate 
+		// Expression: r.proiect.nrProiect
+		Path pathIdProiect = mainQueryRootExpression.join("proiect", JoinType.INNER).get("nrProiect");
+		// WHERE r.proiect.nrProiect IN (subquery)
+		Predicate mainQuerypredicateExpression = criteriaBuilderReleaseQuery.in(pathIdProiect).value(subQuery);
+		// Build query-phrase		
+		releaseCriteriaMainQuery
+			.select(mainQueryRootExpression) // SELECT r
+			.where(mainQuerypredicateExpression) // r.proiect.nrProiect IN (subquery)
+			; 
+		TypedQuery<Release> typedCompositQueryReleases = em.createQuery(releaseCriteriaMainQuery);		
+		// execute
+		List<Release> releasesList = typedCompositQueryReleases.getResultList();		
+		for(Release r: releasesList)
+			System.out.println("Release: of " + r.getProiect().getNumeProiect() + " --> " + r);		
+
+		System.out.println("-----------------------------------------------------------");					
 		
 		/* TODO :
 		 * 1. Query with JOIN expressions
@@ -366,46 +402,7 @@ public class Test54_ScrumJPAQueries {
 	}
 	
 	static void nestedQueryCriteriaAPI(EntityManager em){
-		/*Ex 9.2 SUB/NESTED QUERY 
-		 * SELECT r FROM Release r WHERE r.proiect.nrProiect IN 
-		 * 		(SELECT p.nrProiect FROM Proiect p WHERE p.nrProiect = 1)
-		 * */
-		System.out.println("----------------------------------------------------- Ex 9.1: SUB/NESTED QUERY");
-		CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
-		CriteriaQuery<Release> releaseCriteriaMainQuery = criteriaBuilder.createQuery(Release.class);
-		// FROM Release r
-		Root<Release> mainQueryRootExpression = releaseCriteriaMainQuery.from(Release.class);
 		
-		// <Sub-query> 
-		Subquery<Proiect> subQuery = releaseCriteriaMainQuery.subquery(Proiect.class);
-		// FROM Proiect p 
-		Root subQueryRootExpression = subQuery.from(Proiect.class);
-		subQuery
-			// SELECT p.nrProiect
-			.select(subQueryRootExpression.get("nrProiect"))
-			// WHERE p.nrProiect = :nrProiect
-			.where(criteriaBuilder.equal(subQueryRootExpression.get("nrProiect"), 1))
-			;
-		// </Sub-query>
-		
-		// Main Query predicate 
-		// Expression: r.proiect.nrProiect
-		Path pathIdProiect = mainQueryRootExpression.join("proiect", JoinType.INNER).get("nrProiect");
-		// WHERE r.proiect.nrProiect IN (subquery)
-		Predicate mainQuerypredicateExpression = criteriaBuilder.in(pathIdProiect).value(subQuery);
-		
-		// Build query-phrase		
-		releaseCriteriaMainQuery
-			.select(mainQueryRootExpression) // SELECT r
-			.where(mainQuerypredicateExpression) // r.proiect.nrProiect IN (subquery)
-			; 
-		TypedQuery<Release> typedCompositQueryReleases = em.createQuery(releaseCriteriaMainQuery);		
-		// execute
-		List<Release> releases = typedCompositQueryReleases.getResultList();		
-		for(Release r: releases)
-			System.out.println("Release: of " + r.getProiect().getNumeProiect() + " --> " + r);		
-
-		System.out.println("-----------------------------------------------------------");			
 	}
 
 	static void nestedQueryCriteriaAPI2(EntityManager em){
@@ -452,24 +449,6 @@ public class Test54_ScrumJPAQueries {
 
 		System.out.println("-----------------------------------------------------------");			
 	}
-	
-	
-	static void subQuery(EntityManager em){
-		System.out.println("----------------------------------------------------- Ex 9.1: SUBQUERY");
-		CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
-		// Sub-query: FROM Proiect p 
-		CriteriaQuery<Proiect> subQuery = criteriaBuilder.createQuery(Proiect.class);
-		Root<Proiect> subQueryRootExpression = subQuery.from(Proiect.class);
-		// Subquery Predicat: p.nrProiect = :nrProiect
-		ParameterExpression<Integer> subQueryparameterExpression = criteriaBuilder.parameter(Integer.class);
-		Predicate subQuerypredicateExpression = criteriaBuilder.equal(subQueryRootExpression.get("nrProiect"), 1); 
-		subQuery.select(subQueryRootExpression).where(subQuerypredicateExpression);		
-		TypedQuery<Proiect> tq = em.createQuery(subQuery);
-		tq.setParameter("nrProiect", 1);
-		List<Proiect> proiecte = tq.getResultList();
-		System.out.println(proiecte);
-	}
-
 }
 
 /*
