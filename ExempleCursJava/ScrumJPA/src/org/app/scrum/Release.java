@@ -126,6 +126,11 @@ public class Release {
 			return false;
 		return true;
 	}
+	@Override
+	public String toString() {
+		return "Release [idRelease=" + idRelease + ", numeCod=" + numeCod
+				+ ", dataPublicare=" + dataPublicare + "]";
+	}
 	
 	
 }
