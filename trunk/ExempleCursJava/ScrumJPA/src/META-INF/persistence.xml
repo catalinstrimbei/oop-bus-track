@@ -12,10 +12,14 @@
 			<property name="javax.persistence.jdbc.user" value="scrum"/>
 			<property name="javax.persistence.jdbc.password" value="scrum"/>
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+			
+		
 		</properties>
 	</persistence-unit>
 	
 	<!-- 
+<property name="eclipselink.logging.level" value="FINE"/>
+<property name="eclipselink.logging.parameters" value="true"/>		
 	<persistence-unit name="source" transaction-type="RESOURCE_LOCAL">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider> 
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
