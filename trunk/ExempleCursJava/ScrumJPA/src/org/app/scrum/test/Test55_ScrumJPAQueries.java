@@ -36,7 +36,7 @@ import org.eclipse.persistence.jpa.JpaQuery;
  * http://www.altuure.com/2010/09/23/jpa-criteria-api-by-samples-part-i/
  * http://www.altuure.com/2010/09/23/jpa-criteria-api-by-samples-%E2%80%93-part-ii/
  */
-public class Test54_ScrumJPAQueries {
+public class Test55_ScrumJPAQueries {
 
 	public static void main(String[] args) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("ScrumJPA");
