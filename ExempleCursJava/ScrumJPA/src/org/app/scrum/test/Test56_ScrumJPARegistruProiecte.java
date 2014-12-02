@@ -13,7 +13,7 @@ import javax.persistence.criteria.Root;
 import org.app.scrum.Proiect;
 import org.app.scrum.ProiectBuilder;
 
-public class Test55_ScrumJPARegistruProiecte {
+public class Test56_ScrumJPARegistruProiecte {
 	public static void main(String[] args) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("ScrumJPA");
 		EntityManager em = emf.createEntityManager();

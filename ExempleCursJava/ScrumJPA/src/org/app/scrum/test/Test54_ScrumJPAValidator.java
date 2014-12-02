@@ -14,7 +14,7 @@ import javax.validation.ValidatorFactory;
 import org.app.scrum.Proiect;
 import org.app.scrum.ProiectBuilder;
 
-public class Test56_ScrumJPAValidator {
+public class Test54_ScrumJPAValidator {
 
 	public static void main(String[] args) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("ScrumJPA2");
@@ -24,13 +24,23 @@ public class Test56_ScrumJPAValidator {
 //		proiect.setReleaseCurent(proiect.getReleases().get(0));
 		
 		try{
-			System.out.println("Saving proiect!");
+			System.out.println("JPA Validator: Invocare directa");
 			/* Invocare directa*/
-//			ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-//			Validator validator = factory.getValidator();
-//			Set<ConstraintViolation<Proiect>> constraintViolations = validator.validate(proiect);
-//			handleValidation(constraintViolations);
+			ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+			Validator validator = factory.getValidator();
+			Set<ConstraintViolation<Proiect>> constraintViolations = validator.validate(proiect);
+			handleValidation(constraintViolations);
 			
+		}catch(ConstraintViolationException e){
+			System.out.println("Validation ex: " + e.getMessage());
+			for (ConstraintViolation cv : e.getConstraintViolations()){
+				System.out.println("ConstraintViolation: " + cv.getMessage());
+				System.out.println("Invalid bean: " + cv.getRootBean());
+			}	
+		}
+		
+		try{
+			System.out.println("JPA Validator: Invocare directa-TRANZACTIONALA!");
 			/* Invocare indirecta prin EntityManager*/
 			em.getTransaction().begin();			
 			em.persist(proiect);
@@ -43,7 +53,7 @@ public class Test56_ScrumJPAValidator {
 				System.out.println("ConstraintViolation: " + cv.getMessage());
 				System.out.println("Invalid bean: " + cv.getRootBean());
 			}	
-		}
+		}		
 		System.out.println("End");
 	}
 
