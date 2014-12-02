@@ -11,7 +11,9 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 
 import org.app.scrum.team.ManagerProiect;
 import org.app.scrum.validare.ExceptieValidare;
@@ -30,7 +32,7 @@ public class Proiect implements Validatable{
 	@NotNull
 	private String numeProiect;
 	
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.DATE) @Future
 	private Date dataStart;
 	
 	@Transient

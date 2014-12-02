@@ -1,5 +1,6 @@
 package org.app.scrum.test;
 
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.EntityManager;
@@ -17,14 +18,12 @@ import org.app.scrum.ProiectBuilder;
 public class Test54_ScrumJPAValidator {
 
 	public static void main(String[] args) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("ScrumJPA2");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("ScrumJPA");
 		EntityManager em = emf.createEntityManager();
 		
-		Proiect proiect = new ProiectBuilder().buildProiect(1, "P.t.", 3);
-//		proiect.setReleaseCurent(proiect.getReleases().get(0));
-		
+		Proiect proiect = new Proiect(101, null, new Date());
 		try{
-			System.out.println("JPA Validator: Invocare directa");
+			System.out.println("--------------- JPA Validator: Invocare directa");
 			/* Invocare directa*/
 			ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 			Validator validator = factory.getValidator();
@@ -32,7 +31,7 @@ public class Test54_ScrumJPAValidator {
 			handleValidation(constraintViolations);
 			
 		}catch(ConstraintViolationException e){
-			System.out.println("Validation ex: " + e.getMessage());
+			System.out.println("Validator ex: " + e.getMessage());
 			for (ConstraintViolation cv : e.getConstraintViolations()){
 				System.out.println("ConstraintViolation: " + cv.getMessage());
 				System.out.println("Invalid bean: " + cv.getRootBean());
@@ -40,7 +39,7 @@ public class Test54_ScrumJPAValidator {
 		}
 		
 		try{
-			System.out.println("JPA Validator: Invocare directa-TRANZACTIONALA!");
+			System.out.println("--------------- JPA Validator: Invocare directa-TRANZACTIONALA!");
 			/* Invocare indirecta prin EntityManager*/
 			em.getTransaction().begin();			
 			em.persist(proiect);
@@ -48,7 +47,7 @@ public class Test54_ScrumJPAValidator {
 			em.getTransaction().rollback();
 			
 		}catch(ConstraintViolationException e){
-			System.out.println("Validation ex: " + e.getMessage());
+			System.out.println("EntityManager Validation ex: " + e.getMessage());
 			for (ConstraintViolation cv : e.getConstraintViolations()){
 				System.out.println("ConstraintViolation: " + cv.getMessage());
 				System.out.println("Invalid bean: " + cv.getRootBean());
