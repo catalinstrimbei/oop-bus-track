@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://java.sun.com/jsf/core">
+<body>
+	<div
+		style="width: 100%; font-size: 36px; line-height: 48px; background-color: navy; color: white">FormClienti 1.0</div>
+	<h:form id="formClientiForm">
+		<h:panelGrid columns="3" id="p1" border="1">
+			<p:facet name="header">
+				<h:outputText id="o1" value="formClienti"></h:outputText>
+			</p:facet>
+			<h:outputLabel id="o4" value="Navigare"></h:outputLabel>
+			<h:panelGrid border="1" columns="2" id="p2">
+				<h:commandButton id="cmdPrevious" value="Prev" actionListener="#{formClienti.previousClient}"></h:commandButton>
+				<h:commandButton id="cmdNext" value="Next" actionListener="#{formClienti.nextClient}"></h:commandButton>
+			</h:panelGrid>
+			<h:message id="m3"></h:message>
+			<h:outputText id="o2" value="Nume:"></h:outputText>
+			<h:inputText id="client_nume" value="#{formClienti.client.nume}"></h:inputText>
+			<h:message for="client_nume" id="m1"></h:message>
+			<h:outputText id="o3" value="Id:"></h:outputText>
+			<h:inputText id="client_id" value="#{formClienti.client.id}"></h:inputText>
+			<h:message for="client_id" id="m2"></h:message>
+			<h:panelGrid border="1" columns="2" id="p3">
+				<h:commandButton actionListener="#{formClienti.adaugareClient}"
+					id="cmdAdaugare" value="Adauga"></h:commandButton>
+				<h:commandButton actionListener="#{formClienti.stergereClient}"
+					id="cmdStergere" value="Sterge"></h:commandButton>
+			</h:panelGrid>
+			<h:panelGrid border="1" columns="2" id="p4">
+				<h:commandButton actionListener="#{formClienti.abandonClient}"
+					id="cmdAbandon" value="Abandon"></h:commandButton>
+				<h:commandButton actionListener="#{formClienti.salvareClient}"
+					id="cmdSalvare" value="Salveaza"></h:commandButton>
+			</h:panelGrid>
+			<h:message id="m4"></h:message>
+		</h:panelGrid>
+	</h:form>
+</body>
+</html>
