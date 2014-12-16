@@ -12,10 +12,16 @@
 			<property name="javax.persistence.jdbc.user" value="scrum"/>
 			<property name="javax.persistence.jdbc.password" value="scrum"/>
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-			
-		
 		</properties>
-	</persistence-unit>
+</persistence-unit>
+
+
+
+
+
+
+
+
 	
 	<!-- 
 <property name="eclipselink.logging.level" value="FINE"/>

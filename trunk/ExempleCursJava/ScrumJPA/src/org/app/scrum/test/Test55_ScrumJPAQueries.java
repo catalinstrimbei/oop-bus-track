@@ -44,7 +44,7 @@ public class Test55_ScrumJPAQueries {
 		
 		/* Ex 1.1 */
 		System.out.println("--------------------------------------------------------");
-		List<Proiect> pListEntity = em.createNativeQuery("SELECT p.nrproiect AS nrProiect, p.numeproiect, p.datastart FROM proiect p", Proiect.class)
+		List<Proiect> pListEntity = em.createNativeQuery("SELECT p.nrproiect AS nrProiect, p.numeproiect, p.datastart FROM Proiect p", Proiect.class)
 				.getResultList();
 		for(Proiect p: pListEntity)
 			System.out.println("Proiect: " + p);
@@ -57,7 +57,7 @@ public class Test55_ScrumJPAQueries {
 
 		/* Ex 3.1 */
 		System.out.println("--------------------------------------------------------");
-		Long nrProiecte = (Long) em.createNativeQuery("SELECT COUNT(*) FROM proiect p").getSingleResult();
+		Long nrProiecte = (Long) em.createQuery("SELECT COUNT(p) FROM proiect p").getSingleResult();
 		System.out.println("Nr proiecte: " + nrProiecte);
 		
 		/* Ex 4.1 */
