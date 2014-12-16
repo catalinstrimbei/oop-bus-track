@@ -4,16 +4,22 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.validation.constraints.Future;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
 
 import org.app.scrum.team.ManagerProiect;
 import org.app.scrum.validare.ExceptieValidare;
@@ -24,15 +30,16 @@ import org.app.scrum.validare.Validatable;
 import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.LAZY;
 
-@Entity
+@Entity //@Table(name="proiecte")
 public class Proiect implements Validatable{
-	@Id
+	@Id @Min(1) @Max(9999)
+//	@GeneratedValue
 	private Integer nrProiect;
 	
-	@NotNull
+	@NotNull //@Column(name="nume_proiect")
 	private String numeProiect;
 	
-	@Temporal(TemporalType.DATE) @Future
+	@Temporal(TemporalType.DATE) // @Future
 	private Date dataStart;
 	
 	@Transient
