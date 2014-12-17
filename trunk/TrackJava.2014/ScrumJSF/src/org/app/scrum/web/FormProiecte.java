@@ -27,6 +27,7 @@ public class FormProiecte {
 		
 		List<Proiect> lst = em.createQuery("SELECT p FROM Proiect p ORDER BY p.nrProiect").getResultList();
 		proiecte.addAll(lst);
+		System.out.println("DEBUG: proiecte.size - " + proiecte.size());
 		
 		if (lst != null){
 			this.proiect = proiecte.get(0);
