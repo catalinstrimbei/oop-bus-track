@@ -26,13 +26,16 @@ import org.app.scrum.validare.ExceptieValidare;
 import org.app.scrum.validare.IntegerIntervalValidation;
 import org.app.scrum.validare.StringInitCapValidation;
 import org.app.scrum.validare.Validatable;
+import org.hibernate.validator.constraints.Range;
 
 import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.LAZY;
 
 @Entity //@Table(name="proiecte")
 public class Proiect implements Validatable{
-	@Id @Min(1) @Max(9999)
+	@Id
+	@Range(min=1l,max=9999l,message="NrProiect tb sa fie intre 1...9999!")
+//	@Min(1) @Max(9999)
 //	@GeneratedValue
 	private Integer nrProiect;
 	
