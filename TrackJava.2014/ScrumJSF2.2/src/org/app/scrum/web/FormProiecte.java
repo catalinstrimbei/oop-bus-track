@@ -73,6 +73,7 @@ public class FormProiecte {
 		if (idxCurent+1 < this.proiecte.size())
 			this.proiect = this.proiecte.get(idxCurent + 1);
 	}	
+	
 }
 
 /*
