@@ -58,10 +58,11 @@ public class Test54_ScrumJPAValidator {
 
 	
 	static void handleValidation(Set<ConstraintViolation<Proiect>> cvs){
-		for (ConstraintViolation cv : cvs){
+		for (ConstraintViolation<Proiect> cv : cvs){
+			Proiect invalidProiect = cv.getRootBean();
 			System.out.println("ConstraintViolation: " + cv.getMessage());
-			System.out.println("Invalid bean: " + cv.getRootBean());
-//			System.out.println("Invalid bean: " + cv.getLeafBean());
+			System.out.println("Invalid bean: " + invalidProiect);
+			
 		}		
 	}
 }
