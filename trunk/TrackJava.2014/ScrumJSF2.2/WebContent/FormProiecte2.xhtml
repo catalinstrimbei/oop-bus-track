@@ -27,11 +27,11 @@
 					actionListener="#{formProiecte.nextProiect}">
 				</h:commandButton>
 			</h:panelGrid>
-			<h:message id="m4"></h:message>
+			<h:message id="m4" errorStyle="color: #FF0000"></h:message>
 			<h:outputText id="o2" value="Nr Proiect:"></h:outputText>
 			<h:inputText id="proiect_nrProiect"
 				value="#{formProiecte.proiect.nrProiect}"></h:inputText>
-			<h:message for="proiect_nrProiect" id="m1"></h:message>
+			<h:message for="proiect_nrProiect" id="m1"  errorStyle="color: #FF0000"></h:message>
 			<h:outputText id="o3" value="Nume Proiect:"></h:outputText>
 			<h:inputText id="proiect_numeProiect"
 				value="#{formProiecte.proiect.numeProiect}"></h:inputText>
