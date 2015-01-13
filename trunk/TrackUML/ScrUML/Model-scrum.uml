@@ -584,6 +584,7 @@ repartizate membrilor echipei/echipelor implicate in proiect.</body>
         </ownedParameter>
       </ownedOperation>
     </packagedElement>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_eSXgQJsoEeSeW8uOOZZvfQ" name="ScrumService"/>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_TwnqMDzUEeOnHa56VvETGA">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_TxSYkDzUEeOnHa56VvETGA" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
