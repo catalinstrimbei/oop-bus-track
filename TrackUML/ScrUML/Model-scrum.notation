@@ -3351,6 +3351,45 @@
       <element xmi:type="uml:Class" href="Model-scrum.uml#_3lUHgDfwEeOXdLoEgavdtA"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kGltYZtDEeSQLuXECom90A" x="174" y="172"/>
     </children>
+    <children xmi:type="notation:Shape" xmi:id="_oiAd4JtFEeSQLuXECom90A" type="2008">
+      <children xmi:type="notation:DecorationNode" xmi:id="_oiAd4ptFEeSQLuXECom90A" type="5029"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_oiAd45tFEeSQLuXECom90A" type="7017">
+        <children xmi:type="notation:Shape" xmi:id="_vkozIJtFEeSQLuXECom90A" type="3012">
+          <element xmi:type="uml:Property" href="Model-scrum.uml#_lIZuEDcxEeObreURXdy-Cg"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_vkozIZtFEeSQLuXECom90A"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_vkozIptFEeSQLuXECom90A" type="3012">
+          <element xmi:type="uml:Property" href="Model-scrum.uml#_oSvjIDcxEeObreURXdy-Cg"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_vkozI5tFEeSQLuXECom90A"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_vkozJJtFEeSQLuXECom90A" type="3012">
+          <element xmi:type="uml:Property" href="Model-scrum.uml#_pFiSADcxEeObreURXdy-Cg"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_vkozJZtFEeSQLuXECom90A"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_vkozJptFEeSQLuXECom90A" type="3012">
+          <element xmi:type="uml:Property" href="Model-scrum.uml#_HoOjYD71EeOU9dNraMsEtQ"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_vkozJ5tFEeSQLuXECom90A"/>
+        </children>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_oiAd5JtFEeSQLuXECom90A"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_oiAd5ZtFEeSQLuXECom90A"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_oiAd5ptFEeSQLuXECom90A"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oiAd55tFEeSQLuXECom90A"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_oiAd6JtFEeSQLuXECom90A" type="7018">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_oiAd6ZtFEeSQLuXECom90A"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_oiAd6ptFEeSQLuXECom90A"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_oiAd65tFEeSQLuXECom90A"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oiAd7JtFEeSQLuXECom90A"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_oiAd7ZtFEeSQLuXECom90A" type="7019">
+        <styles xmi:type="notation:TitleStyle" xmi:id="_oiAd7ptFEeSQLuXECom90A"/>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_oiAd75tFEeSQLuXECom90A"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_oiAd8JtFEeSQLuXECom90A"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oiAd8ZtFEeSQLuXECom90A"/>
+      </children>
+      <element xmi:type="uml:Class" href="Model-scrum.uml#_bbj1UDcxEeObreURXdy-Cg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oiAd4ZtFEeSQLuXECom90A" x="447" y="180" width="160" height="145"/>
+    </children>
     <styles xmi:type="notation:StringValueStyle" xmi:id="_OlD54ZsoEeSeW8uOOZZvfQ" name="diagram_compatibility_version" stringValue="1.0.0"/>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_OlD54psoEeSeW8uOOZZvfQ"/>
     <styles xmi:type="style:PapyrusViewStyle" xmi:id="_OlD545soEeSeW8uOOZZvfQ">
@@ -3476,9 +3515,32 @@
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="_sIBNMZtDEeSQLuXECom90A"/>
       <element xmi:type="uml:Association" href="Model-scrum.uml#_c6hrQE4TEeSziZyvgHFReg"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_sIBNMptDEeSQLuXECom90A" points="[0, 0, -69, 151]$[69, 0, 0, 151]$[69, -150, 0, 1]"/>
-      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_tR8psJtDEeSQLuXECom90A" id="(1.0,0.6331360946745562)"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_sIBNMptDEeSQLuXECom90A" points="[4, 0, -69, 94]$[66, 0, -7, 94]$[66, -93, -7, 1]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_tR8psJtDEeSQLuXECom90A" id="(0.9753086419753086,0.2958579881656805)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_tR8psZtDEeSQLuXECom90A" id="(0.5286624203821656,0.9894736842105263)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_49cVkJtFEeSQLuXECom90A" type="4001" source="_oiAd4JtFEeSQLuXECom90A" target="_kGltYJtDEeSQLuXECom90A">
+      <children xmi:type="notation:DecorationNode" xmi:id="_49cVk5tFEeSQLuXECom90A" visible="false" type="6001">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_49cVlJtFEeSQLuXECom90A" y="-20"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_49cVlZtFEeSQLuXECom90A" visible="false" type="6002">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_49cVlptFEeSQLuXECom90A" y="20"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_49cVl5tFEeSQLuXECom90A" visible="false" type="6003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_49cVmJtFEeSQLuXECom90A" y="-20"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_49cVmZtFEeSQLuXECom90A" type="6005">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_49cVmptFEeSQLuXECom90A" x="-24" y="13"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_49cVm5tFEeSQLuXECom90A" visible="false" type="6033">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_49cVnJtFEeSQLuXECom90A" y="20"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_49cVnZtFEeSQLuXECom90A" type="6034">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_49cVnptFEeSQLuXECom90A" x="-6" y="-12"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_49cVkZtFEeSQLuXECom90A"/>
+      <element xmi:type="uml:Association" href="Model-scrum.uml#_HoPxgD71EeOU9dNraMsEtQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_49cVkptFEeSQLuXECom90A" points="[-80, 4, 192, 0]$[-191, 0, 81, -4]"/>
     </edges>
   </notation:Diagram>
 </xmi:XMI>
