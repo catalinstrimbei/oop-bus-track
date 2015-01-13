@@ -3302,10 +3302,24 @@
           <layoutConstraint xmi:type="notation:Location" xmi:id="_P0mgQptWEeSQLuXECom90A"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_-MjkIZtYEeSQLuXECom90A" type="3007">
+          <styles xmi:type="notation:StringListValueStyle" xmi:id="_bS_u0JtZEeSQLuXECom90A" name="maskLabel">
+            <stringListValue>parametersType</stringListValue>
+            <stringListValue>parametersName</stringListValue>
+            <stringListValue>visibility</stringListValue>
+            <stringListValue>name</stringListValue>
+            <stringListValue>returnType</stringListValue>
+          </styles>
           <element xmi:type="uml:Operation" href="Model-scrum.uml#_-MjkIJtYEeSQLuXECom90A"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_-MjkIptYEeSQLuXECom90A"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_OyT1cZtZEeSQLuXECom90A" type="3007">
+          <styles xmi:type="notation:StringListValueStyle" xmi:id="_cnSoQJtZEeSQLuXECom90A" name="maskLabel">
+            <stringListValue>parametersType</stringListValue>
+            <stringListValue>parametersName</stringListValue>
+            <stringListValue>visibility</stringListValue>
+            <stringListValue>name</stringListValue>
+            <stringListValue>returnType</stringListValue>
+          </styles>
           <element xmi:type="uml:Operation" href="Model-scrum.uml#_OyT1cJtZEeSQLuXECom90A"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_OyT1cptZEeSQLuXECom90A"/>
         </children>
