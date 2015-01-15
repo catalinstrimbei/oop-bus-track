@@ -51,6 +51,9 @@
           <emfPageIdentifier href="Model-scrum.notation#_W0zlwIaHEeOzs_Z1tiYrlA"/>
         </children>
         <children>
+          <emfPageIdentifier href="Model-scrum.notation#_Sfx2sIa9EeOzs_Z1tiYrlA"/>
+        </children>
+        <children>
           <emfPageIdentifier href="Model-scrum.notation#_OlD54JsoEeSeW8uOOZZvfQ"/>
         </children>
       </children>
