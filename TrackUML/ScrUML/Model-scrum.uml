@@ -220,7 +220,7 @@ repartizate membrilor echipei/echipelor implicate in proiect.</body>
             <value xsi:nil="true"/>
           </defaultValue>
         </ownedAttribute>
-        <ownedAttribute xmi:type="uml:Property" xmi:id="__gvPQIa7EeOzs_Z1tiYrlA" name="timpEfectiv" visibility="public">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="__gvPQIa7EeOzs_Z1tiYrlA" name="timpEfectiv" visibility="private">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BWsrUIa8EeOzs_Z1tiYrlA" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BWt5cIa8EeOzs_Z1tiYrlA" value="1"/>
