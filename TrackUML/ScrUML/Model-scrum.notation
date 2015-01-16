@@ -3302,6 +3302,14 @@
           <layoutConstraint xmi:type="notation:Location" xmi:id="_Pe2SsptWEeSQLuXECom90A"/>
         </children>
         <children xmi:type="notation:Shape" xmi:id="_P0mgQZtWEeSQLuXECom90A" type="3007">
+          <styles xmi:type="notation:StringListValueStyle" xmi:id="_tR6fAJ1oEeStJPIK7wSyeA" name="maskLabel">
+            <stringListValue>parametersName</stringListValue>
+            <stringListValue>parametersDirection</stringListValue>
+            <stringListValue>visibility</stringListValue>
+            <stringListValue>name</stringListValue>
+            <stringListValue>parametersType</stringListValue>
+            <stringListValue>returnType</stringListValue>
+          </styles>
           <element xmi:type="uml:Operation" href="Model-scrum.uml#_P0mgQJtWEeSQLuXECom90A"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_P0mgQptWEeSQLuXECom90A"/>
         </children>
