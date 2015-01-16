@@ -599,30 +599,66 @@ repartizate membrilor echipei/echipelor implicate in proiect.</body>
         <defaultValue xmi:type="uml:LiteralReal" xmi:id="_zgE6sJtVEeSQLuXECom90A" value="50.0"/>
       </ownedAttribute>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_V4H-YJtVEeSQLuXECom90A" name="getTaskCost">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j-99QJtVEeSQLuXECom90A" name="t" type="_fwSzIDfwEeOXdLoEgavdtA"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_j-99QJtVEeSQLuXECom90A" name="task" type="_fwSzIDfwEeOXdLoEgavdtA"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_n3bckJtVEeSQLuXECom90A" direction="return">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
         </ownedParameter>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_WaC_sJtVEeSQLuXECom90A" name="getTaskBudget">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_pk_VIJtWEeSQLuXECom90A" name="t" type="_fwSzIDfwEeOXdLoEgavdtA"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_pk_VIJtWEeSQLuXECom90A" name="task" type="_fwSzIDfwEeOXdLoEgavdtA"/>
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_sZ664JtWEeSQLuXECom90A" direction="return">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
         </ownedParameter>
       </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_W3Oq8JtVEeSQLuXECom90A" name="getCerintaCost"/>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_XVCBQJtVEeSQLuXECom90A" name="getCerintaBudget"/>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_Y3rfwJtVEeSQLuXECom90A" name="getReleaseCost"/>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_ZO3QsJtVEeSQLuXECom90A" name="getReleaseBudget"/>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_Pe2SsJtWEeSQLuXECom90A" name="getProiectCost"/>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_P0mgQJtWEeSQLuXECom90A" name="getProiectBudget"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_W3Oq8JtVEeSQLuXECom90A" name="getCerintaCost">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_xklqkJ1nEeStJPIK7wSyeA" name="cerinta" type="_z75FkDpoEeObrIpWPUJq-Q"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_2I4VIJ1nEeStJPIK7wSyeA" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_XVCBQJtVEeSQLuXECom90A" name="getCerintaBudget">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_78AKUJ1nEeStJPIK7wSyeA" name="cerinta" type="_z75FkDpoEeObrIpWPUJq-Q"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_-Pi6QJ1nEeStJPIK7wSyeA" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_Y3rfwJtVEeSQLuXECom90A" name="getReleaseCost">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_Dto6oJ1oEeStJPIK7wSyeA" name="release" type="_3lUHgDfwEeOXdLoEgavdtA"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_FgZ4wJ1oEeStJPIK7wSyeA" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_ZO3QsJtVEeSQLuXECom90A" name="getReleaseBudget">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_HiMxYJ1oEeStJPIK7wSyeA" name="release" type="_3lUHgDfwEeOXdLoEgavdtA"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_KWalcJ1oEeStJPIK7wSyeA" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_Pe2SsJtWEeSQLuXECom90A" name="getProiectCost">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_PysA4J1oEeStJPIK7wSyeA" name="proiect" type="_bbj1UDcxEeObreURXdy-Cg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_R0Ep0J1oEeStJPIK7wSyeA" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_P0mgQJtWEeSQLuXECom90A" name="getProiectBudget">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_ToE-EJ1oEeStJPIK7wSyeA" name="proiect" type="_bbj1UDcxEeObreURXdy-Cg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_VF3xwJ1oEeStJPIK7wSyeA" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedParameter>
+      </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_-MjkIJtYEeSQLuXECom90A" name="getCerinte">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_F4tXgJtZEeSQLuXECom90A" name="p" type="_bbj1UDcxEeObreURXdy-Cg"/>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_JiW-wJtZEeSQLuXECom90A" type="_z75FkDpoEeObrIpWPUJq-Q" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_F4tXgJtZEeSQLuXECom90A" name="proiect" type="_bbj1UDcxEeObreURXdy-Cg"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_JiW-wJtZEeSQLuXECom90A" type="_z75FkDpoEeObrIpWPUJq-Q" direction="return">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Yk1zAJ1oEeStJPIK7wSyeA" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Yk3BIJ1oEeStJPIK7wSyeA" value="*"/>
+        </ownedParameter>
       </ownedOperation>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_OyT1cJtZEeSQLuXECom90A" name="getTaskuri">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_Tx8YMJtZEeSQLuXECom90A" name="s" type="_Yy4VEDfwEeOXdLoEgavdtA"/>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_XNt7gJtZEeSQLuXECom90A" type="_fwSzIDfwEeOXdLoEgavdtA" direction="return"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_Tx8YMJtZEeSQLuXECom90A" name="sprint" type="_Yy4VEDfwEeOXdLoEgavdtA"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_XNt7gJtZEeSQLuXECom90A" type="_fwSzIDfwEeOXdLoEgavdtA" direction="return">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cWb1UJ1oEeStJPIK7wSyeA"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cWccYJ1oEeStJPIK7wSyeA" value="*"/>
+        </ownedParameter>
       </ownedOperation>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_TwnqMDzUEeOnHa56VvETGA">
